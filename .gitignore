@@ -1,0 +1,13 @@
+# Compiled Files
+coverage
+public
+
+# Dependencies
+node_modules
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea

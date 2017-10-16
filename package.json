@@ -1,0 +1,81 @@
+{
+  "name": "js-boilerplate",
+  "version": "0.0.1",
+  "repository": "https://github.com/tiagomapmarques/js-boilerplate",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "assets": "npm run assets:clean && npm run assets:copy",
+    "assets:clean": "rimraf ./public/*",
+    "assets:copy": "copyfiles -u 1 ./src/assets/* ./public/ && copyfiles -u 1 ./src/index.html ./public/",
+    "build:dev": "npm run assets && webpack --progress --bail --env dev",
+    "build:local": "npm run assets && webpack --progress --bail --env local",
+    "build:local:watch": "npm run assets && webpack --progress --bail --env local --watch",
+    "build:prod": "npm run assets && webpack --progress --bail --env prod",
+    "lint": "npm run lint:js && npm run lint:style",
+    "lint:js": "eslint .",
+    "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc",
+    "start": "npm run build:local",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "watch": "npm run build:local:watch"
+  },
+  "dependencies": {
+    "babel-core": "~6.26.0",
+    "babel-loader": "~7.1.0",
+    "babel-plugin-transform-decorators-legacy": "~1.3.0",
+    "babel-plugin-transform-object-rest-spread": "~6.26.0",
+    "babel-polyfill": "~6.26.0",
+    "babel-preset-es2015": "~6.24.0",
+    "babel-preset-stage-2": "~6.24.0",
+    "copyfiles": "~1.2.0",
+    "css-loader": "~0.28.0",
+    "eslint": "~4.9.0",
+    "eslint-config-standard": "~10.2.0",
+    "eslint-plugin-import": "~2.7.0",
+    "eslint-plugin-jest": "~21.2.0",
+    "eslint-plugin-node": "~5.2.0",
+    "eslint-plugin-promise": "~3.6.0",
+    "eslint-plugin-standard": "~3.0.0",
+    "file-loader": "~1.1.0",
+    "jest": "~21.2.0",
+    "jest-fetch-mock": "~1.2.0",
+    "node-sass": "~4.5.0",
+    "rimraf": "~2.6.0",
+    "sass-loader": "~6.0.0",
+    "style-loader": "~0.19.0",
+    "stylelint": "~8.2.0",
+    "stylelint-config-standard": "~17.0.0",
+    "webpack": "~3.7.0",
+    "webpack-livereload-plugin": "~1.0.0",
+    "whatwg-fetch": "~2.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/app/*.{js}",
+      "src/app/**/*.{js}"
+    ],
+    "coverageDirectory": "./coverage",
+    "coverageReporters": [
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "moduleFileExtensions": [
+      "js",
+      "scss"
+    ],
+    "setupFiles": [
+      "./src/testing/setup.js"
+    ]
+  }
+}

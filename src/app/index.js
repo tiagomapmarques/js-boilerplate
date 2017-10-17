@@ -1,9 +1,26 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
 
-import { AppComponent } from './app.component';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+import { createStore } from 'states';
+import HomeContainer from 'containers/home';
 
 import './index.style';
 
-const app = new AppComponent('app');
-app.run();
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    { path: '/', component: HomeContainer }
+  ]
+});
+
+new Vue({ // eslint-disable-line no-new
+  el: '#app',
+  router,
+  store: createStore(),
+  render: f => f(HomeContainer)
+});

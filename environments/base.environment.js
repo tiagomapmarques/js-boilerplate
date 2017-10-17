@@ -12,8 +12,10 @@ export default {
   entry: {
     app: `./${entry}`,
     vendor: [
-      'babel-polyfill',
-      'whatwg-fetch',
+      // Base libraries
+      'vue', 'vue-router', 'vuex', 'vuex-automap',
+      // Polyfills
+      'babel-polyfill', 'whatwg-fetch'
     ],
   },
   module: {
@@ -32,10 +34,13 @@ export default {
   ],
   resolve: {
     alias: {
-      app: `${paths.appAbsolute}/`,
+      config: `${paths.appAbsolute}/config/index.js`,
+      containers: `${paths.appAbsolute}/containers/`,
+      services: `${paths.appAbsolute}/services/`,
+      states: `${paths.appAbsolute}/states/index.js`,
       environment: `${paths.baseAbsolute}/environments/index.js`,
     },
-    extensions: ['.js', '.scss', '.html'],
+    extensions: ['.vue', '.js', '.scss', '.html'],
     modules: [
       paths.appAbsolute,
       'node_modules',

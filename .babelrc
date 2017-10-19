@@ -5,6 +5,15 @@
   ],
   "plugins": [
     "transform-decorators-legacy",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "app": "./src/app",
+          "environment": "./environments/index.js",
+        }
+      }
+    ]
   ]
 }

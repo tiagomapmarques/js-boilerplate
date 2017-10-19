@@ -11,7 +11,7 @@
     ],
     "comma-dangle": [
       "error",
-      "only-multiline"
+      "always-multiline"
     ],
     "no-console": "error",
     "no-var": "error",

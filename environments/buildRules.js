@@ -9,7 +9,7 @@ const buildStyleLoaders = (maskAndMinimize) => {
         importLoaders: 1,
         minimize: !!maskAndMinimize,
         localIdentName: maskAndMinimize ? '[hash:base64:24]' : '[path][name]-[local]',
-      }
+      },
     },
     { loader: 'sass-loader' },
   ];

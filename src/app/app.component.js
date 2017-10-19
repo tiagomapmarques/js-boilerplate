@@ -1,3 +1,4 @@
+import jquery from 'jquery';
 
 export class AppComponent {
   constructor(id) {
@@ -15,7 +16,7 @@ export class AppComponent {
   }
 
   build(data) {
-    document.getElementById(this.appId).innerHTML = data.page;
+    jquery(`#${this.appId}`).html(data.page);
     console.log(data.console); // eslint-disable-line no-console
   }
 }

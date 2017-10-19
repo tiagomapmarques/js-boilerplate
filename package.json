@@ -47,6 +47,7 @@
     "http-server": "~0.10",
     "jest": "~21.2",
     "jest-fetch-mock": "~1.2",
+    "jquery": "~3.2",
     "node-sass": "~4.5",
     "npm-check-updates": "~2.13",
     "rimraf": "~2.6",

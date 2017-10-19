@@ -9,9 +9,9 @@ jest.mock('whatwg-fetch', () => {
 jest.mock('./index.style', () => {
   global.modulesImported.push('./index.style');
 });
-jest.mock('./app.component');
+jest.mock('app/home');
 
-const mockedAppComponent = require('./app.component').AppComponent;
+const mockedHomeComponent = require('app/home').HomeComponent;
 
 describe('index', () => {
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('index', () => {
   });
 
   afterEach(() => {
-    mockedAppComponent.mockReset();
+    mockedHomeComponent.mockReset();
     global.modulesImported = [];
 
     // FIXME - divide test in several tests and invalidate the require cache to import the file on every test
@@ -34,13 +34,13 @@ describe('index', () => {
     // imports the index style
     expect(global.modulesImported).toContain('./index.style');
 
-    // builds the AppComponent
-    expect(mockedAppComponent.mock.instances).toHaveLength(1);
-    expect(mockedAppComponent.mock.calls).toHaveLength(1);
-    expect(mockedAppComponent.mock.calls[0]).toEqual(['app']);
+    // builds the HomeComponent
+    expect(mockedHomeComponent.mock.instances).toHaveLength(1);
+    expect(mockedHomeComponent.mock.calls).toHaveLength(1);
+    expect(mockedHomeComponent.mock.calls[0]).toEqual(['app']);
 
-    // runs the AppComponent
-    expect(mockedAppComponent.mock.instances[0].run.mock.calls).toHaveLength(1);
-    expect(mockedAppComponent.mock.instances[0].run.mock.calls[0]).toEqual([]);
+    // runs the HomeComponent
+    expect(mockedHomeComponent.mock.instances[0].run.mock.calls).toHaveLength(1);
+    expect(mockedHomeComponent.mock.instances[0].run.mock.calls[0]).toEqual([]);
   });
 });

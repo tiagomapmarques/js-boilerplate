@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
 
-import { AppComponent } from './app.component';
+import { HomeComponent } from 'app/home';
 
 import './index.style';
 
-const app = new AppComponent('app');
+const app = new HomeComponent('app');
 app.run();

@@ -1,5 +1,5 @@
 
-export class AppComponent {
+export class HomeComponent {
   constructor(id) {
     this.appId = id;
   }

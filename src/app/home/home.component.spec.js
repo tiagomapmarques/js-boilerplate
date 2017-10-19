@@ -1,6 +1,6 @@
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
 
-describe('AppComponent', () => {
+describe('HomeComponent', () => {
   const mockAppId = 'mock-app-id';
   const sampleData = {
     page: 'mock page data',
@@ -9,7 +9,7 @@ describe('AppComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = new AppComponent(mockAppId);
+    component = new HomeComponent(mockAppId);
   });
 
   describe('#constructor', () => {

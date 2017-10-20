@@ -28,6 +28,10 @@ const buildRules = (includePath, maskAndMinimize = false) => ([
     loaders: [{ loader: 'babel-loader' }],
   },
   {
+    test: /\.vue$/,
+    loaders: [{ loader: 'vue-loader' }],
+  },
+  {
     test: /\.scss$/,
     loaders: buildStyleLoaders(maskAndMinimize),
   },

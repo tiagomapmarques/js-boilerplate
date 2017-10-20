@@ -12,6 +12,8 @@ export default {
   entry: {
     app: `./${entry}`,
     vendor: [
+      // Base libraries
+      'vue',
       // Support libraries
       'browser-polyfills',
     ],
@@ -31,7 +33,7 @@ export default {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.scss', '.html'],
+    extensions: ['.vue', '.js', '.scss', '.html'],
     modules: [
       paths.appAbsolute,
       'node_modules',

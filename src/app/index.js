@@ -1,7 +1,10 @@
 import 'browser-polyfills';
-import { HomeComponent } from 'app/home';
+import Vue from 'vue';
+import HomeComponent from 'app/home';
 
 import './index.style';
 
-const app = new HomeComponent('app');
-app.run();
+new Vue({ // eslint-disable-line no-new
+  el: '#app',
+  render: (f) => f(HomeComponent),
+});

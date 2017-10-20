@@ -1,20 +1,28 @@
 
-export class HomeComponent {
-  constructor(id) {
-    this.appId = id;
-    this.build = this.build.bind(this);
-  }
+export default {
+  created() {
+    this.run();
+  },
 
-  run() {
-    this.getSampleData().then(this.build);
-  }
+  data: function() {
+    return {
+      pageData: '',
+    };
+  },
 
-  getSampleData() {
-    return fetch('/assets/sample.json').then((data) => data.json());
-  }
+  methods: {
+    run() {
+      this.getSampleData().then(this.build);
+    },
 
-  build(data) {
-    document.getElementById(this.appId).innerHTML = data.page;
-    console.log(data.console); // eslint-disable-line no-console
-  }
-}
+    getSampleData() {
+      return fetch('/assets/sample.json')
+        .then((data) => data.json());
+    },
+
+    build(data) {
+      this.pageData = data.page;
+      console.log(data.console); // eslint-disable-line no-console
+    },
+  },
+};

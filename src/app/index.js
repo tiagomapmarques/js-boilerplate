@@ -1,10 +1,24 @@
 import 'browser-polyfills';
 import Vue from 'vue';
-import HomeComponent from 'app/home';
+import VueRouter from 'vue-router';
+
+import { createStore } from 'states';
+import HomeContainer from 'containers/home';
 
 import './index.style';
 
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    { path: '/', component: HomeContainer },
+  ],
+});
+
 new Vue({ // eslint-disable-line no-new
   el: '#app',
-  render: (f) => f(HomeComponent),
+  router,
+  store: createStore(),
+  render: (f) => f(HomeContainer),
 });

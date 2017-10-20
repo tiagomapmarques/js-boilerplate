@@ -12,7 +12,11 @@
     "transform-object-rest-spread",
     ["module-resolver", {
       "alias": {
-        "app": "./src/app",
+        "config": "./src/app/config/index.js",
+        "containers": "./src/app/containers",
+        "services": "./src/app/services",
+        "states": "./src/app/states/index.js",
+        "polyfills": "./src/app/polyfills.js",
         "environment": "./environments/index.js",
       }
     }]

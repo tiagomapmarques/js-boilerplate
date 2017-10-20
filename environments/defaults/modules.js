@@ -4,7 +4,7 @@ export default {
     app: './index.js',
     vendor: [
       // App libraries
-      'vue',
+      'vue', 'vue-router', 'vuex', 'vuex-automap',
       // Support libraries
       'browser-polyfills',
     ],

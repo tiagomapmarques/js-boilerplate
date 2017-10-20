@@ -1,0 +1,8 @@
+<div febp-app>
+  <div febp-app-loading v-if="stillLoading()">Loading...</div>
+  <div febp-app-error v-if="anyError()">An error has occurred. Please refresh the page...</div>
+
+  <div febp-app-list v-if="allReady()">
+    {{ sampleData.page }}
+  </div>
+</div>

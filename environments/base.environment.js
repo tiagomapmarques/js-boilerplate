@@ -13,7 +13,7 @@ export default {
     app: `./${entry}`,
     vendor: [
       // Polyfills
-      'babel-polyfill', 'whatwg-fetch',
+      'whatwg-fetch', 'promise-polyfill', 'setasap',
     ],
   },
   module: {

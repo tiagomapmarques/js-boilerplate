@@ -1,10 +1,7 @@
 global.modulesImported = [];
 
-jest.mock('babel-polyfill', () => {
-  global.modulesImported.push('babel-polyfill');
-});
-jest.mock('whatwg-fetch', () => {
-  global.modulesImported.push('whatwg-fetch');
+jest.mock('polyfills', () => {
+  global.modulesImported.push('polyfills');
 });
 jest.mock('./index.style', () => {
   global.modulesImported.push('./index.style');
@@ -27,9 +24,8 @@ describe('index', () => {
   });
 
   it('works', () => {
-    // imports the two polyfills
-    expect(global.modulesImported).toContain('babel-polyfill');
-    expect(global.modulesImported).toContain('whatwg-fetch');
+    // imports the polyfills
+    expect(global.modulesImported).toContain('polyfills');
 
     // imports the index style
     expect(global.modulesImported).toContain('./index.style');

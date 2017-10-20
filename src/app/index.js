@@ -1,6 +1,4 @@
-import 'babel-polyfill';
-import 'whatwg-fetch';
-
+import 'polyfills';
 import { HomeComponent } from 'app/home';
 
 import './index.style';

@@ -2,16 +2,15 @@
 export class HomeComponent {
   constructor(id) {
     this.appId = id;
+    this.build = this.build.bind(this);
   }
 
   run() {
-    this.getSampleData()
-      .then((data) => this.build(data));
+    this.getSampleData().then(this.build);
   }
 
   getSampleData() {
-    return fetch('/assets/sample.json')
-      .then((data) => data.json());
+    return fetch('/assets/sample.json').then((data) => data.json());
   }
 
   build(data) {

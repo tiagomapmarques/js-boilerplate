@@ -12,8 +12,8 @@ export default {
   entry: {
     app: `./${entry}`,
     vendor: [
-      'babel-polyfill',
-      'whatwg-fetch',
+      // Polyfills
+      'whatwg-fetch', 'promise-polyfill', 'setasap',
     ],
   },
   module: {
@@ -31,10 +31,6 @@ export default {
     }),
   ],
   resolve: {
-    alias: {
-      app: `${paths.appAbsolute}/`,
-      environment: `${paths.baseAbsolute}/environments/index.js`,
-    },
     extensions: ['.js', '.scss', '.html'],
     modules: [
       paths.appAbsolute,

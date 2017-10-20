@@ -21,7 +21,7 @@ const buildRules = (includePath, maskAndMinimize = false) => ([
     test: /\.js$/,
     include: includePath,
     loader: 'babel-loader',
-    query: { presets: [ 'es2015', 'stage-2' ] },
+    query: { presets: [ 'stage-2', 'env' ] },
   },
   {
     test: /\.js$/,

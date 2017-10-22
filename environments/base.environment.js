@@ -12,7 +12,7 @@ export default {
   entry: {
     app: `./${entry}`,
     vendor: [
-      // Base libraries
+      // App libraries
       'vue',
       // Support libraries
       'browser-polyfills',

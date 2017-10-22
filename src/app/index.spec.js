@@ -7,7 +7,7 @@ jest.mock('./index.style', () => {
   global.modulesImported.push('./index.style');
 });
 // FIXME dont mock vue - just test that vue does what it's supposed to (in the DOM).
-jest.mock('vue');
+jest.mock('vue', () => jest.fn());
 jest.mock('app/home');
 
 describe('index', () => {

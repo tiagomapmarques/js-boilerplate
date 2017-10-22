@@ -16,8 +16,7 @@ export default {
     },
 
     getSampleData() {
-      return fetch('/assets/sample.json')
-        .then((data) => data.json());
+      return fetch('/assets/sample.json').then((data) => data.json());
     },
 
     build(data) {

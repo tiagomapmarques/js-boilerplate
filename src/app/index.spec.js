@@ -21,7 +21,6 @@ describe('index', () => {
   });
 
   afterEach(() => {
-    // mockedHomeComponent.mockReset();
     global.modulesImported = [];
 
     // FIXME - divide test in several tests and invalidate the require cache to import the file on every test

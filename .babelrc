@@ -13,7 +13,6 @@
     ["module-resolver", {
       "alias": {
         "app": "./src/app",
-        "polyfills": "./src/app/polyfills.js",
         "environment": "./environments/index.js",
       }
     }]

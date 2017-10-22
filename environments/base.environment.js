@@ -12,8 +12,8 @@ export default {
   entry: {
     app: `./${entry}`,
     vendor: [
-      // Polyfills
-      'whatwg-fetch', 'promise-polyfill', 'setasap',
+      // Support libraries
+      'browser-polyfills',
     ],
   },
   module: {

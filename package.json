@@ -23,8 +23,8 @@
     "serve": "http-server ./public -p 8000 -a localhost -o",
     "serve:prod": "http-server ./public -p 80",
     "start": "npm run build:local && npm run serve",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test": "jest --no-cache",
+    "test:watch": "jest --no-cache --watchAll",
     "watch": "npm run build:local:watch"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "babel-plugin-transform-object-rest-spread": "~6.26",
     "babel-preset-env": "~1.6",
     "babel-preset-stage-2": "~6.24",
+    "browser-polyfills": "~0.1",
     "copyfiles": "~1.2",
     "css-loader": "~0.28",
     "eslint": "~4.9",
@@ -51,23 +52,19 @@
     "jest-fetch-mock": "~1.2",
     "node-sass": "~4.5",
     "npm-check-updates": "~2.13",
-    "promise-polyfill": "~6.0",
     "rimraf": "~2.6",
     "sass-loader": "~6.0",
-    "setasap": "~2.0",
     "style-loader": "~0.19",
     "stylelint": "~8.2",
     "stylelint-config-standard": "~17.0",
     "webpack": "~3.8",
-    "webpack-livereload-plugin": "~1.0",
-    "whatwg-fetch": "~2.0"
+    "webpack-livereload-plugin": "~1.0"
   },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/app/*.{js}",
-      "src/app/**/*.{js}",
-      "!src/app/polyfills.js"
+      "src/app/**/*.{js}"
     ],
     "coverageDirectory": "./coverage",
     "coverageReporters": [

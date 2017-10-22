@@ -1,7 +1,7 @@
 global.modulesImported = [];
 
-jest.mock('polyfills', () => {
-  global.modulesImported.push('polyfills');
+jest.mock('browser-polyfills', () => {
+  global.modulesImported.push('browser-polyfills');
 });
 jest.mock('./index.style', () => {
   global.modulesImported.push('./index.style');
@@ -24,8 +24,8 @@ describe('index', () => {
   });
 
   it('works', () => {
-    // imports the polyfills
-    expect(global.modulesImported).toContain('polyfills');
+    // imports the browser-polyfills
+    expect(global.modulesImported).toContain('browser-polyfills');
 
     // imports the index style
     expect(global.modulesImported).toContain('./index.style');

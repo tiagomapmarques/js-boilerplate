@@ -28,6 +28,10 @@ export default (includePath, maskAndMinimize = false) => ([
     loaders: [{ loader: 'babel-loader' }],
   },
   {
+    test: /\.vue$/,
+    loaders: [{ loader: 'vue-loader' }],
+  },
+  {
     test: /\.scss$/,
     loaders: styleLoaders(maskAndMinimize),
   },

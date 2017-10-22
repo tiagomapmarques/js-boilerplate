@@ -26,7 +26,7 @@ export default {
     new FaviconsWebpackPlugin(buildFavicon()),
   ],
   resolve: {
-    extensions: ['.js', '.scss', '.html'],
+    extensions: ['.vue', '.js', '.scss', '.html'],
     modules: [
       paths.appAbsolute,
       'node_modules',

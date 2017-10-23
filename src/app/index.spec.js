@@ -1,23 +1,20 @@
-global.modulesImported = [];
 
-jest.mock('browser-polyfills', () => {
-  global.modulesImported.push('browser-polyfills');
-});
-jest.mock('./index.style', () => {
-  global.modulesImported.push('./index.style');
-});
+jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
+jest.mock('./index.style', () => global.TestImports.add('style'));
 jest.mock('app/home');
 
-const mockedHomeComponent = require('app/home').HomeComponent;
-
 describe('index', () => {
+  let mockedHomeComponent;
+
   beforeEach(() => {
+    document.addEventListener = jest.fn((_, callback) => callback());
+    mockedHomeComponent = require('app/home').HomeComponent;
     require('./index');
   });
 
   afterEach(() => {
     mockedHomeComponent.mockReset();
-    global.modulesImported = [];
+    TestImports.reset();
 
     // FIXME - divide test in several tests and invalidate the require cache to import the file on every test
     // delete require.cache[require.resolve('./index')];
@@ -25,10 +22,15 @@ describe('index', () => {
 
   it('works', () => {
     // imports the browser-polyfills
-    expect(global.modulesImported).toContain('browser-polyfills');
+    expect(TestImports.get()).toContain('polyfills');
 
     // imports the index style
-    expect(global.modulesImported).toContain('./index.style');
+    expect(TestImports.get()).toContain('style');
+
+    // waits for the document to load
+    // FIXME - when tests are divided, create a negative scenario to check the app does not run if addEventListener does not call the callback
+    expect(document.addEventListener.mock.calls).toHaveLength(1);
+    expect(document.addEventListener.mock.calls[0][0]).toEqual('DOMContentLoaded');
 
     // builds the HomeComponent
     expect(mockedHomeComponent.mock.instances).toHaveLength(1);

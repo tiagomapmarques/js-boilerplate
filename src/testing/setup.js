@@ -7,4 +7,7 @@ global.fetch = require('jest-fetch-mock');
 
 global.mockConsole = require('./mock-console').default;
 
-global.mockElement = require('./mock-element').default;
+global.createElement = require('./create-element').default;
+
+global.TestImports = require('./test-imports').default;
+TestImports.reset();

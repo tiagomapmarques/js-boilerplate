@@ -61,7 +61,7 @@ describe('HomeComponent', () => {
 
   describe('#build', () => {
     mockConsole();
-    mockElement('div', mockAppId);
+    createElement(document.body, 'div', { id: mockAppId });
 
     beforeEach(() => {
       component.build(sampleData);

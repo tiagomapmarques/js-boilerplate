@@ -3,5 +3,7 @@ import { HomeComponent } from 'app/home';
 
 import './index.style';
 
-const app = new HomeComponent('app');
-app.run();
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new HomeComponent('app');
+  app.run();
+});

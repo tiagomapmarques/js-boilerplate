@@ -28,7 +28,8 @@
     "jest"
   ],
   "globals": {
-    "mockElement": true,
-    "mockConsole": true
+    "createElement": true,
+    "mockConsole": true,
+    "TestImports": true
   }
 }

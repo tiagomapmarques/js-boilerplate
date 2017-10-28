@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 
+import envSetup from './defaults/env-setup';
 import baseEnvironment from './base.environment';
 
 export default {
@@ -9,10 +10,6 @@ export default {
   plugins: [
     ...baseEnvironment.plugins,
     new LiveReloadPlugin({ appendScriptTag: true }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': '\'local\'',
-      },
-    }),
+    new webpack.DefinePlugin(envSetup('local')),
   ],
 };

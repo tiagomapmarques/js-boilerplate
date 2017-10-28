@@ -1,5 +1,5 @@
 
-const buildStyleLoaders = (maskAndMinimize) => {
+const styleLoaders = (maskAndMinimize) => {
   return [
     { loader: 'style-loader' },
     {
@@ -15,7 +15,7 @@ const buildStyleLoaders = (maskAndMinimize) => {
   ];
 };
 
-const buildRules = (includePath, maskAndMinimize = false) => ([
+export default (includePath, maskAndMinimize = false) => ([
   {
     enforce: 'pre',
     test: /\.js$/,
@@ -29,12 +29,10 @@ const buildRules = (includePath, maskAndMinimize = false) => ([
   },
   {
     test: /\.scss$/,
-    loaders: buildStyleLoaders(maskAndMinimize),
+    loaders: styleLoaders(maskAndMinimize),
   },
   {
     test: /\.(html|json|png|jpg|gif|svg|woff|woff2)$/,
     loader: 'file-loader',
   },
 ]);
-
-export default buildRules;

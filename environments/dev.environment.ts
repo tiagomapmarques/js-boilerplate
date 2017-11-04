@@ -1,11 +1,11 @@
-import webpack from 'webpack';
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import * as webpack from 'webpack';
+import * as FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 import { envSetup } from './defaults/env-setup';
 import { buildFavicon } from './defaults/build-favicon';
 import { baseEnvironment } from './base.environment';
 
-const devEnvironment = {
+const devEnvironment: webpack.Configuration = {
   ...baseEnvironment,
   devtool: 'cheap-module-source-map',
   plugins: [
@@ -15,4 +15,4 @@ const devEnvironment = {
   ],
 };
 
-export default devEnvironment;
+export default devEnvironment; // tslint:disable-line:no-default-export

@@ -1,6 +1,6 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import * as webpack from 'webpack';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 import { envSetup } from './defaults/env-setup';
 import { buildRules } from './defaults/build-rules';
@@ -8,7 +8,7 @@ import { buildPage } from './defaults/build-page';
 import { buildFavicon } from './defaults/build-favicon';
 import { baseEnvironment } from './base.environment';
 
-const prodEnvironment = {
+const prodEnvironment: webpack.Configuration = {
   ...baseEnvironment,
   devtool: false,
   module: {
@@ -24,4 +24,4 @@ const prodEnvironment = {
   ],
 };
 
-export default prodEnvironment;
+export default prodEnvironment; // tslint:disable-line:no-default-export

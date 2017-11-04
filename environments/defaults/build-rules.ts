@@ -1,5 +1,6 @@
+import * as webpack from 'webpack';
 
-const styleLoaders = (minify) => {
+const styleLoaders = (minify: boolean): webpack.Loader[] => {
   return [
     { loader: 'style-loader' },
     {
@@ -15,10 +16,15 @@ const styleLoaders = (minify) => {
   ];
 };
 
-export const buildRules = (minify = false) => ([
+export const buildRules = (minify: boolean = false): webpack.Rule[] => ([
   {
-    test: /\.js$/,
-    use: 'babel-loader',
+    test: /\.ts$/,
+    use: [{
+      loader: 'ts-loader',
+      options: {
+        configFile: `../../tsconfig${!minify ? '.dev' : ''}.json`,
+      },
+    }],
   },
   {
     test: /\.scss$/,

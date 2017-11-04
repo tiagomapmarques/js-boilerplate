@@ -1,10 +1,10 @@
-import webpack from 'webpack';
-import LiveReloadPlugin from 'webpack-livereload-plugin';
+import * as webpack from 'webpack';
+import * as LiveReloadPlugin from 'webpack-livereload-plugin';
 
 import { envSetup } from './defaults/env-setup';
 import { baseEnvironment } from './base.environment';
 
-const localEnvironment = {
+const localEnvironment: webpack.Configuration = {
   ...baseEnvironment,
   devtool: 'cheap-module-source-map',
   plugins: [
@@ -14,4 +14,4 @@ const localEnvironment = {
   ],
 };
 
-export default localEnvironment;
+export default localEnvironment; // tslint:disable-line:no-default-export

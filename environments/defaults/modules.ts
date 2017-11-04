@@ -1,7 +1,14 @@
+import * as webpack from 'webpack';
 
-export const modules = {
+export interface ProjectModules {
+  entries: webpack.Entry;
+  chunkOverrides: webpack.optimize.CommonsChunkPlugin.Options;
+  output: string;
+}
+
+export const modules: ProjectModules = {
   entries: {
-    app: './index.js',
+    app: './index.ts',
     vendor: [
       // Support libraries
       'browser-polyfills',

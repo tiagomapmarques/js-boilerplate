@@ -1,5 +1,18 @@
 import { resolve } from 'path';
 
+interface ProjectPaths {
+  base: string;
+  app: string;
+  assets: string;
+  dist: string;
+  distAssets: string;
+  baseAbsolute: string;
+  appAbsolute: string;
+  assetsAbsolute: string;
+  distAbsolute: string;
+  distAssetsAbsolute: string;
+}
+
 const pathsBase = './';
 
 const paths = {
@@ -22,4 +35,4 @@ paths.assetsAbsolute = resolve(paths.assets);
 paths.distAbsolute = resolve(paths.dist);
 paths.distAssetsAbsolute = resolve(paths.distAssets);
 
-export { paths };
+export { ProjectPaths, paths };

@@ -1,5 +1,13 @@
+import * as FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-export const favicon = {
+export interface ProjectFavicons {
+  cache: boolean;
+  location: string;
+  original: string;
+  additionalVariants: FaviconsWebpackPlugin.VariantName[];
+}
+
+export const favicon: ProjectFavicons = {
   cache: false,
   location: 'favicon',
   original: '.favicon.png',

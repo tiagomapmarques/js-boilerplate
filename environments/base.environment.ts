@@ -1,6 +1,6 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import * as webpack from 'webpack';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 import { paths } from './defaults/paths';
 import { modules } from './defaults/modules';
@@ -8,7 +8,7 @@ import { buildRules } from './defaults/build-rules';
 import { buildPage } from './defaults/build-page';
 import { buildFavicon } from './defaults/build-favicon';
 
-export const baseEnvironment = {
+export const baseEnvironment: webpack.Configuration = {
   context: paths.appAbsolute,
   devtool: 'eval',
   entry: modules.entries,
@@ -26,7 +26,10 @@ export const baseEnvironment = {
     new FaviconsWebpackPlugin(buildFavicon()),
   ],
   resolve: {
-    extensions: ['.js', '.scss', '.html'],
+    extensions: ['.ts', '.js', '.scss', '.html'],
+    alias: {
+      app: `${paths.appAbsolute}/`,
+    },
     modules: [
       paths.appAbsolute,
       'node_modules',

@@ -1,6 +1,7 @@
 # Compiled Files
 coverage
 public
+*.js
 
 # Dependencies
 node_modules

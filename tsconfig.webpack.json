@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost"],
+    "module": "commonjs",
+
+    "declaration": false,
+    "noEmitOnError": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "typeRoots": ["node_modules/@types", "typings"]
+  },
+  "include": [
+    "webpack.config.ts",
+    "environments/**.ts"
+  ]
+}

@@ -9,16 +9,18 @@
   "scripts": {
     "assets": "npm run clean:generated && npm run assets:copy",
     "assets:copy": "copyfiles -u 1 ./src/assets/* ./public/",
-    "build:dev": "npm run assets && webpack --progress --bail --env dev",
-    "build:local": "npm run assets && webpack --progress --bail --env local",
-    "build:local:watch": "npm run assets && webpack --progress --bail --env local --watch",
-    "build:prod": "npm run assets && webpack --progress --bail --env prod",
+    "build:dev": "npm run assets && npm run build:webpack && webpack --progress --bail --env dev",
+    "build:local": "npm run assets && npm run build:webpack && webpack --progress --bail --env local",
+    "build:local:watch": "npm run assets && npm run build:webpack && webpack --progress --bail --env local --watch",
+    "build:prod": "npm run assets && npm run build:webpack && webpack --progress --bail --env prod",
+    "build:webpack": "tsc -p ./tsconfig.webpack.json",
     "clean": "npm run clean:coverage && npm run clean:generated && npm run clean:packages",
     "clean:coverage": "rimraf ./coverage",
-    "clean:generated": "rimraf ./public",
+    "clean:generated": "rimraf ./public && rimraf ./*.js && rimraf ./environments/**/*.js",
     "clean:packages": "echo ==== IGNORE THIS NEXT ERROR ==== && rimraf ./node_modules",
     "lint": "npm run lint:code && npm run lint:style",
-    "lint:code": "eslint .",
+    "lint:code": "npm run lint:webpack && tslint -p tsconfig.json -c tslint.json",
+    "lint:webpack": "tslint -p tsconfig.webpack.json -c tslint.json",
     "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc",
     "packages": "ncu",
     "packages:write": "ncu -u",
@@ -31,23 +33,12 @@
     "watch": "npm run build:local:watch"
   },
   "dependencies": {
-    "babel-core": "~6.26",
-    "babel-eslint": "~8.0",
-    "babel-jest": "~21.2",
-    "babel-loader": "~7.1",
-    "babel-plugin-module-resolver": "~2.7",
-    "babel-preset-env": "~1.6",
-    "babel-preset-stage-2": "~6.24",
+    "@types/html-webpack-plugin": "~2.28",
+    "@types/jest": "~21.1",
+    "@types/webpack": "~3.0",
     "browser-polyfills": "~0.3",
     "copyfiles": "~1.2",
     "css-loader": "~0.28",
-    "eslint": "~4.10",
-    "eslint-config-standard": "~10.2",
-    "eslint-plugin-import": "~2.8",
-    "eslint-plugin-jest": "~21.2",
-    "eslint-plugin-node": "~5.2",
-    "eslint-plugin-promise": "~3.6",
-    "eslint-plugin-standard": "~3.0",
     "favicons-webpack-plugin": "~0.0",
     "file-loader": "~1.1",
     "html-loader": "~0.5",
@@ -63,14 +54,19 @@
     "style-loader": "~0.19",
     "stylelint": "~8.2",
     "stylelint-config-standard": "~17.0",
+    "ts-jest": "~21.1",
+    "ts-loader": "~3.1",
+    "tslint": "~5.8",
+    "tslint-config-standard": "~7.0",
+    "typescript": "~2.6",
     "webpack": "~3.8",
     "webpack-livereload-plugin": "~1.0"
   },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/app/*.{js}",
-      "src/app/**/*.{js}"
+      "src/app/*.{ts}",
+      "src/app/**/*.{ts}"
     ],
     "coverageDirectory": "<rootDir>/coverage",
     "coverageReporters": [
@@ -84,16 +80,26 @@
         "statements": 100
       }
     },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.dev.json"
+      }
+    },
     "moduleFileExtensions": [
+      "ts",
       "js",
       "scss"
     ],
+    "moduleNameMapper": {
+      "^app/(.*)": "<rootDir>/src/app/$1",
+      "^environment$": "<rootDir>/environments/index.ts"
+    },
     "setupFiles": [
-      "<rootDir>/src/testing/setup.js"
+      "<rootDir>/src/testing/setup.ts"
     ],
-    "testRegex": "^.+\\.spec\\.js$",
+    "testRegex": "^.+\\.spec\\.ts$",
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     }
   }
 }

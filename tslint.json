@@ -1,0 +1,111 @@
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "array-type": [
+      true,
+      "array"
+    ],
+    "arrow-parens": true,
+    "arrow-return-shorthand": true,
+    "curly": true,
+    "encoding": true,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "interface-over-type-literal": true,
+    "jsdoc-format": [
+      true,
+      "check-multiline-start"
+    ],
+    "linebreak-style": [
+      true,
+      "LF"
+    ],
+    "max-classes-per-file": [
+      true,
+      1,
+      "exclude-class-expressions"
+    ],
+    "member-access": true,
+    "no-any": true,
+    "no-boolean-literal-compare": true,
+    "no-console": true,
+    "no-debugger": true,
+    "no-default-export": true,
+    "no-duplicate-super": true,
+    "no-duplicate-switch-case": true,
+    "no-empty-interface": true,
+    "no-for-in-array": true,
+    "no-magic-numbers": true,
+    "no-non-null-assertion": true,
+    "no-redundant-jsdoc": true,
+    "no-reference": true,
+    "no-require-imports": true,
+    "no-string-literal": true,
+    "no-unused-variable": true,
+    "no-var-requires": true,
+    "number-literal-format": true,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "prefer-conditional-expression": [
+      true,
+      "check-else-if"
+    ],
+    "prefer-const": [
+      true,
+      {
+        "destructuring": "all"
+      }
+    ],
+    "prefer-for-of": true,
+    "prefer-object-spread": true,
+    "prefer-template": [
+      true,
+      "allow-single-concat"
+    ],
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "space-before-function-paren": [
+      true,
+      "never"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check",
+      "allow-undefined-check"
+    ],
+    "type-literal-delimiter": true,
+    "typeof-compare": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost"],
+    "module": "commonjs",
+    "outDir": "./public/assets",
+
+    "noEmitOnError": false,
+    "declaration": false,
+    "removeComments": false,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "app/*": ["src/app/*"],
+      "environment": ["src/environment"]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/browser-polyfills/typings",
+      "typings"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

@@ -1,24 +1,36 @@
 
+export interface SampleData {
+  console: string;
+  page: string;
+}
+
+export interface MockHomeComponent {
+  appId: string;
+  run: jest.Mock;
+  getSampleData: jest.Mock;
+  buildPage: jest.Mock;
+}
+
 export class HomeComponent {
-  static DATA_URL = '/assets/sample.json';
-  static EMPTY_DATA = {
+  private static DATA_URL = '/assets/sample.json';
+  private static EMPTY_DATA: SampleData = {
     console: '',
     page: '',
   };
-  appId;
+  private appId: string;
 
-  constructor(id) {
+  constructor(id: string) {
     this.appId = id;
     this.buildPage = this.buildPage.bind(this);
   }
 
-  init() {
+  public init() {
     return this.getSampleData().then(this.buildPage);
   }
 
-  getSampleData() {
+  private getSampleData(): Promise<SampleData> {
     return this.fetchData()
-      .then((response) => {
+      .then((response: Response) => {
         if (response.ok) {
           return response.json();
         }
@@ -27,15 +39,15 @@ export class HomeComponent {
       .catch(() => HomeComponent.EMPTY_DATA);
   }
 
-  fetchData() {
+  private fetchData(): Promise<Response> {
     try {
       return fetch(HomeComponent.DATA_URL);
     } catch (error) {
-      return new Promise((resolve, reject) => reject(error));
+      return new Promise((_, reject) => reject(error));
     }
   }
 
-  buildPage(data) {
+  private buildPage(data: SampleData) {
     const element = document.getElementById(this.appId);
     if (element) {
       element.innerHTML = data.page;

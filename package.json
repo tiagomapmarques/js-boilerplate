@@ -82,7 +82,7 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "tsconfig.dev.json"
+        "tsConfigFile": "tsconfig.spec.json"
       }
     },
     "moduleFileExtensions": [

@@ -2,21 +2,20 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import paths from './defaults/paths';
-import envSetup from './defaults/env-setup';
-import buildRules from './defaults/build-rules';
-import buildPage from './defaults/build-page';
-import buildFavicon from './defaults/build-favicon';
-import baseEnvironment from './base.environment';
+import { envSetup } from './defaults/env-setup';
+import { buildRules } from './defaults/build-rules';
+import { buildPage } from './defaults/build-page';
+import { buildFavicon } from './defaults/build-favicon';
+import { baseEnvironment } from './base.environment';
 
-export default {
+const prodEnvironment = {
   ...baseEnvironment,
-  devtool: '',
+  devtool: false,
   module: {
-    rules: buildRules(paths.appAbsolute, true),
+    rules: buildRules(true),
   },
   plugins: [
-    ...baseEnvironment.plugins,
+    ...(baseEnvironment.plugins || []),
     new webpack.DefinePlugin(envSetup('production')),
     new HtmlWebpackPlugin(buildPage(true)),
     new FaviconsWebpackPlugin(buildFavicon(true)),
@@ -24,3 +23,5 @@ export default {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 };
+
+export default prodEnvironment;

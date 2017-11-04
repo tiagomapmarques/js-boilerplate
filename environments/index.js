@@ -1,8 +1,15 @@
 
+const EnvironmentMap = {
+  local: 'local',
+  dev: 'development',
+  prod: 'production',
+};
+
 const defaultEnvironment = 'dev';
 
-export default (env) => {
-  const environment = env || defaultEnvironment;
-  const config = require(`./${environment}.environment`);
+export const getConfig = (requestedEnv) => {
+  const env = requestedEnv || defaultEnvironment;
+  const environment = EnvironmentMap[env];
+  const config = require(`./${env}.environment`);
   return { environment, config };
 };

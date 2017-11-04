@@ -1,9 +1,9 @@
 
-let testImports = [];
+let testImports: string[] = [];
 
-export const TestImports = {
+export const TestImports: TestImportsInterface = {
   get: () => testImports,
-  add: (moduleName) => {
+  add: (moduleName: string) => {
     testImports.push(moduleName);
   },
   reset: () => {

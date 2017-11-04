@@ -1,5 +1,5 @@
 
-export const createElement = (parentNode, tagName, attributes) => {
+export const createElement = (parentNode: TestNode, tagName: string, attributes: TestNodeAttributes) => {
   if (attributes.id) {
     beforeEach(() => {
       const element = document.createElement(tagName);

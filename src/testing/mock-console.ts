@@ -1,21 +1,20 @@
-/* eslint-disable no-console */
-export const mockConsole = (functionsToMock = 'log') => {
-  const originalConsoleFunctions = {};
+
+export const mockConsole = (functionsToMock: string | string[] = 'log') => {
+  const originalConsoleFunctions: { [key: string]: string } = {};
 
   beforeEach(() => {
     if (typeof functionsToMock === 'string') {
       functionsToMock = [functionsToMock];
     }
     functionsToMock.forEach((func) => {
-      originalConsoleFunctions[func] = console[func];
-      console[func] = jest.fn();
+      originalConsoleFunctions[func] = (console as any)[func]; // tslint:disable-line:no-any
+      (console as any)[func] = jest.fn(); // tslint:disable-line:no-any
     });
   });
 
   afterEach(() => {
     Object.keys(originalConsoleFunctions).forEach((func) => {
-      console[func] = originalConsoleFunctions[func];
+      (console as any)[func] = originalConsoleFunctions[func]; // tslint:disable-line:no-any
     });
   });
 };
-/* eslint-enable no-console */

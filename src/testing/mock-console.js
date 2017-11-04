@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-const mockConsole = (functionsToMock = 'log') => {
-  let originalConsoleFunctions = {};
+export const mockConsole = (functionsToMock = 'log') => {
+  const originalConsoleFunctions = {};
 
   beforeEach(() => {
     if (typeof functionsToMock === 'string') {
@@ -19,5 +19,3 @@ const mockConsole = (functionsToMock = 'log') => {
   });
 };
 /* eslint-enable no-console */
-
-export default mockConsole;

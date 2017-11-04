@@ -1,13 +1,14 @@
+import fetchMock from 'jest-fetch-mock';
 
-global.fdescribe = (str, func) => global.describe.only(str, func);
-global.fit = (str, func) => global.test.only(str, func);
-global.ftest = (str, func) => global.test.only(str, func);
+import { createElement } from './create-element';
+import { mockConsole } from './mock-console';
+import { TestImports } from './test-imports';
 
-global.fetch = require('jest-fetch-mock');
+global.fetch = fetchMock;
 
-global.mockConsole = require('./mock-console').default;
+global.mockConsole = mockConsole;
 
-global.createElement = require('./create-element').default;
+global.createElement = createElement;
 
-global.TestImports = require('./test-imports').default;
-TestImports.reset();
+global.TestImports = TestImports;
+global.TestImports.reset();

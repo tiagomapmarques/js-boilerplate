@@ -1,7 +1,7 @@
-import paths from './paths';
-import page from './page';
+import { paths } from './paths';
+import { page } from './page';
 
-export default (minify, overrides) => ({
+export const buildPage = (minify = false, overrides = {}) => ({
   title: page.title,
   filename: `${paths.distAbsolute}/index.html`,
   template: `!!html-loader!${paths.assetsAbsolute}/${page.template}`,

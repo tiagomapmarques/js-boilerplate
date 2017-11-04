@@ -1,15 +1,16 @@
-import paths from './paths';
-import page from './page';
-import favicon from './favicon';
+import { paths } from './paths';
+import { page } from './page';
+import { favicon } from './favicon';
 
 const variants = ['android', 'appleIcon', 'appleStartup', 'coast', 'firefox', 'opengraph', 'twitter', 'yandex', 'windows'];
 
-const listToVariants = (variantArray, defaultValue) => variantArray.reduce((collection, variant) => ({
-  ...collection,
-  [variant]: !!defaultValue || false,
-}), {});
+const listToVariants = (variantArray, defaultValue) =>
+  variantArray.reduce((collection, variant) => ({
+    ...collection,
+    [variant]: !!defaultValue || false,
+  }), {});
 
-export default (additionalVariants, overrides) => {
+export const buildFavicon = (additionalVariants = false, overrides = {}) => {
   const envVariantsList = additionalVariants === true ? variants : (additionalVariants || []);
   const variantsList = favicon.additionalVariants.concat(envVariantsList);
   return {
@@ -19,7 +20,7 @@ export default (additionalVariants, overrides) => {
     persistentCache: favicon.cache,
     icons: {
       favicons: true,
-      ...listToVariants(variants),
+      ...listToVariants(variants, false),
       ...listToVariants(variantsList, true),
     },
     ...(overrides || {}),

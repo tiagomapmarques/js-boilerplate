@@ -1,5 +1,5 @@
 
-export default {
+export const modules = {
   entries: {
     app: './index.js',
     vendor: [

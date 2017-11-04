@@ -2,18 +2,18 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import paths from './defaults/paths';
-import modules from './defaults/modules';
-import buildRules from './defaults/build-rules';
-import buildPage from './defaults/build-page';
-import buildFavicon from './defaults/build-favicon';
+import { paths } from './defaults/paths';
+import { modules } from './defaults/modules';
+import { buildRules } from './defaults/build-rules';
+import { buildPage } from './defaults/build-page';
+import { buildFavicon } from './defaults/build-favicon';
 
-export default {
+export const baseEnvironment = {
   context: paths.appAbsolute,
   devtool: 'eval',
   entry: modules.entries,
   module: {
-    rules: buildRules(paths.appAbsolute),
+    rules: buildRules(),
   },
   output: {
     path: paths.distAssetsAbsolute,

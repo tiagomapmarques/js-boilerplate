@@ -16,12 +16,15 @@ Quick start:
 | Branch | Base Branch | Objective | Completion |
 | ------ | ------ | ------ | ------ |
 | `develop` | - | vanilla javascript project | - |
+| `typescript` | `develop` | vanilla typescript project | done |
 | `jquery` | `develop` | base for javascript application using jQuery | done |
 | `vue` | `develop` | base for reactive application using vue | missing proper testing tools |
 | `vue-app` | `vue` | proposed structure and base libs for a vue application | missing tests |
 | `react` | `develop` | reactive application using react | TBD |
 | `react-app` | `react` | proposed structure and base libs for a react application | TBD |
 | `inferno` | `react` | reactive application using inferno | TBD |
+
+**Note**: `typescript` branch is made of 2 commits instead of one: one to rename `js` files to `ts` and the other to adapt the project to typescript - better for diffing.
 
 ## Tooling
 The following are the base commands for this application:

@@ -1,5 +1,5 @@
 
-const createElement = (parentNode, tagName, attributes) => {
+export const createElement = (parentNode, tagName, attributes) => {
   if (attributes.id) {
     beforeEach(() => {
       const element = document.createElement(tagName);
@@ -9,11 +9,11 @@ const createElement = (parentNode, tagName, attributes) => {
 
     afterEach(() => {
       const element = document.getElementById(attributes.id);
-      element.parentNode.removeChild(element);
+      if (element && element.parentNode) {
+        element.parentNode.removeChild(element);
+      }
     });
   } else {
     throw new Error(`You must set an "id" attribute when creating a DOM element. Attributes given were: ${JSON.stringify(attributes)}`);
   }
 };
-
-export default createElement;

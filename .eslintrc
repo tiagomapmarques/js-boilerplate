@@ -3,6 +3,7 @@
     "browser": true,
     "jest/globals": true
   },
+  "parser": "babel-eslint",
   "extends": "standard",
   "rules": {
     "curly": [

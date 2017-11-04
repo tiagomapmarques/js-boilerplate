@@ -1,5 +1,5 @@
 
-const styleLoaders = (maskAndMinimize) => {
+const styleLoaders = (minify) => {
   return [
     { loader: 'style-loader' },
     {
@@ -7,32 +7,25 @@ const styleLoaders = (maskAndMinimize) => {
       options: {
         modules: true,
         importLoaders: 1,
-        minimize: !!maskAndMinimize,
-        localIdentName: maskAndMinimize ? '[hash:base64:24]' : '[path][name]-[local]',
+        minimize: !!minify,
+        localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
       },
     },
     { loader: 'sass-loader' },
   ];
 };
 
-export default (includePath, maskAndMinimize = false) => ([
-  {
-    enforce: 'pre',
-    test: /\.js$/,
-    include: includePath,
-    loader: 'babel-loader',
-    query: { presets: [ 'stage-2', 'env' ] },
-  },
+export const buildRules = (minify = false) => ([
   {
     test: /\.js$/,
-    loaders: [{ loader: 'babel-loader' }],
+    use: 'babel-loader',
   },
   {
     test: /\.scss$/,
-    loaders: styleLoaders(maskAndMinimize),
+    use: styleLoaders(minify),
   },
   {
     test: /\.(html|json|png|jpg|gif|svg|woff|woff2)$/,
-    loader: 'file-loader',
+    use: 'file-loader',
   },
 ]);

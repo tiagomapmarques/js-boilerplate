@@ -1,7 +1,7 @@
 
 let testImports = [];
 
-const TestImports = {
+export const TestImports = {
   get: () => testImports,
   add: (moduleName) => {
     testImports.push(moduleName);
@@ -10,5 +10,3 @@ const TestImports = {
     testImports = [];
   },
 };
-
-export default TestImports;

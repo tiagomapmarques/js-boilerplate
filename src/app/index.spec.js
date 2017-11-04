@@ -1,4 +1,3 @@
-
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 jest.mock('./index.style', () => global.TestImports.add('style'));
 jest.mock('app/home');
@@ -38,7 +37,8 @@ describe('index', () => {
     expect(mockedHomeComponent.mock.calls[0]).toEqual(['app']);
 
     // runs the HomeComponent
-    expect(mockedHomeComponent.mock.instances[0].run.mock.calls).toHaveLength(1);
-    expect(mockedHomeComponent.mock.instances[0].run.mock.calls[0]).toEqual([]);
+    const instance = mockedHomeComponent.mock.instances[0];
+    expect(instance.run.mock.calls).toHaveLength(1);
+    expect(instance.run.mock.calls[0]).toEqual([]);
   });
 });

@@ -38,7 +38,7 @@ describe('index', () => {
 
     // runs the HomeComponent
     const instance = mockedHomeComponent.mock.instances[0];
-    expect(instance.run.mock.calls).toHaveLength(1);
-    expect(instance.run.mock.calls[0]).toEqual([]);
+    expect(instance.init.mock.calls).toHaveLength(1);
+    expect(instance.init.mock.calls[0]).toEqual([]);
   });
 });

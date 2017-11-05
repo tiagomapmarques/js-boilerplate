@@ -11,6 +11,7 @@
     ["module-resolver", {
       "alias": {
         "app": "./src/app",
+        "logger": "./src/app/logger/index.js",
         "environment": "./environments/index.js",
       }
     }]

@@ -1,8 +1,8 @@
-import { Logger } from './logger';
+import { Logger } from 'logger';
 
 export class HomeComponent {
   static DATA_URL = '/assets/sample.json';
-  static FETCH_RESPONSE_ERROR = 'Fetch response not ok';
+  static FETCH_RESPONSE_ERROR = 'Cannot fetch resource';
   appId;
 
   constructor(id) {
@@ -10,10 +10,10 @@ export class HomeComponent {
     this.buildPage = this.buildPage.bind(this);
   }
 
-  run() {
-    this.getSampleData()
+  init() {
+    return this.getSampleData()
       .then(this.buildPage)
-      .catch(Logger.catch);
+      .catch(Logger.catch());
   }
 
   getSampleData() {
@@ -24,14 +24,16 @@ export class HomeComponent {
         }
         throw new Error(HomeComponent.FETCH_RESPONSE_ERROR);
       })
-      .catch(Logger.catch);
+      .catch(Logger.catch({}));
   }
 
   buildPage(data) {
     const element = document.getElementById(this.appId);
     if (element) {
-      element.innerHTML = data.page;
+      element.innerHTML = data.page || '';
     }
-    console.log(data.console); // eslint-disable-line no-console
+    if (data.console) {
+      console.log(data.console); // eslint-disable-line no-console
+    }
   }
 }

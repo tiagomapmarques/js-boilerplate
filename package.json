@@ -85,14 +85,14 @@
         "tsConfigFile": "tsconfig.spec.json"
       }
     },
+    "mapCoverage": true,
     "moduleFileExtensions": [
       "ts",
       "js",
       "scss"
     ],
     "moduleNameMapper": {
-      "^app/(.*)": "<rootDir>/src/app/$1",
-      "^environment$": "<rootDir>/environments/index.ts"
+      "^app/(.*)": "<rootDir>/src/app/$1"
     },
     "setupFiles": [
       "<rootDir>/src/testing/setup.ts"

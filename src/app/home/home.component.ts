@@ -4,13 +4,6 @@ export interface SampleData {
   page: string;
 }
 
-export interface MockHomeComponent {
-  appId: string;
-  run: jest.Mock;
-  getSampleData: jest.Mock;
-  buildPage: jest.Mock;
-}
-
 export class HomeComponent {
   private static DATA_URL = '/assets/sample.json';
   private static EMPTY_DATA: SampleData = {
@@ -53,7 +46,7 @@ export class HomeComponent {
       element.innerHTML = data.page;
     }
     if (data.console) {
-      console.log(data.console); // eslint-disable-line no-console
+      console.log(data.console); // tslint:disable-line:no-console
     }
   }
 }

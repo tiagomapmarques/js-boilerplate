@@ -22,8 +22,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "app/*": ["src/app/*"],
-      "environment": ["src/environment"]
+      "app/*": ["src/app/*"]
     },
     "typeRoots": [
       "node_modules/@types",
@@ -32,9 +31,6 @@
     ]
   },
   "include": [
-    "src/app/**.ts"
-  ],
-  "exclude": [
-    "src/app/**.spec.ts"
+    "src/**/*.ts"
   ]
 }

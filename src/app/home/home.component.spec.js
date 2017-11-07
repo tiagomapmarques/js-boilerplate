@@ -1,37 +1,29 @@
 import { HomeComponent } from './';
-import { Logger } from 'logger';
-
-jest.mock('logger');
 
 describe('HomeComponent', () => {
   const mockAppId = 'mock-app-id';
+  const sampleDataUrl = '/assets/sample.json';
   const sampleData = {
-    page: 'mock page data',
     console: 'mock console data',
+    page: 'mock page data',
   };
-  const fetchResponseError = 'Cannot fetch resource';
   let component;
 
   mockConsole();
+
+  beforeEach(() => {
+    component = new HomeComponent(mockAppId);
+  });
 
   const getElementHTML = () => {
     const element = document.getElementById(mockAppId);
     return element ? element.innerHTML : document.body.innerHTML;
   };
 
-  beforeEach(() => {
-    Logger.catch = jest.fn(() => Logger.catch);
-    component = new HomeComponent(mockAppId);
-  });
-
-  afterEach(() => {
-    Logger.catch.mockReset();
-  });
-
   describe('when no root element exists', () => {
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done);
+      component.init().then(done).catch();
     });
 
     afterEach(() => {
@@ -40,7 +32,7 @@ describe('HomeComponent', () => {
 
     it('calls fetch with the correct path', () => {
       expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual(['/assets/sample.json']);
+      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
     });
 
     it('does not set anything on the page', () => {
@@ -58,7 +50,7 @@ describe('HomeComponent', () => {
 
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done);
+      component.init().then(done).catch();
     });
 
     afterEach(() => {
@@ -67,7 +59,7 @@ describe('HomeComponent', () => {
 
     it('calls fetch with the correct path', () => {
       expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual(['/assets/sample.json']);
+      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
     });
 
     it('sets the page data correctly', () => {
@@ -80,29 +72,7 @@ describe('HomeComponent', () => {
     });
   });
 
-  describe('when fetch throws an error', () => {
-    let thrownError;
-
-    createElement(document.body, 'div', { id: mockAppId });
-
-    beforeEach(() => {
-      thrownError = new Error('no error thrown');
-      fetch.mockImplementation(() => { throw new Error('fetch'); });
-      try {
-        component.init();
-      } catch (error) {
-        thrownError = error;
-      }
-    });
-
-    afterEach(() => {
-      fetch.resetMocks();
-    });
-
-    it('thows the fetch error', () => {
-      expect(thrownError).toEqual(new Error('fetch'));
-    });
-
+  const testNothingHappens = () => {
     it('does not set anything on the page', () => {
       expect(getElementHTML()).toBe('');
     });
@@ -110,50 +80,41 @@ describe('HomeComponent', () => {
     it('does not log anything to the console', () => {
       expect(console.log.mock.calls).toHaveLength(0); // eslint-disable-line no-console
     });
+  };
+
+  describe('when fetch throws an error', () => {
+    createElement(document.body, 'div', { id: mockAppId });
+
+    beforeEach((done) => {
+      fetch.mockImplementation(() => { throw new Error('fetch'); });
+      component.init().then(done).catch();
+    });
+
+    afterEach(() => {
+      fetch.resetMocks();
+    });
+
+    testNothingHappens();
   });
 
-  const responseErrors = [
-    {
-      statusCode: 404,
-      statusError: new Error(fetchResponseError),
-    },
-    {
-      statusCode: 500,
-      statusError: new Error(fetchResponseError),
-    },
-  ];
+  const responseErrors = [ 404, 500 ];
 
-  const testResponseStatus = (statusCode, statusError) => {
+  const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
       createElement(document.body, 'div', { id: mockAppId });
 
-      beforeEach(() => {
+      beforeEach((done) => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });
-        component.init();
+        component.init().then(done).catch();
       });
 
       afterEach(() => {
         fetch.resetMocks();
       });
 
-      it('processes Logger#catch error once', () => {
-        // calls #catch twice and processes an error once
-        expect(Logger.catch.mock.calls).toHaveLength(3);
-      });
-
-      it('logs the custom error', () => {
-        expect(Logger.catch.mock.calls[2]).toEqual([statusError]);
-      });
-
-      it('does not set anything on the page', () => {
-        expect(getElementHTML()).toBe('');
-      });
-
-      it('does not log anything to the console', () => {
-        expect(console.log.mock.calls).toHaveLength(0); // eslint-disable-line no-console
-      });
+      testNothingHappens();
     });
   };
 
-  responseErrors.forEach(({ statusCode, statusError }) => testResponseStatus(statusCode, statusError));
+  responseErrors.forEach(testResponseStatus);
 });

@@ -5,5 +5,5 @@ import './index.style';
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new HomeComponent('app');
-  app.init();
+  app.init().catch();
 });

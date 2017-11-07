@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
@@ -72,7 +72,7 @@
       "src/app/*.{js}",
       "src/app/**/*.{js}"
     ],
-    "coverageDirectory": "./coverage",
+    "coverageDirectory": "<rootDir>/coverage",
     "coverageReporters": [
       "html"
     ],
@@ -91,9 +91,9 @@
     "setupFiles": [
       "<rootDir>/src/testing/setup.js"
     ],
-    "testRegex": "spec.js$",
+    "testRegex": "^.+\\.spec\\.js$",
     "transform": {
-      "^.+\\.js$": "./node_modules/babel-jest"
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     }
   }
 }

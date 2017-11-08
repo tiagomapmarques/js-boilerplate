@@ -18,13 +18,16 @@ Quick start:
 | `develop` | - | vanilla javascript project | - |
 | `typescript` | `develop` | vanilla typescript project | done |
 | `jquery` | `develop` | base for javascript application using jQuery | done |
-| `vue` | `develop` | base for reactive application using vue | missing proper testing tools |
+| `vue` | `develop` | base for reactive application using vue | done |
 | `vue-app` | `vue` | proposed structure and base libs for a vue application | missing tests |
-| `react` | `develop` | reactive application using react | TBD |
+| `react` | `develop` | base for reactive application using react | TBD |
 | `react-app` | `react` | proposed structure and base libs for a react application | TBD |
-| `inferno` | `react` | reactive application using inferno | TBD |
+| `inferno` | `react` | base for reactive application using inferno | TBD |
+| `angular` | `typescript` | base for reactive application using angular | TBD |
 
-**Note**: `typescript` branch is made of 2 commits instead of one: one to rename `js` files to `ts` and the other to adapt the project to typescript - better for diffing.
+**Note**: `typescript` branch is made of 2 commits instead of one: one to rename
+`js` files to `ts` and the other to adapt the project to typescript - better for
+diffing.
 
 ## Tooling
 The following are the base commands for this application:
@@ -39,9 +42,10 @@ The following are the base commands for this application:
   - `:reset` removes `package-lock.json` file performs the `clean:packages`
   command folder (**Note**: will output an error in the end - ignore it)
 - `npm run lint` lints your code and style according to the rules on `.eslintrc`
-  and `.stylelintrc` files (which extend `standardjs`' and `stylelint-config-standard`'s rules, respectively)
+  and `.stylelintrc` files (which extend `standardjs`' and
+  `stylelint-config-standard`'s rules, respectively)
 - `npm run test` runs the unit tests for the project (files ending with
-  `*.spec.js`)
+  `.spec.js`)
   - `:watch` watches the test files and re-runs the tests on any file update
 - `npm run build`
   - `:local` builds the project for a local environment and copies its assets
@@ -59,9 +63,9 @@ The following commands are shortcuts only:
 ## Environments
 This project comes with 3 environments setup. Each environment has been setup
 according to the general needs of each one. They are:
-- Local: local usage and debugging
-- Development: external server usage
-- Production: serious business only
+- Local: quick/local usage and debugging
+- Development: full app for external server usage and debugging
+- Production: full app for production usage
 
 | Features | Local | Development | Production |
 | ------ | ------ | ------ | ------ |

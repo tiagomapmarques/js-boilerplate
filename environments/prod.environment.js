@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
-import { envMap, envSetup } from './defaults/env-setup';
+import { envMap, envSetup } from './defaults/environments';
 import { buildRules } from './defaults/build-rules';
 import { buildPage } from './defaults/build-page';
 import { buildFavicon } from './defaults/build-favicon';

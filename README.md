@@ -47,14 +47,13 @@ The following are the base commands for this application:
 - `npm run test` runs the unit tests for the project (files ending with
   `.spec.js`)
   - `:watch` watches the test files and re-runs the tests on any file update
-- `npm run build`
+- `npm run build` runs `:local`
   - `:local` builds the project for a local environment and copies its assets
     - `:watch` watches the files and rebuilds them when they change
   - `:dev` builds the project for a dev environment and copies its assets
   - `:prod` builds the project for a prod environment and copies its assets
-- `npm run serve` serves the project on `localhost:8000` and opens a browser
-  window with the page
-  - `:prod` serves the project on `localhost:80`
+- `npm run serve` serves the project on `localhost:8000`
+  - `:secure` serves the project on `localhost:8000` on https only
 
 The following commands are shortcuts only:
 - `npm start` = `npm run build:local` and `npm run serve`

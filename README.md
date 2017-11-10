@@ -12,51 +12,52 @@ Quick start:
 - `npm i`
 - `npm start`
 
+Quick start (docker):
+- `docker-compose up`
+
 ## Variants
 | Branch | Base Branch | Objective | Completion |
 | ------ | ------ | ------ | ------ |
 | `develop` | - | vanilla javascript project | - |
 | `typescript` | `develop` | vanilla typescript project | done |
 | `jquery` | `develop` | base for javascript application using jQuery | done |
-| `vue` | `develop` | base for reactive application using vue | done |
-| `vue-app` | `vue` | proposed structure and base libs for a vue application | missing tests |
-| `react` | `develop` | base for reactive application using react | TBD |
-| `react-app` | `react` | proposed structure and base libs for a react application | TBD |
-| `inferno` | `react` | base for reactive application using inferno | TBD |
-| `angular` | `typescript` | base for reactive application using angular | TBD |
+| `vue` | `develop` | base for pwa application using vue | done |
+| `vue-app` | `vue` | proposed structure and base libs for vue applications | missing tests |
+| `react` | `develop` | base for pwa application using react | TBD |
+| `react-app` | `react` | proposed structure and base libs for react applications | TBD |
+| `inferno` | `react` | base for pwa application using inferno | TBD |
+| `angular` | `typescript` | base for pwa application using angular | TBD |
+| `angular-app` | `angular` | proposed structure and base libs for angular applications | TBD |
 
 **Note**: `typescript` branch is made of 2 commits instead of one: one to rename
 `js` files to `ts` and the other to adapt the project to typescript - better for
 diffing.
 
 ## Tooling
-The following are the base commands for this application:
-- `npm run clean` performs the 3 commands listed below
+The following are the base commands for this application (`npm run`):
+- `clean` performs the 3 commands listed below
   - `:coverage` deletes the `coverage` folder
   - `:generated` deletes the `public` folder
   - `:packages` deletes the `node_modules` folder
-- `npm run packages` diffs your list of dependencies on `package.json` with the
-  ones available on `npmjs.org` and lists possible upgrades
+- `packages` diffs your list of dependencies on `package.json` with the ones
+available on `npmjs.org` and lists possible upgrades
   - `:write` also updates the `package.json` file with the updated versions
-  found on `npmjs.org`
-  - `:reset` removes `package-lock.json` file performs the `clean:packages`
-  command folder (**Note**: will output an error in the end - ignore it)
-- `npm run lint` lints your code and style according to the rules on `.eslintrc`
-  and `.stylelintrc` files (which extend `standardjs`' and
-  `stylelint-config-standard`'s rules, respectively)
-- `npm run test` runs the unit tests for the project (files ending with
-  `.spec.js`)
+  - `:reset` removes `package-lock.json` file and performs `clean:packages`
+- `lint` lints your code and style according to the rules on `.eslintrc` and
+`.stylelintrc` files (which extend `standardjs`' and
+`stylelint-config-standard`'s rules, respectively)
+- `test` runs the unit tests for the project (files ending with `.spec.js`)
   - `:watch` watches the test files and re-runs the tests on any file update
-- `npm run build` runs `:local`
-  - `:local` builds the project for a local environment and copies its assets
-    - `:watch` watches the files and rebuilds them when they change
-  - `:dev` builds the project for a dev environment and copies its assets
-  - `:prod` builds the project for a prod environment and copies its assets
-- `npm run serve` serves the project on `localhost:8000`
-  - `:secure` serves the project on `localhost:8000` on https only
+- `build` runs `:local`
+  - `:local`/`:dev`/`:prod` builds the project and its assets for the
+    local/dev/prod environment
+    - `:watch` watches project files and rebuilds them upon change
+- `serve` serves the project on `localhost:8000`
+  - `:secure` serves on https only
 
 The following commands are shortcuts only:
-- `npm start` = `npm run build:local` and `npm run serve`
+- `npm start` = `npm run build` and `npm run serve`
+- `npm run build` = `npm run build:local`
 - `npm run watch` = `npm run build:local:watch`
 
 ## Environments
@@ -72,8 +73,8 @@ according to the general needs of each one. They are:
 | Source Map | X | X | - |
 | Chunks | X | X | X |
 | All Favicons | - | X | X |
-| File Compression (gzip) | - | - | X |
 | Js/CSS Minification | - | - | X |
+| File Compression (gzip) | - | - | X |
 | Fails on Build Error | - | - | X |
 
 

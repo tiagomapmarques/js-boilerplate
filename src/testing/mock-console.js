@@ -1,5 +1,6 @@
-/* eslint-disable no-console */
+
 export const mockConsole = (functionsToMock = 'log') => {
+  /* eslint-disable no-console */
   const originalConsoleFunctions = {};
 
   beforeEach(() => {
@@ -17,5 +18,5 @@ export const mockConsole = (functionsToMock = 'log') => {
       console[func] = originalConsoleFunctions[func];
     });
   });
+  /* eslint-enable no-console */
 };
-/* eslint-enable no-console */

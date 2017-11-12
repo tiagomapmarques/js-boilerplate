@@ -1,4 +1,5 @@
 import 'browser-polyfills';
+
 import { HomeComponent } from 'app/home';
 
 import './index.style';

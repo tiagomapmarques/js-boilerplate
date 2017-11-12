@@ -1,0 +1,93 @@
+version: 2
+
+jobs:
+  install:
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: "Install dependencies"
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  test:
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: "Run unit tests"
+          command: npm test
+      - store_artifacts:
+          path: ./coverage
+  lint:
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: "Run linters"
+          command: npm run lint
+  build-local:
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: "Build Local"
+          command: npm run build:local
+  build-dev:
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: "Build Development"
+          command: npm run build:dev
+  build-prod:
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: "Build Production"
+          command: npm run build:prod
+
+workflows:
+  version: 2
+  test-and-build:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
+      - lint:
+          requires:
+            - install
+      - build-local:
+          requires:
+            - test
+            - lint
+      - build-dev:
+          requires:
+            - test
+            - lint
+      - build-prod:
+          requires:
+            - test
+            - lint

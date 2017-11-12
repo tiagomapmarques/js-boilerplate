@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 
-import { envSetup } from './defaults/env-setup';
+import { envMap, envSetup } from './defaults/environments';
 import { baseEnvironment } from './base.environment';
 
 const localEnvironment = {
@@ -9,8 +9,8 @@ const localEnvironment = {
   devtool: 'cheap-module-source-map',
   plugins: [
     ...(baseEnvironment.plugins || []),
+    new webpack.DefinePlugin(envSetup(envMap.local)),
     new LiveReloadPlugin({ appendScriptTag: true }),
-    new webpack.DefinePlugin(envSetup('local')),
   ],
 };
 

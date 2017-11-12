@@ -72,32 +72,7 @@ describe('HomeComponent', () => {
     });
   });
 
-  const testNothingHappens = () => {
-    it('does not set anything on the page', () => {
-      expect(getElementHTML()).toBe('');
-    });
-
-    it('does not log anything to the console', () => {
-      expect(console.log.mock.calls).toHaveLength(0); // eslint-disable-line no-console
-    });
-  };
-
-  describe('when fetch throws an error', () => {
-    createElement(document.body, 'div', { id: mockAppId });
-
-    beforeEach((done) => {
-      fetch.mockImplementation(() => { throw new Error('fetch'); });
-      component.init().then(done).catch();
-    });
-
-    afterEach(() => {
-      fetch.resetMocks();
-    });
-
-    testNothingHappens();
-  });
-
-  const responseErrors = [ 404, 500 ];
+  const responseErrors = [ 403, 404, 500 ];
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
@@ -112,7 +87,13 @@ describe('HomeComponent', () => {
         fetch.resetMocks();
       });
 
-      testNothingHappens();
+      it('does not set anything on the page', () => {
+        expect(getElementHTML()).toBe('');
+      });
+
+      it('does not log anything to the console', () => {
+        expect(console.log.mock.calls).toHaveLength(0); // eslint-disable-line no-console
+      });
     });
   };
 

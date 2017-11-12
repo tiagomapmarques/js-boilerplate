@@ -1,5 +1,5 @@
 
-import { envMap } from './defaults/environments';
+import { envMap } from './defaults/env-map';
 
 const defaultEnvironment = 'dev';
 

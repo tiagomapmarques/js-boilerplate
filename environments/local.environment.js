@@ -1,7 +1,8 @@
 import webpack from 'webpack';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 
-import { envMap, envSetup } from './defaults/environments';
+import { envMap } from './defaults/env-map';
+import { envSetup } from './defaults/env-setup';
 import { baseEnvironment } from './base.environment';
 
 const localEnvironment = {

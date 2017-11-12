@@ -1,7 +1,8 @@
 import webpack from 'webpack';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { envMap, envSetup } from './defaults/environments';
+import { envMap } from './defaults/env-map';
+import { envSetup } from './defaults/env-setup';
 import { buildFavicon } from './defaults/build-favicon';
 import { baseEnvironment } from './base.environment';
 

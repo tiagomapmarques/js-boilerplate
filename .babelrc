@@ -10,6 +10,7 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
+        "environments": "./environments/defaults/env-map",
         "app": "./src/app"
       }
     }]

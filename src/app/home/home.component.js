@@ -17,7 +17,7 @@ export class HomeComponent {
   }
 
   getSampleData() {
-    return this.fetchData()
+    return fetch(HomeComponent.DATA_URL)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -25,14 +25,6 @@ export class HomeComponent {
         throw new Error();
       })
       .catch(() => HomeComponent.EMPTY_DATA);
-  }
-
-  fetchData() {
-    try {
-      return fetch(HomeComponent.DATA_URL);
-    } catch (error) {
-      return new Promise((resolve, reject) => reject(error));
-    }
   }
 
   buildPage(data) {

@@ -29,7 +29,7 @@
     "serve": "ws --directory public --spa index.html --log.format dev",
     "serve:secure": "ws --directory public --spa index.html --log.format dev --https",
     "start": "npm run build && npm run serve",
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --config jest.json",
     "test:watch": "jest --no-cache --watchAll",
     "watch": "npm run build:local:watch"
   },
@@ -71,36 +71,5 @@
     "stylelint": "~8.2",
     "stylelint-config-standard": "~17.0",
     "webpack-livereload-plugin": "~1.0"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/app/*.{js}",
-      "src/app/**/*.{js}"
-    ],
-    "coverageDirectory": "<rootDir>/coverage",
-    "coverageReporters": [
-      "html"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "mapCoverage": true,
-    "moduleFileExtensions": [
-      "js",
-      "scss"
-    ],
-    "setupFiles": [
-      "<rootDir>/src/testing/setup.js"
-    ],
-    "testRegex": "^.+\\.spec\\.js$",
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-    }
   }
 }

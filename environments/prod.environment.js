@@ -3,11 +3,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
-import { envMap } from './defaults/env-map';
-import { envSetup } from './defaults/env-setup';
-import { buildRules } from './defaults/build-rules';
-import { buildPage } from './defaults/build-page';
-import { buildFavicon } from './defaults/build-favicon';
+import { variables } from './defaults/variables';
+import { environments } from './defaults/environments';
+import { buildRules } from './webpack/build-rules';
+import { buildPage } from './webpack/build-page';
+import { buildFavicon } from './webpack/build-favicon';
 import { baseEnvironment } from './base.environment';
 
 const prodEnvironment = {
@@ -20,7 +20,7 @@ const prodEnvironment = {
     ...(baseEnvironment.plugins || []),
     new HtmlWebpackPlugin(buildPage(true)),
     new FaviconsWebpackPlugin(buildFavicon(true)),
-    new webpack.DefinePlugin(envSetup(envMap.prod)),
+    new webpack.DefinePlugin(variables(environments.prod)),
     new webpack.optimize.UglifyJsPlugin({ comments: false }),
     new CompressionPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

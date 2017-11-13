@@ -1,6 +1,6 @@
 
 export class HomeComponent {
-  static DATA_URL = '/assets/sample.json';
+  static DATA_URL = ENVIRONMENT.ASSETS_URL + 'sample.json';
   static EMPTY_DATA = {
     console: '',
     page: '',

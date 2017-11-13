@@ -1,6 +1,6 @@
+import { page } from '../defaults/page';
+import { favicon } from '../defaults/favicon';
 import { paths } from './paths';
-import { page } from './page';
-import { favicon } from './favicon';
 
 const variants = ['android', 'appleIcon', 'appleStartup', 'coast', 'firefox', 'opengraph', 'twitter', 'yandex', 'windows'];
 

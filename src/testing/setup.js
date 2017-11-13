@@ -1,6 +1,6 @@
 import fetchMock from 'jest-fetch-mock';
 
-import { environment } from './env-variables';
+import { environment } from './webpack-variables';
 import { createElement } from './create-element';
 import { mockConsole } from './mock-console';
 import { TestImports } from './test-imports';

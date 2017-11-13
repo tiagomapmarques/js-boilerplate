@@ -3,8 +3,9 @@ import { variables } from '../../environments/defaults/variables';
 const { ENVIRONMENT } = variables(process.env.NODE_ENV);
 
 const removeQuotes = (str) => {
-  str = str.indexOf('\'') === 0 ? str.substring(1) : str;
-  str = str.indexOf('\'') === str.length - 1 ? str.substring(0, str.length - 1) : str;
+  if (str.indexOf('\'') === 0 && str.lastIndexOf('\'') === str.length - 1) {
+    str = str.substring(1, str.length - 1);
+  }
   return str;
 };
 

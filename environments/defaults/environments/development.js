@@ -1,6 +1,6 @@
 
 const devConfig = {
-  ASSETS_URL: '/',
+  ASSETS_URL: '/assets/',
 };
 
 export default devConfig;

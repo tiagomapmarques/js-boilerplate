@@ -1,8 +1,8 @@
 # Js Boilerplate
 This is a boilerplate for any javascript project. Below you can find a list of
-variants, derived from the original `develop` branch. Each variant will be only
-one commit long so you can easily diff them and see how to properly set up each
-variant.
+_flavours_, derived from the original `develop` branch. Each _flavour_ will be
+only one commit long so you can easily diff them and see how to properly set up
+each of them.
 
 Dependencies:
 - `node` >= 8
@@ -15,19 +15,19 @@ Quick start:
 Quick start (docker):
 - `docker-compose up`
 
-## Variants
+## Flavours
 | Branch | Base Branch | Objective | Completion |
 | ------ | ------ | ------ | ------ |
 | `develop` | - | vanilla javascript project | - |
 | `typescript` | `develop` | vanilla typescript project | done |
 | `jquery` | `develop` | base for javascript application using jQuery | done |
-| `vue` | `develop` | base for pwa application using vue | done |
-| `vue-app` | `vue` | proposed structure and base libs for vue applications | missing tests |
-| `react` | `develop` | base for pwa application using react | TBD |
-| `react-app` | `react` | proposed structure and base libs for react applications | TBD |
-| `inferno` | `react` | base for pwa application using inferno | TBD |
-| `angular` | `typescript` | base for pwa application using angular | TBD |
-| `angular-app` | `angular` | proposed structure and base libs for angular applications | TBD |
+| `vue` | `develop` | base for pwa using vue | done |
+| `vue-app` | `vue` | proposed structure and base libs for a vue pwa | missing tests |
+| `react` | `develop` | base for pwa using react | TBD |
+| `react-app` | `react` | proposed structure and base libs for a react pwa | TBD |
+| `inferno` | `react` | base for pwa using inferno | TBD |
+| `angular` | `typescript` | base for pwa using angular | TBD |
+| `angular-app` | `angular` | proposed structure and base libs for an angular pwa | TBD |
 
 **Note**: `typescript` branch is made of 2 commits instead of one: one to rename
 `js` files to `ts` and the other to adapt the project to typescript - better for
@@ -50,8 +50,8 @@ available on `npmjs.org` and lists possible upgrades
   - `:watch` watches the test files and re-runs the tests on any file update
 - `build` runs `:local`
   - `:local`/`:dev`/`:prod` builds the project and its assets for the
-    local/dev/prod environment
-    - `:watch` watches project files and rebuilds them upon change
+    `local`/`dev`/`prod` environments respectively
+    - `:watch` watches app files and rebuilds them upon change
 - `serve` serves the project on `localhost:8000`
   - `:secure` serves on https only
 

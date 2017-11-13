@@ -1,5 +1,5 @@
+import { page } from '../defaults/page';
 import { paths } from './paths';
-import { page } from './page';
 
 export const buildPage = (minify = false, overrides = {}) => ({
   title: page.title,

@@ -2,11 +2,11 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { paths } from './defaults/paths';
-import { modules } from './defaults/modules';
-import { buildRules } from './defaults/build-rules';
-import { buildPage } from './defaults/build-page';
-import { buildFavicon } from './defaults/build-favicon';
+import { paths } from './webpack/paths';
+import { modules } from './webpack/modules';
+import { buildRules } from './webpack/build-rules';
+import { buildPage } from './webpack/build-page';
+import { buildFavicon } from './webpack/build-favicon';
 
 export const baseEnvironment = {
   context: paths.appAbsolute,

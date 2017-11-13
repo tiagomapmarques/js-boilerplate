@@ -1,9 +1,9 @@
 import webpack from 'webpack';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { envMap } from './defaults/env-map';
-import { envSetup } from './defaults/env-setup';
-import { buildFavicon } from './defaults/build-favicon';
+import { variables } from './defaults/variables';
+import { environments } from './defaults/environments';
+import { buildFavicon } from './webpack/build-favicon';
 import { baseEnvironment } from './base.environment';
 
 const devEnvironment = {
@@ -12,7 +12,7 @@ const devEnvironment = {
   plugins: [
     ...(baseEnvironment.plugins || []),
     new FaviconsWebpackPlugin(buildFavicon(true)),
-    new webpack.DefinePlugin(envSetup(envMap.dev)),
+    new webpack.DefinePlugin(variables(environments.dev)),
   ],
 };
 

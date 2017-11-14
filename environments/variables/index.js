@@ -1,10 +1,6 @@
+import { quotifier } from '../quotifier';
 
-const quotify = (object) => Object.keys(object).reduce((collection, key) => ({
-  ...collection,
-  [key]: typeof object[key] === 'string' ? `'${object[key]}'` : quotify(object[key]),
-}), {});
-
-export const variables = (environment) => quotify({
+export const variables = (environment) => quotifier({
   'process.env': {
     NODE_ENV: `${environment}`,
   },

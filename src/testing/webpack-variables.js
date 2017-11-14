@@ -1,4 +1,4 @@
-import { variables } from '../../environments/defaults/variables';
+import { variables } from '../../environments/variables';
 
 const { ENVIRONMENT } = variables(process.env.NODE_ENV);
 

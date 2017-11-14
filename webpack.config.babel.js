@@ -1,5 +1,5 @@
 
-import { getConfig } from './environments';
+import { getConfig } from './config';
 
 export default (configName) => {
   const { environment, config } = getConfig(configName);

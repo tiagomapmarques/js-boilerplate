@@ -73,7 +73,7 @@ according to the general needs of each one. They are:
 | Source Map | X | X | - |
 | Chunks | X | X | X |
 | All Favicons | - | X | X |
-| Js/CSS Minification | - | - | X |
+| HTML/JS/CSS Minification | - | - | X |
 | File Compression (gzip) | - | - | X |
 | Fails on Build Error | - | - | X |
 

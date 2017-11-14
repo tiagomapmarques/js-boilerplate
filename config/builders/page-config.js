@@ -1,7 +1,7 @@
-import { page } from '../defaults/page';
+import { page } from './page';
 import { paths } from './paths';
 
-export const buildPage = (minify = false, overrides = {}) => ({
+const buildPageConfig = (minify) => ({
   title: page.title,
   filename: `${paths.distAbsolute}/index.html`,
   template: `!!html-loader!${paths.assetsAbsolute}/${page.template}`,
@@ -16,5 +16,7 @@ export const buildPage = (minify = false, overrides = {}) => ({
       removeComments: true,
     },
   }),
-  ...(overrides || {}),
 });
+
+export const pageConfig = buildPageConfig(false);
+export const pageConfigMinified = buildPageConfig(true);

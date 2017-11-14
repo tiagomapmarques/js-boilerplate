@@ -9,6 +9,6 @@ export const variables = (environment) => quotify({
     NODE_ENV: `${environment}`,
   },
   ENVIRONMENT: {
-    ...(require(`./environments/${environment}`).default),
+    ...(require(`./${environment}`).default),
   },
 });

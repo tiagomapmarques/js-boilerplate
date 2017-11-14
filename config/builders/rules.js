@@ -15,7 +15,7 @@ const styleLoaders = (minify) => {
   ];
 };
 
-export const buildRules = (minify = false) => ([
+const buildRules = (minify) => ([
   {
     test: /\.js$/,
     use: 'babel-loader',
@@ -29,3 +29,6 @@ export const buildRules = (minify = false) => ([
     use: 'file-loader',
   },
 ]);
+
+export const rules = buildRules(false);
+export const rulesMinified = buildRules(true);

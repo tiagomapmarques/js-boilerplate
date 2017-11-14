@@ -2,19 +2,17 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { paths } from './webpack/paths';
-import { modules } from './webpack/modules';
-import { buildRules } from './webpack/build-rules';
-import { buildPage } from './webpack/build-page';
-import { buildFavicon } from './webpack/build-favicon';
+import { paths } from './builders/paths';
+import { rules } from './builders/rules';
+import { modules } from './builders/modules';
+import { pageConfig } from './builders/page-config';
+import { faviconConfig } from './builders/favicon-config';
 
-export const baseEnvironment = {
+export const baseConfig = {
   context: paths.appAbsolute,
   devtool: 'eval',
   entry: modules.entries,
-  module: {
-    rules: buildRules(),
-  },
+  module: { rules },
   output: {
     path: paths.distAssetsAbsolute,
     filename: modules.output,
@@ -22,8 +20,8 @@ export const baseEnvironment = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(modules.chunkOverrides),
-    new HtmlWebpackPlugin(buildPage()),
-    new FaviconsWebpackPlugin(buildFavicon()),
+    new HtmlWebpackPlugin(pageConfig),
+    new FaviconsWebpackPlugin(faviconConfig),
   ],
   resolve: {
     extensions: ['.js', '.scss', '.html'],

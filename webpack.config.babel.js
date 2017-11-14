@@ -1,5 +1,5 @@
 
-import { getConfig } from './config';
+import { getConfig } from './environments/webpack';
 
 export default (configName) => {
   const { environment, config } = getConfig(configName);

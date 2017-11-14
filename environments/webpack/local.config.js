@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 
-import { environments } from '../environments';
-import { variables } from '../environments/variables';
+import { environments } from '../';
+import { variables } from '../variables';
 import { baseConfig } from './base.config';
 
 const localConfig = {

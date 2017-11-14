@@ -2,7 +2,7 @@ import { resolve } from 'path';
 
 const pathsBase = './';
 
-const paths = {
+export const paths = {
   base: pathsBase,
   app: `${pathsBase}src/app/`,
   assets: `${pathsBase}src/assets/`,
@@ -21,5 +21,3 @@ paths.appAbsolute = resolve(paths.app);
 paths.assetsAbsolute = resolve(paths.assets);
 paths.distAbsolute = resolve(paths.dist);
 paths.distAssetsAbsolute = resolve(paths.distAssets);
-
-export { paths };

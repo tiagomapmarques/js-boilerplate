@@ -1,4 +1,4 @@
-import { unquotifier } from '../../environments/quotifier';
+import { unquotifier } from 'quotifier';
 
 import { variables } from '../../environments/variables';
 

@@ -1,4 +1,4 @@
-import { quotifier } from '../quotifier';
+import { quotifier } from 'quotifier';
 
 export const variables = (environment) => quotifier({
   'process.env': {

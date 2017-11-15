@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
@@ -49,6 +49,7 @@
     "html-webpack-plugin": "~2.30",
     "node-sass": "~4.6",
     "path": "~0.12",
+    "quotifier": "~1.0",
     "rimraf": "~2.6",
     "sass-loader": "~6.0",
     "style-loader": "~0.19",

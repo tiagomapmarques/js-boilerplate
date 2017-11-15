@@ -3,8 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
-import { environments } from '../environments';
-import { variables } from '../environments/variables';
+import { environments } from '../';
+import { variables } from '../variables';
 import { rulesMinified as rules } from './builders/rules';
 import { pageConfigMinified } from './builders/page-config';
 import { faviconConfigAll } from './builders/favicon-config';

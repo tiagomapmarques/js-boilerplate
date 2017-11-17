@@ -1,6 +1,5 @@
-import { quotifier } from 'quotifier';
 
-export const variables = (environment) => quotifier({
+export const variables = (environment) => ({
   'process.env': {
     NODE_ENV: `${environment}`,
   },

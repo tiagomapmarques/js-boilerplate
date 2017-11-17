@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
 import { environments } from '../';
@@ -18,7 +19,7 @@ const prodConfig = {
     ...(baseConfig.plugins || []),
     new HtmlWebpackPlugin(pageConfigMinified),
     new FaviconsWebpackPlugin(faviconConfigAll),
-    new webpack.DefinePlugin(variables(environments.prod)),
+    new ExtendedDefinePlugin(variables(environments.prod)),
     new webpack.optimize.UglifyJsPlugin({ comments: false }),
     new CompressionPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

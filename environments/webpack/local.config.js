@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 
 import { environments } from '../';
@@ -10,7 +10,7 @@ const localConfig = {
   devtool: 'cheap-module-source-map',
   plugins: [
     ...(baseConfig.plugins || []),
-    new webpack.DefinePlugin(variables(environments.local)),
+    new ExtendedDefinePlugin(variables(environments.local)),
     new LiveReloadPlugin({ appendScriptTag: true }),
   ],
 };

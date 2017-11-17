@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import DefineWebpackPlugin from 'define-webpack-plugin';
 
 import { environments } from '../';
 import { variables } from '../variables';
@@ -12,7 +13,7 @@ const devConfig = {
   plugins: [
     ...(baseConfig.plugins || []),
     new FaviconsWebpackPlugin(faviconConfigAll),
-    new webpack.DefinePlugin(variables(environments.dev)),
+    new DefineWebpackPlugin(variables(environments.dev)),
   ],
 };
 

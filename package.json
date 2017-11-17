@@ -43,7 +43,7 @@
     "compression-webpack-plugin": "~1.0",
     "copyfiles": "~1.2",
     "css-loader": "~0.28",
-    "define-webpack-plugin": "~1.0",
+    "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",
     "file-loader": "~1.1",
     "html-loader": "~0.5",

@@ -1,6 +1,5 @@
-import webpack from 'webpack';
-import LiveReloadPlugin from 'webpack-livereload-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
+import LiveReloadPlugin from 'webpack-livereload-plugin';
 
 import { environments } from '../';
 import { variables } from '../variables';

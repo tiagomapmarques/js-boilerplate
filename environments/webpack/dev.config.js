@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 

@@ -1,19 +1,17 @@
 
-const styleLoaders = (minify) => {
-  return [
-    { loader: 'style-loader' },
-    {
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        importLoaders: 1,
-        minimize: !!minify,
-        localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
-      },
+const styleLoaders = (minify) => ([
+  { loader: 'style-loader' },
+  {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+      importLoaders: 1,
+      minimize: !!minify,
+      localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
     },
-    { loader: 'sass-loader' },
-  ];
-};
+  },
+  { loader: 'sass-loader' },
+]);
 
 const buildRules = (minify) => ([
   {

@@ -4,26 +4,16 @@
     "jest/globals": true
   },
   "parser": "babel-eslint",
-  "extends": "standard",
+  "extends": "airbnb-base",
   "rules": {
-    "curly": [
-      "error",
-      "all"
-    ],
-    "comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "no-console": "error",
-    "no-var": "error",
-    "semi": [
-      "error",
-      "always"
-    ],
-    "space-before-function-paren": [
-      "error",
-      "never"
-    ]
+    "import/no-unresolved": "\\.scss$",
+    "import/prefer-default-export": "off",
+    "no-default-export": true /* FIXME - https://github.com/benmosher/eslint-plugin-import/pull/936 */
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
   },
   "plugins": [
     "jest"

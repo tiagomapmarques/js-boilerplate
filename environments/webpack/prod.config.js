@@ -11,7 +11,7 @@ import { pageConfigMinified } from './builders/page-config';
 import { faviconConfigAll } from './builders/favicon-config';
 import { baseConfig } from './base.config';
 
-const prodConfig = {
+export const prodConfig = {
   ...baseConfig,
   devtool: false,
   module: { rules },
@@ -25,5 +25,3 @@ const prodConfig = {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 };
-
-export default prodConfig;

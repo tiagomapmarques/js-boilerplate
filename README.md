@@ -40,8 +40,7 @@ The following are the base commands for this application (`npm run`):
   - `:generated` deletes the `public` folder
   - `:packages` deletes the `node_modules` folder
 - `packages` diffs your list of dependencies on `package.json` with the ones
-available on `npmjs.org` and lists possible upgrades
-  - `:write` also updates the `package.json` file with the updated versions
+available on `npmjs.org` and updates them on `package.json`
   - `:reset` removes `package-lock.json` file and performs `clean:packages`
 - `lint` lints your code and style according to the rules on `.eslintrc` and
 `.stylelintrc` files (which extend `standardjs`' and

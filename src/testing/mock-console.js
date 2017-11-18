@@ -4,10 +4,11 @@ export const mockConsole = (functionsToMock = 'log') => {
   const originalConsoleFunctions = {};
 
   beforeEach(() => {
+    let functionsToMockList = functionsToMock;
     if (typeof functionsToMock === 'string') {
-      functionsToMock = [functionsToMock];
+      functionsToMockList = [functionsToMock];
     }
-    functionsToMock.forEach((func) => {
+    functionsToMockList.forEach((func) => {
       originalConsoleFunctions[func] = console[func];
       console[func] = jest.fn();
     });

@@ -6,7 +6,7 @@ import { variables } from '../variables';
 import { faviconConfigAll } from './builders/favicon-config';
 import { baseConfig } from './base.config';
 
-const devConfig = {
+export const devConfig = {
   ...baseConfig,
   devtool: 'cheap-module-source-map',
   plugins: [
@@ -15,5 +15,3 @@ const devConfig = {
     new ExtendedDefinePlugin(variables(environments.dev)),
   ],
 };
-
-export default devConfig;

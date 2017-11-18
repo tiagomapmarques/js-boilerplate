@@ -40,8 +40,10 @@ describe('HomeComponent', () => {
     });
 
     it('logs the console data', () => {
-      expect(console.log.mock.calls).toHaveLength(1); // eslint-disable-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]); // eslint-disable-line no-console
+      // eslint-disable-next-line no-console
+      expect(console.log.mock.calls).toHaveLength(1);
+      // eslint-disable-next-line no-console
+      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
     });
   });
 
@@ -67,12 +69,14 @@ describe('HomeComponent', () => {
     });
 
     it('logs the console data', () => {
-      expect(console.log.mock.calls).toHaveLength(1); // eslint-disable-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]); // eslint-disable-line no-console
+      // eslint-disable-next-line no-console
+      expect(console.log.mock.calls).toHaveLength(1);
+      // eslint-disable-next-line no-console
+      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
     });
   });
 
-  const responseErrors = [ 403, 404, 500 ];
+  const responseErrors = [403, 404, 500];
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
@@ -92,7 +96,8 @@ describe('HomeComponent', () => {
       });
 
       it('does not log anything to the console', () => {
-        expect(console.log.mock.calls).toHaveLength(0); // eslint-disable-line no-console
+        // eslint-disable-next-line no-console
+        expect(console.log.mock.calls).toHaveLength(0);
       });
     });
   };

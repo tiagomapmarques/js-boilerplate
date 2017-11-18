@@ -1,10 +1,20 @@
 
+const DATA_URL = `${ENVIRONMENT.ASSETS_URL}sample.json`;
+const EMPTY_DATA = {
+  console: '',
+  page: '',
+};
+
+const getSampleData = () => fetch(DATA_URL)
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error();
+  })
+  .catch(() => EMPTY_DATA);
+
 export class HomeComponent {
-  static DATA_URL = ENVIRONMENT.ASSETS_URL + 'sample.json';
-  static EMPTY_DATA = {
-    console: '',
-    page: '',
-  };
   appId;
 
   constructor(id) {
@@ -13,18 +23,7 @@ export class HomeComponent {
   }
 
   init() {
-    return this.getSampleData().then(this.buildPage);
-  }
-
-  getSampleData() {
-    return fetch(HomeComponent.DATA_URL)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error();
-      })
-      .catch(() => HomeComponent.EMPTY_DATA);
+    return getSampleData().then(this.buildPage);
   }
 
   buildPage(data) {
@@ -33,7 +32,8 @@ export class HomeComponent {
       element.innerHTML = data.page;
     }
     if (data.console) {
-      console.log(data.console); // eslint-disable-line no-console
+      // eslint-disable-next-line no-console
+      console.log(data.console);
     }
   }
 }

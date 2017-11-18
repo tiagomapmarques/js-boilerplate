@@ -8,7 +8,7 @@ const listToVariants = (variantArray, defaultValue) =>
     [variant]: defaultValue || false,
   }), {});
 
-const buildFaviconConfig = (minify) => ({
+const buildFaviconConfig = minify => ({
   title: page.title,
   logo: `${paths.assetsAbsolute}/${favicon.original}`,
   prefix: `${favicon.location}/`,

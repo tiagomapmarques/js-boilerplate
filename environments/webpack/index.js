@@ -1,10 +1,15 @@
 import { environments } from '../';
+import { localConfig } from './local.config';
+import { devConfig } from './dev.config';
+import { prodConfig } from './prod.config';
 
-const defaultEnv = 'dev';
-
-export const getConfig = (requestedEnv) => {
-  const env = requestedEnv || defaultEnv;
-  const environment = environments[env];
-  const config = require(`./${env}.config`);
-  return { environment, config };
+const webpackConfigs = {
+  local: localConfig,
+  dev: devConfig,
+  prod: prodConfig,
 };
+
+export const getConfig = requestedEnv => ({
+  environment: environments[requestedEnv],
+  config: webpackConfigs[requestedEnv],
+});

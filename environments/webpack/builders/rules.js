@@ -1,5 +1,5 @@
 
-const styleLoaders = (minify) => ([
+const styleLoaders = minify => ([
   { loader: 'style-loader' },
   {
     loader: 'css-loader',
@@ -13,7 +13,7 @@ const styleLoaders = (minify) => ([
   { loader: 'sass-loader' },
 ]);
 
-const buildRules = (minify) => ([
+const buildRules = minify => ([
   {
     test: /\.js$/,
     use: 'babel-loader',

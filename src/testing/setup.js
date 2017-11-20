@@ -15,5 +15,5 @@ global.fetch = fetchMock;
 // global test functions
 global.mockConsole = mockConsole;
 global.createElement = createElement;
-global.TestImports = TestImports;
+global.TestImports = new TestImports();
 global.TestImports.reset();

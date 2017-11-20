@@ -1,12 +1,20 @@
 
-let testImports = [];
+export class TestImports {
+  imports;
 
-export const TestImports = {
-  get: () => testImports,
-  add: (moduleName) => {
-    testImports.push(moduleName);
-  },
-  reset: () => {
-    testImports = [];
-  },
-};
+  constructor() {
+    this.imports = [];
+  }
+
+  get() {
+    return this.imports;
+  }
+
+  add(moduleName) {
+    this.imports.push(moduleName);
+  }
+
+  reset() {
+    this.imports = [];
+  }
+}

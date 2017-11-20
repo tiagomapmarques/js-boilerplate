@@ -1,20 +1,16 @@
 
 export class TestImports {
-  imports;
+  static imports = [];
 
-  constructor() {
-    this.imports = [];
+  static get() {
+    return TestImports.imports;
   }
 
-  get() {
-    return this.imports;
+  static add(moduleName) {
+    TestImports.imports.push(moduleName);
   }
 
-  add(moduleName) {
-    this.imports.push(moduleName);
-  }
-
-  reset() {
-    this.imports = [];
+  static reset() {
+    TestImports.imports = [];
   }
 }

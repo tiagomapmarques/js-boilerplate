@@ -6,7 +6,7 @@ const styleLoaders = minify => ([
     options: {
       modules: true,
       importLoaders: 1,
-      minimize: !!minify,
+      minimize: minify,
       localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
     },
   },

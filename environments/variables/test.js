@@ -1,6 +1,7 @@
 
 export const testConfig = {
   ASSETS_URL: '/assets/',
+  // eslint-disable-next-line global-require
   VERSION: require('../../package.json').version,
 };
 

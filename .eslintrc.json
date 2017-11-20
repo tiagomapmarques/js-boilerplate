@@ -8,7 +8,7 @@
   "rules": {
     "import/no-unresolved": "\\.scss$",
     "import/prefer-default-export": "off",
-    "no-default-export": true /* FIXME - https://github.com/benmosher/eslint-plugin-import/pull/936 */
+    "no-default-export": true /* FIXME "https://github.com/benmosher/eslint-plugin-import/pull/936" */
   },
   "settings": {
     "import/resolver": {

@@ -1,6 +1,8 @@
 {
   "name": "js-boilerplate",
-  "version": "0.4.11",
+  "version": "0.4.12",
+  "description": "Boilerplate for any javascript frontend project",
+  "author": "Tiago Marques",
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
@@ -21,8 +23,8 @@
     "clean:generated": "rimraf ./public",
     "clean:packages": "echo ==== IGNORE THIS NEXT ERROR ==== && rimraf ./node_modules",
     "lint": "npm run lint:code && npm run lint:style",
-    "lint:code": "eslint .",
-    "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc",
+    "lint:code": "eslint --config .eslintrc.json .",
+    "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc.json",
     "packages": "ncu -u",
     "packages:reset": "rimraf package-lock.json && npm run clean:packages",
     "serve": "ws --directory public --spa index.html --log.format dev",

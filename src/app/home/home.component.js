@@ -1,5 +1,5 @@
 
-const DATA_URL = `${ENVIRONMENT.ASSETS_URL}sample.json`;
+const DATA_URL = `${ENVIRONMENT.SERVICES.ASSETS}sample.json`;
 const EMPTY_DATA = {
   console: '',
   page: '',

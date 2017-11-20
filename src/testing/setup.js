@@ -6,14 +6,13 @@ import { createElement } from './create-element';
 import { mockConsole } from './mock-console';
 import { TestImports } from './test-imports';
 
-// overriding of webpack global variables
+// creating environment variables
 global.ENVIRONMENT = environment;
 
-// overriding of global variables
+// overriding globals
 global.fetch = fetchMock;
 
-// global test functions
+// declaring test helper functions
 global.mockConsole = mockConsole;
 global.createElement = createElement;
-global.TestImports = new TestImports();
-global.TestImports.reset();
+global.TestImports = TestImports;

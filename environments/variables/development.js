@@ -1,9 +1,11 @@
+import { packageJson } from './package-json';
 
-const devConfig = {
-  ASSETS_URL: '/assets/',
-  // eslint-disable-next-line global-require
-  VERSION: require('../../package.json').version,
+const devEnvironment = {
+  VERSION: packageJson.version,
+  SERVICES: {
+    ASSETS: '/assets/',
+  },
 };
 
 // eslint-disable-next-line no-default-export
-export default devConfig;
+export default devEnvironment;

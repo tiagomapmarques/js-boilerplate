@@ -1,11 +1,9 @@
+import { vendorPackages } from 'project-packages-filters';
 
 export const modules = {
   entries: {
     app: './index.js',
-    vendor: [
-      // Support libraries
-      'browser-polyfills',
-    ],
+    vendor: vendorPackages(),
   },
   chunkOverrides: {
     name: 'vendor',

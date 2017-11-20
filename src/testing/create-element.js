@@ -14,6 +14,6 @@ export const createElement = (parentNode, tagName, attributes) => {
       }
     });
   } else {
-    throw new Error(`You must set an "id" attribute when creating a DOM element. Attributes given were: ${JSON.stringify(attributes)}`);
+    throw new Error(`Missing "id" in new DOM element. Options were ${JSON.stringify(attributes)}`);
   }
 };

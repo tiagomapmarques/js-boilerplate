@@ -1,5 +1,5 @@
 # Js Boilerplate
-This is a boilerplate for any javascript project. Below you can find a list of
+This is a boilerplate for any PWA project. Below you can find a list of
 _flavours_, derived from the original `develop` branch. Each _flavour_ will be
 only one commit long so you can easily diff them and see how to properly set up
 each of them.
@@ -14,6 +14,9 @@ Quick start:
 
 Quick start (docker):
 - `docker-compose up`
+
+All implementation decisions and decisions made regarding this project and its
+maintainability are documented [here](DECISIONS.md).
 
 ## Flavours
 | Branch | Base Branch | Objective | Completion |
@@ -33,31 +36,9 @@ Quick start (docker):
 `js` files to `ts` and the other to adapt the project to typescript - better for
 diffing.
 
-## Tooling
-The following are the base commands for this application (`npm run`):
-- `clean` performs the 3 commands listed below
-  - `:coverage` deletes the `coverage` folder
-  - `:generated` deletes the `public` folder
-  - `:packages` deletes the `node_modules` folder
-- `packages` diffs your list of dependencies on `package.json` with the ones
-available on `npmjs.org` and updates them on `package.json`
-  - `:reset` removes `package-lock.json` file and performs `clean:packages`
-- `lint` lints your code and style according to the rules on `.eslintrc` and
-`.stylelintrc` files (which extend `standardjs`' and
-`stylelint-config-standard`'s rules, respectively)
-- `test` runs the unit tests for the project (files ending with `.spec.js`)
-  - `:watch` watches the test files and re-runs the tests on any file update
-- `build` runs `:local`
-  - `:local`/`:dev`/`:prod` builds the project and its assets for the
-    `local`/`dev`/`prod` environments respectively
-    - `:watch` watches app files and rebuilds them upon change
-- `serve` serves the project on `localhost:8000`
-  - `:secure` serves on https only
-
-The following commands are shortcuts only:
-- `npm start` = `npm run build` and `npm run serve`
-- `npm run build` = `npm run build:local`
-- `npm run watch` = `npm run build:local:watch`
+## Compatibility
+- IE9+
+- Any evergreen browser (Chrome, Edge, FF, ...)
 
 ## Environments
 This project comes with 3 environments setup. Each environment has been setup
@@ -76,7 +57,45 @@ according to the general needs of each one. They are:
 | File Compression (gzip) | - | - | X |
 | Fails on Build Error | - | - | X |
 
+## Tooling
+The following are the base commands for this application (`npm run`):
+- `clean` performs the 3 commands listed below
+  - `:coverage` deletes the `coverage` folder
+  - `:generated` deletes the `public` folder
+  - `:packages` deletes the `node_modules` folder
+- `packages` diffs your list of dependencies on `package.json` with the ones
+available on `npmjs.org` and updates them (on `package.json` only)
+  - `:reset` removes `package-lock.json` file and performs `clean:packages`
+- `lint` lints your code and style according to the rules on `.eslintrc` and
+`.stylelintrc` files (which extend `airbnb-base`' and
+`stylelint-config-standard`'s rules, respectively)
+- `test` runs the unit tests for the project (files ending with `.spec.js`)
+  - `:watch` watches the test files and re-runs the tests on any file update
+- `build` runs `:local`
+  - `:local`/`:dev`/`:prod` builds the project and its assets for the
+    `local`/`dev`/`prod` environments respectively
+    - `:watch` watches app files and rebuilds them upon change
+- `serve` serves the project on `localhost:8000`
+  - `:secure` serves on https only
 
-## Compatibility
-- IE9+
-- Any evergreen browser (Chrome, Edge, FF, ...)
+The following commands are shortcuts only:
+- `npm start` = `npm run build` and `npm run serve`
+- `npm run build` = `npm run build:local`
+- `npm run watch` = `npm run build:local:watch`
+
+## Using the project
+The `develop` branch will be released incrementally (i.e. through PRs), but the
+_flavour_ branches will not. Their code will be updated/modified without
+notice on every release (and/or PR) of the project.
+
+That said, you should always use the `develop` branch as the base for your
+projects. If you want to add a feature/lib already featured on _flavours_,
+take a look at it and implement it yourself on your project.
+
+Remember that the _flavour_ branches are just examples on how to implement and
+adapt this project to other languages/libraries/frameworks.
+
+## Contributing
+Issues are welcome, either for identifying bugs or requesting features as long
+as they make sense considering the scope of the project and the feasibility of
+its implementation on the different _flavours_.

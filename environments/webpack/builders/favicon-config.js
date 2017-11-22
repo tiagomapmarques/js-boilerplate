@@ -10,7 +10,7 @@ const listToVariants = (variantArray, defaultValue) =>
 
 const buildFaviconConfig = minify => ({
   title: page.title,
-  logo: `${paths.assetsAbsolute}/${favicon.original}`,
+  logo: `${paths.staticAbsolute}/${favicon.original}`,
   prefix: `${favicon.location}/`,
   persistentCache: favicon.cache,
   icons: {

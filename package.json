@@ -9,7 +9,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "assets:copy": "copyfiles -u 1 ./src/assets/* ./public/",
+    "assets:copy": "copyfiles -u 2 ./src/static/* ./public/ && copyfiles -u 3 ./src/static/assets/* ./public/assets/",
     "assets:reset": "npm run clean:generated && npm run assets:copy",
     "build": "npm run build:local",
     "build:dev": "npm run assets:reset && webpack --progress --bail --env dev",

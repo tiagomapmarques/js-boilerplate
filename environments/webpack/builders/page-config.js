@@ -4,7 +4,7 @@ import { paths } from './paths';
 const buildPageConfig = minify => ({
   title: page.title,
   filename: `${paths.distAbsolute}/index.html`,
-  template: `!!html-loader!${paths.assetsAbsolute}/${page.template}`,
+  template: `!!html-loader!${paths.staticAbsolute}/${page.template}`,
   cache: page.cache,
   ...(!minify ? {} : {
     minify: {

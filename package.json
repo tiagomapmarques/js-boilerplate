@@ -1,8 +1,18 @@
 {
   "name": "js-boilerplate",
   "version": "0.5.0",
-  "description": "Boilerplate for any javascript frontend project",
   "author": "Tiago Marques",
+  "description": "Boilerplate for any javascript frontend project",
+  "keywords": [
+    "javascript",
+    "boilerplate",
+    "seed",
+    "frontend",
+    "docker",
+    "typescript",
+    "jquery",
+    "vue"
+  ],
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
@@ -51,7 +61,7 @@
     "html-webpack-plugin": "~2.30",
     "node-sass": "~4.7",
     "path": "~0.12",
-    "project-packages-filters": "~1.0",
+    "project-packages-filters": "~1.1",
     "rimraf": "~2.6",
     "sass-loader": "~6.0",
     "style-loader": "~0.19",

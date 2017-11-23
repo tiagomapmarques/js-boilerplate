@@ -15,8 +15,8 @@ Quick start:
 Quick start (docker):
 - `docker-compose up`
 
-All implementation decisions and decisions made regarding this project and its
-maintainability are documented [here](DECISIONS.md).
+All standards and decisions made regarding this project, its implementation and
+maintainability are **[documented here](STANDARDS.md)**.
 
 ## Flavours
 | Branch | Base Branch | Objective | Completion | Status |

@@ -1,4 +1,4 @@
-# Decisions and Coding Style
+# Standards and Decisions
 Disagree with something you saw in the project or the files and want to
 understand why? Just want to read up on my thoughts on Js/PWA development?
 Either way, you're in the right place.

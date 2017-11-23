@@ -1,4 +1,4 @@
-# Js Boilerplate
+# Js Boilerplate &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd)
 This is a boilerplate for any PWA project. Below you can find a list of
 _flavours_, derived from the original `develop` branch. Each _flavour_ will be
 only one commit long so you can easily diff them and see how to properly set up
@@ -19,18 +19,18 @@ All implementation decisions and decisions made regarding this project and its
 maintainability are documented [here](DECISIONS.md).
 
 ## Flavours
-| Branch | Base Branch | Objective | Completion |
-| ------ | ------ | ------ | ------ |
-| `develop` | - | vanilla javascript project | - |
-| `typescript` | `develop` | vanilla typescript project | done |
-| `jquery` | `develop` | base for javascript application using jQuery | done |
-| `vue` | `develop` | base for pwa using vue | done |
-| `vue-app` | `vue` | proposed structure and base libs for a vue pwa | missing tests |
-| `react` | `develop` | base for pwa using react | TBD |
-| `react-app` | `react` | proposed structure and base libs for a react pwa | TBD |
-| `inferno` | `react` | base for pwa using inferno | TBD |
-| `angular` | `typescript` | base for pwa using angular | TBD |
-| `angular-app` | `angular` | proposed structure and base libs for an angular pwa | TBD |
+| Branch | Base Branch | Objective | Completion | Status |
+| ------ | ------ | ------ | ------ | ------ |
+| `develop` | - | vanilla javascript project | - | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| `typescript` | `develop` | vanilla typescript project | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| `jquery` | `develop` | base for javascript application using jQuery | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| `vue` | `develop` | base for pwa using vue | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| `vue-app` | `vue` | proposed structure and base libs for a vue pwa | missing tests | - |
+| `react` | `develop` | base for pwa using react | TBD | - |
+| `react-app` | `react` | proposed structure and base libs for a react pwa | TBD | - |
+| `inferno` | `react` | base for pwa using inferno | TBD | - |
+| `angular` | `typescript` | base for pwa using angular | TBD | - |
+| `angular-app` | `angular` | proposed structure and base libs for an angular pwa | TBD | - |
 
 **Note**: `typescript` branch is made of 2 commits instead of one: one to rename
 `js` files to `ts` and the other to adapt the project to typescript - better for

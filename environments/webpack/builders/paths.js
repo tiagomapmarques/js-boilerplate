@@ -5,19 +5,19 @@ const pathsBase = './';
 export const paths = {
   base: pathsBase,
   app: `${pathsBase}src/app/`,
-  assets: `${pathsBase}src/assets/`,
+  static: `${pathsBase}src/static/`,
   dist: `${pathsBase}public/`,
-  distAssets: '',
+  build: '',
   baseAbsolute: '',
   appAbsolute: '',
-  assetsAbsolute: '',
+  staticAbsolute: '',
   distAbsolute: '',
-  distAssetsAbsolute: '',
+  buildAbsolute: '',
 };
 
-paths.distAssets = `${paths.dist}assets/`;
+paths.build = `${paths.dist}build/`;
 paths.baseAbsolute = resolve(paths.base);
 paths.appAbsolute = resolve(paths.app);
-paths.assetsAbsolute = resolve(paths.assets);
+paths.staticAbsolute = resolve(paths.static);
 paths.distAbsolute = resolve(paths.dist);
-paths.distAssetsAbsolute = resolve(paths.distAssets);
+paths.buildAbsolute = resolve(paths.build);

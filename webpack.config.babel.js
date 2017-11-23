@@ -1,7 +1,6 @@
 import { getConfig } from './environments/webpack';
 
-// eslint-disable-next-line no-default-export
-export default (configName) => {
+export const webpackInit = (configName) => {
   const { environment, config } = getConfig(configName);
 
   // Set the global environment
@@ -9,3 +8,6 @@ export default (configName) => {
 
   return config;
 };
+
+// eslint-disable-next-line no-default-export
+export default webpackInit;

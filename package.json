@@ -1,15 +1,21 @@
 {
   "name": "js-boilerplate",
-  "version": "0.4.12",
-  "description": "Boilerplate for any javascript frontend project",
+  "version": "0.5.0",
   "author": "Tiago Marques",
+  "description": "Boilerplate for any javascript frontend project",
+  "keywords": [
+    "javascript",
+    "frontend",
+    "boilerplate",
+    "seed"
+  ],
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
     "node": ">=8.0.0"
   },
   "scripts": {
-    "assets:copy": "copyfiles -u 1 ./src/assets/* ./public/",
+    "assets:copy": "copyfiles -u 2 ./src/static/* ./public/ && copyfiles -u 3 ./src/static/assets/* ./public/assets/",
     "assets:reset": "npm run clean:generated && npm run assets:copy",
     "build": "npm run build:local",
     "build:dev": "npm run assets:reset && webpack --progress --bail --env dev",
@@ -51,7 +57,7 @@
     "html-webpack-plugin": "~2.30",
     "node-sass": "~4.7",
     "path": "~0.12",
-    "project-packages-filters": "~1.0",
+    "project-packages-filters": "~1.1",
     "rimraf": "~2.6",
     "sass-loader": "~6.0",
     "style-loader": "~0.19",

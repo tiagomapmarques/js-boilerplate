@@ -14,9 +14,9 @@ export const baseConfig = {
   entry: modules.entries,
   module: { rules },
   output: {
-    path: paths.distAssetsAbsolute,
+    path: paths.buildAbsolute,
     filename: modules.output,
-    publicPath: '/assets',
+    publicPath: '/build',
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(modules.chunkOverrides),

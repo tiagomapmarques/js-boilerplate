@@ -54,14 +54,17 @@ the style (`.scss`), the unit test (`.spec.js`) and the export file
   - non-tested components/modules are easily spotted
   - adding/deleting a component/module is a clean and self-contained action
 
-File naming rule is the following: `[name].[type](.spec?).[ext]`. Examples:
-  - `example.component.js` - js module for component named `ExampleComponent`
+File `name`s, and `type`s should be done in kebab-case. File naming rule is the
+following: `[name](.type?)(.spec?).[ext]`. Examples:
+  - `example.component.js` - component named `ExampleComponent`
   - `example.style.scss` - style to be imported by `ExampleComponent`
-  - `example.component.spec.js` - unit test for `ExampleComponent`
+  - `example.component.spec.js` - unit tests for `ExampleComponent`
+  - `my-module.js` - js module named `MyModule`
+  - `my-module.spec.js` - unit tests for `MyModule`
 
 Note that `index.js` is exempt from these rules as it is the default name and
 extension used on javascript for "importing a folder". This file should only
-import and export the component it pertains to.
+import and export the component or module it pertains to.
 
 Any cluster of similar modules should be grouped by folder inside `app`.
 Typical examples are:
@@ -103,6 +106,10 @@ the next line of code with `eslint-disable-next-line` for 3 main reasons:
 forgetfulness or bad code reviews
   - never adds to the line char count
   - adding/removing them results in simpler diffs
+
+Naming convention is as follows: class names, interfaces and typing in general
+are to be written in PascalCase, objects and singletons in camelCase and
+constants in UPPER_SNAKE_CASE.
 
 #### Unit Tests
 Unit tests can generally be divided in 2 categories:

@@ -67,9 +67,9 @@ The following are the base commands for this application (`npm run`):
 - `packages` diffs your list of dependencies on `package.json` with the ones
 available on `npmjs.org` and updates them (on `package.json` only)
   - `:reset` removes `package-lock.json` file and performs `clean:packages`
-- `lint` lints your code and style according to the rules on `.eslintrc` and
-`.stylelintrc` files (which extend `airbnb-base`' and
-`stylelint-config-standard`'s rules, respectively)
+- `lint` lints your code and style according to the rules on `.eslintrc.json`
+and `.stylelintrc.json` files (which extend `airbnb-base` and
+`stylelint-config-standard` rules, respectively)
 - `test` runs the unit tests for the project (files ending with `.spec.js`)
   - `:watch` watches the test files and re-runs the tests on any file update
 - `build` runs `:local`

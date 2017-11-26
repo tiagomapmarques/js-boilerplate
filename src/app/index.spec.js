@@ -1,49 +1,56 @@
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
-jest.mock('./index.style', () => global.TestImports.add('style'));
+
 jest.mock('app/home', () => {
   const appInstance = { init: jest.fn(() => new Promise(resolve => resolve())) };
   return { HomeComponent: jest.fn(() => appInstance) };
 });
 
+jest.mock('./index.style', () => global.TestImports.add('style'));
+
 describe('index', () => {
-  let mockedHomeComponent;
+  const rootId = 'app';
+  const mockListener = jest.fn((_, callback) => callback());
+  let MockComponent;
 
   beforeEach(() => {
-    document.addEventListener = jest.fn((_, callback) => callback());
+    document.addEventListener = mockListener;
     // eslint-disable-next-line global-require
-    mockedHomeComponent = require('app/home').HomeComponent;
+    MockComponent = require('app/home').HomeComponent;
     // eslint-disable-next-line global-require
-    require('./index');
+    require('app');
   });
 
   afterEach(() => {
-    mockedHomeComponent.mockReset();
-    TestImports.reset();
-
-    // FIXME - split 'it' in serveral and clear the require cache to import the file on every test
-    // delete require.cache[require.resolve('./index')];
+    // FIXME delete cache from "require('app');" so resets can be done
+    // TestImports.reset();
+    // mockListener.mockReset();
   });
 
-  it('works', () => {
-    // imports the browser-polyfills
-    expect(TestImports.get()).toContain('polyfills');
+  describe('the imports', () => {
+    it('include the required libraries', () => {
+      expect(TestImports.get()).toContain('polyfills');
+    });
 
-    // imports the index style
-    expect(TestImports.get()).toContain('style');
+    it('include the global style', () => {
+      expect(TestImports.get()).toContain('style');
+    });
+  });
 
-    // waits for the document to load
-    // FIXME - when tests are divided, create a negative scenario to check the app does not run if
-    // addEventListener does not call the callback
-    expect(document.addEventListener.mock.calls).toHaveLength(1);
-    expect(document.addEventListener.mock.calls[0][0]).toEqual('DOMContentLoaded');
+  describe('the application', () => {
+    it('calls the renderer', () => {
+      expect(document.addEventListener.mock.calls).toHaveLength(1);
+      expect(document.addEventListener.mock.calls[0][0]).toEqual('DOMContentLoaded');
+    });
 
-    // builds the HomeComponent
-    expect(mockedHomeComponent.mock.instances).toHaveLength(1);
-    expect(mockedHomeComponent.mock.calls).toHaveLength(1);
-    expect(mockedHomeComponent.mock.calls[0]).toEqual(['app']);
+    it('renders the correct component', () => {
+      expect(MockComponent.mock.instances).toHaveLength(1);
+      expect(MockComponent.mock.calls).toHaveLength(1);
+      expect(MockComponent.mock.calls[0]).toEqual([rootId]);
+    });
 
-    // runs the HomeComponent
-    expect(mockedHomeComponent().init.mock.calls).toHaveLength(1);
-    expect(mockedHomeComponent().init.mock.calls[0]).toEqual([]);
+    it('renders inside the root element', () => {
+      expect(MockComponent().init.mock.calls).toHaveLength(1);
+      expect(MockComponent().init.mock.calls[0]).toEqual([]);
+    });
   });
 });

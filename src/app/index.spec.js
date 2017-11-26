@@ -17,13 +17,14 @@ describe('index', () => {
     // eslint-disable-next-line global-require
     MockComponent = require('app/home').HomeComponent;
     // eslint-disable-next-line global-require
-    require('app');
+    require('./');
   });
 
   afterEach(() => {
     // FIXME delete cache from "require('app');" so resets can be done
-    // TestImports.reset();
     // mockListener.mockReset();
+    // MockComponent.mockReset();
+    // TestImports.reset();
   });
 
   describe('the imports', () => {
@@ -42,13 +43,13 @@ describe('index', () => {
       expect(document.addEventListener.mock.calls[0][0]).toEqual('DOMContentLoaded');
     });
 
-    it('renders the correct component', () => {
+    it('creates the component on the root element', () => {
       expect(MockComponent.mock.instances).toHaveLength(1);
       expect(MockComponent.mock.calls).toHaveLength(1);
       expect(MockComponent.mock.calls[0]).toEqual([rootId]);
     });
 
-    it('renders inside the root element', () => {
+    it('renders the correct component', () => {
       expect(MockComponent().init.mock.calls).toHaveLength(1);
       expect(MockComponent().init.mock.calls[0]).toEqual([]);
     });

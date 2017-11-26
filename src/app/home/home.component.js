@@ -1,3 +1,4 @@
+import React from 'react';
 
 const DATA_URL = `${ENVIRONMENT.SERVICES.ASSETS}sample.json`;
 const EMPTY_DATA = {
@@ -14,26 +15,30 @@ const getSampleData = () => fetch(DATA_URL)
   })
   .catch(() => EMPTY_DATA);
 
-export class HomeComponent {
-  appId;
-
-  constructor(id) {
-    this.appId = id;
+export class HomeComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageData: '',
+    };
     this.buildPage = this.buildPage.bind(this);
   }
 
-  init() {
+  componentDidMount() {
     return getSampleData().then(this.buildPage);
   }
 
   buildPage(data) {
-    const element = document.getElementById(this.appId);
-    if (element) {
-      element.innerHTML = data.page;
-    }
+    this.setState({ pageData: data.page });
     if (data.console) {
       // eslint-disable-next-line no-console
       console.log(data.console);
     }
+  }
+
+  render() {
+    return (
+      <div>{ this.state.pageData }</div>
+    );
   }
 }

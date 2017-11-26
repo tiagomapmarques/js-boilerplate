@@ -1,10 +1,12 @@
 import 'browser-polyfills';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { HomeComponent } from 'app/home';
 
 import './index.style';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new HomeComponent('app');
-  app.init().catch();
-});
+ReactDOM.render(
+  <HomeComponent />,
+  document.getElementById('app'),
+);

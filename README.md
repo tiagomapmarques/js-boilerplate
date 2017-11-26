@@ -18,7 +18,6 @@ Quick start:
 Quick start (docker):
 - `docker-compose up`
 
-
 ## Flavours
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |

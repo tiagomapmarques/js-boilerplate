@@ -1,6 +1,6 @@
 # Js Boilerplate &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd)
 This is a boilerplate for any frontend project. Below you can find a list of
-_flavours_, derived from the original `develop` branch. Each _flavour_ will be
+_flavors_, derived from the original `develop` branch. Each _flavor_ will be
 only one commit long so you can easily diff them and see how to properly set up
 each of them.
 
@@ -18,7 +18,7 @@ Quick start:
 Quick start (docker):
 - `docker-compose up`
 
-## Flavours
+## Flavors
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
 | `develop` | - | vanilla javascript project | - | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
@@ -85,17 +85,17 @@ The following commands are shortcuts only:
 
 ## Using the project
 The `develop` branch will be released incrementally (i.e. through PRs), but the
-_flavour_ branches will not. Their code will be updated/modified without
+_flavor_ branches will not. Their code will be updated/modified without
 notice on every release (and/or PR) of the project.
 
 That said, you should always use the `develop` branch as the base for your
-projects. If you want to add a feature/lib already featured on _flavours_,
+projects. If you want to add a feature/lib already featured on _flavors_,
 take a look at it and implement it yourself on your project.
 
-Remember that the _flavour_ branches are just examples on how to implement and
+Remember that the _flavor_ branches are just examples on how to implement and
 adapt this project to other languages/libraries/frameworks.
 
 ## Contributing
 Issues are welcome, either for identifying bugs or requesting features as long
 as they make sense considering the scope of the project and the feasibility of
-its implementation on the different _flavours_.
+its implementation on the different _flavors_.

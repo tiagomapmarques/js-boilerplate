@@ -20,33 +20,6 @@ describe('HomeComponent', () => {
     return element ? element.innerHTML : document.body.innerHTML;
   };
 
-  describe('when no root element exists', () => {
-    beforeEach((done) => {
-      fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
-    });
-
-    afterEach(() => {
-      fetch.resetMocks();
-    });
-
-    it('calls fetch with the correct path', () => {
-      expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
-    });
-
-    it('does not set anything on the page', () => {
-      expect(getElementHTML()).toBe('');
-    });
-
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
-    });
-  });
-
   describe('when no errors occur', () => {
     createElement(document.body, 'div', { id: mockAppId });
 
@@ -103,4 +76,31 @@ describe('HomeComponent', () => {
   };
 
   responseErrors.forEach(testResponseStatus);
+
+  describe('when no root element exists', () => {
+    beforeEach((done) => {
+      fetch.mockResponse(JSON.stringify(sampleData));
+      component.init().then(done).catch();
+    });
+
+    afterEach(() => {
+      fetch.resetMocks();
+    });
+
+    it('calls fetch with the correct path', () => {
+      expect(fetch.mock.calls).toHaveLength(1);
+      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
+    });
+
+    it('does not set anything on the page', () => {
+      expect(getElementHTML()).toBe('');
+    });
+
+    it('logs the console data', () => {
+      // eslint-disable-next-line no-console
+      expect(console.log.mock.calls).toHaveLength(1);
+      // eslint-disable-next-line no-console
+      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+    });
+  });
 });

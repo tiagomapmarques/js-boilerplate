@@ -87,14 +87,14 @@ There is always a blank line separating these 3 types of imports
 (example: in typescript or when using Js PropTypes) are imported last when
 deconstructing.
 
-No project module is imported or exported through the `default` mechanism.
+No module or component is imported or exported through the `default` mechanism.
 Airbnb coding standards are flawless for typical Js/node packages but they do
 not take into account the volatility of code, features, requirements and
 dependencies that a frontend project has to deal with. For more information on
 the subject, see https://github.com/benmosher/eslint-plugin-import/issues/889.
 If there needs to be a default import (for example for environment runtime
-variables imports or for initialising webpack), make sure there is also a
-matching named import in order to keep code consistency.
+variables imports or due to a restriction of an external library), make sure
+there is also a matching named import in order to keep code consistency.
 
 All other linting rules from `airbnb-base` must be followed as it is the chosen
 standard for this project.
@@ -106,6 +106,9 @@ the next line of code with `eslint-disable-next-line` for 3 main reasons:
 forgetfulness or bad code reviews
   - never adds to the line char count
   - adding/removing them results in simpler diffs
+
+Note that if 3 or more lines in a row require the disabling of a rule, use
+`eslint-disable` and `eslint-enable`.
 
 Naming convention is as follows: class names, interfaces and typing in general
 are to be written in PascalCase, objects and singletons in camelCase and

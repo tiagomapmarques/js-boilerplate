@@ -59,7 +59,7 @@ following: `[name](.type?)(.spec?).[ext]`. Examples:
   - `example.component.js` - component named `ExampleComponent`
   - `example.style.scss` - style to be imported by `ExampleComponent`
   - `example.component.spec.js` - unit tests for `ExampleComponent`
-  - `my-module.js` - js module named `MyModule`
+  - `my-module.js` - module named `MyModule`
   - `my-module.spec.js` - unit tests for `MyModule`
 
 Note that `index.js` is exempt from these rules as it is the default name and
@@ -88,7 +88,7 @@ There is always a blank line separating these 3 types of imports
 deconstructing.
 
 No module or component is imported or exported through the `default` mechanism.
-Airbnb coding standards are flawless for typical Js/node packages but they do
+Airbnb coding standards are intended for typical Js/node packages but they do
 not take into account the volatility of code, features, requirements and
 dependencies that a frontend project has to deal with. For more information on
 the subject, see https://github.com/benmosher/eslint-plugin-import/issues/889.

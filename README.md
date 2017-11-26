@@ -23,6 +23,7 @@ Quick start (docker):
 | ------ | ------ | ------ | ------ | ------ |
 | `develop` | - | vanilla javascript project | - | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `typescript` | `develop` | vanilla typescript project | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| `electron` | `develop` | vanilla javascript electron project | TBD | - |
 | `jquery` | `develop` | base for frontend app using jquery | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `vue` | `develop` | base for frontend app using vue | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `vue-app` | `vue` | proposed structure and base libs for a vue pwa | WIP | - |
@@ -32,7 +33,6 @@ Quick start (docker):
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
 | `angular-app` | `angular` | proposed structure and base libs for an angular pwa | TBD | - |
-| `electron` | `develop` | vanilla electron project | TBD | - |
 
 **Note**: `typescript` branch is made of 2 commits instead of one: one to rename
 `js` files to `ts` and the other to adapt the project to typescript - better for

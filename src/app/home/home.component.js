@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './home.style';
 
 const DATA_URL = `${VARIABLES.SERVICES.ASSETS}sample.json`;
@@ -14,41 +16,43 @@ const getSampleData = () => fetch(DATA_URL)
   })
   .catch(() => EMPTY_DATA);
 
-export class HomeComponent {
-  environment = VARIABLES.ENVIRONMENT;
-  version = VARIABLES.VERSION;
-  title = VARIABLES.TITLE;
-  rootId;
-  text;
-
-  constructor(id) {
-    this.rootId = id;
-    this.text = '';
+export class HomeComponent extends React.Component {
+  constructor(props) {
+    super(props);
     this.handleData = this.handleData.bind(this);
+
+    this.state = {
+      environment: VARIABLES.ENVIRONMENT,
+      version: VARIABLES.VERSION,
+      title: VARIABLES.TITLE,
+      text: '',
+    };
   }
 
-  init() {
-    this.render();
-    return getSampleData().then(this.handleData);
+  componentDidMount() {
+    getSampleData().then(this.handleData);
   }
 
   handleData({ text }) {
-    this.text = text;
-    this.render();
+    this.setState({ text });
   }
 
   buildContent() {
-    return `<div class="${styles.content}">${this.title} says ${this.text}!</div>`;
+    const { text, title } = this.state;
+    return <div className={styles.content}>{title} says {text}!</div>;
   }
 
   buildFooter() {
-    return `<div class="${styles.footer}">v${this.version}-${this.environment}</div>`;
+    const { environment, version } = this.state;
+    return <div className={styles.footer}>v{version}-{environment}</div>;
   }
 
   render() {
-    const element = document.getElementById(this.rootId);
-    if (element) {
-      element.innerHTML = `<div>${this.text ? this.buildContent() : ''}${this.buildFooter()}</div>`;
-    }
+    return (
+      <div>
+        {!!this.state.text && this.buildContent()}
+        {this.buildFooter()}
+      </div>
+    );
   }
 }

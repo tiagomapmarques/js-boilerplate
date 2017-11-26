@@ -1,4 +1,6 @@
 import loadEntry from 'load-entry';
+import React from 'react';
+import mockReactDOM from 'react-dom';
 
 import { HomeComponent } from 'app/home';
 
@@ -6,20 +8,19 @@ import { indexEntry } from './';
 
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 jest.mock('load-entry');
+jest.mock('react-dom');
 
-jest.mock('app/home', () => {
-  const appInstance = { init: jest.fn(() => new Promise(resolve => resolve())) };
-  return { HomeComponent: jest.fn(() => appInstance) };
-});
+jest.mock('app/home');
 
 describe('index', () => {
   const rootId = 'app';
   const MockComponent = HomeComponent;
-  const MockComponentInit = MockComponent().init;
+
+  createElement(document.body, 'div', { id: rootId });
 
   afterEach(() => {
     MockComponent.mockClear();
-    MockComponentInit.mockClear();
+    mockReactDOM.render.mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -38,15 +39,16 @@ describe('index', () => {
       indexEntry();
     });
 
+    it('calls the renderer', () => {
+      expect(mockReactDOM.render.mock.calls).toHaveLength(1);
+    });
+
     it('creates the component on the root element', () => {
-      expect(MockComponent.mock.instances).toHaveLength(1);
-      expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toEqual([rootId]);
+      expect(mockReactDOM.render.mock.calls[0][1].id).toEqual(rootId);
     });
 
     it('renders the correct component', () => {
-      expect(MockComponentInit.mock.calls).toHaveLength(1);
-      expect(MockComponentInit.mock.calls[0]).toEqual([]);
+      expect(mockReactDOM.render.mock.calls[0][0].type).toEqual(<MockComponent />.type);
     });
   });
 });

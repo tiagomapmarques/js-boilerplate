@@ -1,7 +1,7 @@
 import { HomeComponent } from './';
 
 describe('HomeComponent', () => {
-  const mockAppId = 'mock-app-id';
+  const rootId = 'mock-app-id';
   const sampleDataUrl = '/assets/sample.json';
   const sampleData = {
     console: 'mock console data',
@@ -12,16 +12,16 @@ describe('HomeComponent', () => {
   mockConsole();
 
   beforeEach(() => {
-    component = new HomeComponent(mockAppId);
+    component = new HomeComponent(rootId);
   });
 
   const getElementHTML = () => {
-    const element = document.getElementById(mockAppId);
+    const element = document.getElementById(rootId);
     return element ? element.innerHTML : document.body.innerHTML;
   };
 
   describe('when no errors occur', () => {
-    createElement(document.body, 'div', { id: mockAppId });
+    createElement(document.body, 'div', { id: rootId });
 
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
@@ -53,7 +53,7 @@ describe('HomeComponent', () => {
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
-      createElement(document.body, 'div', { id: mockAppId });
+      createElement(document.body, 'div', { id: rootId });
 
       beforeEach((done) => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });

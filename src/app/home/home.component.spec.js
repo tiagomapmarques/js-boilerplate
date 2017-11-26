@@ -1,7 +1,9 @@
+import React from 'react';
+import { mount } from 'enzyme';
+
 import { HomeComponent } from './';
 
 describe('HomeComponent', () => {
-  const mockAppId = 'mock-app-id';
   const sampleDataUrl = '/assets/sample.json';
   const sampleData = {
     console: 'mock console data',
@@ -11,25 +13,26 @@ describe('HomeComponent', () => {
 
   mockConsole();
 
-  beforeEach(() => {
-    component = new HomeComponent(mockAppId);
-  });
-
-  const getElementHTML = () => {
-    const element = document.getElementById(mockAppId);
-    return element ? element.innerHTML : document.body.innerHTML;
+  const createComponent = (options = {}) => {
+    component = mount(<HomeComponent {...(options.props || {})} />);
   };
 
   describe('when no errors occur', () => {
-    createElement(document.body, 'div', { id: mockAppId });
-
-    beforeEach((done) => {
+    beforeEach(() => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
+      createComponent();
     });
 
     afterEach(() => {
       fetch.resetMocks();
+    });
+
+    it('mounts the component', () => {
+      expect(component).toBeTruthy();
+    });
+
+    it('has no data on the page', () => {
+      expect(component.text().trim()).toBe('');
     });
 
     it('calls fetch with the correct path', () => {
@@ -37,15 +40,21 @@ describe('HomeComponent', () => {
       expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
     });
 
-    it('sets the page data correctly', () => {
-      expect(getElementHTML()).toBe(sampleData.page);
-    });
+    describe('after the component updates', () => {
+      beforeEach(() => {
+        component.update();
+      });
 
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+      it('sets the page data correctly', () => {
+        expect(component.text().trim()).toBe(sampleData.page);
+      });
+
+      it('logs the console data', () => {
+        // eslint-disable-next-line no-console
+        expect(console.log.mock.calls).toHaveLength(1);
+        // eslint-disable-next-line no-console
+        expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+      });
     });
   });
 
@@ -53,54 +62,31 @@ describe('HomeComponent', () => {
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
-      createElement(document.body, 'div', { id: mockAppId });
-
-      beforeEach((done) => {
+      beforeEach(() => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });
-        component.init().then(done).catch();
+        createComponent();
       });
 
       afterEach(() => {
         fetch.resetMocks();
       });
 
-      it('does not set anything on the page', () => {
-        expect(getElementHTML()).toBe('');
-      });
+      describe('after the component updates', () => {
+        beforeEach(() => {
+          component.update();
+        });
 
-      it('does not log anything to the console', () => {
-        // eslint-disable-next-line no-console
-        expect(console.log.mock.calls).toHaveLength(0);
+        it('does not set anything on the page', () => {
+          expect(component.text().trim()).toBe('');
+        });
+
+        it('does not log anything to the console', () => {
+          // eslint-disable-next-line no-console
+          expect(console.log.mock.calls).toHaveLength(0);
+        });
       });
     });
   };
 
   responseErrors.forEach(testResponseStatus);
-
-  describe('when no root element exists', () => {
-    beforeEach((done) => {
-      fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
-    });
-
-    afterEach(() => {
-      fetch.resetMocks();
-    });
-
-    it('calls fetch with the correct path', () => {
-      expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
-    });
-
-    it('does not set anything on the page', () => {
-      expect(getElementHTML()).toBe('');
-    });
-
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
-    });
-  });
 });

@@ -7,7 +7,7 @@ export const paths = {
   app: `${pathsBase}src/app/`,
   static: `${pathsBase}src/static/`,
   dist: `${pathsBase}public/`,
-  entries: `${pathsBase}environments/webpack/entries/`,
+  entries: `${pathsBase}environments/entries/`,
   build: '',
   baseAbsolute: '',
   appAbsolute: '',

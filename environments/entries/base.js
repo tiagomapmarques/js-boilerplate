@@ -13,6 +13,6 @@ export const loadEntry = entry => document.addEventListener('DOMContentLoaded', 
   if (entry.default) {
     execute(entry.default);
   } else {
-    Object.keys(entry).forEach(moduleKey => entry[moduleKey] && execute(entry[moduleKey]));
+    Object.keys(entry).forEach(key => entry[key] && execute(entry[key]));
   }
 });

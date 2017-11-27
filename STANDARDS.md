@@ -99,7 +99,7 @@ keep code consistency.
 All other linting rules from `airbnb-base` must be followed as it is the chosen
 standard for this project.
 
-Disabling rules on `eslint` or `styleint` should only be done in cases where
+Disabling rules on `eslint` or `stylelint` should only be done in cases where
 there is no other feasible option. When disabling a rule, disable it only for
 the next line of code with `eslint-disable-next-line` for 3 main reasons:
   - it is a failsafe to not have a rule disabled on the entire project due to

@@ -1,6 +1,6 @@
-import { HomeComponent as MockComponent } from 'app/home';
+import { HomeComponent } from 'app/home';
 
-import { App } from './';
+import { indexEntry } from './';
 
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 
@@ -13,6 +13,7 @@ jest.mock('./index.style', () => global.TestImports.add('style'));
 
 describe('index', () => {
   const rootId = 'app';
+  const MockComponent = HomeComponent;
   const MockComponentInit = MockComponent().init;
 
   afterEach(() => {
@@ -32,7 +33,7 @@ describe('index', () => {
 
   describe('when the application is executed', () => {
     beforeEach(() => {
-      App();
+      indexEntry();
     });
 
     it('creates the component on the root element', () => {

@@ -4,7 +4,7 @@ import { HomeComponent } from 'app/home';
 
 import './index.style';
 
-export const App = () => {
+export const indexEntry = () => {
   const app = new HomeComponent('app');
   app.init().catch();
 };

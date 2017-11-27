@@ -9,8 +9,4 @@ export class TestImports {
   static add(moduleName) {
     TestImports.imports.push(moduleName);
   }
-
-  static reset() {
-    TestImports.imports = [];
-  }
 }

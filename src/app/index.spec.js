@@ -1,3 +1,7 @@
+import { HomeComponent } from 'app/home';
+
+import { indexEntry } from './';
+
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 
 jest.mock('app/home', () => {
@@ -9,22 +13,12 @@ jest.mock('./index.style', () => global.TestImports.add('style'));
 
 describe('index', () => {
   const rootId = 'app';
-  const mockListener = jest.fn((_, callback) => callback());
-  let MockComponent;
-
-  beforeEach(() => {
-    document.addEventListener = mockListener;
-    // eslint-disable-next-line global-require
-    MockComponent = require('app/home').HomeComponent;
-    // eslint-disable-next-line global-require
-    require('./');
-  });
+  const MockComponent = HomeComponent;
+  const MockComponentInit = MockComponent().init;
 
   afterEach(() => {
-    // FIXME delete cache from "require('app');" so resets can be done
-    // mockListener.mockReset();
-    // MockComponent.mockReset();
-    // TestImports.reset();
+    MockComponent.mockClear();
+    MockComponentInit.mockClear();
   });
 
   describe('the imports', () => {
@@ -37,10 +31,9 @@ describe('index', () => {
     });
   });
 
-  describe('the application', () => {
-    it('calls the renderer', () => {
-      expect(document.addEventListener.mock.calls).toHaveLength(1);
-      expect(document.addEventListener.mock.calls[0][0]).toEqual('DOMContentLoaded');
+  describe('when the application is executed', () => {
+    beforeEach(() => {
+      indexEntry();
     });
 
     it('creates the component on the root element', () => {
@@ -50,8 +43,8 @@ describe('index', () => {
     });
 
     it('renders the correct component', () => {
-      expect(MockComponent().init.mock.calls).toHaveLength(1);
-      expect(MockComponent().init.mock.calls[0]).toEqual([]);
+      expect(MockComponentInit.mock.calls).toHaveLength(1);
+      expect(MockComponentInit.mock.calls[0]).toEqual([]);
     });
   });
 });

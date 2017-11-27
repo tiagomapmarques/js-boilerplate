@@ -1,5 +1,7 @@
 import { vendorPackages } from 'project-packages-filters';
 
+import { paths } from './paths';
+
 const vendorExceptions = {
   literals: [],
   regex: [],
@@ -11,7 +13,7 @@ console.log('vendor packages:', vendor);
 
 export const modules = {
   entries: {
-    app: './index.js',
+    app: `${paths.entriesAbsolute}/index.js`,
     vendor,
   },
   chunkOverrides: {

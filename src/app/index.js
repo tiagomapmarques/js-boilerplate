@@ -4,7 +4,7 @@ import { HomeComponent } from 'app/home';
 
 import './index.style';
 
-document.addEventListener('DOMContentLoaded', () => {
+export const App = () => {
   const app = new HomeComponent('app');
   app.init().catch();
-});
+};

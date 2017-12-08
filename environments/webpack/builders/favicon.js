@@ -6,4 +6,14 @@ export const favicon = {
   additionalVariants: [],
 };
 
-export const allVariants = ['android', 'appleIcon', 'appleStartup', 'coast', 'firefox', 'opengraph', 'twitter', 'yandex', 'windows'];
+export const allVariants = [
+  'android',
+  'appleIcon',
+  'appleStartup',
+  'coast',
+  'firefox',
+  'opengraph',
+  'twitter',
+  'yandex',
+  'windows',
+];

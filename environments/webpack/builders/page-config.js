@@ -6,7 +6,7 @@ const buildPageConfig = minify => ({
   filename: `${paths.distAbsolute}/index.html`,
   template: `!!html-loader!${paths.staticAbsolute}/${page.template}`,
   cache: page.cache,
-  ...(!minify ? {} : {
+  ...(minify ? {
     minify: {
       collapseWhitespace: true,
       keepClosingSlash: true,
@@ -15,7 +15,7 @@ const buildPageConfig = minify => ({
       quoteCharacter: '"',
       removeComments: true,
     },
-  }),
+  } : {}),
 });
 
 export const pageConfig = buildPageConfig(false);

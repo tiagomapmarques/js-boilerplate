@@ -1,19 +1,17 @@
 import { vendorPackages } from 'project-packages-filters';
 
-import { paths } from './paths';
-
-const vendorExceptions = {
+const vendorExclusions = {
   literals: [],
   regex: [],
 };
 
-const vendor = vendorPackages(vendorExceptions);
+const vendor = vendorPackages(vendorExclusions);
 // eslint-disable-next-line no-console
 console.log('vendor packages:', vendor);
 
 export const modules = {
   entries: {
-    app: `${paths.entriesAbsolute}/index.js`,
+    app: 'index.js',
     vendor,
   },
   chunkOverrides: {

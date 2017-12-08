@@ -16,7 +16,10 @@ const buildFaviconConfig = minify => ({
   icons: {
     favicons: true,
     ...listToVariants(allVariants, false),
-    ...listToVariants(favicon.additionalVariants.concat(!minify ? allVariants : []), true),
+    ...listToVariants([
+      ...favicon.additionalVariants,
+      ...(!minify ? allVariants : []),
+    ], true),
   },
 });
 

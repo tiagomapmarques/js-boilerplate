@@ -19,7 +19,7 @@
     "jest"
   ],
   "globals": {
-    "ENVIRONMENT": true,
+    "VARIABLES": true,
     "createElement": true,
     "mockConsole": true,
     "TestImports": true

@@ -10,11 +10,11 @@ const environmentVariables = {
   test,
 };
 
-export const variables = environment => ({
+export const getVariables = environment => ({
   'process.env': {
     NODE_ENV: `${environment}`,
   },
-  ENVIRONMENT: {
+  VARIABLES: {
     ...environmentVariables[environment],
   },
 });

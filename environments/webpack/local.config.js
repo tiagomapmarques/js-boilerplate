@@ -3,7 +3,7 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 
 import { environments } from '../';
-import { variables } from '../variables';
+import { getVariables } from '../variables';
 import { baseConfig } from './base.config';
 
 export const localConfig = {
@@ -11,7 +11,7 @@ export const localConfig = {
   devtool: 'cheap-module-source-map',
   plugins: [
     ...(baseConfig.plugins || []),
-    new ExtendedDefinePlugin(variables(environments.local)),
+    new ExtendedDefinePlugin(getVariables(environments.local)),
     new LiveReloadPlugin({ appendScriptTag: true }),
   ],
 };

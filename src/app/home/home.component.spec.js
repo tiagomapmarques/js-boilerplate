@@ -18,7 +18,7 @@ describe('HomeComponent', () => {
   const querySelector = (selector) => {
     const classes = document.getElementsByClassName(selector);
     return (classes && classes.length) ? classes[0] : null;
-  }
+  };
 
   describe('when no errors occur', () => {
     createElement(document.body, 'div', { id: rootId });

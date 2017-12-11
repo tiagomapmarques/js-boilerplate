@@ -1,13 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import fetchMock from 'jest-fetch-mock';
 
-import { environment } from './webpack-variables';
+import { variables } from './webpack-variables';
 import { createElement } from './create-element';
 import { mockConsole } from './mock-console';
 import { TestImports } from './test-imports';
 
 // creating environment variables
-global.ENVIRONMENT = environment;
+global.VARIABLES = variables;
 
 // overriding globals
 global.fetch = fetchMock;

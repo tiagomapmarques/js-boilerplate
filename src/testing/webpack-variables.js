@@ -1,5 +1,5 @@
-import { variables } from '../../environments/variables';
+import { getVariables } from '../../environments/variables';
 
-const { ENVIRONMENT } = variables(process.env.NODE_ENV);
+const { VARIABLES } = getVariables(process.env.NODE_ENV);
 
-export const environment = ENVIRONMENT;
+export const variables = VARIABLES;

@@ -12,8 +12,6 @@ jest.mock('app/home', () => {
   return { HomeComponent: jest.fn(() => appInstance) };
 });
 
-jest.mock('./index.style', () => global.TestImports.add('style'));
-
 describe('index', () => {
   const rootId = 'app';
   const MockComponent = HomeComponent;
@@ -32,10 +30,6 @@ describe('index', () => {
   describe('the imports', () => {
     it('include the required libraries', () => {
       expect(TestImports.get()).toContain('polyfills');
-    });
-
-    it('include the global style', () => {
-      expect(TestImports.get()).toContain('style');
     });
   });
 

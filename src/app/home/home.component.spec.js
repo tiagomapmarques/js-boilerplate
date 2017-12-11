@@ -1,31 +1,31 @@
 import { HomeComponent } from './';
+import styles from './home.style';
 
 describe('HomeComponent', () => {
   const rootId = 'mock-app-id';
-  const sampleDataUrl = '/assets/sample.json';
+  const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
   const sampleData = {
-    console: 'mock console data',
-    page: 'mock page data',
+    text: 'Mock Text',
   };
   let component;
-
-  mockConsole();
 
   beforeEach(() => {
     component = new HomeComponent(rootId);
   });
 
-  const getElementHTML = () => {
-    const element = document.getElementById(rootId);
-    return element ? element.innerHTML : document.body.innerHTML;
-  };
+  const createComponent = done => component.init().then(done).catch();
+
+  const querySelector = (selector) => {
+    const classes = document.getElementsByClassName(selector);
+    return (classes && classes.length) ? classes[0] : null;
+  }
 
   describe('when no errors occur', () => {
     createElement(document.body, 'div', { id: rootId });
 
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
+      createComponent(done);
     });
 
     afterEach(() => {
@@ -37,19 +37,16 @@ describe('HomeComponent', () => {
       expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
     });
 
-    it('sets the page data correctly', () => {
-      expect(getElementHTML()).toBe(sampleData.page);
+    it('sets the page text', () => {
+      expect(querySelector(styles.page).innerHTML.trim())
+        .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+    it('has the footer', () => {
+      expect(querySelector(styles.footer).innerHTML.trim())
+        .toBe(`v${VARIABLES.VERSION} (${VARIABLES.ENVIRONMENT})`);
     });
   });
-
-  const responseErrors = [403, 404, 500];
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
@@ -57,7 +54,7 @@ describe('HomeComponent', () => {
 
       beforeEach((done) => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });
-        component.init().then(done).catch();
+        createComponent(done);
       });
 
       afterEach(() => {
@@ -65,22 +62,17 @@ describe('HomeComponent', () => {
       });
 
       it('does not set anything on the page', () => {
-        expect(getElementHTML()).toBe('');
-      });
-
-      it('does not log anything to the console', () => {
-        // eslint-disable-next-line no-console
-        expect(console.log.mock.calls).toHaveLength(0);
+        expect(querySelector(styles.page)).toBe(null);
       });
     });
   };
 
-  responseErrors.forEach(testResponseStatus);
+  [403, 404, 500].forEach(testResponseStatus);
 
   describe('when no root element exists', () => {
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
+      createComponent(done);
     });
 
     afterEach(() => {
@@ -93,14 +85,7 @@ describe('HomeComponent', () => {
     });
 
     it('does not set anything on the page', () => {
-      expect(getElementHTML()).toBe('');
-    });
-
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+      expect(querySelector(styles.page)).toBe(null);
     });
   });
 });

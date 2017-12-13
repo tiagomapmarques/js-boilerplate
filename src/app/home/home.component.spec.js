@@ -1,8 +1,10 @@
 import { HomeComponent } from './';
 import styles from './home.style';
 
+jest.mock('./home.style', () => mockStyle(require.requireActual('./home.style')));
+
 describe('HomeComponent', () => {
-  const rootId = 'mock-app-id';
+  const mockRootId = 'mock-app-id';
   const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
   const sampleData = {
     text: 'Mock Text',
@@ -10,7 +12,7 @@ describe('HomeComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = new HomeComponent(rootId);
+    component = new HomeComponent(mockRootId);
   });
 
   const createComponent = done => component.init().then(done).catch();
@@ -21,7 +23,7 @@ describe('HomeComponent', () => {
   };
 
   describe('when no errors occur', () => {
-    createElement(document.body, 'div', { id: rootId });
+    createElement(document.body, 'div', { id: mockRootId });
 
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
@@ -32,17 +34,17 @@ describe('HomeComponent', () => {
       fetch.resetMocks();
     });
 
-    it('calls fetch with the correct path', () => {
+    it('fetches data from the correct url', () => {
       expect(fetch.mock.calls).toHaveLength(1);
       expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
     });
 
-    it('sets the page text', () => {
-      expect(querySelector(styles.page).innerHTML.trim())
+    it('shows the page content', () => {
+      expect(querySelector(styles.content).innerHTML.trim())
         .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
-    it('has the footer', () => {
+    it('shows the footer', () => {
       expect(querySelector(styles.footer).innerHTML.trim())
         .toBe(`v${VARIABLES.VERSION} (${VARIABLES.ENVIRONMENT})`);
     });
@@ -50,7 +52,7 @@ describe('HomeComponent', () => {
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
-      createElement(document.body, 'div', { id: rootId });
+      createElement(document.body, 'div', { id: mockRootId });
 
       beforeEach((done) => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });
@@ -61,8 +63,8 @@ describe('HomeComponent', () => {
         fetch.resetMocks();
       });
 
-      it('does not set anything on the page', () => {
-        expect(querySelector(styles.page)).toBe(null);
+      it('does not show the page content', () => {
+        expect(querySelector(styles.content)).toBe(null);
       });
     });
   };
@@ -79,13 +81,8 @@ describe('HomeComponent', () => {
       fetch.resetMocks();
     });
 
-    it('calls fetch with the correct path', () => {
-      expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
-    });
-
-    it('does not set anything on the page', () => {
-      expect(querySelector(styles.page)).toBe(null);
+    it('does not show the page content', () => {
+      expect(querySelector(styles.content)).toBe(null);
     });
   });
 });

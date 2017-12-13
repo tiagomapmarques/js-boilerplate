@@ -17,33 +17,38 @@ const getSampleData = () => fetch(DATA_URL)
 export class HomeComponent {
   environment = VARIABLES.ENVIRONMENT;
   version = VARIABLES.VERSION;
-  appId;
+  title = VARIABLES.TITLE;
+  rootId;
   text;
 
   constructor(id) {
-    this.appId = id;
+    this.rootId = id;
     this.text = '';
-    this.buildPage = this.buildPage.bind(this);
+    this.handleData = this.handleData.bind(this);
   }
 
   init() {
-    this.buildPage(EMPTY_DATA);
-    return getSampleData().then(this.buildPage);
+    this.render();
+    return getSampleData().then(this.handleData);
   }
 
-  buildPage(data) {
-    this.text = data.text || '';
-    const element = document.getElementById(this.appId);
-    if (element) {
-      element.innerHTML = this.getText() + this.getFooter();
-    }
+  handleData({ text }) {
+    this.text = text;
+    this.render();
   }
 
-  getText() {
-    return this.text ? `<div class="${styles.page}">${VARIABLES.TITLE} says ${this.text}!</div>` : '';
+  buildContent() {
+    return `<div class="${styles.content}">${this.title} says ${this.text}!</div>`;
   }
 
-  getFooter() {
+  buildFooter() {
     return `<div class="${styles.footer}">v${this.version} (${this.environment})</div>`;
+  }
+
+  render() {
+    const element = document.getElementById(this.rootId);
+    if (element) {
+      element.innerHTML = `<div>${this.text ? this.buildContent() : ''}${this.buildFooter()}</div>`;
+    }
   }
 }

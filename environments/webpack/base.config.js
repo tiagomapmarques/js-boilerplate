@@ -20,7 +20,7 @@ export const baseConfig = {
     new FaviconsWebpackPlugin(faviconConfig),
   ],
   resolve: {
-    extensions: ['.vue', '.js', '.scss', '.html'],
+    extensions: ['.js', '.scss', '.html'],
     modules: [
       paths.appAbsolute,
       'node_modules',

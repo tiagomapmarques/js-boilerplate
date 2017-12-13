@@ -21,13 +21,13 @@ Quick start (docker):
 ## Flavors
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
-| `develop` | - | vanilla javascript project | - | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| `typescript` | `develop` | vanilla typescript project | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`develop`](https://github.com/tiagomapmarques/js-boilerplate) | - | vanilla javascript project | - | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`typescript`](https://github.com/tiagomapmarques/js-boilerplate/tree/typescript) | `develop` | vanilla typescript project | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `electron` | `develop` | vanilla javascript electron project | TBD | - |
-| `jquery` | `develop` | base for frontend app using jquery | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| `vue` | `develop` | base for frontend app using vue | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`jquery`](https://github.com/tiagomapmarques/js-boilerplate/tree/jquery) | `develop` | base for frontend app using jquery | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`vue`](https://github.com/tiagomapmarques/js-boilerplate/tree/vue) | `develop` | base for frontend app using vue | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `vue-app` | `vue` | proposed structure and base libs for a vue pwa | WIP | - |
-| `react` | `develop` | base for frontend app using react | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`react`](https://github.com/tiagomapmarques/js-boilerplate/tree/react) | `develop` | base for frontend app using react | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `react-app` | `react` | proposed structure and base libs for a react pwa | TBD | - |
 | `inferno` | `react` | base for frontend app using inferno | TBD | - |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |

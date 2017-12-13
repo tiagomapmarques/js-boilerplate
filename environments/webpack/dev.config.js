@@ -2,8 +2,8 @@ import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 
 import { environments } from '../';
-import { variables } from '../variables';
-import { faviconConfigAll } from './builders/favicon-config';
+import { getVariables } from '../variables';
+import { faviconConfigAll } from './builders';
 import { baseConfig } from './base.config';
 
 export const devConfig = {
@@ -12,6 +12,6 @@ export const devConfig = {
   plugins: [
     ...(baseConfig.plugins || []),
     new FaviconsWebpackPlugin(faviconConfigAll),
-    new ExtendedDefinePlugin(variables(environments.dev)),
+    new ExtendedDefinePlugin(getVariables(environments.dev)),
   ],
 };

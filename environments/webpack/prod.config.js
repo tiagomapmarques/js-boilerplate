@@ -5,10 +5,8 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
 import { environments } from '../';
-import { variables } from '../variables';
-import { rulesMinified as rules } from './builders/rules';
-import { pageConfigMinified } from './builders/page-config';
-import { faviconConfigAll } from './builders/favicon-config';
+import { getVariables } from '../variables';
+import { rulesMinified as rules, pageConfigMinified, faviconConfigAll } from './builders';
 import { baseConfig } from './base.config';
 
 export const prodConfig = {
@@ -19,7 +17,7 @@ export const prodConfig = {
     ...(baseConfig.plugins || []),
     new HtmlWebpackPlugin(pageConfigMinified),
     new FaviconsWebpackPlugin(faviconConfigAll),
-    new ExtendedDefinePlugin(variables(environments.prod)),
+    new ExtendedDefinePlugin(getVariables(environments.prod)),
     new webpack.optimize.UglifyJsPlugin({ comments: false }),
     new CompressionPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

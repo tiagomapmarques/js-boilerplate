@@ -1,106 +1,88 @@
 import { HomeComponent } from './';
+import styles from './home.style';
+
+jest.mock('./home.style', () => mockStyle(require.requireActual('./home.style')));
 
 describe('HomeComponent', () => {
-  const rootId = 'mock-app-id';
-  const sampleDataUrl = '/assets/sample.json';
+  const mockRootId = 'mock-app-id';
+  const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
   const sampleData = {
-    console: 'mock console data',
-    page: 'mock page data',
+    text: 'Mock Content',
   };
   let component;
 
-  mockConsole();
-
   beforeEach(() => {
-    component = new HomeComponent(rootId);
+    component = new HomeComponent(mockRootId);
   });
 
-  const getElementHTML = () => {
-    const element = document.getElementById(rootId);
-    return element ? element.innerHTML : document.body.innerHTML;
+  const createComponent = done => component.init().then(done).catch();
+
+  const querySelector = (selector) => {
+    const classes = document.getElementsByClassName(selector);
+    return (classes && classes.length) ? classes[0] : null;
   };
 
   describe('when no errors occur', () => {
-    createElement(document.body, 'div', { id: rootId });
+    createElement(document.body, 'div', { id: mockRootId });
 
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
+      createComponent(done);
     });
 
     afterEach(() => {
       fetch.resetMocks();
     });
 
-    it('calls fetch with the correct path', () => {
+    it('fetches data from the correct url', () => {
       expect(fetch.mock.calls).toHaveLength(1);
       expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
     });
 
-    it('sets the page data correctly', () => {
-      expect(getElementHTML()).toBe(sampleData.page);
+    it('shows the page content', () => {
+      expect(querySelector(styles.content).innerHTML.trim())
+        .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+    it('shows the footer', () => {
+      expect(querySelector(styles.footer).innerHTML.trim())
+        .toBe(`v${VARIABLES.VERSION} (${VARIABLES.ENVIRONMENT})`);
     });
   });
 
-  const responseErrors = [403, 404, 500];
-
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
-      createElement(document.body, 'div', { id: rootId });
+      createElement(document.body, 'div', { id: mockRootId });
 
       beforeEach((done) => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });
-        component.init().then(done).catch();
+        createComponent(done);
       });
 
       afterEach(() => {
         fetch.resetMocks();
       });
 
-      it('does not set anything on the page', () => {
-        expect(getElementHTML()).toBe('');
-      });
-
-      it('does not log anything to the console', () => {
-        // eslint-disable-next-line no-console
-        expect(console.log.mock.calls).toHaveLength(0);
+      it('does not show the page content', () => {
+        expect(querySelector(styles.content)).toBe(null);
       });
     });
   };
 
-  responseErrors.forEach(testResponseStatus);
+  [403, 404, 500].forEach(testResponseStatus);
 
   describe('when no root element exists', () => {
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
-      component.init().then(done).catch();
+      createComponent(done);
     });
 
     afterEach(() => {
       fetch.resetMocks();
     });
 
-    it('calls fetch with the correct path', () => {
-      expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
-    });
-
-    it('does not set anything on the page', () => {
-      expect(getElementHTML()).toBe('');
-    });
-
-    it('logs the console data', () => {
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls).toHaveLength(1);
-      // eslint-disable-next-line no-console
-      expect(console.log.mock.calls[0]).toEqual([sampleData.console]);
+    it('does not show the page content', () => {
+      expect(querySelector(styles.content)).toBe(null);
     });
   });
 });

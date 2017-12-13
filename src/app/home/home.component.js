@@ -1,8 +1,8 @@
+import styles from './home.style';
 
-const DATA_URL = `${ENVIRONMENT.SERVICES.ASSETS}sample.json`;
+const DATA_URL = `${VARIABLES.SERVICES.ASSETS}sample.json`;
 const EMPTY_DATA = {
-  console: '',
-  page: '',
+  text: '',
 };
 
 const getSampleData = () => fetch(DATA_URL)
@@ -15,25 +15,40 @@ const getSampleData = () => fetch(DATA_URL)
   .catch(() => EMPTY_DATA);
 
 export class HomeComponent {
-  appId;
+  environment = VARIABLES.ENVIRONMENT;
+  version = VARIABLES.VERSION;
+  title = VARIABLES.TITLE;
+  rootId;
+  text;
 
   constructor(id) {
-    this.appId = id;
-    this.buildPage = this.buildPage.bind(this);
+    this.rootId = id;
+    this.text = '';
+    this.handleData = this.handleData.bind(this);
   }
 
   init() {
-    return getSampleData().then(this.buildPage);
+    this.render();
+    return getSampleData().then(this.handleData);
   }
 
-  buildPage(data) {
-    const element = document.getElementById(this.appId);
+  handleData({ text }) {
+    this.text = text;
+    this.render();
+  }
+
+  buildContent() {
+    return `<div class="${styles.content}">${this.title} says ${this.text}!</div>`;
+  }
+
+  buildFooter() {
+    return `<div class="${styles.footer}">v${this.version} (${this.environment})</div>`;
+  }
+
+  render() {
+    const element = document.getElementById(this.rootId);
     if (element) {
-      element.innerHTML = data.page;
-    }
-    if (data.console) {
-      // eslint-disable-next-line no-console
-      console.log(data.console);
+      element.innerHTML = `<div>${this.text ? this.buildContent() : ''}${this.buildFooter()}</div>`;
     }
   }
 }

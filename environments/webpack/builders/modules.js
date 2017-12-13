@@ -6,8 +6,11 @@ const vendorExclusions = {
 };
 
 const vendor = vendorPackages(vendorExclusions);
-// eslint-disable-next-line no-console
-console.log('vendor packages:', vendor);
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log('vendor packages:', vendor);
+}
 
 export const modules = {
   entries: {

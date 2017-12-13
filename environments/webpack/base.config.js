@@ -2,11 +2,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { paths } from './builders/paths';
-import { rules } from './builders/rules';
-import { modules } from './builders/modules';
-import { pageConfig } from './builders/page-config';
-import { faviconConfig } from './builders/favicon-config';
+import { paths, rules, modules, pageConfig, faviconConfig } from './builders';
 
 export const baseConfig = {
   context: paths.appAbsolute,

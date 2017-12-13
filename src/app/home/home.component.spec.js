@@ -7,7 +7,7 @@ describe('HomeComponent', () => {
   const mockRootId = 'mock-app-id';
   const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
   const sampleData = {
-    text: 'Mock Text',
+    text: 'Mock Content',
   };
   let component;
 

@@ -9,7 +9,7 @@ const webpackConfigs = {
   prod: prodConfig,
 };
 
-export const getConfig = requestedEnv => ({
-  environment: environments[requestedEnv],
-  config: webpackConfigs[requestedEnv],
-});
+export const webpackInit = (requestedEnv) => {
+  process.env.NODE_ENV = environments[requestedEnv];
+  return webpackConfigs[requestedEnv];
+};

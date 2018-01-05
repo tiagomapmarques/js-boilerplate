@@ -65,9 +65,7 @@ The following are the base commands for this application (`npm run`):
   - `:coverage` deletes the `coverage` folder
   - `:generated` deletes the `public` folder
   - `:packages` deletes the `node_modules` folder
-- `packages` diffs your list of dependencies on `package.json` with the ones
-available on `npmjs.org` and updates them (on `package.json` only)
-  - `:reset` removes `package-lock.json` file and performs `clean:packages`
+- `reset` removes `package-lock.json` and performs `clean:packages`
 - `lint` lints your code and style according to the rules on `.eslintrc.json`
 and `.stylelintrc.json` files (which extend `airbnb-base` and
 `stylelint-config-standard` rules, respectively)

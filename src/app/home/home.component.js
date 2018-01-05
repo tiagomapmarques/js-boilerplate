@@ -42,7 +42,7 @@ export class HomeComponent {
   }
 
   buildFooter() {
-    return `<div class="${styles.footer}">v${this.version} (${this.environment})</div>`;
+    return `<div class="${styles.footer}">v${this.version}-${this.environment}</div>`;
   }
 
   render() {

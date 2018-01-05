@@ -37,6 +37,26 @@ be used when testing the application. Inside the `src` folder, you'll find 3
 folders that contain these types of code/information respectively. They are (1)
 `app`, (2) `static` and (3) `testing`.
 
+## Dependencies
+All project dependencies are to be written as `~MAJOR.MINOR`. Patch versioning
+is only acceptable where an incompatibility or breaking change exists between
+two patch versions.
+
+### Example 1
+Project needs `webpack` which is in version `3.9.1`.
+
+In the `package.json` file the dependency must be written as `"webpack": "~3.9"`
+so that any and all patches/bugfixes to `3.9` are applied to the project
+(`3.9.1`, `3.9.2`, ...) but no (possible) breaking changes (`3.10.0`) are added
+automatically.
+
+### Example 2
+Project needs at least `webpack` `3.9.1` due to an impactful bugfix on that
+specific patch version.
+
+In the `package.json` file the dependency must be written as
+`"webpack": "~3.9 >=3.9.1"` for the same reasons described above.
+
 ## Code
 
 ### Structure

@@ -46,7 +46,7 @@ describe('HomeComponent', () => {
 
     it('shows the footer', () => {
       expect(querySelector(styles.footer).innerHTML.trim())
-        .toBe(`v${VARIABLES.VERSION} (${VARIABLES.ENVIRONMENT})`);
+        .toBe(`v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`);
     });
   });
 

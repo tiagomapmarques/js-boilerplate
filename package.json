@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -31,8 +31,7 @@
     "lint": "npm run lint:code && npm run lint:style",
     "lint:code": "eslint --config .eslintrc.json .",
     "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc.json",
-    "packages": "ncu -u",
-    "packages:reset": "rimraf package-lock.json && npm run clean:packages",
+    "reset": "rimraf package-lock.json && npm run clean:packages",
     "serve": "ws --directory public --spa index.html --log.format dev",
     "serve:secure": "ws --directory public --spa index.html --log.format dev --https",
     "start": "npm run build && npm run serve",
@@ -47,7 +46,7 @@
     "babel-preset-env": "~1.6",
     "babel-preset-stage-2": "~6.24",
     "browser-polyfills": "~1.1",
-    "compression-webpack-plugin": "~1.0",
+    "compression-webpack-plugin": "~1.1",
     "copyfiles": "~1.2",
     "css-loader": "~0.28",
     "extended-define-webpack-plugin": "~0.1",
@@ -65,19 +64,18 @@
     "webpack": "~3.10"
   },
   "devDependencies": {
-    "babel-eslint": "~8.0",
+    "babel-eslint": "~8.1",
     "babel-jest": "~21.2",
-    "eslint": "~4.13",
+    "eslint": "~4.14",
     "eslint-config-airbnb-base": "~12.1",
     "eslint-import-resolver-babel-module": "~4.0",
     "eslint-plugin-import": "~2.8",
-    "eslint-plugin-jest": "~21.4",
+    "eslint-plugin-jest": "~21.5",
     "jest": "~21.2",
     "jest-css-modules-transform": "~1.0",
     "jest-fetch-mock": "~1.4",
     "local-web-server": "~2.3",
-    "npm-check-updates": "~2.13",
-    "stylelint": "~8.3",
+    "stylelint": "~8.4",
     "stylelint-config-standard": "~18.0",
     "webpack-livereload-plugin": "~1.0"
   }

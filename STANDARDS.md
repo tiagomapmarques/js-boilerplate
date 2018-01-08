@@ -11,8 +11,7 @@ easy to lose your way after a while (or in a team).
 
 ## Folder Structure
 All configuration files live outside of any folders, in the root of the project
-to avoid pathing conflicts of any kind. (Only acceptable exception is CircleCI
-version 2 config file, due to their lack of documentation on the matter).
+to avoid pathing conflicts of any kind.
 
 Any configuration that is environment- or IDE-specific is not to be included in
 the repository as it is the responsibility/choice of each developer. This

@@ -15,7 +15,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "assets:copy": "ncp src/static public && rimraf public/**/.*",
+    "assets:copy": "ncp src/static public && rimraf public/**/.??*",
     "assets:reset": "npm run clean:generated && npm run assets:copy",
     "build": "npm run build:local",
     "build:dev": "npm run assets:reset && webpack --progress --bail --env dev",

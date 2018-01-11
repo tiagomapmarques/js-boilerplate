@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -15,7 +15,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "assets:copy": "copyfiles -u 2 ./src/static/* ./public/ && copyfiles -u 3 ./src/static/assets/* ./public/assets/",
+    "assets:copy": "ncp src/static public && rimraf public/**/.??*",
     "assets:reset": "npm run clean:generated && npm run assets:copy",
     "build": "npm run build:local",
     "build:dev": "npm run assets:reset && webpack --progress --bail --env dev",
@@ -25,9 +25,9 @@
     "build:prod": "npm run assets:reset && webpack --progress --bail --env prod",
     "build:prod:watch": "npm run assets:reset && webpack --progress --bail --env prod --watch",
     "clean": "npm run clean:coverage && npm run clean:generated && npm run clean:packages",
-    "clean:coverage": "rimraf ./coverage",
-    "clean:generated": "rimraf ./public",
-    "clean:packages": "echo ==== IGNORE THIS NEXT ERROR ==== && rimraf ./node_modules",
+    "clean:coverage": "rimraf coverage",
+    "clean:generated": "rimraf public",
+    "clean:packages": "echo ==== IGNORE THIS NEXT ERROR ==== && rimraf node_modules",
     "lint": "npm run lint:code && npm run lint:style",
     "lint:code": "eslint --config .eslintrc.json .",
     "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc.json",
@@ -47,7 +47,6 @@
     "babel-preset-stage-2": "~6.24",
     "browser-polyfills": "~1.1",
     "compression-webpack-plugin": "~1.1",
-    "copyfiles": "~1.2",
     "css-loader": "~0.28",
     "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",
@@ -55,6 +54,7 @@
     "html-loader": "~0.5",
     "html-webpack-plugin": "~2.30",
     "load-entry": "~1.0",
+    "ncp": "~2.0",
     "node-sass": "~4.7",
     "path": "~0.12",
     "project-packages-filters": "~1.1",
@@ -64,13 +64,13 @@
     "webpack": "~3.10"
   },
   "devDependencies": {
-    "babel-eslint": "~8.1",
+    "babel-eslint": "~8.2",
     "babel-jest": "~21.2",
     "eslint": "~4.15",
     "eslint-config-airbnb-base": "~12.1",
     "eslint-import-resolver-babel-module": "~4.0",
     "eslint-plugin-import": "~2.8",
-    "eslint-plugin-jest": "~21.5",
+    "eslint-plugin-jest": "~21.6",
     "jest": "~21.2",
     "jest-css-modules-transform": "~1.0",
     "jest-fetch-mock": "~1.4",

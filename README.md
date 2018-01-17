@@ -26,13 +26,10 @@ Quick start (docker):
 | `electron` | `develop` | vanilla javascript electron project | TBD | - |
 | [`jquery`](https://github.com/tiagomapmarques/js-boilerplate/tree/jquery) | `develop` | base for frontend app using jquery | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | [`vue`](https://github.com/tiagomapmarques/js-boilerplate/tree/vue) | `develop` | base for frontend app using vue | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| `vue-app` | `vue` | proposed structure and base libs for a vue pwa | WIP | - |
 | [`react`](https://github.com/tiagomapmarques/js-boilerplate/tree/react) | `develop` | base for frontend app using react | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| `react-app` | `react` | proposed structure and base libs for a react pwa | TBD | - |
-| `inferno` | `react` | base for frontend app using inferno | TBD | - |
+| [`inferno`](https://github.com/tiagomapmarques/js-boilerplate/tree/inferno) | `react` | base for frontend app using inferno | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
-| `angular-app` | `angular` | proposed structure and base libs for an angular pwa | TBD | - |
 
 **Note**: `typescript` branch is made of 2 commits instead of one: one to rename
 `js` files to `ts` and the other to adapt the project to typescript - better for
@@ -94,6 +91,14 @@ take a look at it and implement it yourself on your project.
 
 Remember that the _flavor_ branches are just examples on how to implement and
 adapt this project to other languages/libraries/frameworks.
+
+### Examples
+| Project | Objective | Base version | Completion |
+| ------ | ------ | ------ | ------ |
+| [`weather-app-vue`](https://github.com/tiagomapmarques/weather-app-vue) | example of a vue pwa using this project | [`v0.7.5`](https://github.com/tiagomapmarques/js-boilerplate/tree/v0.7.5) | WIP |
+| `weather-app-react` | example of a react pwa using this project | TBD | TBD |
+| `weather-app-angular` | example of an angular pwa using this project | TBD | TBD |
+| `weather-app-react-electron` | example of a react desktop application using this project | TBD | TBD |
 
 ## Contributing
 Issues are welcome, either for identifying bugs or requesting features as long

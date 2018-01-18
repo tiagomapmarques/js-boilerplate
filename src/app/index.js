@@ -1,14 +1,13 @@
 import 'browser-polyfills';
 import loadEntry from 'load-entry';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import Inferno from 'inferno';
 
 import { HomeComponent } from 'app/home';
 
 import './index.style';
 
 export const indexEntry = () => {
-  ReactDOM.render(
+  Inferno.render(
     <HomeComponent />,
     document.getElementById('app'),
   );

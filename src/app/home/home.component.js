@@ -1,4 +1,5 @@
-import React from 'react';
+import Inferno from 'inferno';
+import Component from 'inferno-component';
 
 import styles from './home.style';
 
@@ -16,7 +17,7 @@ const getSampleData = () => fetch(DATA_URL)
   })
   .catch(() => EMPTY_DATA);
 
-export class HomeComponent extends React.Component {
+export class HomeComponent extends Component {
   constructor(props) {
     super(props);
     this.handleData = this.handleData.bind(this);

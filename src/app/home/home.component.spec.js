@@ -1,4 +1,4 @@
-import React from 'react';
+import Inferno from 'inferno';
 import { mount } from 'enzyme';
 
 import { HomeComponent } from './';

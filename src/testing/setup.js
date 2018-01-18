@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import 'raf/polyfill';
 import enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-inferno';
 import fetchMock from 'jest-fetch-mock';
 /* eslint-enable import/no-extraneous-dependencies */
 

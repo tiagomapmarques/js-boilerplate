@@ -1,6 +1,5 @@
 import loadEntry from 'load-entry';
-import React from 'react';
-import mockReactDOM from 'react-dom';
+import Inferno from 'inferno';
 
 import { HomeComponent } from 'app/home';
 
@@ -8,7 +7,13 @@ import { indexEntry } from './';
 
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 jest.mock('load-entry');
-jest.mock('react-dom');
+jest.mock('inferno', () => {
+  const realInferno = require.requireActual('inferno');
+  return {
+    ...realInferno,
+    render: jest.fn(realInferno.render),
+  };
+});
 
 jest.mock('app/home');
 
@@ -20,7 +25,7 @@ describe('index', () => {
 
   afterEach(() => {
     MockComponent.mockClear();
-    mockReactDOM.render.mockClear();
+    Inferno.render.mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -40,15 +45,15 @@ describe('index', () => {
     });
 
     it('calls the renderer', () => {
-      expect(mockReactDOM.render.mock.calls).toHaveLength(1);
+      expect(Inferno.render.mock.calls).toHaveLength(1);
     });
 
     it('creates the component on the root element', () => {
-      expect(mockReactDOM.render.mock.calls[0][1].id).toEqual(rootId);
+      expect(Inferno.render.mock.calls[0][1].id).toEqual(rootId);
     });
 
     it('renders the correct component', () => {
-      expect(mockReactDOM.render.mock.calls[0][0].type).toEqual(<MockComponent />.type);
+      expect(Inferno.render.mock.calls[0][0].type).toEqual(<MockComponent />.type);
     });
   });
 });

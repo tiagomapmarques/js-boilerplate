@@ -6,8 +6,6 @@ jobs:
       - image: node:8
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: "Install dependencies"
           command: npm install
@@ -22,8 +20,6 @@ jobs:
       - NODE_ENV: "production"
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-prod-{{ checksum "package.json" }}
       - run:
           name: "Install production dependencies"
           command: npm install

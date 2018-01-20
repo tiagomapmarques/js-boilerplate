@@ -9,5 +9,4 @@
   - [ ] read the [standards](STANDARDS.md), [contributing](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md) guidelines
 
 **Description and comments**
-
 _TODO_

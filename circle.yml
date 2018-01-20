@@ -6,13 +6,25 @@ jobs:
       - image: node:8
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: "Install dependencies"
           command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  install-prod:
+    docker:
+      - image: node:8
+    environment:
+      - NODE_ENV: "production"
+    steps:
+      - checkout
+      - run:
+          name: "Install production dependencies"
+          command: npm install
+      - save_cache:
+          key: dependency-prod-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
   test:
@@ -60,10 +72,12 @@ jobs:
   build-prod:
     docker:
       - image: node:8
+    environment:
+      - NODE_ENV: "production"
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-prod-cache-{{ checksum "package.json" }}
       - run:
           name: "Build Production"
           command: npm run build:prod
@@ -73,6 +87,7 @@ workflows:
   test-and-build:
     jobs:
       - install
+      - install-prod
       - test:
           requires:
             - install
@@ -89,5 +104,4 @@ workflows:
             - lint
       - build-prod:
           requires:
-            - test
-            - lint
+            - install-prod

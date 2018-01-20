@@ -6,7 +6,7 @@ import { environments } from '../';
 import { getVariables } from '../variables';
 import { baseConfig } from './base.config';
 
-export const localConfig = {
+export const config = {
   ...baseConfig,
   devtool: 'cheap-module-source-map',
   plugins: [

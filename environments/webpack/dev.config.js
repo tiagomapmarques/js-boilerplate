@@ -6,7 +6,7 @@ import { getVariables } from '../variables';
 import { faviconConfigAll } from './builders';
 import { baseConfig } from './base.config';
 
-export const devConfig = {
+export const config = {
   ...baseConfig,
   devtool: 'cheap-module-source-map',
   plugins: [

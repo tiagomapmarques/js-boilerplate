@@ -5,7 +5,9 @@ only one commit long so you can easily diff them and see how to properly set up
 each of them.
 
 All standards and decisions made regarding this project, its implementation and
-maintainability are **[documented here](STANDARDS.md)**.
+maintainability are **[documented here](STANDARDS.md)**. Remember to read it
+along with the **[contributing](CONTRIBUTING.md)** and
+**[code of conduct](CODE_OF_CONDUCT.md)** guidelines.
 
 Dependencies:
 - `node` >= 8
@@ -99,8 +101,3 @@ adapt this project to other languages/libraries/frameworks.
 | `weather-app-react` | example of a react pwa using this project | TBD | TBD |
 | `weather-app-angular` | example of an angular pwa using this project | TBD | TBD |
 | `weather-app-react-electron` | example of a react desktop application using this project | TBD | TBD |
-
-## Contributing
-Issues are welcome, either for identifying bugs or requesting features as long
-as they make sense considering the scope of the project and the feasibility of
-its implementation on the different _flavors_.

@@ -9,7 +9,7 @@ import { getVariables } from '../variables';
 import { rulesMinified as rules, pageConfigMinified, faviconConfigAll } from './builders';
 import { baseConfig } from './base.config';
 
-export const prodConfig = {
+export const config = {
   ...baseConfig,
   devtool: false,
   module: { rules },

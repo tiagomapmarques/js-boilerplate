@@ -157,3 +157,6 @@ cannot majorly impact the unit tests.
 Anything lower than 100% test coverage is not acceptable. If a component or
 module cannot be fully tested, then it should be refactored - testability is a
 measurement of code maintainability.
+
+[link-eslint-issue]: https://github.com/benmosher/eslint-plugin-import/issues/889
+[link-eslint-pr]: https://github.com/benmosher/eslint-plugin-import/pull/936

@@ -51,7 +51,6 @@
     "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",
     "file-loader": "~1.1",
-    "html-loader": "~0.5",
     "html-webpack-plugin": "~2.30",
     "load-entry": "~1.0",
     "ncp": "~2.0",

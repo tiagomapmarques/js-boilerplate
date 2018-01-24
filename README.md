@@ -60,11 +60,11 @@ according to the general needs of each one. They are:
 
 ## Tooling
 The following are the base commands for this application (`npm run`):
-- `clean` performs the 3 commands listed below
+- `clean` performs `:coverage`, `:generated` and `:packages`
   - `:coverage` deletes the `coverage` folder
   - `:generated` deletes the `public` folder
   - `:packages` deletes the `node_modules` folder
-- `reset` removes `package-lock.json` and performs `clean:packages`
+  - `:reset` removes `package-lock.json` and performs `clean`
 - `lint` lints your code and style according to the rules on `.eslintrc.json`
 and `.stylelintrc.json` files (which extend `airbnb-base` and
 `stylelint-config-standard` rules, respectively)

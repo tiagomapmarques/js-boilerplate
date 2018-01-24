@@ -1,10 +1,11 @@
-import { page } from '../webpack/builders';
+import { environments } from '../';
+import { pageConfig } from '../webpack/settings';
 import { packageJson } from './package-json';
 
-export const devEnvironment = {
-  ENVIRONMENT: 'development',
+export const env = {
+  ENVIRONMENT: environments.dev,
   VERSION: packageJson.version,
-  TITLE: page.title,
+  TITLE: pageConfig.title,
   SERVICES: {
     ASSETS: '/assets/',
   },

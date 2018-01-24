@@ -1,10 +1,11 @@
-import { page } from '../webpack/builders';
+import { environments } from '../';
+import { pageConfig } from '../webpack/settings';
 import { packageJson } from './package-json';
 
-export const localEnvironment = {
-  ENVIRONMENT: 'local',
+export const env = {
+  ENVIRONMENT: environments.local,
   VERSION: packageJson.version,
-  TITLE: page.title,
+  TITLE: pageConfig.title,
   SERVICES: {
     ASSETS: '/assets/',
   },

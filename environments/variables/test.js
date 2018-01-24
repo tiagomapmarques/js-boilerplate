@@ -1,6 +1,6 @@
 import { packageJson } from './package-json';
 
-export const testEnvironment = {
+export const env = {
   ENVIRONMENT: 'test',
   VERSION: packageJson.version,
   TITLE: 'MockTitle',

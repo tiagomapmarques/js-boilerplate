@@ -3,7 +3,7 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 
 import { environments } from '../';
 import { getVariables } from '../variables';
-import { faviconConfigAll } from './builders';
+import { favicon } from './settings';
 import { baseConfig } from './base.config';
 
 export const config = {
@@ -11,7 +11,7 @@ export const config = {
   devtool: 'cheap-module-source-map',
   plugins: [
     ...(baseConfig.plugins || []),
-    new FaviconsWebpackPlugin(faviconConfigAll),
+    new FaviconsWebpackPlugin(favicon.all),
     new ExtendedDefinePlugin(getVariables(environments.dev)),
   ],
 };

@@ -2,22 +2,22 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { paths, rules, modules, pageConfig, faviconConfig } from './builders';
+import { app, paths, rules, page, favicon } from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,
   devtool: 'eval',
-  entry: modules.entries,
-  module: { rules },
+  entry: app.entries,
+  module: { rules: rules.pretty },
   output: {
     path: paths.buildAbsolute,
-    filename: modules.output,
+    filename: app.output,
     publicPath: '/build',
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(modules.chunkOverrides),
-    new HtmlWebpackPlugin(pageConfig),
-    new FaviconsWebpackPlugin(faviconConfig),
+    new webpack.optimize.CommonsChunkPlugin(app.chunkOverrides),
+    new HtmlWebpackPlugin(page.pretty),
+    new FaviconsWebpackPlugin(favicon.minimum),
   ],
   resolve: {
     extensions: ['.js', '.scss', '.html'],

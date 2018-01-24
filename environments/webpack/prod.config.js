@@ -6,17 +6,17 @@ import CompressionPlugin from 'compression-webpack-plugin';
 
 import { environments } from '../';
 import { getVariables } from '../variables';
-import { rulesMinified as rules, pageConfigMinified, faviconConfigAll } from './builders';
+import { rules, page, favicon } from './settings';
 import { baseConfig } from './base.config';
 
 export const config = {
   ...baseConfig,
   devtool: false,
-  module: { rules },
+  module: { rules: rules.minified },
   plugins: [
     ...(baseConfig.plugins || []),
-    new HtmlWebpackPlugin(pageConfigMinified),
-    new FaviconsWebpackPlugin(faviconConfigAll),
+    new HtmlWebpackPlugin(page.minified),
+    new FaviconsWebpackPlugin(favicon.all),
     new ExtendedDefinePlugin(getVariables(environments.prod)),
     new webpack.optimize.UglifyJsPlugin({ comments: false }),
     new CompressionPlugin(),

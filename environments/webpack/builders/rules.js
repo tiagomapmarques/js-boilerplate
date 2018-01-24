@@ -23,7 +23,7 @@ const buildRules = minify => ([
     use: styleLoaders(minify),
   },
   {
-    test: /\.(html|json|png|jpg|gif|svg|woff|woff2)$/,
+    test: /\.(json|png|jpg|gif|svg|woff|woff2)$/,
     use: 'file-loader',
   },
 ]);

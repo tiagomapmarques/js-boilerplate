@@ -1,4 +1,4 @@
-# Js Boilerplate &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd)
+# Js Boilerplate &middot; ![ci-status][ci-develop]
 This is a boilerplate for any frontend project. Below you can find a list of
 _flavors_, derived from the original `develop` branch. Each _flavor_ will be
 only one commit long so you can easily diff them and see how to properly set up
@@ -23,13 +23,13 @@ Quick start (docker):
 ## Flavors
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
-| [`develop`](https://github.com/tiagomapmarques/js-boilerplate) | - | vanilla javascript project | - | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| [`typescript`](https://github.com/tiagomapmarques/js-boilerplate/tree/typescript) | `develop` | vanilla typescript project | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`develop`][link-develop] | - | vanilla javascript project | - | ![ci-develop][ci-develop] |
+| [`typescript`][link-typescript] | `develop` | vanilla typescript project | done | ![ci-typescript][ci-typescript] |
 | `electron` | `develop` | vanilla javascript electron project | TBD | - |
-| [`jquery`](https://github.com/tiagomapmarques/js-boilerplate/tree/jquery) | `develop` | base for frontend app using jquery | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| [`vue`](https://github.com/tiagomapmarques/js-boilerplate/tree/vue) | `develop` | base for frontend app using vue | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| [`react`](https://github.com/tiagomapmarques/js-boilerplate/tree/react) | `develop` | base for frontend app using react | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
-| [`inferno`](https://github.com/tiagomapmarques/js-boilerplate/tree/inferno) | `react` | base for frontend app using inferno | done | ![CircleCI Status](https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd) |
+| [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
+| [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
+| [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
+| [`inferno`][link-inferno] | `react` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
 
@@ -97,7 +97,28 @@ adapt this project to other languages/libraries/frameworks.
 ### Examples
 | Project | Objective | Base version | Completion |
 | ------ | ------ | ------ | ------ |
-| [`weather-app-vue`](https://github.com/tiagomapmarques/weather-app-vue) | example of a vue pwa using this project | [`v0.7.5`](https://github.com/tiagomapmarques/js-boilerplate/tree/v0.7.5) | WIP |
+| [`weather-app-vue`][link-app-vue] | example of a vue pwa using this project | [`v0.7.5`][version-beta1] | WIP |
 | `weather-app-react` | example of a react pwa using this project | TBD | TBD |
 | `weather-app-angular` | example of an angular pwa using this project | TBD | TBD |
 | `weather-app-react-electron` | example of a react desktop application using this project | TBD | TBD |
+
+[link-develop]: https://github.com/tiagomapmarques/js-boilerplate
+[link-typescript]: https://github.com/tiagomapmarques/js-boilerplate/tree/typescript
+[link-electron]: https://github.com/tiagomapmarques/js-boilerplate/tree/electron
+[link-jquery]: https://github.com/tiagomapmarques/js-boilerplate/tree/jquery
+[link-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/vue
+[link-react]: https://github.com/tiagomapmarques/js-boilerplate/tree/react
+[link-inferno]: https://github.com/tiagomapmarques/js-boilerplate/tree/inferno
+[link-aurelia]: https://github.com/tiagomapmarques/js-boilerplate/tree/aurelia
+[link-angular]: https://github.com/tiagomapmarques/js-boilerplate/tree/angular
+[link-app-vue]: https://github.com/tiagomapmarques/weather-app-vue
+[ci-develop]: https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-typescript]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-electron]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/electron.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-jquery]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-vue]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-react]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-inferno]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-aurelia]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/aurelia.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-angular]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/angular.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[version-beta1]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.7.5

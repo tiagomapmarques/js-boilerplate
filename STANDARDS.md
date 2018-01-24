@@ -110,8 +110,8 @@ No module or component is imported or exported through the `default` mechanism.
 Airbnb coding standards are intended for typical Js/node packages but they do
 not take into account the volatility of code, features, requirements and
 dependencies that a frontend project has to deal with. For more information on
-the subject, see https://github.com/benmosher/eslint-plugin-import/issues/889.
-If there needs to be a default import (for example due to a restriction of an
+the subject, see [this issue][link-eslint-issue] and [PR][link-eslint-pr]. If
+there needs to be a default import (for example due to a restriction of an
 external library), make sure there is also a matching named import in order to
 keep code consistency.
 

@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'test') {
   console.log('vendor packages:', vendor);
 }
 
-export const modules = {
+export const app = {
   entries: {
     app: 'index.js',
     vendor,

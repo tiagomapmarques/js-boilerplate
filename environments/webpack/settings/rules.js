@@ -13,7 +13,7 @@ const styleLoaders = minify => ([
   { loader: 'sass-loader' },
 ]);
 
-const buildRules = minify => ([
+const getRules = minify => ([
   {
     test: /\.js$/,
     use: 'babel-loader',
@@ -28,5 +28,7 @@ const buildRules = minify => ([
   },
 ]);
 
-export const rules = buildRules(false);
-export const rulesMinified = buildRules(true);
+export const rules = {
+  pretty: getRules(false),
+  minified: getRules(true),
+};

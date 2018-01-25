@@ -1,4 +1,4 @@
-import { packageJson } from '../package-json';
+import { packageJson } from 'environments/webpack/settings';
 
 export const env = {
   ENVIRONMENT: 'test',

@@ -6,7 +6,7 @@ import { app, paths, rules, page, favicon } from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,
-  devtool: 'eval',
+  devtool: 'cheap-module-source-map',
   entry: app.entries,
   module: { rules: rules.pretty },
   output: {

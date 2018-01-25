@@ -1,15 +1,18 @@
 # Standards and Decisions
+
 Disagree with something you saw in the project or the files and want to
 understand why? Just want to read up on my thoughts on Js/PWA development?
 Either way, you're in the right place.
 
 ## Preface
+
 When or if you consider forking/cloning the project and use it as a base for any
 project, you can (obviously) disregard/alter any of the standards written here.
 Just be sure to keep this file up-to-date with your own coding standards. It's
 easy to lose your way after a while (or in a team).
 
 ## Folder Structure
+
 All configuration files live outside of any folders, in the root of the project
 to avoid pathing conflicts of any kind.
 
@@ -37,11 +40,13 @@ folders that contain these types of code/information respectively. They are (1)
 `app`, (2) `static` and (3) `testing`.
 
 ## Dependencies
+
 All project dependencies are to be written as `~MAJOR.MINOR`. Patch versioning
 is only acceptable where an incompatibility or breaking change exists between
 two patch versions.
 
 ### Example 1
+
 Project needs `webpack` which is in version `3.9.1`.
 
 In the `package.json` file the dependency must be written as `"webpack": "~3.9"`
@@ -50,6 +55,7 @@ so that any and all patches/bugfixes to `3.9` are applied to the project
 automatically.
 
 ### Example 2
+
 Project needs at least `webpack` `3.9.1` due to an impactful bugfix on that
 specific patch version.
 
@@ -59,6 +65,7 @@ In the `package.json` file the dependency must be written as
 ## Code
 
 ### Structure
+
 Any module or submodule is contained inside its own folder. No other
 information, asset, module or component is to be included in that folder.
 
@@ -99,6 +106,7 @@ according to their relativeness or usefulness.
 ### Style/Standards
 
 #### Components and Modules
+
 All imports follow these rules:
   - Order is: packages first, then project modules, and local modules last.
 There is always a blank line separating these 3 types of imports
@@ -134,6 +142,7 @@ are to be written in PascalCase, objects and singletons in camelCase and
 constants in UPPER_SNAKE_CASE.
 
 #### Unit Tests
+
 Unit tests can generally be divided in 2 categories:
   - whitebox - for testing, for example, a service to fetch data from an API
   - blackbox - for testing, for example, a visual component of a web page

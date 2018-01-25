@@ -1,4 +1,4 @@
-import { packageJson } from '../../package-json';
+import { packageJson } from './package-json';
 import { paths } from './paths';
 
 export const pageConfig = {

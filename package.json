@@ -46,7 +46,6 @@
     "babel-preset-env": "~1.6",
     "babel-preset-stage-2": "~6.24",
     "browser-polyfills": "~1.3",
-    "compression-webpack-plugin": "~1.1",
     "css-loader": "~0.28",
     "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",

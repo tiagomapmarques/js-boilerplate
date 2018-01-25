@@ -16,9 +16,12 @@ Dependencies:
 Quick start:
 - `npm i`
 - `npm start`
+- visit `localhost:8000`
 
 Quick start (docker):
-- `docker-compose up`
+- `docker build . -t jsboilerplate`
+- `docker run -p 8000:80 -d jsboilerplate`
+- visit `localhost:8000`
 
 ## Flavors
 | Branch | Base Branch | Objective | Completion | Status |
@@ -55,7 +58,6 @@ according to the general needs of each one. They are:
 | Chunks | X | X | X |
 | All Favicons | - | X | X |
 | HTML/JS/CSS Minification | - | - | X |
-| File Compression (gzip) | - | - | X |
 | Fails on Build Error | - | - | X |
 
 ## Tooling

@@ -2,7 +2,6 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
-import CompressionPlugin from 'compression-webpack-plugin';
 
 import { environments } from 'environments';
 import { getVariables } from 'environments/variables';
@@ -20,7 +19,6 @@ export const config = {
     new FaviconsWebpackPlugin(favicon.all),
     new ExtendedDefinePlugin(getVariables(environments.prod)),
     new webpack.optimize.UglifyJsPlugin({ comments: false }),
-    new CompressionPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 };

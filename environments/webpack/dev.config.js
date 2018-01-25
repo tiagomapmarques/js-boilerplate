@@ -9,7 +9,6 @@ import { baseConfig } from './base.config';
 
 export const config = {
   ...baseConfig,
-  devtool: 'cheap-module-source-map',
   plugins: [
     ...(baseConfig.plugins || []),
     new FaviconsWebpackPlugin(favicon.all),

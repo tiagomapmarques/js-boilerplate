@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:1.13
 
 # install node 8 LTS
 RUN apt-get -qq update

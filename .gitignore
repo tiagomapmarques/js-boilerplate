@@ -11,6 +11,7 @@ node_modules
 .DS_Store
 Thumbs.db
 
-# IDEs
+# IDEs and Development
 .idea
 .editorconfig
+docker-compose.yml

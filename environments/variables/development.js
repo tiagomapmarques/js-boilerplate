@@ -1,6 +1,5 @@
-import { environments } from '../';
-import { packageJson } from '../package-json';
-import { pageConfig } from '../webpack/settings';
+import { environments } from 'environments';
+import { pageConfig, packageJson } from 'environments/webpack/settings';
 
 export const env = {
   ENVIRONMENT: environments.dev,

@@ -1,8 +1,9 @@
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 
-import { environments } from '../';
-import { getVariables } from '../variables';
+import { environments } from 'environments';
+import { getVariables } from 'environments/variables';
+
 import { favicon } from './settings';
 import { baseConfig } from './base.config';
 

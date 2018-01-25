@@ -1,4 +1,5 @@
 # Js Boilerplate &middot; ![ci-status][ci-develop]
+
 This is a boilerplate for any frontend project. Below you can find a list of
 _flavors_, derived from the original `develop` branch. Each _flavor_ will be
 only one commit long so you can easily diff them and see how to properly set up
@@ -24,6 +25,7 @@ Quick start (docker):
 - visit `localhost:8000`
 
 ## Flavors
+
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
 | [`develop`][link-develop] | - | vanilla javascript project | - | ![ci-develop][ci-develop] |
@@ -41,10 +43,12 @@ Quick start (docker):
 diffing.
 
 ## Compatibility
+
 - IE9+
 - Any evergreen browser (Chrome, Edge, FF, ...)
 
 ## Environments
+
 This project comes with 3 environments setup. Each environment has been setup
 according to the general needs of each one. They are:
 - Local: quick/local usage and debugging
@@ -61,6 +65,7 @@ according to the general needs of each one. They are:
 | Fails on Build Error | - | - | X |
 
 ## Tooling
+
 The following are the base commands for this application (`npm run`):
 - `clean` performs `:coverage`, `:generated` and `:packages`
   - `:coverage` deletes the `coverage` folder
@@ -85,6 +90,7 @@ The following commands are shortcuts only:
 - `npm run watch` = `npm run build:local:watch`
 
 ## Using the project
+
 The `develop` branch will be released incrementally (i.e. through PRs), but the
 _flavor_ branches will not. Their code will be updated/modified without
 notice on every release (and/or PR) of the project.
@@ -97,6 +103,7 @@ Remember that the _flavor_ branches are just examples on how to implement and
 adapt this project to other languages/libraries/frameworks.
 
 ### Examples
+
 | Project | Objective | Base version | Completion |
 | ------ | ------ | ------ | ------ |
 | [`weather-app-vue`][link-app-vue] | example of a vue pwa using this project | [`v0.7.5`][version-beta1] | WIP |

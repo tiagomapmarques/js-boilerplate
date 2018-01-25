@@ -19,7 +19,6 @@ const getPageConfig = minify => ({
   ...(minify ? {
     minify: {
       collapseWhitespace: true,
-      keepClosingSlash: true,
       minifyCSS: true,
       minifyJS: true,
       quoteCharacter: '"',

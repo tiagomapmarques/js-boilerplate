@@ -1,4 +1,5 @@
 # Contributing
+
 Issues are welcome, either for identifying bugs or requesting features as long
 as they make sense considering the scope of the project and the feasibility of
 its implementation on the different _flavors_.

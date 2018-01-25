@@ -55,7 +55,6 @@ according to the general needs of each one. They are:
 | Chunks | X | X | X |
 | All Favicons | - | X | X |
 | HTML/JS/CSS Minification | - | - | X |
-| File Compression (gzip) | - | - | X |
 | Fails on Build Error | - | - | X |
 
 ## Tooling

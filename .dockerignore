@@ -15,3 +15,6 @@ Thumbs.db
 .idea
 .editorconfig
 docker-compose.yml
+
+# Git folder
+.git

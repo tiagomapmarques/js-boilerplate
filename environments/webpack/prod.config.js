@@ -3,9 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 
-import { environments } from 'environments';
-import { getVariables } from 'environments/variables';
-
+import { environments } from '../';
+import { getVariables } from '../variables';
 import { rules, page, favicon } from './settings';
 import { baseConfig } from './base.config';
 

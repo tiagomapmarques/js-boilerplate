@@ -10,7 +10,7 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
-        "environments": "./environments",
+        "^environments$": "./environments/index.js",
         "app": "./src/app"
       }
     }]

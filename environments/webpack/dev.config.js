@@ -1,9 +1,10 @@
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
+import PrerenderSpaPlugin from 'prerender-spa-plugin';
 
 import { environments } from '../';
 import { getVariables } from '../variables';
-import { favicon } from './settings';
+import { app, favicon, paths } from './settings';
 import { baseConfig } from './base.config';
 
 export const config = {
@@ -12,5 +13,6 @@ export const config = {
     ...(baseConfig.plugins || []),
     new FaviconsWebpackPlugin(favicon.all),
     new ExtendedDefinePlugin(getVariables(environments.dev)),
+    new PrerenderSpaPlugin(paths.distAbsolute, app.routes),
   ],
 };

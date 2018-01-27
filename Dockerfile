@@ -18,10 +18,10 @@ ENV INSTALL_OPTIONS=--silent
 
 # configure and install dependencies
 WORKDIR ${WORK_DIR}
-COPY nginx.conf ${NGINX_CONF_DIR}
 COPY package*.json ./
 RUN export NODE_ENV=${NODE_ENV}
 RUN npm i ${INSTALL_OPTIONS}
+COPY nginx.conf ${NGINX_CONF_DIR}
 
 # copy and build project
 COPY . ./

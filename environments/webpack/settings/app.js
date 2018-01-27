@@ -1,7 +1,7 @@
 import { vendorPackages } from 'project-packages-filters';
 
 const vendorExclusions = {
-  literals: [],
+  literals: ['prerender-spa-plugin'],
   regex: [],
 };
 
@@ -13,13 +13,14 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 export const app = {
-  entries: {
+  chunks: {
     app: 'index.js',
     vendor,
   },
-  chunkOverrides: {
+  commonChunkOptions: {
     name: 'vendor',
     minChunks: Infinity,
   },
   output: '[name].js',
+  routes: ['/'],
 };

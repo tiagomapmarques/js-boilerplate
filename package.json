@@ -58,7 +58,7 @@
     "project-packages-filters": "~1.1",
     "rimraf": "~2.6",
     "sass-loader": "~6.0",
-    "style-loader": "~0.19",
+    "style-loader": "~0.20",
     "webpack": "~3.10"
   },
   "devDependencies": {
@@ -72,7 +72,7 @@
     "jest": "~22.1",
     "jest-css-modules-transform": "~1.0",
     "jest-fetch-mock": "~1.4",
-    "local-web-server": "~2.3",
+    "local-web-server": "~2.4",
     "stylelint": "~8.4",
     "stylelint-config-standard": "~18.0",
     "webpack-livereload-plugin": "~1.0"

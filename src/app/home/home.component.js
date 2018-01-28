@@ -17,12 +17,11 @@ const getSampleData = () => fetch(DATA_URL)
 export class HomeComponent {
   environment = VARIABLES.ENVIRONMENT;
   version = VARIABLES.VERSION;
+  rootId = VARIABLES.ROOTID;
   title = VARIABLES.TITLE;
-  rootId;
   text;
 
-  constructor(id) {
-    this.rootId = id;
+  constructor() {
     this.text = '';
     this.handleData = this.handleData.bind(this);
   }

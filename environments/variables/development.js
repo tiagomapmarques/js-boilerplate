@@ -6,6 +6,10 @@ export const env = {
   VERSION: project.version,
   ROOTID: page.rootId,
   TITLE: page.title,
+  DEFAULTS: {
+    LANGUAGE: 'en_US',
+    LANGUAGE_SHORT: 'en',
+  },
   SERVICES: {
     ASSETS: '/assets/',
   },

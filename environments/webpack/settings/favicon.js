@@ -1,9 +1,8 @@
-import { pageConfig } from './page';
-import { paths } from './paths';
+import { page, paths } from '../../config';
 
 const faviconConfig = {
   cache: false,
-  location: 'favicon',
+  location: 'favicon/',
   original: '.favicon.png',
   additionalVariants: [],
 };
@@ -27,9 +26,9 @@ const listToVariants = (variantArray, defaultValue) =>
   }), {});
 
 const getFaviconConfig = minify => ({
-  title: pageConfig.title,
+  title: page.title,
   logo: `${paths.staticAbsolute}/${faviconConfig.original}`,
-  prefix: `${faviconConfig.location}/`,
+  prefix: faviconConfig.location,
   persistentCache: faviconConfig.cache,
   icons: {
     favicons: true,

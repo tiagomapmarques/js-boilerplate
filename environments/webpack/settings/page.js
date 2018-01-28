@@ -1,22 +1,10 @@
-import { packageJson } from './package-json';
-import { paths } from './paths';
-
-export const pageConfig = {
-  title: 'Js Boilerplate',
-  description: packageJson.description,
-  keywords: packageJson.keywords.join(','),
-  author: packageJson.author,
-  copyright: 'https://raw.githubusercontent.com/tiagomapmarques/js-boilerplate/develop/LICENSE',
-  rootId: 'app',
-  template: '.index.ejs',
-  cache: false,
-};
+import { page as config, paths } from '../../config';
 
 const getPageConfig = minify => ({
-  ...pageConfig,
+  ...config,
   filename: `${paths.distAbsolute}/index.html`,
-  template: `${paths.staticAbsolute}/${pageConfig.template}`,
-  cache: pageConfig.cache,
+  template: `${paths.staticAbsolute}/${config.template}`,
+  cache: config.cache,
   ...(minify ? {
     minify: {
       collapseWhitespace: true,

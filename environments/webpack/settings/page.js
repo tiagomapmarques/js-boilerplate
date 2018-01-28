@@ -4,7 +4,7 @@ import { paths } from './paths';
 export const pageConfig = {
   title: 'Js Boilerplate',
   description: packageJson.description,
-  keywords: packageJson.keywords.reduce((collection, word) => `${collection},${word}`, '').substr(1),
+  keywords: packageJson.keywords.join(','),
   author: packageJson.author,
   copyright: 'https://raw.githubusercontent.com/tiagomapmarques/js-boilerplate/develop/LICENSE',
   rootId: 'app',

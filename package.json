@@ -55,6 +55,7 @@
     "ncp": "~2.0",
     "node-sass": "~4.7",
     "path": "~0.12",
+    "prerender-spa-plugin": "~2.1",
     "project-packages-filters": "~1.1",
     "rimraf": "~2.6",
     "sass-loader": "~6.0",

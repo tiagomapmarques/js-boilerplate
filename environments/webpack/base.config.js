@@ -2,12 +2,12 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
-import { app, paths, rules, page, favicon } from './settings';
+import { app, favicon, page, paths, rules } from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,
   devtool: 'cheap-module-source-map',
-  entry: app.entries,
+  entry: app.chunks,
   module: { rules: rules.pretty },
   output: {
     path: paths.buildAbsolute,
@@ -15,7 +15,7 @@ export const baseConfig = {
     publicPath: '/build',
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(app.chunkOverrides),
+    new webpack.optimize.CommonsChunkPlugin(app.commonChunkOptions),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
   ],

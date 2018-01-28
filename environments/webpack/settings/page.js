@@ -7,6 +7,7 @@ export const pageConfig = {
   keywords: packageJson.keywords.reduce((collection, word) => `${collection},${word}`, '').substr(1),
   author: packageJson.author,
   copyright: 'https://raw.githubusercontent.com/tiagomapmarques/js-boilerplate/develop/LICENSE',
+  rootId: 'app',
   template: '.index.ejs',
   cache: false,
 };

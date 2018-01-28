@@ -13,7 +13,6 @@ jest.mock('app/home', () => {
 });
 
 describe('index', () => {
-  const rootId = 'app';
   const MockComponent = HomeComponent;
   const MockComponentInit = MockComponent().init;
 
@@ -41,7 +40,7 @@ describe('index', () => {
     it('creates the component on the root element', () => {
       expect(MockComponent.mock.instances).toHaveLength(1);
       expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toEqual([rootId]);
+      expect(MockComponent.mock.calls[0]).toEqual([]);
     });
 
     it('renders the correct component', () => {

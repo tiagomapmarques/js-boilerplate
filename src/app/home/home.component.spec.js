@@ -4,7 +4,6 @@ import styles from './home.style';
 jest.mock('./home.style', () => mockStyle(require.requireActual('./home.style')));
 
 describe('HomeComponent', () => {
-  const mockRootId = 'mock-app-id';
   const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
   const sampleData = {
     text: 'Mock Content',
@@ -12,7 +11,7 @@ describe('HomeComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = new HomeComponent(mockRootId);
+    component = new HomeComponent();
   });
 
   const createComponent = done => component.init().then(done).catch();
@@ -23,7 +22,7 @@ describe('HomeComponent', () => {
   };
 
   describe('when no errors occur', () => {
-    createElement(document.body, 'div', { id: mockRootId });
+    createElement(document.body, 'div', { id: VARIABLES.ROOTID });
 
     beforeEach((done) => {
       fetch.mockResponse(JSON.stringify(sampleData));
@@ -52,7 +51,7 @@ describe('HomeComponent', () => {
 
   const testResponseStatus = (statusCode) => {
     describe(`when fetch returns a ${statusCode}`, () => {
-      createElement(document.body, 'div', { id: mockRootId });
+      createElement(document.body, 'div', { id: VARIABLES.ROOTID });
 
       beforeEach((done) => {
         fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });

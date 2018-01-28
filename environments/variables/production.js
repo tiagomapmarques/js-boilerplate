@@ -1,11 +1,11 @@
 import { environments } from '../';
-import { pageConfig, packageJson } from '../webpack/settings';
+import { page, project } from '../config';
 
 export const env = {
   ENVIRONMENT: environments.prod,
-  VERSION: packageJson.version,
-  ROOTID: pageConfig.rootId,
-  TITLE: pageConfig.title,
+  VERSION: project.version,
+  ROOTID: page.rootId,
+  TITLE: page.title,
   SERVICES: {
     ASSETS: '/assets/',
   },

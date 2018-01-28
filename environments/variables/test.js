@@ -1,8 +1,8 @@
-import { packageJson } from '../webpack/settings';
+import { project } from '../config';
 
 export const env = {
   ENVIRONMENT: 'test',
-  VERSION: packageJson.version,
+  VERSION: project.version,
   ROOTID: 'mock-root-id',
   TITLE: 'Mock Title',
   SERVICES: {

@@ -1,5 +1,4 @@
 import { project } from './project';
-import { paths } from './paths';
 
 export const page = {
   title: 'Js Boilerplate',

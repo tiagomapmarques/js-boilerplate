@@ -3,8 +3,9 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import PrerenderSpaPlugin from 'prerender-spa-plugin';
 
 import { environments } from '../';
+import { paths } from '../config';
 import { getVariables } from '../variables';
-import { app, favicon, paths } from './settings';
+import { app, favicon } from './settings';
 import { baseConfig } from './base.config';
 
 export const config = {

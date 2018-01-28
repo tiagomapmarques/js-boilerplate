@@ -1,7 +1,7 @@
 import { vendorPackages } from 'project-packages-filters';
 
 const vendorExclusions = {
-  literals: ['prerender-spa-plugin'],
+  literals: [],
   regex: [],
 };
 

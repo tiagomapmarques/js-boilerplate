@@ -107,7 +107,7 @@ adapt this project to other languages/libraries/frameworks.
 
 | Project | Objective | Base version | Completion |
 | ------ | ------ | ------ | ------ |
-| [`weather-app-vue`][link-app-vue] | example of a vue pwa using this project | [`v0.8.0`][version-beta2] | WIP |
+| [`weather-app-vue`][link-app-vue] | example of a vue pwa using this project | [`v0.9.2`][version-beta3] | WIP |
 | `weather-app-react` | example of a react pwa using this project | TBD | TBD |
 | `weather-app-angular` | example of an angular pwa using this project | TBD | TBD |
 | `weather-app-react-electron` | example of a react desktop application using this project | TBD | TBD |
@@ -133,3 +133,4 @@ adapt this project to other languages/libraries/frameworks.
 [ci-angular]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/angular.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [version-beta1]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.7.5
 [version-beta2]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.8.0
+[version-beta3]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.9.2

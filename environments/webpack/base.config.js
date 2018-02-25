@@ -1,9 +1,10 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 
 import { paths } from '../config';
-import { app, favicon, page, rules } from './settings';
+import { app, favicon, manifest, page, rules } from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,
@@ -19,6 +20,7 @@ export const baseConfig = {
     new webpack.optimize.CommonsChunkPlugin(app.commonChunkOptions),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
+    new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
     extensions: ['.js', '.scss', '.html'],

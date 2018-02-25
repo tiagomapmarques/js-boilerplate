@@ -30,7 +30,7 @@
     "clean:packages": "echo ==== IGNORE THIS NEXT ERROR ==== && rimraf node_modules",
     "clean:reset": "rimraf package-lock.json && npm run clean",
     "lint": "npm run lint:code && npm run lint:style && npm run lint:tests",
-    "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js --ignore-pattern src/testing/*.js .",
+    "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js --ignore-pattern src/testing/**/*.js .",
     "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc.json",
     "lint:tests": "eslint --config .eslintrc.spec.json .",
     "serve": "ws --directory public --spa index.html --log.format dev",

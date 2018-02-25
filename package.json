@@ -53,6 +53,7 @@
     "file-loader": "~1.1",
     "html-webpack-plugin": "~2.30",
     "load-entry": "~1.0",
+    "manifest-json-webpack-plugin": "~0.1",
     "ncp": "~2.0",
     "node-sass": "~4.7",
     "path": "~0.12",

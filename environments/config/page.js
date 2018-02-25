@@ -6,6 +6,8 @@ export const page = {
   keywords: project.keywords.join(','),
   author: project.author,
   copyright: 'https://raw.githubusercontent.com/tiagomapmarques/js-boilerplate/develop/LICENSE',
+  locale: 'en_GB',
+  localeShort: 'en',
   rootId: 'app',
   template: '.index.ejs',
   cache: false,

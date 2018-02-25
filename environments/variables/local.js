@@ -7,8 +7,8 @@ export const env = {
   ROOTID: page.rootId,
   TITLE: page.title,
   DEFAULTS: {
-    LANGUAGE: 'en_US',
-    LANGUAGE_SHORT: 'en',
+    LOCALE: page.locale,
+    LOCALE_SHORT: page.localeShort,
   },
   SERVICES: {
     ASSETS: '/assets/',

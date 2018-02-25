@@ -1,28 +1,20 @@
 {
   "env": {
-    "browser": true,
-    "jest/globals": true
+    "browser": true
   },
   "parser": "babel-eslint",
   "extends": "airbnb-base",
   "rules": {
     "import/no-unresolved": "\\.scss$",
     "import/prefer-default-export": "off",
-    "no-default-export": true /* FIXME "https://github.com/benmosher/eslint-plugin-import/pull/936" */
+    "import/no-default-export": "error"
   },
   "settings": {
     "import/resolver": {
       "babel-module": {}
     }
   },
-  "plugins": [
-    "jest"
-  ],
   "globals": {
-    "VARIABLES": true,
-    "createElement": true,
-    "mockConsole": true,
-    "mockStyle": true,
-    "TestImports": true
+    "VARIABLES": true
   }
 }

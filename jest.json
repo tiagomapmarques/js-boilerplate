@@ -16,7 +16,6 @@
       "statements": 100
     }
   },
-  "mapCoverage": true,
   "moduleFileExtensions": [
     "js",
     "scss"

@@ -1,4 +1,4 @@
 import { webpackInit } from './environments/webpack';
 
-// eslint-disable-next-line no-default-export
+// eslint-disable-next-line import/no-default-export
 export default webpackInit;

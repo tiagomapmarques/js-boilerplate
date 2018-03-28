@@ -1,26 +1,20 @@
-import { vendorPackages } from 'project-packages-filters';
-
-const vendorExclusions = {
-  literals: [],
-  regex: [],
-};
-
-const vendor = vendorPackages(vendorExclusions);
-
-if (process.env.NODE_ENV !== 'test') {
-  // eslint-disable-next-line no-console
-  console.log('vendor packages:', vendor);
-}
+import { paths } from '../../config';
 
 export const app = {
-  chunks: {
+  entryPoints: {
     app: 'index.js',
-    vendor,
   },
-  commonChunkOptions: {
+  commonChunk: {
+    test: /node_modules/,
     name: 'vendor',
-    minChunks: Infinity,
+    chunks: 'initial',
   },
   output: '[name].js',
-  routes: ['/'],
+  rendering: {
+    staticDir: paths.distAbsolute,
+    routes: ['/'],
+    server: {
+      port: 8001,
+    },
+  },
 };

@@ -62,7 +62,7 @@ according to the general needs of each one. They are:
 | Chunks | X | X | X |
 | All Favicons | - | X | X |
 | Pre-render | - | X | X |
-| HTML/JS/CSS Minification | - | - | X |
+| HTML/JS/CSS Minimisation | - | - | X |
 | Fails on Build Error | - | - | X |
 
 ## Tooling

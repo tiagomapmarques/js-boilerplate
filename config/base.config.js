@@ -2,8 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 
-import { paths } from '../config';
-import { app, favicon, manifest, page, rules } from './settings';
+import { app, favicon, manifest, page, paths, rules } from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,

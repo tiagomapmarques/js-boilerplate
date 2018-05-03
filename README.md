@@ -75,7 +75,7 @@ The following are the base commands for this application (`npm run`):
   - `:reset` removes `package-lock.json` and performs `clean`
 - `lint` lints your code and style according to the rules on `.eslintrc.json`
 and `.stylelintrc.json` files (which extend `airbnb-base` and
-`stylelint-config-standard` rules, respectively)
+`stylelint-config-recommended-scss` rules, respectively)
 - `test` runs the unit tests for the project (files ending with `.spec.js`)
   - `:watch` watches the test files and re-runs the tests on any file update
 - `build` runs `:local`

@@ -28,7 +28,7 @@ internal or external tools. Examples of these types of folders are: `coverage`
 (for code coverage collection), `node_modules` (obviously) and `public` (the
 generated assets folder).
 
-The `environments` folder contains any and all files pertaining to building and
+The `config` folder contains any and all files pertaining to building and
 configuring the environment for the application. This includes the build
 configuration for webpack (and its environments) and any environment-specific
 global runtime variables.

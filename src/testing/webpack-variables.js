@@ -1,4 +1,4 @@
-import { getVariables } from '../../environments/variables';
+import { getVariables } from '../../config/runtime';
 
 const { VARIABLES } = getVariables(process.env.NODE_ENV);
 

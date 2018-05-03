@@ -57,7 +57,7 @@
     "ncp": "~2.0",
     "node-sass": "~4.9",
     "path": "~0.12",
-    "prerender-spa-plugin": "~3.1",
+    "prerender-spa-plugin": "~2.1",
     "rimraf": "~2.6",
     "sass-loader": "~7.0",
     "style-loader": "~0.21",

@@ -13,6 +13,6 @@ export const config = {
     ...(baseConfig.plugins || []),
     new FaviconsWebpackPlugin(favicon.all),
     new ExtendedDefinePlugin(getVariables(environments.dev)),
-    new PrerenderSpaPlugin(app.rendering),
+    new PrerenderSpaPlugin(app.rendering.staticDir, app.rendering.routes),
   ],
 };

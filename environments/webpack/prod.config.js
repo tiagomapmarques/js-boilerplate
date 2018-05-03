@@ -25,7 +25,7 @@ export const config = {
     new FaviconsWebpackPlugin(favicon.all),
     new ManifestJsonWebpackPlugin(manifest.minified),
     new ExtendedDefinePlugin(getVariables(environments.prod)),
-    new PrerenderSpaPlugin(app.rendering),
+    new PrerenderSpaPlugin(app.rendering.staticDir, app.rendering.routes),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 };

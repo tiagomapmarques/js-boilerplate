@@ -1,3 +1,5 @@
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
@@ -13,7 +15,7 @@ export const baseConfig = {
   output: {
     path: paths.buildAbsolute,
     filename: app.output,
-    publicPath: '/build',
+    publicPath: paths.buildRelative.replace(paths.distRelative, ''),
   },
   optimization: {
     minimize: false,
@@ -29,6 +31,12 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
+    new CleanWebpackPlugin(paths.distRelative, paths.baseAbsolute),
+    new CopyWebpackPlugin([{
+      from: paths.staticAbsolute,
+      to: paths.distAbsolute,
+      ignore: ['.*'],
+    }]),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
     new ManifestJsonWebpackPlugin(manifest.pretty),

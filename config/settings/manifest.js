@@ -1,13 +1,13 @@
-import { page } from '../../config';
 import { faviconConfig } from './favicon';
+import { pageConfig } from './page';
 
 const getManifestConfig = minify => ({
   path: '../',
   pretty: minify,
   icons: faviconConfig.location,
-  name: page.title,
-  description: page.description,
-  lang: page.locale,
+  name: pageConfig.title,
+  description: pageConfig.description,
+  lang: pageConfig.locale,
 });
 
 export const manifest = {

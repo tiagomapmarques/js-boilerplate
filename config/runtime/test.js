@@ -1,8 +1,7 @@
-import { project } from '../config';
 
 export const env = {
   ENVIRONMENT: 'test',
-  VERSION: project.version,
+  VERSION: '0.0.0-test',
   ROOTID: 'mock-root-id',
   TITLE: 'Mock Title',
   DEFAULTS: {

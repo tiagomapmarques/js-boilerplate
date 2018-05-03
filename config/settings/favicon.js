@@ -1,4 +1,5 @@
-import { page, paths } from '../../config';
+import { pageConfig } from './page';
+import { paths } from './paths';
 
 export const faviconConfig = {
   cache: false,
@@ -26,7 +27,7 @@ const listToVariants = (variantArray, defaultValue) =>
   }), {});
 
 const getFaviconConfig = minify => ({
-  title: page.title,
+  title: pageConfig.title,
   logo: `${paths.staticAbsolute}/${faviconConfig.original}`,
   prefix: `${faviconConfig.location}/`,
   persistentCache: faviconConfig.cache,

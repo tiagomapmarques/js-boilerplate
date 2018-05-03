@@ -5,8 +5,8 @@ import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import PrerenderSpaPlugin from 'prerender-spa-plugin';
 
-import { environments } from '../';
-import { getVariables } from '../variables';
+import { environments } from './environments';
+import { getVariables } from './runtime';
 import { app, favicon, manifest, page, rules } from './settings';
 import { baseConfig } from './base.config';
 

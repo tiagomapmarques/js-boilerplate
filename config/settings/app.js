@@ -1,4 +1,4 @@
-import { paths } from '../../config';
+import { paths } from './paths';
 
 export const app = {
   entryPoints: {

@@ -6,7 +6,6 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import PrerenderSpaPlugin from 'prerender-spa-plugin';
 
 import { environments } from '../';
-import { paths } from '../config';
 import { getVariables } from '../variables';
 import { app, favicon, manifest, page, rules } from './settings';
 import { baseConfig } from './base.config';
@@ -14,15 +13,19 @@ import { baseConfig } from './base.config';
 export const config = {
   ...baseConfig,
   devtool: false,
+  mode: 'production',
   module: { rules: rules.minified },
+  optimization: {
+    ...baseConfig.optimization,
+    minimize: true,
+  },
   plugins: [
     ...(baseConfig.plugins || []),
     new HtmlWebpackPlugin(page.minified),
     new FaviconsWebpackPlugin(favicon.all),
     new ManifestJsonWebpackPlugin(manifest.minified),
     new ExtendedDefinePlugin(getVariables(environments.prod)),
-    new PrerenderSpaPlugin(paths.distAbsolute, app.routes),
-    new webpack.optimize.UglifyJsPlugin({ comments: false }),
+    new PrerenderSpaPlugin(app.rendering.staticDir, app.rendering.routes),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 };

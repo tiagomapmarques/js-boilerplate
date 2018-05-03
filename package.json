@@ -47,6 +47,7 @@
     "browser-polyfills": "~1.4",
     "clean-webpack-plugin": "~0.1",
     "copy-webpack-plugin": "~4.5",
+    "critical-css-webpack-plugin": "~0.1",
     "css-loader": "~0.28",
     "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",

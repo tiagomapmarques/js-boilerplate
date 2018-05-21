@@ -121,7 +121,7 @@ adapt this project to other languages/libraries/frameworks.
 [link-inferno]: https://github.com/tiagomapmarques/js-boilerplate/tree/inferno
 [link-aurelia]: https://github.com/tiagomapmarques/js-boilerplate/tree/aurelia
 [link-angular]: https://github.com/tiagomapmarques/js-boilerplate/tree/angular
-[link-app-vue]: https://github.com/tiagomapmarques/weather-app-vue
+[link-app-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/examples/weather-app-vue
 [ci-develop]: https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-typescript]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-electron]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/electron.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
@@ -131,6 +131,4 @@ adapt this project to other languages/libraries/frameworks.
 [ci-inferno]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-aurelia]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/aurelia.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-angular]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/angular.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
-[version-beta1]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.7.5
-[version-beta2]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.8.0
 [version-beta3]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.9.2

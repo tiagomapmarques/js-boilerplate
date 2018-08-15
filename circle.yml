@@ -8,9 +8,9 @@ jobs:
       - checkout
       - run:
           name: "Install dependencies"
-          command: npm install
+          command: yarn
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
   install-prod:
@@ -22,9 +22,9 @@ jobs:
       - checkout
       - run:
           name: "Install production dependencies"
-          command: npm install
+          command: yarn
       - save_cache:
-          key: dependency-prod-cache-{{ checksum "package.json" }}
+          key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
   test:
@@ -33,10 +33,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: "Run unit tests"
-          command: npm test
+          command: yarn test
       - store_artifacts:
           path: ./coverage
   lint:
@@ -45,42 +45,42 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: "Run linters"
-          command: npm run lint
+          command: yarn lint
   build-local:
     docker:
       - image: node:8
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: "Build Local"
-          command: npm run build:local
+          command: yarn build:local
   build-dev:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: "Build Development"
-          command: npm run build:dev
+          command: yarn build:dev
   build-prod:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     environment:
       - NODE_ENV: "production"
     steps:
       - checkout
       - restore_cache:
-          key: dependency-prod-cache-{{ checksum "package.json" }}
+          key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: "Build Production"
-          command: npm run build:prod
+          command: yarn build:prod
 
 workflows:
   version: 2

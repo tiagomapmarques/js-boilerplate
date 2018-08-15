@@ -8,7 +8,14 @@ import CriticalCssPlugin from 'critical-css-webpack-plugin';
 
 import { environments } from './environments';
 import { getVariables } from './runtime';
-import { app, favicon, manifest, page, paths, rules } from './settings';
+import {
+  app,
+  favicon,
+  manifest,
+  page,
+  paths,
+  rules,
+} from './settings';
 import { baseConfig } from './base.config';
 
 export const config = {
@@ -26,7 +33,7 @@ export const config = {
     new FaviconsWebpackPlugin(favicon.all),
     new ManifestJsonWebpackPlugin(manifest.minified),
     new ExtendedDefinePlugin(getVariables(environments.prod)),
-    new PrerenderSpaPlugin(app.rendering.staticDir, app.rendering.routes),
+    new PrerenderSpaPlugin(app.rendering),
     new CriticalCssPlugin({
       base: paths.distAbsolute,
     }),

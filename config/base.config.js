@@ -5,7 +5,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 
-import { app, favicon, manifest, page, paths, rules } from './settings';
+import {
+  app,
+  favicon,
+  manifest,
+  page,
+  paths,
+  rules,
+} from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,

@@ -6,7 +6,7 @@
 **I have:**
   - [ ] linted the code
   - [ ] tested the code
-  - [ ] read the [standards](.github/STANDARDS.md), [contributing](.github/CONTRIBUTING.md) and [code of conduct](.github/CODE_OF_CONDUCT.md) guidelines
+  - [ ] read the [standards](../blob/develop/.github/STANDARDS.md), [contributing](../blob/develop/.github/CONTRIBUTING.md) and [code of conduct](../blob/develop/.github/CODE_OF_CONDUCT.md) guidelines
 
 **Description and comments**
 _TODO_

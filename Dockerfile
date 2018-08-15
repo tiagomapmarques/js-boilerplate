@@ -1,12 +1,12 @@
-FROM nginx:1.13
+FROM nginx:1.15
 
 # install node 8 LTS
-RUN apt-get -qq update
-RUN apt-get -qq --assume-yes install gnupg curl
+RUN apt-get -qq update && apt-get -qq --assume-yes install gnupg curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
-RUN apt-get -qq --assume-yes install nodejs
+RUN apt-get -qq --assume-yes install nodejs chromium libatk-adaptor gtk3.0
 RUN alias node=/usr/bin/nodejs
 RUN alias npm=/usr/bin/npm
+RUN npm install yarn -g
 
 # declare variables
 ENV NGINX_DIR=/usr/share/nginx
@@ -18,14 +18,15 @@ ENV INSTALL_OPTIONS=--silent
 
 # configure and install dependencies
 WORKDIR ${WORK_DIR}
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 RUN export NODE_ENV=${NODE_ENV}
-RUN npm i ${INSTALL_OPTIONS}
+RUN yarn install ${INSTALL_OPTIONS}
 COPY nginx.conf ${NGINX_CONF_DIR}
 
 # copy and build project
 COPY . ./
-RUN npm run build:${BUILD_ENV}
+RUN yarn build:${BUILD_ENV}
 
 # link project to nginx
 RUN rm -rf ${NGINX_DIR}/html

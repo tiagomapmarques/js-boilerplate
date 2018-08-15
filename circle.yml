@@ -3,19 +3,19 @@ version: 2
 jobs:
   install:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     steps:
       - checkout
       - run:
           name: "Install dependencies"
           command: yarn
       - save_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
           paths:
             - node_modules
   install-prod:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     environment:
       - NODE_ENV: "production"
     steps:
@@ -24,16 +24,16 @@ jobs:
           name: "Install production dependencies"
           command: yarn
       - save_cache:
-          key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
           paths:
             - node_modules
   test:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
       - run:
           name: "Run unit tests"
           command: yarn test
@@ -41,21 +41,21 @@ jobs:
           path: ./coverage
   lint:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
       - run:
           name: "Run linters"
           command: yarn lint
   build-local:
     docker:
-      - image: node:8
+      - image: circleci/node:8-browsers
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
       - run:
           name: "Build Local"
           command: yarn build:local
@@ -65,7 +65,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
       - run:
           name: "Build Development"
           command: yarn build:dev
@@ -77,7 +77,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
       - run:
           name: "Build Production"
           command: yarn build:prod

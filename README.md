@@ -13,11 +13,11 @@ along with the **[contributing](.github/CONTRIBUTING.md)** and
 Dependencies:
 - `node` >= 8
 - `npm` >= 5
+- `yarn`
 
 Quick start:
-- `npm i`
-- `npm start`
-- visit `localhost:8000`
+- `yarn`
+- `yarn start`
 
 Quick start (docker):
 - `docker build . -t jsboilerplate`
@@ -35,6 +35,7 @@ Quick start (docker):
 | [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
 | [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
 | [`inferno`][link-inferno] | `react` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
+| `web-components` | `typescript` | base for frontend app using web-components | TBD | - |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
 
@@ -68,7 +69,7 @@ according to the general needs of each one. They are:
 
 ## Tooling
 
-The following are the base commands for this application (`npm run`):
+The following are the base commands for this application (`yarn`):
 - `clean` performs `:coverage`, `:generated` and `:packages`
   - `:coverage` deletes the `coverage` folder
   - `:generated` deletes the `public` folder
@@ -87,9 +88,9 @@ and `.stylelintrc.json` files (which extend `airbnb-base` and
   - `:secure` serves on https only
 
 The following commands are shortcuts only:
-- `npm start` = `npm run build` and `npm run serve`
-- `npm run build` = `npm run build:local`
-- `npm run watch` = `npm run build:local:watch`
+- `yarn start` = `yarn build` and `yarn serve`
+- `yarn build` = `yarn build:local`
+- `yarn watch` = `yarn build:local:watch`
 
 ## Using the project
 

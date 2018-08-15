@@ -20,8 +20,8 @@ Quick start:
 - `yarn start`
 
 Quick start (docker):
-- `docker build . -t jsboilerplate`
-- `docker run -p 8000:80 -d jsboilerplate`
+- `docker build . -t js-boilerplate`
+- `docker run -p 8000:80 -d js-boilerplate`
 - visit `localhost:8000`
 
 ## Flavors

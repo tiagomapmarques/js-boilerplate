@@ -1,4 +1,4 @@
-import { HomeComponent } from './';
+import { HomeComponent } from '.';
 import styles from './home.style';
 
 jest.mock('./home.style', () => mockStyle(require.requireActual('./home.style')));

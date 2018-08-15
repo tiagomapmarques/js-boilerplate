@@ -1,3 +1,4 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const getRules = minify => ([
   {
@@ -7,7 +8,7 @@ const getRules = minify => ([
   {
     test: /\.scss$/,
     use: [
-      { loader: 'style-loader' },
+      MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {

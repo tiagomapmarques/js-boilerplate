@@ -2,7 +2,7 @@ import loadEntry from 'load-entry';
 
 import { HomeComponent } from 'app/home';
 
-import { indexEntry } from './';
+import { indexEntry } from '.';
 
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 jest.mock('load-entry');

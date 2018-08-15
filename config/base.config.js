@@ -1,8 +1,18 @@
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 
-import { app, favicon, manifest, page, paths, rules } from './settings';
+import {
+  app,
+  favicon,
+  manifest,
+  page,
+  paths,
+  rules,
+} from './settings';
 
 export const baseConfig = {
   context: paths.appAbsolute,
@@ -13,7 +23,7 @@ export const baseConfig = {
   output: {
     path: paths.buildAbsolute,
     filename: app.output,
-    publicPath: '/build',
+    publicPath: paths.buildRelative.replace(paths.distRelative, ''),
   },
   optimization: {
     minimize: false,
@@ -29,6 +39,15 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
+    new CleanWebpackPlugin(paths.distRelative, paths.baseAbsolute),
+    new CopyWebpackPlugin([{
+      from: paths.staticAbsolute,
+      to: paths.distAbsolute,
+      ignore: ['.*'],
+    }]),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
     new ManifestJsonWebpackPlugin(manifest.pretty),

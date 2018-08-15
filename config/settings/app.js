@@ -1,3 +1,5 @@
+import { PuppeteerRenderer as Renderer } from 'prerender-spa-plugin';
+
 import { paths } from './paths';
 
 export const app = {
@@ -16,5 +18,8 @@ export const app = {
     server: {
       port: 8001,
     },
+    renderer: new Renderer({
+      args: ['–no-sandbox', '–disable-setuid-sandbox'],
+    }),
   },
 };

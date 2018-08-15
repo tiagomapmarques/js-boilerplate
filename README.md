@@ -6,9 +6,9 @@ only one commit long so you can easily diff them and see how to properly set up
 each of them.
 
 All standards and decisions made regarding this project, its implementation and
-maintainability are **[documented here](STANDARDS.md)**. Remember to read it
-along with the **[contributing](CONTRIBUTING.md)** and
-**[code of conduct](CODE_OF_CONDUCT.md)** guidelines.
+maintainability are **[documented here](.github/STANDARDS.md)**. Remember to read it
+along with the **[contributing](.github/CONTRIBUTING.md)** and
+**[code of conduct](.github/CODE_OF_CONDUCT.md)** guidelines.
 
 Dependencies:
 - `node` >= 8

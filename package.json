@@ -25,7 +25,7 @@
     "clean": "yarn clean:coverage && yarn clean:generated",
     "clean:coverage": "rimraf coverage",
     "clean:generated": "rimraf public && rimraf *.log",
-    "clean:packages": "echo ==== IGNORE THIS NEXT ERROR ==== && rimraf node_modules",
+    "clean:packages": "rimraf node_modules",
     "clean:reset": "yarn clean && rimraf yarn.lock && yarn clean:packages",
     "lint": "yarn lint:code && yarn lint:style && yarn lint:tests",
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js --ignore-pattern src/testing/**/*.js .",

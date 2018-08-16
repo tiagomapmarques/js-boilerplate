@@ -76,9 +76,12 @@ The following are the base commands for this application (`yarn`):
   - `:packages` deletes the `node_modules` folder
   - `:reset` removes `yarn.lock` and performs `clean` and `:packages`
 - `lint` performs `:code`, `:style` and `:tests`
-  - `:code` lints your code according to `.eslintrc.json` (which extend `airbnb-base` rules)
-  - `:style` lints your style according to `.stylelintrc.json` (which extend `stylelint-config-recommended-scss` rules)
-  - `:tests` lints your tests according to `.eslintrc.spec.json` (which extend `airbnb-base` rules)
+  - `:code` lints your code according to `.eslintrc.json` (which extends
+`airbnb-base` rules)
+  - `:style` lints your style according to `.stylelintrc.json` (which extends
+`stylelint-config-recommended-scss` rules)
+  - `:tests` lints your tests according to `.eslintrc.spec.json` (which
+extends `airbnb-base` rules)
 - `build` runs `:local`
   - `:local`/`:dev`/`:prod` builds the project and its assets for the
     `local`/`dev`/`prod` environments respectively

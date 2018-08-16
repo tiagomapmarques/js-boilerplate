@@ -34,9 +34,7 @@ export const config = {
     new ManifestJsonWebpackPlugin(manifest.minified),
     new ExtendedDefinePlugin(getVariables(environments.prod)),
     new PrerenderSpaPlugin(app.rendering),
-    new CriticalCssPlugin({
-      base: paths.distAbsolute,
-    }),
+    new CriticalCssPlugin({ base: paths.distAbsolute }),
     new NoEmitOnErrorsPlugin(),
   ],
 };

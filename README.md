@@ -70,25 +70,27 @@ according to the general needs of each one. They are:
 ## Tooling
 
 The following are the base commands for this application (`yarn`):
-- `clean` performs `:coverage`, `:generated` and `:packages`
+- `clean` performs `:coverage` and `:generated`
   - `:coverage` deletes the `coverage` folder
-  - `:generated` deletes the `public` folder
+  - `:generated` deletes the `public` folder and `*.log` files
   - `:packages` deletes the `node_modules` folder
-  - `:reset` removes `package-lock.json` and performs `clean`
-- `lint` lints your code and style according to the rules on `.eslintrc.json`
-and `.stylelintrc.json` files (which extend `airbnb-base` and
-`stylelint-config-recommended-scss` rules, respectively)
-- `test` runs the unit tests for the project (files ending with `.spec.js`)
-  - `:watch` watches the test files and re-runs the tests on any file update
+  - `:reset` removes `yarn.lock` and performs `clean` and `:packages`
+- `lint` performs `:code`, `:style` and `:tests`
+  - `:code` lints your code according to `.eslintrc.json` (which extend `airbnb-base` rules)
+  - `:style` lints your style according to `.stylelintrc.json` (which extend `stylelint-config-recommended-scss` rules)
+  - `:tests` lints your tests according to `.eslintrc.spec.json` (which extend `airbnb-base` rules)
 - `build` runs `:local`
   - `:local`/`:dev`/`:prod` builds the project and its assets for the
     `local`/`dev`/`prod` environments respectively
     - `:watch` watches app files and rebuilds them upon change
+- `test` runs the unit tests for the project (files ending with `.spec.js`)
+  - `:watch` watches the test files and re-runs the tests on any file update
 - `serve` serves the project on `localhost:8000`
-  - `:secure` serves on https only
+  - `:open` also opens a tab with the URL
+  - `:secure` serves with gzip compression and on https
 
 The following commands are shortcuts only:
-- `yarn start` = `yarn build` and `yarn serve`
+- `yarn start` = `yarn build` and `yarn serve:open`
 - `yarn build` = `yarn build:local`
 - `yarn watch` = `yarn build:local:watch`
 

@@ -20,7 +20,7 @@ const allVariants = [
   'windows',
 ];
 
-const listToVariants = (variantArray, defaultValue) => variantArray
+const listToVariants = (variants, defaultValue) => variants
   .reduce((collection, variant) => ({
     ...collection,
     [variant]: defaultValue,

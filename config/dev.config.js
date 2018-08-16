@@ -15,8 +15,6 @@ export const config = {
     new FaviconsWebpackPlugin(favicon.all),
     new ExtendedDefinePlugin(getVariables(environments.dev)),
     new PrerenderSpaPlugin(app.rendering),
-    new CriticalCssPlugin({
-      base: paths.distAbsolute,
-    }),
+    new CriticalCssPlugin({ base: paths.distAbsolute }),
   ],
 };

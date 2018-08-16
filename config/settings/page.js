@@ -4,7 +4,7 @@ import { project } from './project';
 export const pageConfig = {
   title: 'Js Boilerplate',
   description: project.description,
-  keywords: project.keywords.join(','),
+  keywords: (project.keywords || []).join(','),
   author: project.author,
   copyright: 'https://raw.githubusercontent.com/tiagomapmarques/js-boilerplate/develop/LICENSE',
   locale: 'en_GB',

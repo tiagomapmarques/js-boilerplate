@@ -4,10 +4,10 @@ import { pageConfig } from './page';
 const getManifestConfig = minify => ({
   path: '../',
   pretty: minify,
-  icons: faviconConfig.location,
   name: pageConfig.title,
   description: pageConfig.description,
   lang: pageConfig.locale,
+  icons: faviconConfig.location,
 });
 
 export const manifest = {

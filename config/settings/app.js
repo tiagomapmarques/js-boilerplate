@@ -11,7 +11,10 @@ export const app = {
     name: 'vendor',
     chunks: 'initial',
   },
-  output: '[name].js',
+  output: {
+    script: '[name].js',
+    style: '[name].css',
+  },
   rendering: {
     staticDir: paths.distAbsolute,
     routes: ['/'],

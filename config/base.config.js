@@ -22,19 +22,15 @@ export const baseConfig = {
   module: { rules: rules.pretty },
   output: {
     path: paths.buildAbsolute,
-    filename: app.output,
+    filename: app.output.script,
     publicPath: paths.buildRelative.replace(paths.distRelative, ''),
   },
   optimization: {
     minimize: false,
     ...(app.commonChunk && app.commonChunk.name ? {
-      runtimeChunk: {
-        name: app.commonChunk.name,
-      },
+      runtimeChunk: { name: app.commonChunk.name },
       splitChunks: {
-        cacheGroups: {
-          commons: app.commonChunk,
-        },
+        cacheGroups: { commons: app.commonChunk },
       },
     } : {}),
   },
@@ -45,9 +41,7 @@ export const baseConfig = {
       to: paths.distAbsolute,
       ignore: ['.*'],
     }]),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }),
+    new MiniCssExtractPlugin({ filename: app.output.style }),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
     new ManifestJsonWebpackPlugin(manifest.pretty),

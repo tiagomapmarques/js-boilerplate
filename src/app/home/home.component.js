@@ -14,6 +14,14 @@ const getSampleData = () => fetch(DATA_URL)
   })
   .catch(() => EMPTY_DATA);
 
+const writeToDocumentById = (id, contentText) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.innerHTML = contentText;
+  }
+  return element && element.innerHTML;
+};
+
 export class HomeComponent {
   environment = VARIABLES.ENVIRONMENT;
 

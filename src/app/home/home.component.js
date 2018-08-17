@@ -38,7 +38,7 @@ export class HomeComponent {
     this.handleData = this.handleData.bind(this);
   }
 
-  init() {
+  create() {
     return getSampleData().then(this.handleData);
   }
 

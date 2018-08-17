@@ -7,7 +7,7 @@ import './index.style';
 
 export const indexEntry = () => {
   const app = new HomeComponent();
-  app.init().catch();
+  app.create().catch();
 };
 
 loadEntry(exports);

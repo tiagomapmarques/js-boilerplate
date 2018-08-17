@@ -47,18 +47,12 @@ export class HomeComponent {
     this.render();
   }
 
-  buildContent() {
-    return `<div class="${styles.content}">${this.title} says ${this.text}!</div>`;
-  }
-
-  buildFooter() {
-    return `<div class="${styles.footer}">v${this.version}-${this.environment}</div>`;
-  }
-
   render() {
-    const element = document.getElementById(this.rootId);
-    if (element) {
-      element.innerHTML = `<div>${this.text ? this.buildContent() : ''}${this.buildFooter()}</div>`;
-    }
+    return writeToDocumentById(this.rootId, `
+      <div>
+        ${this.text ? `<div class="${styles.content}">${this.title} says ${this.text}!</div>` : ''}
+        <div class="${styles.footer}">v${this.version}-${this.environment}</div>
+      </div>
+    `);
   }
 }

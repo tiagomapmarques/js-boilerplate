@@ -8,17 +8,17 @@ jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 jest.mock('load-entry');
 
 jest.mock('app/home', () => {
-  const appInstance = { init: jest.fn(() => new Promise(resolve => resolve())) };
+  const appInstance = { create: jest.fn(() => new Promise(resolve => resolve())) };
   return { HomeComponent: jest.fn(() => appInstance) };
 });
 
 describe('index', () => {
   const MockComponent = HomeComponent;
-  const MockComponentInit = MockComponent().init;
+  const MockComponentCreate = MockComponent().create;
 
   afterEach(() => {
     MockComponent.mockClear();
-    MockComponentInit.mockClear();
+    MockComponentCreate.mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -44,8 +44,8 @@ describe('index', () => {
     });
 
     it('renders the correct component', () => {
-      expect(MockComponentInit.mock.calls).toHaveLength(1);
-      expect(MockComponentInit.mock.calls[0]).toEqual([]);
+      expect(MockComponentCreate.mock.calls).toHaveLength(1);
+      expect(MockComponentCreate.mock.calls[0]).toEqual([]);
     });
   });
 });

@@ -14,7 +14,7 @@ describe('HomeComponent', () => {
     component = new HomeComponent();
   });
 
-  const createComponent = done => component.init().then(done).catch();
+  const createComponent = done => component.create().then(done).catch();
 
   const querySelector = (selector) => {
     const classes = document.getElementsByClassName(selector);

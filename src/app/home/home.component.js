@@ -1,4 +1,4 @@
-import styles from './home.style';
+import style from './home.style';
 
 const DATA_URL = `${VARIABLES.SERVICES.ASSETS}sample.json`;
 const EMPTY_DATA = {
@@ -13,6 +13,14 @@ const getSampleData = () => fetch(DATA_URL)
     throw new Error();
   })
   .catch(() => EMPTY_DATA);
+
+const writeToDocumentById = (id, contentText) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.innerHTML = contentText;
+  }
+  return element && element.innerHTML;
+};
 
 export class HomeComponent {
   environment = VARIABLES.ENVIRONMENT;
@@ -39,18 +47,12 @@ export class HomeComponent {
     this.render();
   }
 
-  buildContent() {
-    return `<div class="${styles.content}">${this.title} says ${this.text}!</div>`;
-  }
-
-  buildFooter() {
-    return `<div class="${styles.footer}">v${this.version}-${this.environment}</div>`;
-  }
-
   render() {
-    const element = document.getElementById(this.rootId);
-    if (element) {
-      element.innerHTML = `<div>${this.text ? this.buildContent() : ''}${this.buildFooter()}</div>`;
-    }
+    return writeToDocumentById(this.rootId, `
+      <div>
+        ${this.text ? `<div class="${style.content}">${this.title} says ${this.text}!</div>` : ''}
+        <div class="${style.footer}">v${this.version}-${this.environment}</div>
+      </div>
+    `);
   }
 }

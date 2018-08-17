@@ -1,4 +1,4 @@
-import styles from './home.style';
+import style from './home.style';
 
 const DATA_URL = `${VARIABLES.SERVICES.ASSETS}sample.json`;
 const EMPTY_DATA = {
@@ -50,8 +50,8 @@ export class HomeComponent {
   render() {
     return writeToDocumentById(this.rootId, `
       <div>
-        ${this.text ? `<div class="${styles.content}">${this.title} says ${this.text}!</div>` : ''}
-        <div class="${styles.footer}">v${this.version}-${this.environment}</div>
+        ${this.text ? `<div class="${style.content}">${this.title} says ${this.text}!</div>` : ''}
+        <div class="${style.footer}">v${this.version}-${this.environment}</div>
       </div>
     `);
   }

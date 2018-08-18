@@ -31,11 +31,11 @@ Quick start (docker):
 | [`develop`][link-develop] | - | vanilla javascript project | - | ![ci-develop][ci-develop] |
 | [`typescript`][link-typescript] | `develop` | vanilla typescript project | done | ![ci-typescript][ci-typescript] |
 | `electron` | `develop` | vanilla javascript electron project | TBD | - |
+| `web-components` | `develop` | base for frontend app using web-components | TBD | - |
 | [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
 | [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
 | [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
 | [`inferno`][link-inferno] | `react` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
-| `web-components` | `typescript` | base for frontend app using web-components | TBD | - |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
 

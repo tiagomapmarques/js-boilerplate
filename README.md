@@ -39,9 +39,11 @@ Quick start (docker):
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
 
-**Note**: `typescript` branch is made of 2 commits instead of one: one to rename
+**Note**:
+`typescript` branch is made of 2 commits instead of one: one to rename
 `js` files to `ts` and the other to adapt the project to typescript - better for
 diffing.
+`web-components` branch only supports IE11+ and evergreen browsers
 
 ## Compatibility
 

@@ -35,7 +35,7 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
-    new CleanWebpackPlugin(paths.distRelative, paths.baseAbsolute),
+    new CleanWebpackPlugin(paths.distRelative, { root: paths.baseAbsolute }),
     new CopyWebpackPlugin([{
       from: paths.staticAbsolute,
       to: paths.distAbsolute,

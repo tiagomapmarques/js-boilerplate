@@ -1,9 +1,9 @@
-import { createElement, mockStyle } from 'testing';
+import { createElement } from 'testing';
 
 import { HomeComponent } from '.';
 import styles from './home.style';
 
-jest.mock('./home.style', () => mockStyle(require.requireActual('./home.style')));
+jest.mock('./home.style', () => global.mockStyle(require.requireActual('./home.style')));
 
 describe('HomeComponent', () => {
   const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;

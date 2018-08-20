@@ -1,5 +1,6 @@
+import { environments } from '../environments';
 
-export const getVariables = environment => ({
+export const getVariables = (environment = environments.default) => ({
   'process.env': {
     NODE_ENV: `${environment}`,
   },

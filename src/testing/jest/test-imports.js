@@ -1,12 +1,12 @@
 
-export class TestImports {
-  static imports = [];
+const imports = [];
 
-  static get() {
-    return TestImports.imports;
-  }
+export const TestImports = {
+  get() {
+    return imports;
+  },
 
-  static add(moduleName) {
-    TestImports.imports.push(moduleName);
-  }
-}
+  add(moduleName) {
+    imports.push(moduleName);
+  },
+};

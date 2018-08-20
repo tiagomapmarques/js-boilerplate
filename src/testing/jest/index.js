@@ -2,13 +2,15 @@
 import fetchMock from 'jest-fetch-mock';
 
 import { variables } from './webpack-variables';
+import { mockStyle } from './mock-style';
 import { TestImports } from './test-imports';
 
-// creating environment variables
+// create environment variables
 global.VARIABLES = variables;
 
-// overriding globals
+// override globals
 global.fetch = fetchMock;
 
-// declaring test helper functions
+// declare test helpers
+global.mockStyle = mockStyle;
 global.TestImports = TestImports;

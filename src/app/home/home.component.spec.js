@@ -1,9 +1,9 @@
-import { createElement, mockStyle } from 'testing';
+import { createElement } from 'testing';
 
 import { HomeComponent } from '.';
-import styles from './home.style';
+import style from './home.style';
 
-jest.mock('./home.style', () => mockStyle(require.requireActual('./home.style')));
+jest.mock('./home.style', () => global.mockStyle(require.requireActual('./home.style')));
 
 describe('HomeComponent', () => {
   const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
@@ -41,12 +41,12 @@ describe('HomeComponent', () => {
     });
 
     it('shows the page content', () => {
-      expect(querySelector(styles.content).innerHTML.trim())
+      expect(querySelector(style.content).innerHTML.trim())
         .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
     it('shows the footer', () => {
-      expect(querySelector(styles.footer).innerHTML.trim())
+      expect(querySelector(style.footer).innerHTML.trim())
         .toBe(`v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`);
     });
   });
@@ -65,7 +65,7 @@ describe('HomeComponent', () => {
       });
 
       it('does not show the page content', () => {
-        expect(querySelector(styles.content)).toBe(null);
+        expect(querySelector(style.content)).toBe(null);
       });
     });
   };
@@ -83,7 +83,7 @@ describe('HomeComponent', () => {
     });
 
     it('does not show the page content', () => {
-      expect(querySelector(styles.content)).toBe(null);
+      expect(querySelector(style.content)).toBe(null);
     });
   });
 });

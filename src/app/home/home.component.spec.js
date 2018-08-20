@@ -1,3 +1,5 @@
+import { createElement, mockStyle } from 'testing';
+
 import { HomeComponent } from '.';
 import styles from './home.style';
 

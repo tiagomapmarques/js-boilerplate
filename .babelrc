@@ -13,5 +13,17 @@
         "app": "./src/app"
       }
     }]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        ["module-resolver", {
+          "alias": {
+            "testing": "./src/testing",
+            "app": "./src/app"
+          }
+        }]
+      ]
+    }
+  }
 }

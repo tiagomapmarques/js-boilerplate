@@ -9,9 +9,6 @@
     "jest"
   ],
   "globals": {
-    "createElement": true,
-    "mockConsole": true,
-    "mockStyle": true,
     "TestImports": true
   }
 }

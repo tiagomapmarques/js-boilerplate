@@ -1,8 +1,9 @@
 import { environments } from './environments';
 
 export const webpackInit = (requestedEnv) => {
-  process.env.NODE_ENV = environments[requestedEnv];
+  const actualEnv = (requestedEnv && environments[requestedEnv]) || environments.default;
+  process.env.NODE_ENV = actualEnv;
 
   // eslint-disable-next-line global-require,import/no-dynamic-require
-  return require(`./${requestedEnv}.config`).config;
+  return require(`./${actualEnv}.config`).config;
 };

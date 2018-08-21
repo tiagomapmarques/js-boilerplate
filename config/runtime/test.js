@@ -5,8 +5,8 @@ export const env = {
   ROOTID: 'mock-root-id',
   TITLE: 'Mock Title',
   DEFAULTS: {
-    LOCALE: 'en_US',
-    LOCALE_SHORT: 'en',
+    LOCALE: 'pt_PT',
+    LOCALE_SHORT: 'pt',
   },
   SERVICES: {
     ASSETS: '/mock-assets/',

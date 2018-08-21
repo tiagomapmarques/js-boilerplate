@@ -7,7 +7,7 @@ export const pageConfig = {
   keywords: (project.keywords || []).join(','),
   author: project.author,
   copyright: 'https://raw.githubusercontent.com/tiagomapmarques/js-boilerplate/develop/LICENSE',
-  locale: 'en_GB',
+  locale: 'en_US',
   localeShort: 'en',
   rootId: 'app',
   template: '.index.ejs',

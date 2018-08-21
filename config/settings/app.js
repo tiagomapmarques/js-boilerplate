@@ -11,6 +11,9 @@ export const app = {
     name: 'vendor',
     chunks: 'initial',
   },
+  externalFiles: [
+    paths.staticAbsolute,
+  ],
   output: {
     script: '[name].js',
     style: '[name].css',

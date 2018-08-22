@@ -5994,9 +5994,9 @@ mamacro@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/mamacro/-/mamacro-0.0.3.tgz#ad2c9576197c9f1abf308d0787865bd975a3f3e4"
 
-manifest-json-webpack-plugin@~0.2:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/manifest-json-webpack-plugin/-/manifest-json-webpack-plugin-0.2.0.tgz#4be6a4f19af96595fad2b174d151b9cc2a453faf"
+manifest-json-webpack-plugin@~1.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/manifest-json-webpack-plugin/-/manifest-json-webpack-plugin-1.0.0.tgz#349f9b009621d40ab218217d7619078748c0ff08"
   dependencies:
     mime-to-extensions "^1.0"
     parse-filepath "^1.0"

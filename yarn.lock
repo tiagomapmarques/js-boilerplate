@@ -2848,8 +2848,8 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 electron-to-chromium@^1.3.47, electron-to-chromium@^1.3.57:
-  version "1.3.59"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.59.tgz#6377db04d8d3991d6286c72ed5c3fde6f4aaf112"
+  version "1.3.60"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.60.tgz#85a28db8484f3dd84de46bdcb7aa829e2f016423"
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -4258,9 +4258,15 @@ iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
 
-iconv-lite@0.4.23, iconv-lite@^0.4.17, iconv-lite@^0.4.22, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+iconv-lite@0.4.23:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
+
+iconv-lite@^0.4.17, iconv-lite@^0.4.22, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+  version "0.4.24"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
@@ -5994,9 +6000,9 @@ mamacro@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/mamacro/-/mamacro-0.0.3.tgz#ad2c9576197c9f1abf308d0787865bd975a3f3e4"
 
-manifest-json-webpack-plugin@~0.2:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/manifest-json-webpack-plugin/-/manifest-json-webpack-plugin-0.2.0.tgz#4be6a4f19af96595fad2b174d151b9cc2a453faf"
+manifest-json-webpack-plugin@~1.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/manifest-json-webpack-plugin/-/manifest-json-webpack-plugin-1.0.0.tgz#349f9b009621d40ab218217d7619078748c0ff08"
   dependencies:
     mime-to-extensions "^1.0"
     parse-filepath "^1.0"

@@ -4,10 +4,8 @@
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
-    "javascript",
-    "frontend",
-    "boilerplate",
-    "seed"
+    "javascript", "frontend", "boilerplate", "seed",
+    "typescript", "jquery", "react", "inferno", "vue", "web-components"
   ],
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",

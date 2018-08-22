@@ -1,13 +1,11 @@
 {
   "name": "js-boilerplate",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
-    "javascript",
-    "frontend",
-    "boilerplate",
-    "seed"
+    "javascript", "frontend", "boilerplate", "seed",
+    "typescript", "jquery", "react", "inferno", "vue", "web-components"
   ],
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",

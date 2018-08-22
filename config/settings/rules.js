@@ -18,6 +18,7 @@ const getRules = minify => ([
           localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
         },
       },
+      { loader: 'postcss-loader' },
       { loader: 'sass-loader' },
     ],
   },

@@ -1,4 +1,4 @@
-import { loader } from 'mini-css-extract-plugin';
+import { loader as ExtractLoader } from 'mini-css-extract-plugin';
 
 const getRules = minify => ([
   {
@@ -8,7 +8,7 @@ const getRules = minify => ([
   {
     test: /\.scss$/,
     use: [
-      loader,
+      ExtractLoader,
       {
         loader: 'css-loader',
         options: {
@@ -18,7 +18,8 @@ const getRules = minify => ([
           localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
         },
       },
-      { loader: 'sass-loader' },
+      'postcss-loader',
+      'sass-loader',
     ],
   },
   {

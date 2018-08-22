@@ -40,7 +40,6 @@ export const baseConfig = {
       const parsedRules = typeof filesRules === 'string' ? { from: filesRules } : filesRules;
       return {
         ...parsedRules,
-        from: parsedRules.from,
         to: `${paths.distAbsolute}/${parsedRules.to || ''}`,
         ignore: parsedRules.ignore || ['.*'],
       };

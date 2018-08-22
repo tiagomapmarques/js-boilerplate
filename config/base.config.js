@@ -37,11 +37,12 @@ export const baseConfig = {
   plugins: [
     new CleanWebpackPlugin(paths.distRelative, { root: paths.baseAbsolute, verbose: false }),
     new CopyWebpackPlugin(app.externalFiles.map((filesRules) => {
-      const parsedRules = typeof filesRules === 'string' ? { filePattern: filesRules } : filesRules;
+      const parsedRules = typeof filesRules === 'string' ? { from: filesRules } : filesRules;
       return {
-        from: parsedRules.filePattern,
-        to: `${paths.distAbsolute}/${parsedRules.destination || ''}`,
-        ignore: (parsedRules.ignorePatterns || []).concat(['.*']),
+        ...parsedRules,
+        from: parsedRules.from,
+        to: `${paths.distAbsolute}/${parsedRules.to || ''}`,
+        ignore: parsedRules.ignore || ['.*'],
       };
     })),
     new MiniCssExtractPlugin({ filename: app.output.style }),

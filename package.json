@@ -38,6 +38,7 @@
     "watch": "yarn build:local:watch"
   },
   "dependencies": {
+    "autoprefixer": "~9.1",
     "babel-core": "~6.26",
     "babel-loader": "~7.1",
     "babel-plugin-module-resolver": "~3.1",
@@ -58,6 +59,7 @@
     "mini-css-extract-plugin": "~0.4",
     "node-sass": "~4.9",
     "path": "~0.12",
+    "postcss-loader": "~3.0",
     "prerender-spa-plugin": "~3.3",
     "rimraf": "~2.6",
     "sass-loader": "~7.1",

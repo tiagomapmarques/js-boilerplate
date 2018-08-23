@@ -9,8 +9,8 @@ export const createElement = (parentNode, tagName, attributes) => {
 
     afterEach(() => {
       const element = document.getElementById(attributes.id);
-      if (element && element.parentNode) {
-        element.parentNode.removeChild(element);
+      if (element && typeof element.remove === 'function') {
+        element.remove();
       }
     });
   } else {

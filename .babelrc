@@ -1,17 +1,16 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
         "browsers": [
           "defaults",
           "ie >= 9"
         ]
       }
-    }],
-    "stage-2"
+    }]
   ],
   "plugins": [
-    ["module-resolver", {
+    ["babel-plugin-module-resolver", {
       "alias": {
         "components": "./src/app/components",
         "^services$": "./src/app/services/index.js"
@@ -21,7 +20,7 @@
   "env": {
     "test": {
       "plugins": [
-        ["module-resolver", {
+        ["babel-plugin-module-resolver", {
           "alias": {
             "^testing$": "./src/testing/index.js",
             "components": "./src/app/components",

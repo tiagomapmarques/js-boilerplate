@@ -31,7 +31,7 @@ Quick start (docker):
 | [`develop`][link-develop] | - | vanilla javascript project | - | ![ci-develop][ci-develop] |
 | [`typescript`][link-typescript] | `develop` | vanilla typescript project | done | ![ci-typescript][ci-typescript] |
 | `electron` | `develop` | vanilla javascript electron project | TBD | - |
-| `web-components` | `develop` | base for frontend app using web-components | TBD | - |
+| [`web-components`][link-web-components] | `develop` | base for frontend app using web-components | uni-tests | - |
 | [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
 | [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
 | [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
@@ -43,7 +43,8 @@ Quick start (docker):
 `js` files to `ts` and the other to adapt the project to typescript - better for
 diffing.
 
-**Note**: `web-components` branch only supports IE11+ and evergreen browsers.
+**Note**: `web-components` branch 1) only supports IE11+ and evergreen browsers
+and 2) has neither critical-css nor pre-rendering plugins.
 
 ## Compatibility
 
@@ -124,6 +125,7 @@ adapt this project to other languages/libraries/frameworks.
 [link-develop]: https://github.com/tiagomapmarques/js-boilerplate
 [link-typescript]: https://github.com/tiagomapmarques/js-boilerplate/tree/typescript
 [link-electron]: https://github.com/tiagomapmarques/js-boilerplate/tree/electron
+[link-web-components]: https://github.com/tiagomapmarques/js-boilerplate/tree/web-components
 [link-jquery]: https://github.com/tiagomapmarques/js-boilerplate/tree/jquery
 [link-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/vue
 [link-react]: https://github.com/tiagomapmarques/js-boilerplate/tree/react

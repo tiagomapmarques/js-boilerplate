@@ -1,6 +1,6 @@
 import { createElement } from 'testing';
 
-import { HomeComponent } from '.';
+import { HomeComponent } from './home.component';
 import style from './home.style';
 
 jest.mock('./home.style', () => global.mockStyle(require.requireActual('./home.style')));

@@ -1,7 +1,8 @@
 {
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "src/app/**/*.{js}"
+    "src/app/**/*.js",
+    "!src/app/*/**/index.js"
   ],
   "coverageDirectory": "<rootDir>/coverage",
   "coverageReporters": [

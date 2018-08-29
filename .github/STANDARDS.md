@@ -162,8 +162,8 @@ its specifications.
 The first `describe` on a service test should be written as the name of the
 exported service; second-layer `describe`s should represent function names and
 should be prefaced by a `#`; following `describe`s should be written as if
-prefaced by the word `when`. When writing `it`s, they should be read as if
-prefaced by the word `it` and a present tense verb. (See
+prefaced by the word `when`. When writing `it`s, they should start with a
+present tense verb and should be read as if prefaced by the word `it`. (See
 `src/app/services/helper/index.spec.js` for an example)
 
 ##### Component Unit Tests
@@ -176,8 +176,8 @@ cannot majorly impact the unit tests.
 
 The first `describe` on a component test should be written as the name of the
 exported component; following `describe`s should be written as if prefaced by
-the word `when`. When writing `it`s, they should be read as if prefaced by the
-word `it` and a present tense verb. (See
+the word `when`. When writing `it`s, they should start with a present tense
+verb and should be read as if prefaced by the word `it`. (See
 `src/app/components/home/home.component.spec.js` for an example)
 
 ##### Coverage

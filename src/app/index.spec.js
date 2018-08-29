@@ -1,13 +1,13 @@
 import loadEntry from 'load-entry';
 
-import { HomeComponent } from 'app/home';
+import { HomeComponent } from 'components/home';
 
 import { indexEntry } from '.';
 
 jest.mock('browser-polyfills', () => global.TestImports.add('polyfills'));
 jest.mock('load-entry');
 
-jest.mock('app/home', () => {
+jest.mock('components/home', () => {
   const appInstance = { create: jest.fn(() => new Promise(resolve => resolve())) };
   return { HomeComponent: jest.fn(() => appInstance) };
 });

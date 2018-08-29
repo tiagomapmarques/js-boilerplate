@@ -1,7 +1,7 @@
 import 'browser-polyfills';
 import loadEntry from 'load-entry';
 
-import { HomeComponent } from 'app/home';
+import { HomeComponent } from 'components/home';
 
 import './index.style';
 

@@ -13,7 +13,7 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
-        "app": "./src/app"
+        "components": "./src/app/components"
       }
     }]
   ],
@@ -23,7 +23,7 @@
         ["module-resolver", {
           "alias": {
             "testing": "./src/testing",
-            "app": "./src/app"
+            "components": "./src/app/components"
           }
         }]
       ]

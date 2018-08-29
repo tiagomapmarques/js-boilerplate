@@ -24,12 +24,12 @@ describe('HelperService', () => {
         response = HelperService.getJson(mockDataFilename);
       });
 
-      it('send the request to the right URL', () => {
+      it('sends the request to the right URL', () => {
         expect(fetch.mock.calls).toHaveLength(1);
         expect(fetch.mock.calls[0]).toEqual([mockDataUrl]);
       });
 
-      it('get the parsed response', (done) => {
+      it('gets the parsed response', (done) => {
         response.then((data) => {
           expect(data).toEqual(mockData);
           done();
@@ -40,20 +40,6 @@ describe('HelperService', () => {
     describe('request fails', () => {
       const errorData = { error: mockData.text };
 
-      describe('on network issues', () => {
-        beforeEach(() => {
-          fetch.mockReject();
-          response = HelperService.getJson(mockDataFilename, errorData);
-        });
-
-        it('returns the default data sent in second argument', (done) => {
-          response.then((data) => {
-            expect(data).toEqual(errorData);
-            done();
-          });
-        });
-      });
-
       const testResponseStatus = (statusCode) => {
         describe(`response returns a ${statusCode} status`, () => {
           beforeEach(() => {
@@ -61,7 +47,7 @@ describe('HelperService', () => {
             response = HelperService.getJson(mockDataFilename, errorData);
           });
 
-          it('returns the default data sent in second argument', (done) => {
+          it('returns the default data received', (done) => {
             response.then((data) => {
               expect(data).toEqual(errorData);
               done();
@@ -71,6 +57,20 @@ describe('HelperService', () => {
       };
 
       [403, 404, 500].forEach(testResponseStatus);
+
+      describe('network issues occur', () => {
+        beforeEach(() => {
+          fetch.mockReject();
+          response = HelperService.getJson(mockDataFilename, errorData);
+        });
+
+        it('returns the default data received', (done) => {
+          response.then((data) => {
+            expect(data).toEqual(errorData);
+            done();
+          });
+        });
+      });
     });
   });
 
@@ -87,13 +87,8 @@ describe('HelperService', () => {
         elementContent = HelperService.writeToDocumentById(mockId, mockContent);
       });
 
-      it('creates element as child of parent element', () => {
-        expect(document.body.childNodes).toHaveLength(1);
-        expect(document.body.childNodes[0].getAttribute('id')).toBe(mockId);
-      });
-
       it('writes correct content in new element', () => {
-        expect(elementContent).toBe(mockContent);
+        expect(elementContent.innerHTML).toBe(mockContent);
       });
     });
 

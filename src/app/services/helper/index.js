@@ -14,6 +14,6 @@ export const HelperService = {
     if (element) {
       element.innerHTML = contentText;
     }
-    return element && element.innerHTML;
+    return element;
   },
 };

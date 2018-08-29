@@ -36,17 +36,17 @@ describe('HomeComponent', () => {
       fetch.resetMocks();
     });
 
-    it('fetch data from the correct url', () => {
+    it('fetches data from the correct url', () => {
       expect(HelperService.getJson.mock.calls).toHaveLength(1);
       expect(HelperService.getJson.mock.calls[0][0]).toEqual('sample');
     });
 
-    it('show the page content', () => {
+    it('shows the page content', () => {
       expect(querySelector(`.${style.content}`).innerHTML.trim())
         .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
-    it('show the footer', () => {
+    it('shows the footer', () => {
       expect(querySelector(`.${style.footer}`).innerHTML.trim())
         .toBe(`v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`);
     });
@@ -58,7 +58,7 @@ describe('HomeComponent', () => {
       createComponent(done);
     });
 
-    it('content is not shown', () => {
+    it('does not show content', () => {
       expect(querySelector(`.${style.content}`)).toBe(null);
     });
   });

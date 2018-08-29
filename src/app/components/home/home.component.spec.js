@@ -1,33 +1,34 @@
-import { createElement } from 'testing';
+import { HelperService } from 'services';
 
 import { HomeComponent } from './home.component';
 import style from './home.style';
 
+jest.mock('services');
+
 jest.mock('./home.style', () => global.mockStyle(require.requireActual('./home.style')));
 
 describe('HomeComponent', () => {
-  const sampleDataUrl = `${VARIABLES.SERVICES.ASSETS}sample.json`;
-  const sampleData = {
-    text: 'Mock Content',
-  };
+  const sampleData = { text: 'Mock Content' };
   let component;
 
   beforeEach(() => {
     component = new HomeComponent();
   });
 
+  afterEach(() => {
+    HelperService.writeToDocumentById.mockReset();
+  });
+
   const createComponent = done => component.create().then(done).catch();
 
   const querySelector = (selector) => {
-    const classes = document.getElementsByClassName(selector);
-    return (classes && classes.length) ? classes[0] : null;
+    [[, document.body.innerHTML]] = HelperService.writeToDocumentById.mock.calls;
+    return document.body.querySelector(selector);
   };
 
-  describe('when no errors occur', () => {
-    createElement(document.body, 'div', { id: VARIABLES.ROOTID });
-
+  describe('no errors occur fetching', () => {
     beforeEach((done) => {
-      fetch.mockResponse(JSON.stringify(sampleData));
+      HelperService.getJson = jest.fn(() => new Promise(resolve => resolve(sampleData)));
       createComponent(done);
     });
 
@@ -36,54 +37,29 @@ describe('HomeComponent', () => {
     });
 
     it('fetches data from the correct url', () => {
-      expect(fetch.mock.calls).toHaveLength(1);
-      expect(fetch.mock.calls[0]).toEqual([sampleDataUrl]);
+      expect(HelperService.getJson.mock.calls).toHaveLength(1);
+      expect(HelperService.getJson.mock.calls[0][0]).toEqual('sample');
     });
 
     it('shows the page content', () => {
-      expect(querySelector(style.content).innerHTML.trim())
+      expect(querySelector(`.${style.content}`).innerHTML.trim())
         .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
     it('shows the footer', () => {
-      expect(querySelector(style.footer).innerHTML.trim())
+      expect(querySelector(`.${style.footer}`).innerHTML.trim())
         .toBe(`v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`);
     });
   });
 
-  const testResponseStatus = (statusCode) => {
-    describe(`when fetch returns a ${statusCode}`, () => {
-      createElement(document.body, 'div', { id: VARIABLES.ROOTID });
-
-      beforeEach((done) => {
-        fetch.mockResponse(JSON.stringify(sampleData), { status: statusCode });
-        createComponent(done);
-      });
-
-      afterEach(() => {
-        fetch.resetMocks();
-      });
-
-      it('does not show the page content', () => {
-        expect(querySelector(style.content)).toBe(null);
-      });
-    });
-  };
-
-  [403, 404, 500].forEach(testResponseStatus);
-
-  describe('when no root element exists', () => {
+  describe('an error occurs fetching', () => {
     beforeEach((done) => {
-      fetch.mockResponse(JSON.stringify(sampleData));
+      HelperService.getJson = jest.fn((_, data) => new Promise(resolve => resolve(data)));
       createComponent(done);
     });
 
-    afterEach(() => {
-      fetch.resetMocks();
-    });
-
-    it('does not show the page content', () => {
-      expect(querySelector(style.content)).toBe(null);
+    it('does not show content', () => {
+      expect(querySelector(`.${style.content}`)).toBe(null);
     });
   });
 });

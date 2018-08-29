@@ -26,13 +26,13 @@ describe('index', () => {
     expect(loadEntry.mock.calls[0][0]).toEqual({ indexEntry });
   });
 
-  describe('the imports', () => {
-    it('include the required libraries', () => {
+  describe('it is imported', () => {
+    it('includes the required libraries', () => {
       expect(TestImports.get()).toContain('polyfills');
     });
   });
 
-  describe('when the application is executed', () => {
+  describe('the application is executed', () => {
     beforeEach(() => {
       indexEntry();
     });

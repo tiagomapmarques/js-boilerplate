@@ -35,7 +35,7 @@
     "clean:reset": "yarn clean && rimraf yarn.lock && yarn clean:packages",
     "lint": "yarn lint:code && yarn lint:style && yarn lint:tests",
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js src/app/**/*.js",
-    "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc.json",
+    "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
     "lint:tests": "eslint --config .eslintrc.spec.json src/app/**/*.spec.js src/testing",
     "serve": "ws --directory public --spa index.html --log.format dev",
     "serve:open": "yarn serve --open",

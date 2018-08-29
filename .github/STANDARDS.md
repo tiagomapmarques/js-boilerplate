@@ -151,17 +151,36 @@ Regardless of what type of test you are performing, any and all external
 dependencies (parents and children) should be mocked - auto-mocked by `jest` if
 possible.
 
+##### Service Unit Tests
+
 Testing a service or module is done in a whitebox style, where every public
 function is tested independently and where external dependencies are mocked
 (sibling function mocking should be done on an as needed basis). This is done in
 order to verify that every function of the service/module behaves according to
 its specifications.
 
+The first `describe` on a service test should be written as the name of the
+exported service; second-layer `describe`s should represent function names and
+should be prefaced by a `#`; following `describe`s should be written as if
+prefaced by the word `when`. When writing `it`s, they should start with a
+present tense verb and should be read as if prefaced by the word `it`. (See
+`src/app/services/helper/index.spec.js` for an example)
+
+##### Component Unit Tests
+
 Testing a visual component is done is a blackbox style, where the only thing
 that matters is the result on the page (i.e. what is seen by the user). That
 said, the tests focus only on testing the output on the page. This is done
 because changing the library/framework, a dependency, parent/child component
 cannot majorly impact the unit tests.
+
+The first `describe` on a component test should be written as the name of the
+exported component; following `describe`s should be written as if prefaced by
+the word `when`. When writing `it`s, they should start with a present tense
+verb and should be read as if prefaced by the word `it`. (See
+`src/app/components/home/home.component.spec.js` for an example)
+
+##### Coverage
 
 Anything lower than 100% test coverage is not acceptable. If a component or
 module cannot be fully tested, then it should be refactored - testability is a

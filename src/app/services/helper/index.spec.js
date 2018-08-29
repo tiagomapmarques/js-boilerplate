@@ -1,4 +1,4 @@
-import { createElement } from 'testing';
+import { createElementTest } from 'testing';
 
 import { HelperService } from '.';
 
@@ -81,7 +81,7 @@ describe('HelperService', () => {
     describe('element exists', () => {
       let elementContent;
 
-      createElement(document.body, 'div', { id: mockId });
+      createElementTest(document.body, 'div', { id: mockId });
 
       beforeEach(() => {
         elementContent = HelperService.writeToDocumentById(mockId, mockContent);

@@ -1,7 +1,7 @@
 # Generated Files
-coverage
-public
-watch
+/coverage
+/public
+/watch
 *.log
 
 # Dependencies

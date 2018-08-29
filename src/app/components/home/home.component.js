@@ -1,26 +1,6 @@
+import { HelperService } from 'services';
+
 import style from './home.style';
-
-const DATA_URL = `${VARIABLES.SERVICES.ASSETS}sample.json`;
-const EMPTY_DATA = {
-  text: '',
-};
-
-const getSampleData = () => fetch(DATA_URL)
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error();
-  })
-  .catch(() => EMPTY_DATA);
-
-const writeToDocumentById = (id, contentText) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.innerHTML = contentText;
-  }
-  return element && element.innerHTML;
-};
 
 export class HomeComponent {
   environment = VARIABLES.ENVIRONMENT;
@@ -39,7 +19,7 @@ export class HomeComponent {
   }
 
   create() {
-    return getSampleData().then(this.handleData);
+    return HelperService.getJson('sample', { text: '' }).then(this.handleData);
   }
 
   handleData({ text }) {
@@ -48,7 +28,7 @@ export class HomeComponent {
   }
 
   render() {
-    return writeToDocumentById(this.rootId, `
+    return HelperService.writeToDocumentById(this.rootId, `
       <div>
         ${this.text ? `<div class="${style.content}">${this.title} says ${this.text}!</div>` : ''}
         <div class="${style.footer}">v${this.version}-${this.environment}</div>

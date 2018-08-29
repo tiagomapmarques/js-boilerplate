@@ -1,3 +1,20 @@
-coverage
+# Generated Files
+/coverage
+/public
+/watch
+*.log
+
+# Dependencies
 node_modules
-public
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDEs and Development
+.idea
+.editorconfig
+/docker-compose.yml
+
+# Git folder
+.git

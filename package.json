@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.11.5",
+  "version": "0.11.6",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -35,7 +35,7 @@
     "clean:reset": "yarn clean && rimraf yarn.lock && yarn clean:packages",
     "lint": "yarn lint:code && yarn lint:style && yarn lint:tests",
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js src/app/**/*.js",
-    "lint:style": "stylelint \"**/*.scss\" --config .stylelintrc.json",
+    "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
     "lint:tests": "eslint --config .eslintrc.spec.json src/app/**/*.spec.js src/testing",
     "serve": "ws --directory public --spa index.html --log.format dev",
     "serve:open": "yarn serve --open",
@@ -75,20 +75,19 @@
     "webpack-cli": "~3.1"
   },
   "devDependencies": {
-    "babel-eslint": "~8.2",
+    "babel-eslint": "~9.0",
     "babel-jest": "~23.4",
     "eslint": "~5.4",
     "eslint-config-airbnb-base": "~13.1",
     "eslint-import-resolver-babel-module": "~4.0",
     "eslint-plugin-import": "~2.14",
-    "eslint-plugin-jest": "~21.21",
+    "eslint-plugin-jest": "~21.22",
     "jest": "~23.5",
     "jest-css-modules-transform": "~2.0",
     "jest-fetch-mock": "~1.6",
     "local-web-server": "~2.6",
     "stylelint": "~9.5",
-    "stylelint-config-recommended-scss": "~3.2",
-    "stylelint-scss": "~3.3",
+    "stylelint-config-standard": "~18.2",
     "webpack-livereload-plugin": "~2.1"
   }
 }

@@ -1,7 +1,7 @@
 # Generated Files
-coverage
-public
-watch
+/coverage
+/public
+/watch
 *.log
 
 # Dependencies
@@ -14,7 +14,7 @@ Thumbs.db
 # IDEs and Development
 .idea
 .editorconfig
-docker-compose.yml
+/docker-compose.yml
 
 # Git folder
 .git

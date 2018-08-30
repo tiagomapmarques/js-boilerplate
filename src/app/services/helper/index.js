@@ -10,11 +10,11 @@ export const HelperService = {
     })
     .catch(() => defaultResponse),
 
-  writeToDocumentById: (id, contentText) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.innerHTML = contentText;
-    }
+  createElement: (tagName, content = '') => {
+    const element = document.createElement(tagName);
+    element.innerHTML = typeof content === 'string' ? content : content.toString();
     return element;
   },
+  
+  createStyleElement: style => HelperService.createElement('style', style),
 };

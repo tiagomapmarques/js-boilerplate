@@ -1,8 +1,22 @@
-import { createElementTest } from 'testing';
-
 import { HelperService } from '.';
 
 describe('HelperService', () => {
+  const elementTypes = [
+    {
+      tag: 'span',
+      elementType: 'HTMLSpanElement',
+    },
+    {
+      tag: 'canvas',
+      elementType: 'HTMLCanvasElement',
+    },
+    {
+      tag: 'section',
+      elementType: 'HTMLElement',
+    },
+  ];
+  const elementData = 'mock-element-data';
+
   describe('#getJson', () => {
     const mockDataFilename = 'sample';
     const mockDataUrl = `${VARIABLES.SERVICES.ASSETS}${mockDataFilename}.json`;
@@ -74,30 +88,35 @@ describe('HelperService', () => {
     });
   });
 
-  describe('#writeToDocumentById', () => {
-    const mockId = 'mock-id';
-    const mockContent = 'mock-content';
-
-    describe('element exists', () => {
-      let element;
-
-      createElementTest(document.body, 'div', { id: mockId });
-
-      beforeEach(() => {
-        element = HelperService.writeToDocumentById(mockId, mockContent);
-      });
-
-      it('writes correct content in new element', () => {
-        expect(element.innerHTML).toBe(mockContent);
+  describe('#createElement', () => {
+    elementTypes.forEach((elementType) => {
+      it('returns an element of the required tag', () => {
+        const element = HelperService.createElement(elementType.tag);
+        expect(element.constructor.name).toEqual(elementType.elementType);
       });
     });
 
-    describe('element does not exist', () => {
-      const element = HelperService.writeToDocumentById(mockId, mockContent);
-
-      it('writes correct content in new element', () => {
-        expect(element).toBeNull();
+    describe('the innerHTML given is a string', () => {
+      it('contains the correct innerHTML', () => {
+        const element = HelperService.createElement(elementTypes[0].tag, elementData);
+        expect(element.innerHTML).toEqual(elementData);
       });
+    });
+
+    describe('the innerHTML given can be converted to a string', () => {
+      it('contains the correct innerHTML', () => {
+        const element = HelperService.createElement(elementTypes[0].tag, {
+          toString: () => elementData,
+        });
+        expect(element.innerHTML).toEqual(elementData);
+      });
+    });
+  });
+
+  describe('#createStyleElement', () => {
+    it('returns a style element', () => {
+      const element = HelperService.createStyleElement(elementData);
+      expect(element.tagName).toEqual('STYLE');
     });
   });
 });

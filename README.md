@@ -1,28 +1,27 @@
 # Js Boilerplate &middot; ![ci-status][ci-develop]
 
-This is a boilerplate for any frontend project. Below you can find a list of
-_flavors_, derived from the original `develop` branch. Each _flavor_ will be
-only one commit long so you can easily diff them and see how to properly set up
-each of them.
+This is a boilerplate for any frontend project. Below you can find a list of _flavors_, derived from
+the original `develop` branch. Each _flavor_ will be only one commit long so you can easily diff
+them and see how to properly set up each of them.
 
-All standards and decisions made regarding this project, its implementation and
-maintainability are **[documented here](.github/STANDARDS.md)**. Remember to read it
-along with the **[contributing](.github/CONTRIBUTING.md)** and
-**[code of conduct](.github/CODE_OF_CONDUCT.md)** guidelines.
+All standards and decisions made regarding this project, its implementation and maintainability are
+**[documented here](.github/STANDARDS.md)**. Remember to read it along with the
+**[contributing](.github/CONTRIBUTING.md)** and **[code of conduct](.github/CODE_OF_CONDUCT.md)**
+guidelines.
 
 Dependencies:
-- `node` >= 8
-- `npm` >= 5
-- `yarn`
+  - `node` >= 8
+  - `npm` >= 5
+  - `yarn`
 
 Quick start:
-- `yarn`
-- `yarn start`
+  - `yarn`
+  - `yarn start`
 
 Quick start (docker):
-- `docker build . -t js-boilerplate`
-- `docker run -p 8000:80 -d js-boilerplate`
-- visit `localhost:8000`
+  - `docker build . -t js-boilerplate`
+  - `docker run -p 8000:80 -d js-boilerplate`
+  - visit `localhost:8000`
 
 ## Flavors
 
@@ -39,25 +38,23 @@ Quick start (docker):
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `typescript` | base for frontend app using angular | TBD | - |
 
-**Note**: `typescript` branch is made of 2 commits instead of one: one to rename
-`js` files to `ts` and the other to adapt the project to typescript - better for
-diffing.
+**Note**: `typescript` branch is made of 2 commits instead of one: one to rename `js` files to `ts`
+and the other to adapt the project to typescript - better for diffing.
 
-**Note**: `web-components` branch 1) only supports IE11+ and evergreen browsers
-and 2) has neither critical-css nor pre-rendering plugins.
+**Note**: `web-components` branch 1) only supports IE11+ and evergreen browsers and 2) has neither
+pre-rendering nor critical-css plugins.
 
 ## Compatibility
-
-- IE9+
-- Any evergreen browser (Chrome, Edge, FF, ...)
+  - IE9+
+  - Any evergreen browser (Chrome, Edge, FF, ...)
 
 ## Environments
 
-This project comes with 3 environments setup. Each environment has been setup
-according to the general needs of each one. They are:
-- Local: quick/local usage and debugging
-- Development: full app for external server usage and debugging
-- Production: full app for production usage
+This project comes with 3 environments setup. Each environment has been setup according to the
+general needs of each one. They are:
+  - Local: quick/local usage and debugging
+  - Development: full app for external server usage and debugging
+  - Production: full app for production usage
 
 | Features | Local | Development | Production |
 | ------ | ------ | ------ | ------ |
@@ -73,45 +70,44 @@ according to the general needs of each one. They are:
 ## Tooling
 
 The following are the base commands for this application (`yarn`):
-- `clean` performs `:coverage` and `:generated`
-  - `:coverage` deletes the `coverage` folder
-  - `:generated` deletes the `public` folder and `*.log` files
-  - `:packages` deletes the `node_modules` folder
-  - `:reset` removes `yarn.lock` and performs `clean` and `:packages`
-- `lint` performs `:code`, `:style` and `:tests`
-  - `:code` lints your code according to `.eslintrc.json` (which extends
-`airbnb-base` rules)
-  - `:style` lints your style according to `.stylelintrc.json` (which extends
-`stylelint-config-recommended-scss` rules)
-  - `:tests` lints your tests according to `.eslintrc.spec.json` (which
-extends `airbnb-base` rules)
-- `build` runs `:local`
-  - `:local`/`:dev`/`:prod` builds the project and its assets for the
-    `local`/`dev`/`prod` environments respectively
-    - `:watch` watches app files and rebuilds them upon change
-- `test` runs the unit tests for the project (files ending with `.spec.js`)
-  - `:watch` watches the test files and re-runs the tests on any file update
-- `serve` serves the project on `localhost:8000`
-  - `:open` also opens a tab with the URL
-  - `:secure` serves with gzip compression and on https
+  - `clean` performs `:coverage` and `:generated`
+    - `:coverage` deletes the `coverage` folder
+    - `:generated` deletes the `public` folder and `*.log` files
+    - `:packages` deletes the `node_modules` folder
+    - `:reset` removes `yarn.lock` and performs `clean` and `:packages`
+  - `lint` performs `:code`, `:style` and `:tests`
+    - `:code` lints your code according to `.eslintrc.json` (which extends `airbnb-base` rules)
+    - `:style` lints your style according to `.stylelintrc.json` (which extends
+    `stylelint-config-recommended-scss` rules)
+    - `:tests` lints your tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
+    rules)
+  - `build` runs `:local`
+    - `:local`/`:dev`/`:prod` builds the project and its assets for the
+      `local`/`dev`/`prod` environments respectively
+      - `:watch` watches app files and rebuilds them upon change
+  - `test` runs the unit tests for the project (files ending with `.spec.js`)
+    - `:watch` watches the test files and re-runs the tests on any file update
+  - `serve` serves the project on `localhost:8000`
+    - `:open` also opens a tab with the URL
+    - `:secure` serves with gzip compression and on https
 
 The following commands are shortcuts only:
-- `yarn start` = `yarn build` and `yarn serve:open`
-- `yarn build` = `yarn build:local`
-- `yarn watch` = `yarn build:local:watch`
+  - `yarn start` = `yarn build` and `yarn serve:open`
+  - `yarn build` = `yarn build:local`
+  - `yarn watch` = `yarn build:local:watch`
 
 ## Using the project
 
-The `develop` branch will be released incrementally (i.e. through PRs), but the
-_flavor_ branches will not. Their code will be updated/modified without
-notice on every release (and/or PR) of the project.
+The `develop` branch will be released incrementally (i.e. through PRs), but the _flavor_ branches
+will not. Their code will be updated/modified without notice on every release (and/or PR) of the
+project.
 
-That said, you should always use the `develop` branch as the base for your
-projects. If you want to add a feature/lib already featured on _flavors_,
-take a look at it and implement it yourself on your project.
+That said, you should always use the `develop` branch as the base for your projects. If you want to
+add a feature/lib already featured on _flavors_, take a look at it and implement it yourself on your
+project.
 
-Remember that the _flavor_ branches are just examples on how to implement and
-adapt this project to other languages/libraries/frameworks.
+Remember that the _flavor_ branches are just examples on how to implement and adapt this project to
+other languages/libraries/frameworks.
 
 ### Examples
 

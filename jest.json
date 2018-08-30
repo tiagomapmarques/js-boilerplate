@@ -19,6 +19,7 @@
     }
   },
   "moduleFileExtensions": [
+    "vue",
     "js",
     "scss"
   ],
@@ -27,6 +28,7 @@
   ],
   "testRegex": "^.+\\.spec\\.js$",
   "transform": {
+    "^.+\\.vue$": "<rootDir>/node_modules/vue-jest",
     "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
     "^.+\\.scss$": "<rootDir>/node_modules/jest-css-modules-transform"
   },

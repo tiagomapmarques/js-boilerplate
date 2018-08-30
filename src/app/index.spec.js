@@ -9,9 +9,9 @@ jest.mock('load-entry');
 
 jest.mock('components/home', () => {
   const appInstance = { create: jest.fn(() => new Promise(resolve => resolve())) };
-  const HomeComponent = jest.fn(() => appInstance);
-  HomeComponent.create = appInstance.create;
-  return { HomeComponent };
+  const MockComponent = jest.fn(() => appInstance);
+  MockComponent.create = appInstance.create;
+  return { HomeComponent: MockComponent };
 });
 
 describe('index', () => {

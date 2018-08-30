@@ -1,0 +1,45 @@
+@import '~design-system';
+
+.list {
+  @include grid-container;
+
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.item {
+  @include grid-column(6);
+  @include grid-container;
+  @include color-divider-light;
+
+  border-radius: $unit / 2;
+  padding: $unit;
+  margin-bottom: 2 * $unit;
+
+  @include media-small-up {
+    @include grid-column(4);
+  }
+
+  @include media-medium-up {
+    @include grid-column(3);
+  }
+
+  @include media-large-up {
+    @include grid-column(2);
+  }
+}
+
+.title {
+  @include grid-column(12, $grid-no-gutter);
+}
+
+.image {
+  @include grid-column(4, $grid-no-gutter);
+}
+
+.information {
+  @include grid-column(8, $grid-no-gutter);
+
+  margin-top: $unit * 0.75;
+}

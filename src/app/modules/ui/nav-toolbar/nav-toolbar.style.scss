@@ -1,0 +1,11 @@
+@import '~design-system';
+
+.parentClass {
+  @include border-color(null null $color-divider);
+  @include border-width(null null 1px);
+  @include border-style(null null solid);
+
+  ul {
+    @include vertical-align($unit * 3 - 1px);
+  }
+}

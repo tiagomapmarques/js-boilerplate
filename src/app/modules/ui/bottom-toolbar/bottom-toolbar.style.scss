@@ -1,0 +1,11 @@
+@import '~design-system';
+
+.bottomToolbar {
+  @include color-divider;
+
+  position: absolute;
+  width: 100%;
+  text-align: right;
+  margin-top: $unit * -3;
+  overflow: hidden;
+}

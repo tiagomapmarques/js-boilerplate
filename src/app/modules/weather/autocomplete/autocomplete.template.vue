@@ -1,0 +1,10 @@
+<template>
+  <autocomplete
+    :onChange="handleChange"
+    :onSelect="handleSelect"
+    :value="value"
+    :suggestions="mappedSuggestions"
+    :className="styles.input"
+    :placeholder="translate('instructions.autocomplete.label')"
+  />
+</template>

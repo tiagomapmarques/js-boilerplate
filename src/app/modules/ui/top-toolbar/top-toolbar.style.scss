@@ -1,0 +1,13 @@
+@import '~design-system';
+
+.parentClass {
+  @include vertical-align($unit * 9);
+  @include set-priority($priority-high);
+  @include stick-top;
+}
+
+.hero {
+  @include color-primary;
+
+  overflow: hidden;
+}

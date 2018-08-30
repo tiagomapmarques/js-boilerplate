@@ -43,7 +43,7 @@ describe('HelperService', () => {
       const testResponseStatus = (statusCode) => {
         describe(`response returns a ${statusCode} status`, () => {
           beforeEach(() => {
-            fetch.mockResponse({}, { status: statusCode });
+            fetch.mockResponse('', { status: statusCode });
             response = HelperService.getJson(mockDataFilename, errorData);
           });
 
@@ -79,24 +79,24 @@ describe('HelperService', () => {
     const mockContent = 'mock-content';
 
     describe('element exists', () => {
-      let elementContent;
+      let element;
 
       createElementTest(document.body, 'div', { id: mockId });
 
       beforeEach(() => {
-        elementContent = HelperService.writeToDocumentById(mockId, mockContent);
+        element = HelperService.writeToDocumentById(mockId, mockContent);
       });
 
       it('writes correct content in new element', () => {
-        expect(elementContent.innerHTML).toBe(mockContent);
+        expect(element.innerHTML).toBe(mockContent);
       });
     });
 
     describe('element does not exist', () => {
-      const elementContent = HelperService.writeToDocumentById(mockId, mockContent);
+      const element = HelperService.writeToDocumentById(mockId, mockContent);
 
       it('writes correct content in new element', () => {
-        expect(elementContent).toBeNull();
+        expect(element).toBeNull();
       });
     });
   });

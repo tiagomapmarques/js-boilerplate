@@ -3,7 +3,12 @@ import { HelperService } from 'services';
 import { HomeComponent } from './home.component';
 import style from './home.style';
 
-jest.mock('services');
+jest.mock('services', () => ({
+  HelperService: {
+    getJson: jest.fn(),
+    writeToDocumentById: jest.fn(),
+  },
+}));
 
 jest.mock('./home.style', () => global.mockStyle(require.requireActual('./home.style')));
 
@@ -12,7 +17,7 @@ describe('HomeComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = new HomeComponent();
+    component = new HomeComponent(VARIABLES.ROOTID);
   });
 
   afterEach(() => {
@@ -22,7 +27,8 @@ describe('HomeComponent', () => {
   const createComponent = done => component.create().then(done).catch();
 
   const querySelector = (selector) => {
-    [[, document.body.innerHTML]] = HelperService.writeToDocumentById.mock.calls;
+    const [[, innerHTML]] = HelperService.writeToDocumentById.mock.calls;
+    document.body.innerHTML = innerHTML;
     return document.body.querySelector(selector);
   };
 

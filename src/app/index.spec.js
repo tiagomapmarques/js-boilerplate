@@ -40,7 +40,7 @@ describe('index', () => {
     it('creates the component on the root element', () => {
       expect(MockComponent.mock.instances).toHaveLength(1);
       expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toEqual([]);
+      expect(MockComponent.mock.calls[0]).toEqual([VARIABLES.ROOTID]);
     });
 
     it('renders the correct component', () => {

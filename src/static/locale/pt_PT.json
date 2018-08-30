@@ -1,0 +1,12 @@
+{
+  "states": {
+    "loading": "A carregar...",
+    "error": "Ocorreu um erro."
+  },
+  "instructions": {
+    "refresh": "Por favor atualize a página...",
+    "autocomplete": {
+      "label": "Procure uma cidade"
+    }
+  }
+}

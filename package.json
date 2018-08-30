@@ -1,21 +1,16 @@
 {
-  "name": "js-boilerplate",
-  "version": "0.11.9",
+  "name": "weather-app-vue",
+  "version": "0.0.1",
   "author": "Tiago Marques",
-  "description": "Boilerplate for any javascript frontend project",
+  "description": "Weather app example using VueJs",
   "keywords": [
-    "javascript",
+    "weather",
     "frontend",
-    "boilerplate",
-    "seed",
-    "typescript",
-    "jquery",
-    "react",
-    "inferno",
+    "javascript",
     "vue",
-    "web-components"
+    "example"
   ],
-  "repository": "https://github.com/tiagomapmarques/js-boilerplate",
+  "repository": "https://github.com/tiagomapmarques/weather-app-vue",
   "license": "MIT",
   "engines": {
     "node": ">=8.0.0"

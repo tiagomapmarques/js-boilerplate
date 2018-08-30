@@ -1,6 +1,7 @@
 
 export const HelperService = {
-  getJson: (filename, defaultResponse) => fetch(`${VARIABLES.SERVICES.ASSETS}${filename}.json`)
+  getJson: (filename, defaultResponse) =>
+    fetch(`${VARIABLES.SERVICES.ASSETS}${filename}.json`)
     .then((response) => {
       if (response.ok) {
         return response.json();

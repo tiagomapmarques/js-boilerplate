@@ -45,7 +45,7 @@ and the other to adapt the project to typescript - better for diffing.
 pre-rendering nor critical-css plugins.
 
 ## Compatibility
-  - IE9+
+  - IE11+
   - Any evergreen browser (Chrome, Edge, FF, ...)
 
 ## Environments
@@ -62,8 +62,8 @@ general needs of each one. They are:
 | Source Map | X | X | - |
 | Chunks | X | X | X |
 | All Favicons | - | X | X |
-| Pre-render | - | X | X |
-| Critical CSS | - | X | X |
+| Pre-render | - | - | - |
+| Critical CSS | - | - | - |
 | HTML/JS/CSS Minimisation | - | - | X |
 | Fails on Build Error | - | - | X |
 

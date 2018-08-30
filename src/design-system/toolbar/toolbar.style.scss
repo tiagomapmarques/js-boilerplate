@@ -1,0 +1,11 @@
+@import '~design-system';
+
+.parentClass {
+  @include grid-container;
+  @include no-select;
+  @include vertical-align($unit * 3);
+
+  > * {
+    @include grid-column(12);
+  }
+}

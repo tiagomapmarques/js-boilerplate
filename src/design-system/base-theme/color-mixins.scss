@@ -1,0 +1,35 @@
+
+@mixin color-primary {
+  background-color: $color-primary;
+  color: $color-text;
+}
+
+@mixin color-primary-light {
+  background-color: $color-primary-light;
+  color: $color-text-primary;
+}
+
+@mixin color-primary-light-darkened {
+  background-color: darken($color-primary-light, 10%);
+  color: $color-text-primary;
+}
+
+@mixin color-primary-dark {
+  background-color: $color-primary-dark;
+  color: $color-text;
+}
+
+@mixin color-accent {
+  background-color: $color-accent;
+  color: $color-text;
+}
+
+@mixin color-divider {
+  background-color: $color-divider;
+  color: $color-text-primary;
+}
+
+@mixin color-divider-light {
+  background-color: lighten($color-divider, 10%);
+  color: $color-text-primary;
+}

@@ -1,0 +1,47 @@
+
+@mixin border-radius($radius) {
+  @include border-top-radius($radius);
+  @include border-bottom-radius($radius);
+}
+
+@mixin grid-collapse-soft {
+  margin-left: 0;
+  width: calc(100%);
+}
+
+@mixin no-select {
+  cursor: default;
+  user-select: none;
+}
+
+@mixin lists-inline {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+
+@mixin vertical-align($height) {
+  height: $height;
+  line-height: $height;
+}
+
+@mixin stick-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+@mixin set-priority($priority) {
+  z-index: $priority;
+}
+
+@mixin cover-click {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+}

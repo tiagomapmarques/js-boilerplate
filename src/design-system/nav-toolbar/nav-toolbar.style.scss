@@ -1,0 +1,49 @@
+@import '~design-system';
+
+$grid-no-gutter-smaller: (
+  columns: 10,
+  gutter: 0,
+);
+
+.parentClass {
+  text-transform: uppercase;
+}
+
+.menu {
+  @include grid-container;
+  @include grid-collapse-soft;
+  @include lists-inline;
+  @include color-primary-light;
+
+  .item {
+    @include grid-column(6, $grid-no-gutter);
+
+    @include media-small-up {
+      @include grid-column(2, $grid-no-gutter);
+    }
+
+    @include media-large-up {
+      @include grid-column(1, $grid-no-gutter-smaller);
+    }
+
+    @include lists-inline;
+
+    text-align: center;
+
+    &.active {
+      @include color-primary-light-darkened;
+    }
+
+    &:hover {
+      @include color-primary-dark;
+
+      cursor: pointer;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}

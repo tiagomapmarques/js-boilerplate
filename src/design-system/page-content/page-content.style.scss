@@ -1,0 +1,11 @@
+@import '~design-system';
+
+.parentClass {
+  @include grid-container;
+
+  padding: $unit * 3 $unit $unit * 3 $unit;
+
+  > * {
+    @include grid-column(12, $grid-no-gutter);
+  }
+}

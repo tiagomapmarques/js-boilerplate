@@ -1,0 +1,30 @@
+
+@mixin media-extra-small-only {
+  @media (max-width: $break-extra-small-max) {
+    @content;
+  }
+}
+
+@mixin media-small-up {
+  @media (min-width: $break-extra-small-max + 1px) {
+    @content;
+  }
+}
+
+@mixin media-medium-up {
+  @media (min-width: $break-small-max + 1px) {
+    @content;
+  }
+}
+
+@mixin media-large-up {
+  @media (min-width: $break-medium-max + 1px) {
+    @content;
+  }
+}
+
+@mixin media-extra-large-up {
+  @media (min-width: $break-large-max + 1px) {
+    @content;
+  }
+}

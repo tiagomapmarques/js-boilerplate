@@ -1,0 +1,11 @@
+@import '~design-system';
+
+.parentClass {
+  @include grid-container;
+
+  min-height: 100%;
+
+  > * {
+    @include grid-column(12, $grid-no-gutter);
+  }
+}

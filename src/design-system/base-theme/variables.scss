@@ -1,0 +1,31 @@
+
+$unit: 12px;
+
+$break-extra-small-max: 600px;
+$break-small-max: 900px;
+$break-medium-max: 1200px;
+$break-large-max: 1800px;
+
+$color-primary: #2196f3;
+$color-primary-light: #bbdefb;
+$color-primary-dark: #1976d2;
+$color-accent: #ff5722;
+
+$color-text: #fff;
+$color-text-primary: #212121;
+$color-text-secondary: #757575;
+$color-divider: #bdbdbd;
+
+$font-family: Helvetica, Arial, Verdana, Tahoma;
+
+$priority-low: -1;
+$priority-normal: 0;
+$priority-above-normal: 1;
+$priority-high: 2;
+$priority-higher: 3;
+$priority-top: 4;
+
+$grid-default-gutter: 20px;
+$grid-no-gutter: (
+  gutter: 0,
+);

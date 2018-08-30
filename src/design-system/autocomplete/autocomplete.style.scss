@@ -1,0 +1,52 @@
+@import '~design-system';
+
+$input-width: $unit * 25;
+$border-width: $unit / 6;
+
+.container {
+  @include margin($unit / 2 null $unit $grid-default-gutter);
+}
+
+.input {
+  @include border-radius($border-width);
+
+  border: $border-width $color-primary-light solid;
+  padding: $unit / 2;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: $border-width $color-primary solid;
+  }
+}
+
+.suggestions {
+  @include set-priority($priority-high);
+  @include margin(-1 * $border-width 0 0 0);
+
+  position: absolute;
+  border: $border-width $color-primary-light solid;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+
+  li {
+    padding: $unit / 2;
+    cursor: pointer;
+
+    &:hover {
+      @include color-primary-light;
+    }
+  }
+}
+
+.invisible {
+  @include set-priority($priority-above-normal !important);
+
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}

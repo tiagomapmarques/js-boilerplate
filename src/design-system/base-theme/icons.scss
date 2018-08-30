@@ -1,0 +1,29 @@
+
+@mixin icon-after($unicode) {
+  &::after {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: 'Material Icons';
+    vertical-align: text-top;
+    content: $unicode;
+
+    @content;
+  }
+}
+
+@mixin icon-before($unicode) {
+  &::before {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: 'Material Icons';
+    vertical-align: text-top;
+    content: $unicode;
+
+    @content;
+  }
+}
+
+@mixin list-item-icon($unicode) {
+  @include icon-before($unicode);
+
+  list-style: none;
+  margin-left: $unit * -1;
+}

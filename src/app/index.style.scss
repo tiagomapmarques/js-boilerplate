@@ -1,7 +1,12 @@
+@import '~design-system';
+
+@include reset;
 
 html,
 body {
-  margin: 0;
-  border: 0;
-  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: $font-family;
+  font-size: $unit;
+  color: $color-text-primary;
 }

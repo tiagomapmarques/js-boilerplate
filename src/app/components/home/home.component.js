@@ -2,24 +2,17 @@ import { HelperService } from 'services';
 
 import style from './home.style';
 
+const EMPTY_DATA = { text: '' };
+
 export class HomeComponent {
-  environment = VARIABLES.ENVIRONMENT;
-
-  version = VARIABLES.VERSION;
-
-  rootId = VARIABLES.ROOTID;
-
-  title = VARIABLES.TITLE;
-
-  text;
-
-  constructor() {
+  constructor(parentId) {
+    this.parentId = parentId;
     this.text = '';
     this.handleData = this.handleData.bind(this);
   }
 
   create() {
-    return HelperService.getJson('sample', { text: '' }).then(this.handleData);
+    return HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
   }
 
   handleData({ text }) {
@@ -28,10 +21,18 @@ export class HomeComponent {
   }
 
   render() {
-    return HelperService.writeToDocumentById(this.rootId, `
+    return HelperService.writeToDocumentById(this.parentId, `
       <div>
-        ${this.text ? `<div class="${style.content}">${this.title} says ${this.text}!</div>` : ''}
-        <div class="${style.footer}">v${this.version}-${this.environment}</div>
+        ${this.text
+          ? `
+            <div class="${style.content}">
+              ${VARIABLES.TITLE} says ${this.text}!
+            </div>`
+          : ''
+        }
+        <div class="${style.footer}">
+          v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}
+        </div>
       </div>
     `);
   }

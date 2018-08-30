@@ -14,7 +14,7 @@
     ["module-resolver", {
       "alias": {
         "components": "./src/app/components",
-        "services": "./src/app/services"
+        "^services$": "./src/app/services/index.js"
       }
     }]
   ],
@@ -23,9 +23,9 @@
       "plugins": [
         ["module-resolver", {
           "alias": {
-            "testing": "./src/testing",
+            "^testing$": "./src/testing/index.js",
             "components": "./src/app/components",
-            "services": "./src/app/services"
+            "^services$": "./src/app/services/index.js"
           }
         }]
       ]

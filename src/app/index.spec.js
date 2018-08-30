@@ -9,16 +9,15 @@ jest.mock('load-entry');
 
 jest.mock('components/home', () => {
   const appInstance = { create: jest.fn(() => new Promise(resolve => resolve())) };
-  return { HomeComponent: jest.fn(() => appInstance) };
+  const HomeComponent = jest.fn(() => appInstance);
+  HomeComponent.create = appInstance.create;
+  return { HomeComponent };
 });
 
 describe('index', () => {
-  const MockComponent = HomeComponent;
-  const MockComponentCreate = MockComponent().create;
-
   afterEach(() => {
-    MockComponent.mockClear();
-    MockComponentCreate.mockClear();
+    HomeComponent.mockClear();
+    HomeComponent.create.mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -38,14 +37,14 @@ describe('index', () => {
     });
 
     it('creates the component on the root element', () => {
-      expect(MockComponent.mock.instances).toHaveLength(1);
-      expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toEqual([VARIABLES.ROOTID]);
+      expect(HomeComponent.mock.instances).toHaveLength(1);
+      expect(HomeComponent.mock.calls).toHaveLength(1);
+      expect(HomeComponent.mock.calls[0]).toEqual([VARIABLES.ROOTID]);
     });
 
     it('renders the correct component', () => {
-      expect(MockComponentCreate.mock.calls).toHaveLength(1);
-      expect(MockComponentCreate.mock.calls[0]).toEqual([]);
+      expect(HomeComponent.create.mock.calls).toHaveLength(1);
+      expect(HomeComponent.create.mock.calls[0]).toEqual([]);
     });
   });
 });

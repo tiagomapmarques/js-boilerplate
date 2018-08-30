@@ -38,10 +38,6 @@ describe('HomeComponent', () => {
       createComponent(done);
     });
 
-    afterEach(() => {
-      fetch.resetMocks();
-    });
-
     it('fetches data from the correct url', () => {
       expect(HelperService.getJson.mock.calls).toHaveLength(1);
       expect(HelperService.getJson.mock.calls[0][0]).toEqual('sample');

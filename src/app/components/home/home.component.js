@@ -2,6 +2,8 @@ import { HelperService } from 'services';
 
 import style from './home.style';
 
+const EMPTY_DATA = { text: '' };
+
 export class HomeComponent {
   constructor(parentId) {
     this.parentId = parentId;
@@ -10,7 +12,7 @@ export class HomeComponent {
   }
 
   create() {
-    return HelperService.getJson('sample', { text: '' }).then(this.handleData);
+    return HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
   }
 
   handleData({ text }) {

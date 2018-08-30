@@ -2,7 +2,7 @@ import { paths } from './paths';
 import { project } from './project';
 
 export const pageConfig = {
-  title: 'Js Boilerplate',
+  title: 'Weather App',
   description: project.description,
   keywords: (project.keywords || []).join(','),
   author: project.author,

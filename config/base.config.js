@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
 import {
   app,
@@ -35,6 +36,7 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin(paths.distRelative, { root: paths.baseAbsolute, verbose: false }),
     new CopyWebpackPlugin(app.externalFiles.map((filesRules) => {
       const parsedRules = typeof filesRules === 'string' ? { from: filesRules } : filesRules;
@@ -50,7 +52,12 @@ export const baseConfig = {
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: ['.js', '.scss'],
+    extensions: ['.js', '.vue', '.scss'],
+    alias: {
+      bourbon: `${paths.baseAbsolute}/node_modules/bourbon/core/_bourbon.scss`,
+      neat: `${paths.baseAbsolute}/node_modules/bourbon-neat/core/_neat.scss`,
+      'design-system': `${paths.baseAbsolute}/src/design-system/index.scss`,
+    },
     modules: [
       paths.appAbsolute,
       'node_modules',

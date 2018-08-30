@@ -20,7 +20,7 @@ export const app = {
   },
   rendering: {
     staticDir: paths.distAbsolute,
-    routes: ['/'],
+    routes: ['/', '/about'],
     server: {
       port: 8001,
     },

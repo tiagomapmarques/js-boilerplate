@@ -20,6 +20,6 @@ export const getVariables = (environment = environments.default) => ({
   VARIABLES: {
     // eslint-disable-next-line global-require,import/no-dynamic-require
     ...require(`./${environment}`).env,
-    ...getDotEnv(),
+    ...(environment !== 'test' ? getDotEnv() : {}),
   },
 });

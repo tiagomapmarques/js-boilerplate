@@ -1,13 +1,11 @@
-import { resolve } from 'path';
 import { parse } from 'dotenv';
+import { readFileSync } from 'fs';
 
 import { environments } from '../environments';
 
 const getDotEnv = () => {
   try {
-    // eslint-disable-next-line global-require
-    const read = require('fs').readFileSync;
-    return parse(read(resolve(process.cwd(), '.env')));
+    return parse(readFileSync('.env'));
   } catch (_) {
     return {};
   }

@@ -14,4 +14,5 @@ Thumbs.db
 # IDEs and Development
 .idea
 .editorconfig
+.env
 /docker-compose.yml

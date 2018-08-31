@@ -139,4 +139,4 @@ other languages/libraries/frameworks.
 [ci-inferno]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-aurelia]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/aurelia.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-angular]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/angular.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
-[version-rc1]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.11.9
+[version-rc2]: https://github.com/tiagomapmarques/js-boilerplate/tree/v0.11.9

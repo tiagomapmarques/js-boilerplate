@@ -5,7 +5,7 @@
     "!src/app/components/**/index.js",
     "!src/app/*/index.js"
   ],
-  "coverageDirectory": "<rootDir>/coverage",
+  "coverageDirectory": "coverage",
   "coverageReporters": [
     "json",
     "lcov"
@@ -23,12 +23,12 @@
     "scss"
   ],
   "setupFiles": [
-    "<rootDir>/src/testing/jest"
+    "./src/testing/jest"
   ],
   "testRegex": "^.+\\.spec\\.js$",
   "transform": {
-    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-    "^.+\\.scss$": "<rootDir>/node_modules/jest-css-modules-transform"
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.scss$": "jest-css-modules-transform"
   },
   "transformIgnorePatterns": []
 }

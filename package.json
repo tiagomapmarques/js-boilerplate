@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.12.3",
+  "version": "0.12.4",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -28,11 +28,6 @@
     "build:local:watch": "yarn build:local --watch",
     "build:prod": "webpack --progress --bail --env prod",
     "build:prod:watch": "yarn build:prod --watch",
-    "clean": "yarn clean:coverage && yarn clean:generated",
-    "clean:coverage": "rimraf coverage",
-    "clean:generated": "rimraf public && rimraf *.log",
-    "clean:packages": "rimraf node_modules",
-    "clean:reset": "yarn clean && rimraf yarn.lock && yarn clean:packages",
     "lint": "yarn lint:code && yarn lint:style && yarn lint:tests",
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js src/app/**/*.js config",
     "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
@@ -61,7 +56,6 @@
     "dotenv": "~6.0",
     "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",
-    "file-loader": "~2.0",
     "html-webpack-plugin": "~3.2",
     "load-entry": "~1.1",
     "manifest-json-webpack-plugin": "~1.0",
@@ -69,8 +63,7 @@
     "node-sass": "~4.9",
     "path": "~0.12",
     "postcss-loader": "~3.0",
-    "prerender-spa-plugin": "~3.3",
-    "rimraf": "~2.6",
+    "prerender-spa-plugin": "~3.4",
     "sass-loader": "~7.1",
     "webpack": "~4.17",
     "webpack-cli": "~3.1"
@@ -78,7 +71,7 @@
   "devDependencies": {
     "babel-eslint": "~9.0",
     "babel-jest": "~23.4",
-    "eslint": "~5.4",
+    "eslint": "~5.5",
     "eslint-config-airbnb-base": "~13.1",
     "eslint-import-resolver-babel-module": "~4.0",
     "eslint-plugin-import": "~2.14",

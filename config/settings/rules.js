@@ -22,10 +22,6 @@ const getRules = minify => ([
       'sass-loader',
     ],
   },
-  {
-    test: /\.(json|png|jpg|gif|svg|woff|woff2)$/,
-    use: 'file-loader',
-  },
 ]);
 
 export const rules = {

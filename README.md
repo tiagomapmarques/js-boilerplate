@@ -70,26 +70,21 @@ general needs of each one. They are:
 ## Tooling
 
 The following are the base commands for this application (`yarn`):
-  - `clean` performs `:coverage` and `:generated`
-    - `:coverage` deletes the `coverage` folder
-    - `:generated` deletes the `public` folder and `*.log` files
-    - `:packages` deletes the `node_modules` folder
-    - `:reset` removes `yarn.lock` and performs `clean` and `:packages`
+  - `build` runs `:local`
+    - `:local`/`:dev`/`:prod` builds the project and its assets for the `local`/`dev`/`prod`
+environments respectively
+      - `:watch` watches app files and rebuilds them upon change
   - `lint` performs `:code`, `:style` and `:tests`
     - `:code` lints your code according to `.eslintrc.json` (which extends `airbnb-base` rules)
     - `:style` lints your style according to `.stylelintrc.json` (which extends
-    `stylelint-config-recommended-scss` rules)
+`stylelint-config-recommended-scss` rules)
     - `:tests` lints your tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
-    rules)
-  - `build` runs `:local`
-    - `:local`/`:dev`/`:prod` builds the project and its assets for the
-      `local`/`dev`/`prod` environments respectively
-      - `:watch` watches app files and rebuilds them upon change
-  - `test` runs the unit tests for the project (files ending with `.spec.js`)
-    - `:watch` watches the test files and re-runs the tests on any file update
+rules)
   - `serve` serves the project on `localhost:8000`
     - `:open` also opens a tab with the URL
     - `:secure` serves with gzip compression and on https
+  - `test` runs the unit tests for the project (files ending with `.spec.js`)
+    - `:watch` watches the test files and re-runs the tests on any file update
 
 The following commands are shortcuts only:
   - `yarn start` = `yarn build` and `yarn serve:open`

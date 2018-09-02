@@ -35,7 +35,11 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
-    new CleanWebpackPlugin(paths.distRelative, { root: paths.baseAbsolute, verbose: false }),
+    new CleanWebpackPlugin(paths.distRelative, {
+      root: paths.baseAbsolute,
+      exclude: app.cleanExclusions || [],
+      verbose: false,
+    }),
     new CopyWebpackPlugin(app.externalFiles.map((filesRules) => {
       const parsedRules = typeof filesRules === 'string' ? { from: filesRules } : filesRules;
       return {

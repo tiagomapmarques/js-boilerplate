@@ -11,6 +11,7 @@ export const app = {
     name: 'vendor',
     chunks: 'initial',
   },
+  cleanExclusions: [],
   externalFiles: [
     paths.staticAbsolute,
   ],

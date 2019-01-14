@@ -11,7 +11,7 @@ guidelines.
 
 Dependencies:
   - `node` >= 10.15
-  - `yarn` >= 1.13
+  - `yarn` >= 1.12.3
 
 Quick start:
   - `yarn`

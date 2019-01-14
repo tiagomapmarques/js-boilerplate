@@ -80,8 +80,7 @@ environments respectively
 `stylelint-config-recommended-scss` rules)
     - `:tests` lints your tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
 rules)
-  - `serve` serves the project on `localhost:8000`
-    - `:open` also opens a tab with the URL
+  - `serve` serves the project on `localhost:8000` and opens a tab with the URL
     - `:secure` serves with gzip compression and on https
   - `test` runs the unit tests for the project (files ending with `.spec.js`)
     - `:watch` watches the test files and re-runs the tests on any file update

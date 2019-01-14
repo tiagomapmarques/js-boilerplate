@@ -35,10 +35,9 @@
     "lint:tests": "eslint --config .eslintrc.spec.json src/app/**/*.spec.js src/testing",
     "serve": "ws --directory public --spa index.html --log.format dev --open",
     "serve:secure": "yarn serve --compress --http2",
-    "start": "yarn watch",
+    "start": "yarn build:local:watch",
     "test": "jest --no-cache --config jest.json",
-    "test:watch": "yarn test --watchAll",
-    "watch": "yarn build:local:watch"
+    "test:watch": "yarn test --watchAll"
   },
   "dependencies": {
     "autoprefixer": "~9.4",

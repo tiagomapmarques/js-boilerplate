@@ -87,9 +87,8 @@ rules)
     - `:watch` watches the test files and re-runs the tests on any file update
 
 The following commands are shortcuts only:
-  - `yarn start` = `yarn build` and `yarn serve:open`
+  - `yarn start` = `yarn build:local:watch`
   - `yarn build` = `yarn build:local`
-  - `yarn watch` = `yarn build:local:watch`
 
 ## Using the project
 

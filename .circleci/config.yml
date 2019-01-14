@@ -3,7 +3,7 @@ version: 2
 jobs:
   install:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - run:
@@ -15,7 +15,7 @@ jobs:
             - node_modules
   install-prod:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     environment:
       - NODE_ENV: "production"
     steps:
@@ -29,7 +29,7 @@ jobs:
             - node_modules
   test:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - restore_cache:
@@ -41,7 +41,7 @@ jobs:
           path: ./coverage
   lint:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - restore_cache:
@@ -51,7 +51,7 @@ jobs:
           command: yarn lint
   build-local:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - restore_cache:
@@ -61,7 +61,7 @@ jobs:
           command: yarn build:local
   build-dev:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - restore_cache:
@@ -71,7 +71,7 @@ jobs:
           command: yarn build:dev
   build-prod:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10-browsers
     environment:
       - NODE_ENV: "production"
     steps:

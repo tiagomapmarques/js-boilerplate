@@ -1,8 +1,8 @@
 FROM nginx:1.15
 
-# install node 8 LTS
+# install node 10 LTS
 RUN apt-get -qq update && apt-get -qq --assume-yes install gnupg curl
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 RUN apt-get -qq --assume-yes install nodejs chromium libatk-adaptor gtk3.0
 RUN alias node=/usr/bin/nodejs
 RUN alias npm=/usr/bin/npm

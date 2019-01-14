@@ -10,9 +10,8 @@ All standards and decisions made regarding this project, its implementation and 
 guidelines.
 
 Dependencies:
-  - `node` >= 8
-  - `npm` >= 5
-  - `yarn`
+  - `node` >= 10.15
+  - `yarn` >= 1.12
 
 Quick start:
   - `yarn`
@@ -86,7 +85,7 @@ rules)
     - `:watch` watches the test files and re-runs the tests on any file update
 
 The following commands are shortcuts only:
-  - `yarn start` = `yarn build:local:watch`
+  - `yarn start` = `yarn build` and `yarn serve`
   - `yarn build` = `yarn build:local`
 
 ## Using the project

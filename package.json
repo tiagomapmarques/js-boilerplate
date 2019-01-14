@@ -32,10 +32,9 @@
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js src/app/**/*.js config",
     "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
     "lint:tests": "eslint --config .eslintrc.spec.json src/app/**/*.spec.js src/testing",
-    "serve": "ws --directory public --spa index.html --log.format dev",
-    "serve:open": "yarn serve --open",
+    "serve": "ws --directory public --spa index.html --log.format dev --open",
     "serve:secure": "yarn serve --compress --http2",
-    "start": "yarn build && yarn serve:open",
+    "start": "yarn watch",
     "test": "jest --no-cache --config jest.json",
     "test:watch": "yarn test --watchAll",
     "watch": "yarn build:local:watch"

@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.12.4",
+  "version": "0.12.5",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -18,7 +18,8 @@
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.0.0",
+    "yarn": ">=1.10.0"
   },
   "scripts": {
     "build": "yarn build:local",
@@ -32,58 +33,56 @@
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.js src/app/**/*.js config",
     "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
     "lint:tests": "eslint --config .eslintrc.spec.json src/app/**/*.spec.js src/testing",
-    "serve": "ws --directory public --spa index.html --log.format dev",
-    "serve:open": "yarn serve --open",
+    "serve": "ws --directory public --spa index.html --log.format dev --open",
     "serve:secure": "yarn serve --compress --http2",
-    "start": "yarn build && yarn serve:open",
+    "start": "yarn build:local:watch",
     "test": "jest --no-cache --config jest.json",
-    "test:watch": "yarn test --watchAll",
-    "watch": "yarn build:local:watch"
+    "test:watch": "yarn test --watchAll"
   },
   "dependencies": {
-    "autoprefixer": "~9.1",
+    "autoprefixer": "~9.4",
     "babel-core": "~6.26",
     "babel-loader": "~7.1",
     "babel-plugin-module-resolver": "~3.1",
     "babel-preset-env": "~1.7",
     "babel-preset-stage-2": "~6.24",
     "browser-polyfills": "~1.4",
-    "clean-webpack-plugin": "~0.1",
-    "copy-webpack-plugin": "~4.5",
+    "clean-webpack-plugin": "~1.0",
+    "copy-webpack-plugin": "~4.6",
     "critical": "~1.3",
     "critical-css-webpack-plugin": "~0.2",
     "css-loader": "~1.0",
-    "dotenv": "~6.0",
+    "dotenv": "~6.2",
     "extended-define-webpack-plugin": "~0.1",
     "favicons-webpack-plugin": "~0.0",
     "html-webpack-plugin": "~3.2",
     "load-entry": "~1.1",
     "manifest-json-webpack-plugin": "~1.0",
-    "mini-css-extract-plugin": "~0.4",
-    "node-sass": "~4.9",
+    "mini-css-extract-plugin": "~0.5",
+    "node-sass": "~4.11",
     "path": "~0.12",
     "postcss-loader": "~3.0",
     "prerender-spa-plugin": "~3.4",
     "sass-loader": "~7.1",
-    "webpack": "~4.17",
-    "webpack-cli": "~3.1"
+    "webpack": "~4.28",
+    "webpack-cli": "~3.2"
   },
   "devDependencies": {
-    "babel-eslint": "~9.0",
-    "babel-jest": "~23.4",
-    "eslint": "~5.5",
+    "babel-eslint": "~10.0",
+    "babel-jest": "~23.6",
+    "eslint": "~5.12",
     "eslint-config-airbnb-base": "~13.1",
     "eslint-import-resolver-babel-module": "~4.0",
     "eslint-plugin-import": "~2.14",
-    "eslint-plugin-jest": "~21.22",
-    "jest": "~23.5",
-    "jest-css-modules-transform": "~2.0",
-    "jest-fetch-mock": "~1.6",
+    "eslint-plugin-jest": "~22.1",
+    "jest": "~23.6",
+    "jest-css-modules-transform": "~2.1",
+    "jest-fetch-mock": "~2.1",
     "local-web-server": "~2.6",
-    "stylelint": "~9.5",
+    "stylelint": "~9.9",
     "stylelint-config-recommended-scss": "~3.2",
     "stylelint-config-standard": "~18.2",
-    "stylelint-scss": "~3.3",
-    "webpack-livereload-plugin": "~2.1"
+    "stylelint-scss": "~3.5",
+    "webpack-livereload-plugin": "~2.2"
   }
 }

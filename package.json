@@ -18,7 +18,8 @@
   "repository": "https://github.com/tiagomapmarques/js-boilerplate",
   "license": "MIT",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.0.0",
+    "yarn": ">=1.10.0"
   },
   "scripts": {
     "build": "yarn build:local",

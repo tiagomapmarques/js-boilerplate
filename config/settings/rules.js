@@ -2,7 +2,7 @@ import { loader as ExtractLoader } from 'mini-css-extract-plugin';
 
 const getRules = minify => ([
   {
-    test: /\.js$/,
+    test: /\.(j|t)s$/,
     use: 'babel-loader',
   },
   {
@@ -13,8 +13,6 @@ const getRules = minify => ([
         loader: 'css-loader',
         options: {
           modules: true,
-          importLoaders: 1,
-          minimize: minify,
           localIdentName: minify ? '[hash:base64:24]' : '[path][name]-[local]',
         },
       },

@@ -10,4 +10,4 @@ export const indexEntry = () => {
   app.create().catch();
 };
 
-loadEntry(exports);
+loadEntry(indexEntry);

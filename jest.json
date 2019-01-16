@@ -2,8 +2,12 @@
   "collectCoverage": true,
   "collectCoverageFrom": [
     "src/app/**/*.js",
+    "src/app/**/*.ts",
+    "!src/app/**/*.d.ts",
     "!src/app/components/**/index.js",
-    "!src/app/*/index.js"
+    "!src/app/components/**/index.ts",
+    "!src/app/*/index.js",
+    "!src/app/*/index.ts"
   ],
   "coverageDirectory": "coverage",
   "coverageReporters": [
@@ -20,14 +24,21 @@
   },
   "moduleFileExtensions": [
     "js",
+    "ts",
     "scss"
   ],
+  "moduleNameMapper": {
+    "^testing$": "<rootDir>/src/testing",
+    "^components/(.*)": "<rootDir>/src/app/components/$1",
+    "^services$": "<rootDir>/src/app/services"
+  },
   "setupFiles": [
     "./src/testing/jest"
   ],
-  "testRegex": "^.+\\.spec\\.js$",
+  "testRegex": "^.+\\.spec\\.(j|t)s$",
   "transform": {
     "^.+\\.js$": "babel-jest",
+    "^.+\\.ts$": "ts-jest",
     "^.+\\.scss$": "jest-css-modules-transform"
   },
   "transformIgnorePatterns": []

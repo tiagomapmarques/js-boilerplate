@@ -1,11 +1,14 @@
 {
-  "extends":  "./.eslintrc.json",
-  "env": {
-    "jest/globals": true
+  "extends": "./.eslintrc.json",
+  "rules": {
+    "strict": "off"
   },
   "plugins": [
     "jest"
   ],
+  "env": {
+    "jest/globals": true
+  },
   "globals": {
     "mockStyle": true,
     "TestImports": true

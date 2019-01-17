@@ -1,13 +1,10 @@
 {
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "src/app/**/*.js",
-    "src/app/**/*.ts",
+    "src/app/**/*.(j|t)s",
     "!src/app/**/*.d.ts",
-    "!src/app/components/**/index.js",
-    "!src/app/components/**/index.ts",
-    "!src/app/*/index.js",
-    "!src/app/*/index.ts"
+    "!src/app/components/**/index.(j|t)s",
+    "!src/app/*/index.(j|t)s"
   ],
   "coverageDirectory": "coverage",
   "coverageReporters": [

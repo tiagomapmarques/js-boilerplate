@@ -1,4 +1,4 @@
-// tslint:disable-next-line:no-reference
+// eslint-disable-next-line typescript/no-triple-slash-reference,spaced-comment
 /// <reference path="./global.d.ts" />
 
 interface TestConsole extends Console, jest.MockInstance<Console> {}
@@ -7,7 +7,7 @@ interface TestFetchArguments {
   status?: number;
   statusText?: string;
   url?: string;
-  headers?: Object;
+  headers?: {};
 }
 
 type FetchType = typeof fetch;
@@ -17,7 +17,7 @@ interface TestFetch extends FetchMockType {
   mockResponse(body: string, init?: TestFetchArguments): FetchType;
   mockResponseOnce(body: string, init?: TestFetchArguments): FetchType;
   once(body: string, init?: TestFetchArguments): FetchType;
-  mockResponses(...responses : Array<[string] | [string, TestFetchArguments]>): FetchType;
+  mockResponses(...responses: ([string] | [string, TestFetchArguments])[]): FetchType;
   mockReject(error?: Error): FetchType;
   mockRejectOnce(error?: Error): FetchType;
   resetMocks(): void;
@@ -30,6 +30,7 @@ interface TestImportsInterface {
 
 declare function mockStyle(styleModule: IndexObject<string>): IndexObject<string>;
 
+// eslint-disable-next-line no-unused-vars
 declare const TestImports: TestImportsInterface;
 
 declare interface TestGlobal extends NodeJS.Global {

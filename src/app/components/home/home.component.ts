@@ -13,7 +13,7 @@ export class HomeComponent {
 
   private text: string;
 
-  constructor(parentId: string) {
+  public constructor(parentId: string) {
     this.parentId = parentId;
     this.text = '';
     this.handleData = this.handleData.bind(this);

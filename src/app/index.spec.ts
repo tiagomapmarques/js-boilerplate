@@ -4,27 +4,26 @@ import { HomeComponent } from 'components/home';
 
 import { indexEntry } from '.';
 
+type MockLoadEntry = typeof loadEntry & jest.MockInstance<typeof loadEntry>;
+
+interface MockHomeComponent extends jest.Mock<HomeComponent> {
+  getCreateMethod: () => jest.Mock<Promise<{}>>;
+}
+
 jest.mock('browser-polyfills', () => (global as TestGlobal).TestImports.add('polyfills'));
 jest.mock('load-entry');
 
 jest.mock('components/home', () => {
-  const appInstance = { create: jest.fn(() => new Promise(resolve => resolve())) };
-  const MockComponent = jest.fn(() => appInstance);
-  (MockComponent as any).create = appInstance.create;
-  return { HomeComponent: MockComponent };
+  const component = { create: jest.fn(() => new Promise(resolve => resolve())) };
+  const constructor = jest.fn(() => component) as jest.Mock<typeof component> & MockHomeComponent;
+  constructor.getCreateMethod = () => component.create;
+  return { HomeComponent: constructor };
 });
-
-type MockLoadEntry = typeof loadEntry & jest.MockInstance<typeof loadEntry>;
-
-type HomeComponentConstructor = () => HomeComponent;
-interface MockHomeComponent extends HomeComponentConstructor, jest.Mock<HomeComponent> {
-  create: jest.Mock;
-}
 
 describe('index', () => {
   afterEach(() => {
     (HomeComponent as MockHomeComponent).mockClear();
-    (HomeComponent as MockHomeComponent).create.mockClear();
+    (HomeComponent as MockHomeComponent).getCreateMethod().mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -50,8 +49,8 @@ describe('index', () => {
     });
 
     it('renders the correct component', () => {
-      expect((HomeComponent as MockHomeComponent).create.mock.calls).toHaveLength(1);
-      expect((HomeComponent as MockHomeComponent).create.mock.calls[0]).toEqual([]);
+      expect((HomeComponent as MockHomeComponent).getCreateMethod().mock.calls).toHaveLength(1);
+      expect((HomeComponent as MockHomeComponent).getCreateMethod().mock.calls[0]).toEqual([]);
     });
   });
 });

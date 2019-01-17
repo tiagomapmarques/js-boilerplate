@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb-base",
+  "extends": "./.eslintrc.rules.json",
   "rules": {
     "import/no-unresolved": "\\.scss$",
     "import/prefer-default-export": "off",

@@ -84,13 +84,54 @@ describe('HelperService', () => {
 
       mockCreateElement(document.body, 'div', { id: mockId });
 
-      describe('element is to be replaced', () => {
-        beforeEach(() => {
-          element = HelperService.writeToDocumentById(mockId, mockContentElement);
+      describe('content given', () => {
+        describe('is able to be converted to string', () => {
+          beforeEach(() => {
+            element = HelperService.writeToDocumentById(mockId, {}, false);
+          });
+
+          it('converts the content to string', () => {
+            expect(element.innerHTML).toBe('[object Object]');
+          });
         });
 
-        it('overrides the element with new element and content', () => {
-          expect(element.outerHTML).toBe(mockContentElement);
+        describe('is not able to be converted to string', () => {
+          beforeEach(() => {
+            element.innerHTML = mockContent;
+            element = HelperService.writeToDocumentById(mockId, null, false);
+          });
+
+          it('writes an empty string to the element', () => {
+            expect(element.innerHTML).toBe('');
+          });
+        });
+      });
+
+      describe('element is to be replaced', () => {
+        describe('content given is a single node', () => {
+          beforeEach(() => {
+            element = HelperService.writeToDocumentById(mockId, mockContentElement);
+          });
+
+          it('overrides the element with new element and content', () => {
+            expect(element.outerHTML).toBe(mockContentElement);
+          });
+        });
+
+        describe('content given is not a single node', () => {
+          const doubleNodeHtml = `${mockContentElement}${mockContentElement}`;
+
+          beforeEach(() => {
+            element = HelperService.writeToDocumentById(mockId, doubleNodeHtml);
+          });
+
+          it('does not override the element', () => {
+            expect(document.body.contains(element)).toBe(true);
+          });
+
+          it('writes the content inside the original element', () => {
+            expect(element.innerHTML).toBe(doubleNodeHtml);
+          });
         });
       });
 

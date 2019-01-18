@@ -11,17 +11,20 @@ export const HelperService = {
 
   writeToDocumentById: (id, contentText, replace = true) => {
     const element = document.getElementById(id);
-    const newElementParent = document.createElement('div');
-    newElementParent.innerHTML = contentText;
 
-    if (element && newElementParent.childNodes.length > 0) {
-      if (replace) {
+    if (element) {
+      const newElementParent = document.createElement('div');
+      newElementParent.innerHTML = contentText || '';
+
+      if (replace && newElementParent.children.length === 1) {
         const parent = element.parentElement;
-        const childIndex = Array.from(element.parentElement.children).indexOf(element);
-        element.parentElement.replaceChild(newElementParent.children[0], element);
-        return parent.children[childIndex];
+        const elementIndex = Array.from(parent.children).indexOf(element);
+
+        parent.replaceChild(newElementParent.children[0], element);
+        return parent.children[elementIndex];
       }
-      element.innerHTML = contentText;
+
+      element.innerHTML = newElementParent.innerHTML;
     }
     return element;
   },

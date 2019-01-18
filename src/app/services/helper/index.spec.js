@@ -1,4 +1,4 @@
-import { createElementTest } from 'testing';
+import { mockCreateElement } from 'testing';
 
 import { HelperService } from '.';
 
@@ -77,18 +77,31 @@ describe('HelperService', () => {
   describe('#writeToDocumentById', () => {
     const mockId = 'mock-id';
     const mockContent = 'mock-content';
+    const mockContentElement = `<span id="${mockId}">${mockContent}</span>`;
 
     describe('element exists', () => {
       let element;
 
-      createElementTest(document.body, 'div', { id: mockId });
+      mockCreateElement(document.body, 'div', { id: mockId });
 
-      beforeEach(() => {
-        element = HelperService.writeToDocumentById(mockId, mockContent);
+      describe('element is to be replaced', () => {
+        beforeEach(() => {
+          element = HelperService.writeToDocumentById(mockId, mockContentElement);
+        });
+
+        it('overrides the element with new element and content', () => {
+          expect(element.outerHTML).toBe(mockContentElement);
+        });
       });
 
-      it('writes correct content in new element', () => {
-        expect(element.innerHTML).toBe(mockContent);
+      describe('element is not to be replaced', () => {
+        beforeEach(() => {
+          element = HelperService.writeToDocumentById(mockId, mockContent, false);
+        });
+
+        it('writes correct content in new element', () => {
+          expect(element.innerHTML).toBe(mockContent);
+        });
       });
     });
 

@@ -10,7 +10,7 @@ interface MockHomeComponent extends jest.Mock<HomeComponent> {
   getCreateMethod: () => jest.Mock<Promise<{}>>;
 }
 
-jest.mock('browser-polyfills', () => (global as TestGlobal).TestImports.add('polyfills'));
+jest.mock('browser-polyfills', () => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');
 
 jest.mock('components/home', () => {
@@ -33,7 +33,7 @@ describe('index', () => {
 
   describe('it is imported', () => {
     it('includes the required libraries', () => {
-      expect(TestImports.get()).toContain('polyfills');
+      expect(MockImports.get()).toContain('polyfills');
     });
   });
 
@@ -45,7 +45,7 @@ describe('index', () => {
     it('creates the component on the root element', () => {
       expect((HomeComponent as MockHomeComponent).mock.instances).toHaveLength(1);
       expect((HomeComponent as MockHomeComponent).mock.calls).toHaveLength(1);
-      expect((HomeComponent as MockHomeComponent).mock.calls[0]).toEqual([VARIABLES.ROOTID]);
+      expect((HomeComponent as MockHomeComponent).mock.calls[0]).toHaveLength(0);
     });
 
     it('renders the correct component', () => {

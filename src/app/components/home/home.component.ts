@@ -9,13 +9,11 @@ export interface SampleData {
 const EMPTY_DATA: SampleData = { text: '' };
 
 export class HomeComponent {
-  private parentId: string;
+  private parentId = VARIABLES.ROOTID;
 
-  private text: string;
+  private text = '';
 
-  public constructor(parentId: string) {
-    this.parentId = parentId;
-    this.text = '';
+  public constructor() {
     this.handleData = this.handleData.bind(this);
   }
 
@@ -25,7 +23,7 @@ export class HomeComponent {
 
   public render() {
     return HelperService.writeToDocumentById(this.parentId, `
-      <div>
+      <div id="${this.parentId}">
         ${this.getContent()}
         <div class="${style.footer}">
           v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}

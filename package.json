@@ -91,7 +91,6 @@
     "stylelint-config-recommended-scss": "~3.2",
     "stylelint-config-standard": "~18.2",
     "stylelint-scss": "~3.5",
-    "ts-jest": "~23.10",
     "typescript": "~3.1",
     "webpack-livereload-plugin": "~2.2"
   }

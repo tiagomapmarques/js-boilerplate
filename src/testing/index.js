@@ -1,2 +1,2 @@
-export * from './create-element-test';
 export * from './mock-console';
+export * from './mock-create-element';

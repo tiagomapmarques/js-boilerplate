@@ -1,7 +1,7 @@
 
 const imports = [];
 
-export const TestImports = {
+export const MockImports = {
   get() {
     return imports;
   },

@@ -1,5 +1,5 @@
 
-export const createElementTest = (parentNode, tagName, attributes) => {
+export const mockCreateElement = (parentNode, tagName, attributes) => {
   if (attributes.id) {
     beforeEach(() => {
       const element = document.createElement(tagName);

@@ -34,8 +34,7 @@
   ],
   "testRegex": "^.+\\.spec\\.(j|t)s$",
   "transform": {
-    "^.+\\.js$": "babel-jest",
-    "^.+\\.ts$": "ts-jest",
+    "^.+\\.(j|t)s$": "babel-jest",
     "^.+\\.scss$": "jest-css-modules-transform"
   },
   "transformIgnorePatterns": []

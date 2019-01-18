@@ -17,7 +17,7 @@ describe('HomeComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = new HomeComponent(VARIABLES.ROOTID);
+    component = new HomeComponent();
   });
 
   afterEach(() => {

@@ -8,6 +8,6 @@
   },
   "globals": {
     "mockStyle": true,
-    "TestImports": true
+    "MockImports": true
   }
 }

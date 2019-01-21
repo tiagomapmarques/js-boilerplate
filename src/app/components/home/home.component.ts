@@ -17,11 +17,11 @@ export class HomeComponent {
     this.handleData = this.handleData.bind(this);
   }
 
-  public create() {
+  public create(): Promise<void> {
     return HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
   }
 
-  public render() {
+  public render(): HTMLElement | null {
     return HelperService.writeToDocumentById(this.parentId, `
       <div id="${this.parentId}">
         ${this.getContent()}
@@ -32,12 +32,12 @@ export class HomeComponent {
     `);
   }
 
-  private handleData({ text }: SampleData) {
+  private handleData({ text }: SampleData): void {
     this.text = text;
     this.render();
   }
 
-  private getContent() {
+  private getContent(): string {
     return this.text
       ? `
         <div class="${style.content}">

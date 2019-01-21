@@ -53,7 +53,7 @@
     "autoprefixer": "~9.4",
     "babel-loader": "~8.0",
     "babel-plugin-module-resolver": "~3.1",
-    "browser-polyfills": "~1.4",
+    "browser-polyfills": "~1.5",
     "clean-webpack-plugin": "~1.0",
     "copy-webpack-plugin": "~4.6",
     "critical": "~1.3",

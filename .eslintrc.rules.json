@@ -4,7 +4,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    // Eslint Overrides
+    // Project-specific Overrides
     "import/no-unresolved": "\\.scss$",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",

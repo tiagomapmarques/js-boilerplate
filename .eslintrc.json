@@ -1,13 +1,8 @@
 {
   "extends": "./.eslintrc.rules.json",
-  "rules": {
-    "import/no-unresolved": "\\.scss$",
-    "import/prefer-default-export": "off",
-    "import/no-default-export": "error"
-  },
-  "parser": "eslint-plugin-typescript/parser",
+  "parser": "@typescript-eslint/parser",
   "plugins": [
-    "typescript"
+    "@typescript-eslint"
   ],
   "env": {
     "browser": true

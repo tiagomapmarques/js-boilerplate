@@ -79,6 +79,7 @@ rules)
   - `serve` serves the project on `localhost:8000` and opens a tab with the URL
     - `:secure` serves with gzip compression and on https
   - `test` runs the unit tests for the project (files ending with `.spec.js` and `.spec.ts`)
+    - `:no-cache` runs the tests with no cache
     - `:watch` watches the test files and re-runs the tests on any file update
 
 The following commands are shortcuts only:

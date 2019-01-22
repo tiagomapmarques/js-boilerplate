@@ -1,15 +1,19 @@
 
 const defaultAlias = {
-  components: './src/app/components',
+  'components/(.*)': './src/app/components/',
   '^services$': './src/app/services/index.js',
 };
 
-const getPlugins = (additionalAlias = {}) => ([
+const testAlias = {
+  '^testing$': './src/testing/index.js',
+};
+
+const getPlugins = (addTestAlias = false) => ([
   ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-  ['@babel/plugin-proposal-class-properties'],
+  ['@babel/plugin-proposal-class-properties', { "loose": true }],
   ['babel-plugin-module-resolver', { alias: {
     ...defaultAlias,
-    ...additionalAlias,
+    ...(!addTestAlias ? {} : testAlias),
   }}],
 ]);
 
@@ -32,7 +36,7 @@ module.exports = {
   plugins: getPlugins(),
   env: {
     test: {
-      plugins: getPlugins({ '^testing$': './src/testing/index.js' }),
+      plugins: getPlugins(true),
     },
   },
 };

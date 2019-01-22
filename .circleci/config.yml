@@ -36,7 +36,7 @@ jobs:
           key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
       - run:
           name: "Run unit tests"
-          command: yarn test
+          command: yarn test:no-cache
       - store_artifacts:
           path: ./coverage
   lint:

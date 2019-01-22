@@ -10,7 +10,7 @@ const moduleNameMapper = Object.keys(alias).reduce((accumulator, key) => ({
 const extensions = ['js', 'ts'];
 const styleExtensions = ['scss'];
 
-const ext = prefix => extensions.map((e) => `${prefix}.${e}`);
+const ext = prefix => extensions.map(e => `${prefix}.${e}`);
 
 module.exports = {
   collectCoverage: true,

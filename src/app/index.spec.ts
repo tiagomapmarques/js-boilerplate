@@ -6,12 +6,12 @@ import { indexEntry } from '.';
 
 type MockLoadEntry = typeof loadEntry & jest.MockInstance<typeof loadEntry>;
 
+jest.mock('browser-polyfills', () => (global as MockGlobal).MockImports.add('polyfills'));
+jest.mock('load-entry');
+
 interface MockHomeComponent extends jest.Mock<HomeComponent> {
   getCreateMethod: () => jest.Mock<Promise<{}>>;
 }
-
-jest.mock('browser-polyfills', () => (global as MockGlobal).MockImports.add('polyfills'));
-jest.mock('load-entry');
 
 jest.mock('components/home', () => {
   const component = { create: jest.fn(() => new Promise(resolve => resolve())) };

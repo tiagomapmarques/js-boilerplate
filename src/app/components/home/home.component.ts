@@ -11,6 +11,8 @@ const EMPTY_DATA: SampleData = { text: '' };
 export class HomeComponent {
   private parentId = VARIABLES.ROOTID;
 
+  private version = `v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`;
+
   private text = '';
 
   public constructor() {
@@ -26,7 +28,7 @@ export class HomeComponent {
       <div id="${this.parentId}">
         ${this.getContent()}
         <div class="${style.footer}">
-          v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}
+          ${this.version}
         </div>
       </div>
     `);

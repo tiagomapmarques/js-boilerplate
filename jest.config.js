@@ -41,9 +41,9 @@ module.exports = {
   setupFiles: [
     './src/testing/jest',
   ],
-  testRegex: '^.+\\.spec\\.(j|t)s(x?)$',
+  testRegex: '^.+\\.spec\\.(j|t)s$',
   transform: {
-    '^.+\\.(j|t)s(x?)$': 'babel-jest',
+    '^.+\\.(j|t)s$': 'babel-jest',
     '^.+\\.scss$': 'jest-css-modules-transform',
   },
   transformIgnorePatterns: [],

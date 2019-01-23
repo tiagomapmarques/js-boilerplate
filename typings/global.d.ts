@@ -9,13 +9,13 @@ declare interface IndexObject<T> {
 declare interface IndexObjectAny extends IndexObject<any> {}
 
 declare module '*.style' {
-  interface BiotopeBuildStyle extends IndexObject<string> {
+  interface ImportedStyle extends IndexObject<string> {
     // FIXME: toString should be specified as described in the comment beside it, but due to the
     // definition of IndexObject, the value of all keys should be of the same type (string).
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     toString: any; // should be of type "() => string"
   }
-  const style: BiotopeBuildStyle;
+  const style: ImportedStyle;
   export = style;
 }
 

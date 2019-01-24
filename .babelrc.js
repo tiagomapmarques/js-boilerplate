@@ -9,8 +9,8 @@ const testAlias = {
 };
 
 const getPlugins = (addTestAlias = false) => ([
-  ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-  ['@babel/plugin-proposal-class-properties', { "loose": true }],
+  ['@babel/plugin-proposal-decorators', { legacy: true }],
+  ['@babel/plugin-proposal-class-properties', { loose: true }],
   ['babel-plugin-module-resolver', { alias: {
     ...defaultAlias,
     ...(!addTestAlias ? {} : testAlias),

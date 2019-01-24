@@ -87,7 +87,7 @@ describe('HelperService', () => {
       describe('content given', () => {
         describe('is able to be converted to string', () => {
           beforeEach(() => {
-            element = HelperService.writeToDocumentById(mockId, {}, false);
+            element = HelperService.writeToDocumentById(mockId, {});
           });
 
           it('converts the content to string', () => {
@@ -98,7 +98,7 @@ describe('HelperService', () => {
         describe('is not able to be converted to string', () => {
           beforeEach(() => {
             element.innerHTML = mockContent;
-            element = HelperService.writeToDocumentById(mockId, null, false);
+            element = HelperService.writeToDocumentById(mockId, null);
           });
 
           it('writes an empty string to the element', () => {
@@ -110,7 +110,7 @@ describe('HelperService', () => {
       describe('element is to be replaced', () => {
         describe('content given is a single node', () => {
           beforeEach(() => {
-            element = HelperService.writeToDocumentById(mockId, mockContentElement);
+            element = HelperService.writeToDocumentById(mockId, mockContentElement, true);
           });
 
           it('overrides the element with new element and content', () => {
@@ -122,7 +122,7 @@ describe('HelperService', () => {
           const doubleNodeHtml = `${mockContentElement}${mockContentElement}`;
 
           beforeEach(() => {
-            element = HelperService.writeToDocumentById(mockId, doubleNodeHtml);
+            element = HelperService.writeToDocumentById(mockId, doubleNodeHtml, true);
           });
 
           it('does not override the element', () => {
@@ -137,7 +137,7 @@ describe('HelperService', () => {
 
       describe('element is not to be replaced', () => {
         beforeEach(() => {
-          element = HelperService.writeToDocumentById(mockId, mockContent, false);
+          element = HelperService.writeToDocumentById(mockId, mockContent);
         });
 
         it('writes correct content in new element', () => {
@@ -147,7 +147,7 @@ describe('HelperService', () => {
     });
 
     describe('element does not exist', () => {
-      const element = HelperService.writeToDocumentById(mockId, mockContent);
+      const element = HelperService.writeToDocumentById(mockId, mockContent, true);
 
       it('writes correct content in new element', () => {
         expect(element).toBeNull();

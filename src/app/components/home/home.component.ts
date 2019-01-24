@@ -9,7 +9,7 @@ export interface SampleData {
 const EMPTY_DATA: SampleData = { text: '' };
 
 export class HomeComponent {
-  private version = `v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`;
+  private readonly version = `v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`;
 
   private text = '';
 
@@ -23,18 +23,11 @@ export class HomeComponent {
 
   public render(): HTMLElement | null {
     return HelperService.writeToDocumentById(VARIABLES.ROOTID, `
-      <div id="${VARIABLES.ROOTID}">
-        ${this.getContent()}
-        <div class="${style.footer}">
-          ${this.version}
-        </div>
+      ${this.getContent()}
+      <div class="${style.footer}">
+        ${this.version}
       </div>
     `);
-  }
-
-  private handleData({ text }: SampleData): void {
-    this.text = text;
-    this.render();
   }
 
   private getContent(): string {
@@ -44,5 +37,10 @@ export class HomeComponent {
           ${VARIABLES.TITLE} says ${this.text}!
         </div>`
       : '';
+  }
+
+  private handleData({ text }: SampleData): void {
+    this.text = text;
+    this.render();
   }
 }

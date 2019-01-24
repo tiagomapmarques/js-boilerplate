@@ -32,9 +32,12 @@ describe('HomeComponent', () => {
     return document.body.querySelector(selector);
   };
 
+  const mockGetJson = (newData = null) => jest
+    .fn((_, data) => new Promise(resolve => resolve(newData === null ? data : newData)));
+
   describe('no errors occur fetching', () => {
     beforeEach((done) => {
-      HelperService.getJson = jest.fn(() => new Promise(resolve => resolve(sampleData)));
+      HelperService.getJson = mockGetJson(sampleData);
       createComponent(done);
     });
 
@@ -44,19 +47,19 @@ describe('HomeComponent', () => {
     });
 
     it('shows the page content', () => {
-      expect(querySelector(`.${style.content}`).innerHTML.trim())
+      expect(querySelector(`.${style.content}`).textContent.trim())
         .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
     });
 
     it('shows the footer', () => {
-      expect(querySelector(`.${style.footer}`).innerHTML.trim())
+      expect(querySelector(`.${style.footer}`).textContent.trim())
         .toBe(`v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`);
     });
   });
 
   describe('an error occurs fetching', () => {
     beforeEach((done) => {
-      HelperService.getJson = jest.fn((_, data) => new Promise(resolve => resolve(data)));
+      HelperService.getJson = mockGetJson();
       createComponent(done);
     });
 

@@ -9,7 +9,7 @@ export const HelperService = {
     })
     .catch(() => defaultResponse),
 
-  writeToDocumentById: (id, contentText, replace = true) => {
+  writeToDocumentById: (id, contentText, replace = false) => {
     const element = document.getElementById(id);
 
     if (element) {

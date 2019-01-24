@@ -9,8 +9,6 @@ export interface SampleData {
 const EMPTY_DATA: SampleData = { text: '' };
 
 export class HomeComponent {
-  private parentId = VARIABLES.ROOTID;
-
   private version = `v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`;
 
   private text = '';
@@ -24,8 +22,8 @@ export class HomeComponent {
   }
 
   public render(): HTMLElement | null {
-    return HelperService.writeToDocumentById(this.parentId, `
-      <div id="${this.parentId}">
+    return HelperService.writeToDocumentById(VARIABLES.ROOTID, `
+      <div id="${VARIABLES.ROOTID}">
         ${this.getContent()}
         <div class="${style.footer}">
           ${this.version}

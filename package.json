@@ -32,7 +32,7 @@
     "lint": "yarn lint:code && yarn lint:style && yarn lint:tests && yarn lint:config",
     "lint:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.?s --ext .js,.ts src/app",
     "lint:config": "yarn lint:config:code && yarn lint:config:tests",
-    "lint:config:code": "eslint --config .eslintrc.json --ignore-pattern *.spec.?s --ext .js,.ts config typings",
+    "lint:config:code": "eslint --config .eslintrc.json --ext .js,.ts config typings",
     "lint:config:tests": "eslint --config .eslintrc.spec.json --ext .js,.ts src/testing",
     "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
     "lint:tests": "eslint --config .eslintrc.spec.json --ext .spec.js,.spec.ts src/app",

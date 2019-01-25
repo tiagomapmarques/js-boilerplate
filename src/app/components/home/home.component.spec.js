@@ -6,7 +6,7 @@ import style from './home.style';
 jest.mock('services', () => ({
   HelperService: {
     getJson: jest.fn(),
-    writeToDocumentById: jest.fn(),
+    naiveRender: jest.fn(),
   },
 }));
 
@@ -21,13 +21,13 @@ describe('HomeComponent', () => {
   });
 
   afterEach(() => {
-    HelperService.writeToDocumentById.mockReset();
+    HelperService.naiveRender.mockReset();
   });
 
   const createComponent = done => component.create().then(done).catch();
 
   const querySelector = (selector) => {
-    const [[, innerHTML]] = HelperService.writeToDocumentById.mock.calls;
+    const [[, innerHTML]] = HelperService.naiveRender.mock.calls;
     document.body.innerHTML = innerHTML;
     return document.body.querySelector(selector);
   };

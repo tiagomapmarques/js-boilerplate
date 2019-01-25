@@ -22,7 +22,7 @@ export class HomeComponent {
   }
 
   public render(): HTMLElement | null {
-    return HelperService.writeToDocumentById(VARIABLES.ROOTID, `
+    return HelperService.naiveRender(`#${VARIABLES.ROOTID}`, `
       ${this.getContent()}
       <div class="${style.footer}">
         ${this.version}

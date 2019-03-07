@@ -33,26 +33,22 @@ declare module '*.json';
 
 // ENVIRONMENT VARIABLES DEFINITION
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-declare interface EnvironmentVariablesBase extends IndexObject<string|EnvironmentVariablesBase> {}
+interface ProjectEnvironmentVariables {
+  VERSION: string;
+  ROOTID: string;
+  TITLE: string;
+}
 
-declare interface DefaultsEnvironmentVariables extends EnvironmentVariablesBase {
+interface DefaultsEnvironmentVariables {
   LOCALE: string;
   LOCALE_SHORT: string;
 }
 
-declare interface ServicesEnvironmentVariables extends EnvironmentVariablesBase {
+interface ServicesEnvironmentVariables {
   ASSETS: string;
 }
 
-declare interface EnvironmentVariables extends EnvironmentVariablesBase {
-  ENVIRONMENT: string;
-  VERSION: string;
-  ROOTID: string;
-  TITLE: string;
-  DEFAULTS: DefaultsEnvironmentVariables;
-  SERVICES: ServicesEnvironmentVariables;
-}
-
-// eslint-disable-next-line no-unused-vars
-declare const VARIABLES: EnvironmentVariables;
+declare const ENVIRONMENT: string;
+declare const PROJECT: ProjectEnvironmentVariables;
+declare const DEFAULTS: DefaultsEnvironmentVariables;
+declare const SERVICES: ServicesEnvironmentVariables;

@@ -5,7 +5,7 @@ import { HelperService } from '.';
 describe('HelperService', () => {
   describe('#getJson', () => {
     const mockDataFilename = 'sample';
-    const mockDataUrl = `${VARIABLES.SERVICES.ASSETS}${mockDataFilename}.json`;
+    const mockDataUrl = `${SERVICES.ASSETS}${mockDataFilename}.json`;
     const mockData = {
       text: 'mock-content',
       list: [{

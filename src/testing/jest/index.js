@@ -6,7 +6,10 @@ import { MockImports } from './mock-imports';
 import { mockStyle } from './mock-style';
 
 // create environment variables
-global.VARIABLES = variables;
+global.ENVIRONMENT = variables.ENVIRONMENT;
+global.PROJECT = variables.PROJECT;
+global.DEFAULTS = variables.DEFAULTS;
+global.SERVICES = variables.SERVICES;
 
 // override globals
 global.fetch = fetchMock;

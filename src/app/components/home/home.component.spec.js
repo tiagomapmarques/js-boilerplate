@@ -48,12 +48,12 @@ describe('HomeComponent', () => {
 
     it('shows the page content', () => {
       expect(querySelector(`.${style.content}`).textContent.trim())
-        .toBe(`${VARIABLES.TITLE} says ${sampleData.text}!`);
+        .toBe(`${PROJECT.TITLE} says ${sampleData.text}!`);
     });
 
     it('shows the footer', () => {
       expect(querySelector(`.${style.footer}`).textContent.trim())
-        .toBe(`v${VARIABLES.VERSION}-${VARIABLES.ENVIRONMENT}`);
+        .toBe(`v${PROJECT.VERSION}-${ENVIRONMENT}`);
     });
   });
 

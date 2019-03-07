@@ -4,13 +4,20 @@ import LiveReloadPlugin from 'webpack-livereload-plugin';
 
 import { environments } from './environments';
 import { getVariables } from './runtime';
+import { app, rules } from './settings';
 import { baseConfig } from './base.config';
+
+const { style, compileExclusions } = app;
+const environmentVariables = getVariables(environments.local);
 
 export const config = {
   ...baseConfig,
+  module: {
+    rules: rules.getPretty(style.global, style.extract, compileExclusions, environmentVariables),
+  },
   plugins: [
     ...(baseConfig.plugins || []),
-    new ExtendedDefinePlugin(getVariables(environments.local)),
+    new ExtendedDefinePlugin(environmentVariables),
     new LiveReloadPlugin({ appendScriptTag: true }),
   ],
 };

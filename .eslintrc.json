@@ -4,6 +4,9 @@
     "browser": true
   },
   "globals": {
-    "VARIABLES": true
+    "ENVIRONMENT": true,
+    "PROJECT": true,
+    "DEFAULTS": true,
+    "SERVICES": true
   }
 }

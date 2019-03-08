@@ -9,8 +9,6 @@ export interface SampleData {
 const EMPTY_DATA: SampleData = { text: '' };
 
 export class HomeComponent {
-  private readonly version = `v${PROJECT.VERSION}-${ENVIRONMENT}`;
-
   private text = '';
 
   public constructor() {
@@ -23,20 +21,14 @@ export class HomeComponent {
 
   public render(): HTMLElement | null {
     return HelperService.naiveRender(`#${PROJECT.ROOTID}`, `
-      ${this.getContent()}
-      <div class="${style.footer}">
-        ${this.version}
-      </div>
-    `);
-  }
-
-  private getContent(): string {
-    return this.text
-      ? `
+      ${this.text ? `
         <div class="${style.content}">
           ${PROJECT.TITLE} says ${this.text}!
-        </div>`
-      : '';
+        </div>` : ''}
+      <div class="${style.footer}">
+        ${`v${PROJECT.VERSION}-${ENVIRONMENT}`}
+      </div>
+    `);
   }
 
   private handleData({ text }: SampleData): void {

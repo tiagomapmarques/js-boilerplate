@@ -1,20 +1,12 @@
 {
-  "extends": "airbnb-base",
-  "rules": {
-    "import/no-unresolved": "\\.scss$",
-    "import/prefer-default-export": "off",
-    "import/no-default-export": "error"
-  },
-  "parser": "babel-eslint",
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
-  },
+  "extends": "./.eslintrc.rules.json",
   "env": {
     "browser": true
   },
   "globals": {
-    "VARIABLES": true
+    "ENVIRONMENT": true,
+    "PROJECT": true,
+    "DEFAULTS": true,
+    "SERVICES": true
   }
 }

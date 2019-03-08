@@ -6,8 +6,8 @@ import { HomeComponent } from 'components/home';
 import './index.style';
 
 export const indexEntry = () => {
-  const app = new HomeComponent(VARIABLES.ROOTID);
+  const app = new HomeComponent();
   app.create().catch();
 };
 
-loadEntry(exports);
+loadEntry(indexEntry);

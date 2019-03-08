@@ -1,11 +1,11 @@
-import { createElementTest } from 'testing';
+import { mockCreateElement } from 'testing';
 
 import { HelperService } from '.';
 
 describe('HelperService', () => {
   describe('#getJson', () => {
     const mockDataFilename = 'sample';
-    const mockDataUrl = `${VARIABLES.SERVICES.ASSETS}${mockDataFilename}.json`;
+    const mockDataUrl = `${SERVICES.ASSETS}${mockDataFilename}.json`;
     const mockData = {
       text: 'mock-content',
       list: [{
@@ -74,29 +74,98 @@ describe('HelperService', () => {
     });
   });
 
-  describe('#writeToDocumentById', () => {
+  describe('#naiveRender', () => {
     const mockId = 'mock-id';
     const mockContent = 'mock-content';
+    const mockContentElement = `<span id="${mockId}">${mockContent}</span>`;
 
     describe('element exists', () => {
-      let element;
+      let elements;
 
-      createElementTest(document.body, 'div', { id: mockId });
+      mockCreateElement(document.body, 'div', { id: mockId });
 
-      beforeEach(() => {
-        element = HelperService.writeToDocumentById(mockId, mockContent);
+      describe('content given', () => {
+        describe('is able to be converted to string', () => {
+          beforeEach(() => {
+            elements = HelperService.naiveRender(`#${mockId}`, {});
+          });
+
+          it('converts the content to string', () => {
+            expect(elements).toHaveLength(1);
+            expect(elements[0].innerHTML).toBe('[object Object]');
+          });
+        });
+
+        describe('is not able to be converted to string', () => {
+          beforeEach(() => {
+            elements = HelperService.naiveRender(`#${mockId}`, null);
+          });
+
+          it('writes an empty string to the element', () => {
+            expect(elements).toHaveLength(1);
+            expect(elements[0].innerHTML).toBe('');
+          });
+        });
       });
 
-      it('writes correct content in new element', () => {
-        expect(element.innerHTML).toBe(mockContent);
+      describe('element is to be replaced', () => {
+        describe('content given is a single node', () => {
+          beforeEach(() => {
+            elements = HelperService.naiveRender(`#${mockId}`, mockContentElement, true);
+          });
+
+          it('overrides the element with new element and content', () => {
+            expect(elements).toHaveLength(1);
+            expect(elements[0].outerHTML).toBe(mockContentElement);
+          });
+        });
+
+        describe('content given is not a single node', () => {
+          const doubleNodeHtml = `${mockContentElement}${mockContentElement}`;
+          let persitentElement;
+
+          beforeEach(() => {
+            persitentElement = document.getElementById(mockId);
+            elements = HelperService.naiveRender(`#${mockId}`, doubleNodeHtml, true);
+          });
+
+          it('does not override the element', () => {
+            expect(elements).toHaveLength(1);
+            expect(elements[0]).toBe(persitentElement);
+          });
+
+          it('writes the content inside the original element', () => {
+            expect(elements).toHaveLength(1);
+            expect(elements[0].innerHTML).toBe(doubleNodeHtml);
+          });
+        });
+      });
+
+      describe('element is not to be replaced', () => {
+        let persitentElement;
+
+        beforeEach(() => {
+          persitentElement = document.getElementById(mockId);
+          elements = HelperService.naiveRender(`#${mockId}`, mockContent);
+        });
+
+        it('does not override the element', () => {
+          expect(elements).toHaveLength(1);
+          expect(elements[0]).toBe(persitentElement);
+        });
+
+        it('writes the content inside the original element', () => {
+          expect(elements).toHaveLength(1);
+          expect(elements[0].innerHTML).toBe(mockContent);
+        });
       });
     });
 
     describe('element does not exist', () => {
-      const element = HelperService.writeToDocumentById(mockId, mockContent);
+      const elements = HelperService.naiveRender(`#${mockId}`, mockContent, true);
 
       it('writes correct content in new element', () => {
-        expect(element).toBeNull();
+        expect(elements).toHaveLength(0);
       });
     });
   });

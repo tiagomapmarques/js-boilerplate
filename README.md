@@ -26,26 +26,22 @@ Quick start (docker):
 
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
-| [`develop`][link-develop] | - | vanilla javascript project | - | ![ci-develop][ci-develop] |
-| [`typescript`][link-typescript] | `develop` | vanilla typescript project | done | ![ci-typescript][ci-typescript] |
-| `electron` | `develop` | vanilla javascript electron project | TBD | - |
+| [`develop`][link-develop] | - | vanilla javascript and/or typescript project | - | ![ci-develop][ci-develop] |
+| `electron` | `develop` | vanilla electron project | TBD | - |
 | [`web-components`][link-web-components] | `develop` | base for frontend app using web-components | unit-tests | ![ci-web-components][ci-web-components] |
 | [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
 | [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
+| [`vue-jsx`][link-vue-jsx] | `vue` | base for frontend app using vue with jsx | TBD | - |
 | [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
-| [`inferno`][link-inferno] | `react` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
+| [`inferno`][link-inferno] | `develop` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
-| `angular` | `typescript` | base for frontend app using angular | TBD | - |
-
-**Note**: `typescript` branch is made of 2 commits instead of one: one to rename `js` files to `ts`
-and the other to adapt the project to typescript - better for diffing.
-
-**Note**: `web-components` branch 1) only supports IE11+ and evergreen browsers and 2) has neither
-pre-rendering nor critical-css plugins.
+| `angular` | `develop` | base for frontend app using angular | TBD | - |
 
 ## Compatibility
   - IE9+
   - Any evergreen browser (Chrome, Edge, FF, ...)
+
+**Note**: [`web-components`][link-web-components] branch only supports IE11+ and evergreen browsers.
 
 ## Environments
 
@@ -74,19 +70,22 @@ The following are the base commands for this application (`yarn`):
 environments respectively
       - `:watch` watches app files and rebuilds them upon change
   - `lint` performs `:code`, `:style` and `:tests`
-    - `:code` lints your code according to `.eslintrc.json` (which extends `airbnb-base` rules)
-    - `:style` lints your style according to `.stylelintrc.json` (which extends
-`stylelint-config-recommended-scss` rules)
-    - `:tests` lints your tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
+    - `:code` lints the code according to `.eslintrc.json` (which extends `airbnb-base` rules)
+    - `:config` lints the configuration files (similarly to `:code`)
+    - `:style` lints the style according to `.stylelintrc.json` (which extends
+`stylelint-config-standard` and `stylelint-config-recommended-scss` rules)
+    - `:tests` lints the tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
 rules)
   - `serve` serves the project on `localhost:8000` and opens a tab with the URL
     - `:secure` serves with gzip compression and on https
-  - `test` runs the unit tests for the project (files ending with `.spec.js`)
+  - `test` runs the unit tests for the project (files ending with `.spec.js` and `.spec.ts`)
+    - `:no-cache` runs the tests with no cache
     - `:watch` watches the test files and re-runs the tests on any file update
 
 The following commands are shortcuts only:
   - `yarn start` = `yarn build` and `yarn serve`
   - `yarn build` = `yarn build:local`
+  - `yarn watch` = `yarn build:local:watch`
 
 ## Using the project
 
@@ -111,22 +110,22 @@ other languages/libraries/frameworks.
 | `weather-app-react-electron` | example of a react desktop application using this project | TBD | TBD |
 
 [link-develop]: https://github.com/tiagomapmarques/js-boilerplate
-[link-typescript]: https://github.com/tiagomapmarques/js-boilerplate/tree/typescript
 [link-electron]: https://github.com/tiagomapmarques/js-boilerplate/tree/electron
 [link-web-components]: https://github.com/tiagomapmarques/js-boilerplate/tree/web-components
 [link-jquery]: https://github.com/tiagomapmarques/js-boilerplate/tree/jquery
 [link-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/vue
+[link-vue-jsx]: https://github.com/tiagomapmarques/js-boilerplate/tree/vue-jsx
 [link-react]: https://github.com/tiagomapmarques/js-boilerplate/tree/react
 [link-inferno]: https://github.com/tiagomapmarques/js-boilerplate/tree/inferno
 [link-aurelia]: https://github.com/tiagomapmarques/js-boilerplate/tree/aurelia
 [link-angular]: https://github.com/tiagomapmarques/js-boilerplate/tree/angular
 [link-app-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/examples/weather-app-vue
 [ci-develop]: https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
-[ci-typescript]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/typescript.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-electron]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/electron.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-web-components]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/web-components.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-jquery]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-vue]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-vue-jsx]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue-jsx.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-react]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-inferno]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-aurelia]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/aurelia.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd

@@ -1,7 +1,7 @@
 # Standards and Decisions
 
-Disagree with something you saw in the project or the files and want to understand why? Just want to
-read up on my thoughts on Js/PWA development? Either way, you're in the right place.
+Disagree with something you saw in the project and want to understand why it's implemented this way?
+Just want to read up on my thoughts on JS/TS/PWA development? Either way, you're in the right place.
 
 ## Preface
 
@@ -40,7 +40,7 @@ where an incompatibility or breaking change exists between two patch versions.
 
 ### Example 1
 
-Project needs `webpack` which is in version `3.9.1`.
+Project needs `webpack`, which is in version `3.9.1`.
 
 In the `package.json` file the dependency must be written as `"webpack": "~3.9"` so that any and all
 patches/bugfixes to `3.9` are applied to the project (`3.9.1`, `3.9.2`, ...) but no (possible)
@@ -63,47 +63,48 @@ component is to be included in that folder.
 Any component or module that is a direct child of the `app` folder (i.e. files inside the `app`
 folder) is a starting point for the application. In a PWA, there is only one.
 
-Any component and module should have (when applicable): the module code (`.js`), the style
-(`.scss`), the unit test (`.spec.js`) and the export file (`index.js`). This is intended for several
-reasons:
+Any component and module should have (when applicable): the module code (`.js` or `.ts`), the style
+(`.css` or `.scss`), the unit test (`.spec.js` or `.spec.ts`) and the export file (`index.js` or
+`index.ts`).
+This is intended for several reasons:
   - a component/module should be used as a blackbox
   - non-tested components/modules are easily spotted
   - adding/deleting a component/module is a clean and self-contained action
 
 File `name`s, and `type`s should be done in kebab-case. File naming rule is the following:
 `[name](.type?)(.spec?).[ext]`. Examples:
-  - `example.component.js` - component named `ExampleComponent`
+  - `example.component.ts` - component named `ExampleComponent`
   - `example.style.scss` - style to be imported by `ExampleComponent`
   - `example.component.spec.js` - unit tests for `ExampleComponent`
-  - `my-module.js` - module named `MyModule`
-  - `my-module.spec.js` - unit tests for `MyModule`
+  - `my-module.js` - service/module named `MyModule`
+  - `my-module.spec.ts` - unit tests for `MyModule`
 
-Note that `index.js` is exempt from these rules as it is the default name and extension used on
-javascript for "importing a folder". This file should only import and export the component or module
-it pertains to.
+Note that `index.js` (or `index.ts`) is exempt from these rules as it is the default name and
+extension used on node for "importing a folder". This file should only import and export the
+component or module it pertains to.
 
 Any cluster of similar modules should be grouped by folder inside `app`. Typical examples are:
   - `containers` - components that hold state information and control its flow
   - `components` - _dumb_ components that receive information only
   - `models` - models/transformers/factories for objects
   - `services` - modules for calculations, API requests, ...
-  - `states` - modules that contain the application's state/information
+  - `state` or `store` - modules that contain the application's state
 
-Note that inside these folders, similar modules can and _should_ also be grouped according to their
-relativeness or usefulness.
+Note that these are only examples and that inside these folders, similar modules can and _should_
+also be grouped according to their relativeness or usefulness.
 
 ### Style/Standards
 
 #### Components and Modules
 
 All imports follow these rules:
-  - Order is: packages first, then project modules, and local modules last. There is always a blank
-  line separating these 3 types of imports
+  - Order is: packages first, project modules next, and local modules last. There is always a blank
+line separating these 3 types of imports
   - Deconstructed import objects are written alphabetically. Types or interfaces (example: in
-  typescript or when using Js PropTypes) are imported last when deconstructing.
+typescript or when using JS PropTypes) are imported last when deconstructing.
 
 No module or component is imported or exported through the `default` mechanism. Airbnb coding
-standards are intended for typical Js/node packages but they do not take into account the volatility
+standards are intended for typical JS/Node packages but they do not take into account the volatility
 of code, features, requirements and dependencies that a frontend project has to deal with. For more
 information on the subject, see [this issue][link-eslint-issue] and [PR][link-eslint-pr]. If there
 needs to be a default import (for example due to a restriction of an external library), make sure
@@ -116,7 +117,7 @@ Disabling rules on `eslint` or `stylelint` should only be done in cases where th
 feasible option. When disabling a rule, disable it only for the next line of code with
 `eslint-disable-next-line` for 3 main reasons:
   - it is a failsafe to not have a rule disabled on the entire project due to forgetfulness or bad
-  code reviews
+code reviews
   - never adds to the line char count
   - adding/removing them results in simpler diffs
 
@@ -124,7 +125,7 @@ Note that if 3 or more lines in a row require the disabling of a rule, use `esli
 `eslint-enable`.
 
 Naming convention is as follows: class names, interfaces and typing in general are to be written in
-PascalCase, objects and singletons in camelCase and constants in UPPER_SNAKE_CASE.
+PascalCase, objects and singletons in camelCase and global variables in UPPER_SNAKE_CASE.
 
 #### Unit Tests
 
@@ -158,12 +159,13 @@ component cannot majorly impact the unit tests.
 The first `describe` on a component test should be written as the name of the exported component;
 following `describe`s should be written as if prefaced by the word `when`. When writing `it`s, they
 should start with a present tense verb and should be read as if prefaced by the word `it`. (See
-`src/app/components/home/home.component.spec.js` for an example)
+`src/app/components/home/home.component.spec.ts` for an example)
 
 ##### Coverage
 
 Anything lower than 100% test coverage is not acceptable. If a component or module cannot be fully
-tested, then it should be refactored - testability is a measurement of code maintainability.
+tested, then it should be refactored - testability is a measurement of code maintainability. Only in
+extreme cases should you use something like `/* istanbul ignore next */`.
 
 [link-eslint-issue]: https://github.com/benmosher/eslint-plugin-import/issues/889
 [link-eslint-pr]: https://github.com/benmosher/eslint-plugin-import/pull/936

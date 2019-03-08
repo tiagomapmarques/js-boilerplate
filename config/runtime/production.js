@@ -3,9 +3,11 @@ import { pageConfig, project } from '../settings';
 
 export const env = {
   ENVIRONMENT: environments.prod,
-  VERSION: project.version,
-  ROOTID: pageConfig.rootId,
-  TITLE: pageConfig.title,
+  PROJECT: {
+    TITLE: pageConfig.title,
+    ROOTID: pageConfig.rootId,
+    VERSION: project.version,
+  },
   DEFAULTS: {
     LOCALE: pageConfig.locale,
     LOCALE_SHORT: pageConfig.localeShort,

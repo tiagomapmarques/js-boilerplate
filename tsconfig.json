@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"],
+    "module": "commonjs",
+
+    "allowJs": true,
+    "sourceMap": true,
+    "noEmitOnError": false,
+    "declaration": false,
+    "removeComments": false,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "testing": ["src/testing/index.js"],
+      "components/*": ["src/app/components/*"],
+      "services": ["src/app/services/index.js"]
+    },
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "typings/global.d.ts",
+    "typings/testing.d.ts",
+    "src/**/*.ts"
+  ]
+}

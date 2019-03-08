@@ -18,11 +18,16 @@ import {
 } from './settings';
 import { baseConfig } from './base.config';
 
+const { style, compileExclusions } = app;
+const environmentVariables = getVariables(environments.prod);
+
 export const config = {
   ...baseConfig,
   devtool: false,
   mode: 'production',
-  module: { rules: rules.minified },
+  module: {
+    rules: rules.getMinified(style.global, style.extract, compileExclusions, environmentVariables),
+  },
   optimization: {
     ...baseConfig.optimization,
     minimize: true,
@@ -32,9 +37,9 @@ export const config = {
     new HtmlWebpackPlugin(page.minified),
     new FaviconsWebpackPlugin(favicon.all),
     new ManifestJsonWebpackPlugin(manifest.minified),
-    new ExtendedDefinePlugin(getVariables(environments.prod)),
+    new ExtendedDefinePlugin(environmentVariables),
     new PrerenderSpaPlugin(app.rendering),
-    new CriticalCssPlugin({ base: paths.distAbsolute }),
+    ...(app.style.extract ? [new CriticalCssPlugin({ base: paths.distAbsolute })] : []),
     new NoEmitOnErrorsPlugin(),
   ],
 };

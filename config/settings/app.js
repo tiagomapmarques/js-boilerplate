@@ -3,14 +3,19 @@ import { PuppeteerRenderer as Renderer } from 'prerender-spa-plugin';
 import { paths } from './paths';
 
 export const app = {
-  entryPoints: {
-    app: 'index.js',
+  entryPoints: [
+    'index.js',
+  ],
+  style: {
+    global: false,
+    extract: true,
   },
   commonChunk: {
     test: /node_modules/,
     name: 'vendor',
     chunks: 'initial',
   },
+  compileExclusions: [],
   cleanExclusions: [],
   externalFiles: [
     paths.staticAbsolute,

@@ -11,7 +11,6 @@ import {
   manifest,
   page,
   paths,
-  rules,
 } from './settings';
 
 export const baseConfig = {
@@ -19,7 +18,6 @@ export const baseConfig = {
   devtool: 'cheap-module-source-map',
   mode: 'development',
   entry: app.entryPoints,
-  module: { rules: rules.pretty },
   output: {
     path: paths.buildAbsolute,
     filename: app.output.script,
@@ -35,10 +33,9 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
-    new CleanWebpackPlugin(paths.distRelative, {
-      root: paths.baseAbsolute,
-      exclude: app.cleanExclusions || [],
-      verbose: false,
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [`${paths.distAbsolute}/*`].concat((app.cleanExclusions || [])
+        .map(exclusion => `!${paths.distAbsolute}/${exclusion}`)),
     }),
     new CopyWebpackPlugin(app.externalFiles.map((filesRules) => {
       const parsedRules = typeof filesRules === 'string' ? { from: filesRules } : filesRules;
@@ -48,13 +45,13 @@ export const baseConfig = {
         ignore: parsedRules.ignore || ['.*'],
       };
     })),
-    new MiniCssExtractPlugin({ filename: app.output.style }),
+    ...(app.style.extract ? [new MiniCssExtractPlugin({ filename: app.output.style })] : []),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: ['.js', '.scss'],
+    extensions: ['.js', '.ts', '.css', '.scss'],
     modules: [
       paths.appAbsolute,
       'node_modules',

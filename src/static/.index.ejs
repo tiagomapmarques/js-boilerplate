@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="<%= VARIABLES.DEFAULTS.LOCALE_SHORT %>">
+<html lang="<%= DEFAULTS.LOCALE_SHORT %>">
   <head>
     <meta charset="UTF-8">
-    <title><%= VARIABLES.TITLE %></title>
+    <title><%= PROJECT.TITLE %></title>
     <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
     <meta name="keywords" content="<%= htmlWebpackPlugin.options.keywords %>">
     <meta name="author" content="<%= htmlWebpackPlugin.options.author %>">
@@ -12,6 +12,6 @@
     <link rel="manifest" href="/manifest.json">
   </head>
   <body>
-    <div id="<%= VARIABLES.ROOTID %>"></div>
+    <div id="<%= PROJECT.ROOTID %>"></div>
   </body>
 </html>

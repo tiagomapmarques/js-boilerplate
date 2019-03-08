@@ -1,9 +1,11 @@
 
 export const env = {
   ENVIRONMENT: 'test',
-  VERSION: '0.0.0-test',
-  ROOTID: 'mock-root-id',
-  TITLE: 'Mock Title',
+  PROJECT: {
+    TITLE: 'Mock Title',
+    ROOTID: 'mock-root-id',
+    VERSION: '0.0.0-test',
+  },
   DEFAULTS: {
     LOCALE: 'pt_PT',
     LOCALE_SHORT: 'pt',

@@ -45,7 +45,7 @@ export const baseConfig = {
         ignore: parsedRules.ignore || ['.*'],
       };
     })),
-    new MiniCssExtractPlugin({ filename: app.output.style }),
+    ...(app.style.extract ? [new MiniCssExtractPlugin({ filename: app.output.style })] : []),
     new HtmlWebpackPlugin(page.pretty),
     new FaviconsWebpackPlugin(favicon.minimum),
     new ManifestJsonWebpackPlugin(manifest.pretty),

@@ -24,20 +24,20 @@ Quick start (docker):
 
 ## Flavors
 
-| Branch | Objective | Completion | Status |
-| ------ | ------ | ------ | ------ |
-| [`develop`][link-develop] | vanilla javascript and/or typescript project | - | ![ci-develop][ci-develop] |
-| `electron` | vanilla electron project | TBD | - |
-| [`web-components`][link-web-components] | base for frontend app using web-components | unit-tests | ![ci-web-components][ci-web-components] |
-| [`jquery`][link-jquery] | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
-| [`vue`][link-vue] | base for frontend app using vue | done | ![ci-vue][ci-vue] |
-| [`react`][link-react] | base for frontend app using react | done | ![ci-react][ci-react] |
-| [`inferno`][link-inferno] | base for frontend app using inferno (based on [`react`][link-react] branch) | done | ![ci-inferno][ci-inferno] |
-| `aurelia` | base for frontend app using aurelia | TBD | - |
-| `angular` | base for frontend app using angular | TBD | - |
+| Branch | Base Branch | Objective | Completion | Status |
+| ------ | ------ | ------ | ------ | ------ |
+| [`develop`][link-develop] | - | vanilla javascript and/or typescript project | - | ![ci-develop][ci-develop] |
+| `electron` | `develop` | vanilla electron project | TBD | - |
+| [`web-components`][link-web-components] | `develop` | base for frontend app using web-components | unit-tests | ![ci-web-components][ci-web-components] |
+| [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
+| [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
+| [`vue-jsx`][link-vue-jsx] | `vue` | base for frontend app using vue with jsx | TDB | - |
+| [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
+| [`inferno`][link-inferno] | `develop` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
+| `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
+| `angular` | `develop` | base for frontend app using angular | TBD | - |
 
-**Note**: `web-components` branch 1) only supports IE11+ and evergreen browsers and 2) has neither
-pre-rendering nor critical-css plugins.
+**Note**: `web-components` branch only supports IE11+ and evergreen browsers.
 
 ## Compatibility
   - IE9+
@@ -114,6 +114,7 @@ other languages/libraries/frameworks.
 [link-web-components]: https://github.com/tiagomapmarques/js-boilerplate/tree/web-components
 [link-jquery]: https://github.com/tiagomapmarques/js-boilerplate/tree/jquery
 [link-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/vue
+[link-vue-jsx]: https://github.com/tiagomapmarques/js-boilerplate/tree/vue-jsx
 [link-react]: https://github.com/tiagomapmarques/js-boilerplate/tree/react
 [link-inferno]: https://github.com/tiagomapmarques/js-boilerplate/tree/inferno
 [link-aurelia]: https://github.com/tiagomapmarques/js-boilerplate/tree/aurelia
@@ -124,6 +125,7 @@ other languages/libraries/frameworks.
 [ci-web-components]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/web-components.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-jquery]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-vue]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-vue-jsx]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/vue-jsx.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-react]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/react.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-inferno]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/inferno.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-aurelia]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/aurelia.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd

@@ -8,7 +8,7 @@ const moduleNameMapper = Object.keys(alias).reduce((accumulator, key) => ({
 }), {});
 
 const extensions = ['js', 'ts'];
-const styleExtensions = ['scss'];
+const styleExtensions = ['css', 'scss'];
 
 const ext = prefix => extensions.map(e => `${prefix}.${e}`);
 
@@ -44,7 +44,7 @@ module.exports = {
   testRegex: '^.+\\.spec\\.(j|t)s$',
   transform: {
     '^.+\\.(j|t)s$': 'babel-jest',
-    '^.+\\.scss$': 'jest-css-modules-transform',
+    '^.+\\.s?css$': 'jest-css-modules-transform',
   },
   transformIgnorePatterns: [],
 }

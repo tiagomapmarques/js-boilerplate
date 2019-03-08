@@ -5,7 +5,7 @@
   ],
   "rules": {
     // Project-specific Overrides
-    "import/no-unresolved": "\\.scss$",
+    "import/no-unresolved": "\\.s?css$",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
 

@@ -34,7 +34,7 @@
     "lint:config": "yarn lint:config:code && yarn lint:config:tests",
     "lint:config:code": "eslint --config .eslintrc.json --ext .js,.ts config typings",
     "lint:config:tests": "eslint --config .eslintrc.spec.json --ext .js,.ts src/testing",
-    "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.scss\"",
+    "lint:style": "stylelint --config .stylelintrc.json \"src/**/*.*css\"",
     "lint:tests": "eslint --config .eslintrc.spec.json --ext .spec.js,.spec.ts src/app",
     "serve": "ws --directory public --spa index.html --log.format dev --open",
     "serve:secure": "yarn serve --compress --http2",

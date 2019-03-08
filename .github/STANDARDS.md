@@ -64,7 +64,8 @@ Any component or module that is a direct child of the `app` folder (i.e. files i
 folder) is a starting point for the application. In a PWA, there is only one.
 
 Any component and module should have (when applicable): the module code (`.js` or `.ts`), the style
-(`.scss`), the unit test (`.spec.js` or `.spec.ts`) and the export file (`index.js` or `index.ts`).
+(`.css` or `.scss`), the unit test (`.spec.js` or `.spec.ts`) and the export file (`index.js` or
+`index.ts`).
 This is intended for several reasons:
   - a component/module should be used as a blackbox
   - non-tested components/modules are easily spotted
@@ -72,11 +73,11 @@ This is intended for several reasons:
 
 File `name`s, and `type`s should be done in kebab-case. File naming rule is the following:
 `[name](.type?)(.spec?).[ext]`. Examples:
-  - `example.component.js` - component named `ExampleComponent`
+  - `example.component.ts` - component named `ExampleComponent`
   - `example.style.scss` - style to be imported by `ExampleComponent`
   - `example.component.spec.js` - unit tests for `ExampleComponent`
   - `my-module.js` - service/module named `MyModule`
-  - `my-module.spec.js` - unit tests for `MyModule`
+  - `my-module.spec.ts` - unit tests for `MyModule`
 
 Note that `index.js` (or `index.ts`) is exempt from these rules as it is the default name and
 extension used on node for "importing a folder". This file should only import and export the

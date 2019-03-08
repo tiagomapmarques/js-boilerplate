@@ -37,11 +37,11 @@ Quick start (docker):
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `develop` | base for frontend app using angular | TBD | - |
 
-**Note**: `web-components` branch only supports IE11+ and evergreen browsers.
-
 ## Compatibility
   - IE9+
   - Any evergreen browser (Chrome, Edge, FF, ...)
+
+**Note**: [`web-components`][link-web-components] branch only supports IE11+ and evergreen browsers.
 
 ## Environments
 

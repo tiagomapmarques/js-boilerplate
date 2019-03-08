@@ -56,10 +56,6 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
       },
     ],
   },
-  {
-    test: /\.svg/,
-    use: 'raw-loader',
-  },
 ]);
 
 export const rules = {

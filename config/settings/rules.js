@@ -19,7 +19,7 @@ const getStyleNaming = (minify, globalStyles) => {
 
 const buildRules = minify => (global, extract, compileExclusions, runtimeVariables) => ([
   {
-    test: /\.(j|t)s$/,
+    test: /\.(j|t)sx?$/,
     use: {
       loader: 'babel-loader',
       options: babelOptions,
@@ -27,10 +27,6 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
     ...(compileExclusions.length
       ? { exclude: new RegExp(`node_modules/(${compileExclusions.join('|')})`) }
       : {}),
-  },
-  {
-    test: /\.vue$/,
-    use: 'vue-loader',
   },
   {
     test: /\.s?css$/,

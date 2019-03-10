@@ -32,6 +32,7 @@ module.exports = {
       isTSX: true,
       allExtensions: true,
     }],
+    ['@vue/babel-preset-jsx'],
   ],
   plugins: getPlugins(),
   env: {

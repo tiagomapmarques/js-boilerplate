@@ -4,6 +4,7 @@
     "lib": ["dom", "es6", "dom.iterable", "scripthost"],
     "module": "commonjs",
 
+    "jsx": "preserve",
     "allowJs": true,
     "sourceMap": true,
     "noEmitOnError": false,

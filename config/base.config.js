@@ -4,7 +4,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
-import { VueLoaderPlugin } from 'vue-loader';
 
 import {
   app,
@@ -34,7 +33,6 @@ export const baseConfig = {
     } : {}),
   },
   plugins: [
-    new VueLoaderPlugin(),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [`${paths.distAbsolute}/*`].concat((app.cleanExclusions || [])
         .map(exclusion => `!${paths.distAbsolute}/${exclusion}`)),
@@ -53,7 +51,7 @@ export const baseConfig = {
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.vue', '.css', '.scss'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.scss'],
     modules: [
       paths.appAbsolute,
       'node_modules',

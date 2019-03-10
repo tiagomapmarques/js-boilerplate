@@ -1,5 +1,10 @@
 {
   "extends": "./.eslintrc.rules.json",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "env": {
     "browser": true
   },

@@ -9,8 +9,7 @@ export const webpackInit = (requestedEnv, { serve, open, spa }) => {
 
   if (serve) {
     // eslint-disable-next-line global-require
-    const { ServeAfterFirstBuildPlugin } = require('./serve-after-first-build-plugin');
-    config.plugins.push(new ServeAfterFirstBuildPlugin({ open, spa }));
+    require('./add-server').addServer({ open, spa });
   }
 
   return config;

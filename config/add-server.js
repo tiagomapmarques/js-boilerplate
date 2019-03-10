@@ -5,7 +5,7 @@ import opn from 'opn';
 /* eslint-enable import/no-extraneous-dependencies */
 import os from 'os';
 
-const server = (port, open, spa, https): void => {
+const server = (port, open, spa, https) => {
   (new LocalWebServer()).listen({
     port,
     https,
@@ -31,7 +31,7 @@ const server = (port, open, spa, https): void => {
   }
 };
 
-export class ServeAfterFirstBuildPlugin {
+class ServeAfterFirstBuildPlugin {
   constructor(options) {
     this.isFirstCompilation = true;
     this.port = options.port || 8000;
@@ -49,3 +49,6 @@ export class ServeAfterFirstBuildPlugin {
     });
   }
 }
+
+export const addServer = (config, options) => config.plugins
+  .push(new ServeAfterFirstBuildPlugin(options));

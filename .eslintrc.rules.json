@@ -1,8 +1,13 @@
 {
   "extends": [
     "airbnb-base",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/recommended"
   ],
+  "parserOptions": {
+    // eslint-plugin-vue needs to be told how to parse non-vue files
+    "parser": "@typescript-eslint/parser"
+  },
   "rules": {
     // Project-specific Overrides
     "import/no-unresolved": "\\.s?css$",

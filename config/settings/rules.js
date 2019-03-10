@@ -29,6 +29,10 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
       : {}),
   },
   {
+    test: /\.vue$/,
+    use: 'vue-loader',
+  },
+  {
     test: /\.s?css$/,
     use: [
       {

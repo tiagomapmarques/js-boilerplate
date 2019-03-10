@@ -1,6 +1,6 @@
 import { HelperService } from 'services';
 
-import { HomeComponent } from './home.component';
+import { HomeComponent } from '.';
 import style from './home.style';
 
 jest.mock('services', () => ({

@@ -33,7 +33,7 @@ Quick start (docker):
 | [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
 | [`vue-jsx`][link-vue-jsx] | `vue` | base for frontend app using vue with jsx | TBD | - |
 | [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
-| [`inferno`][link-inferno] | `develop` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
+| [`inferno`][link-inferno] | `react` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `develop` | base for frontend app using angular | TBD | - |
 

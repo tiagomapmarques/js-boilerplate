@@ -10,8 +10,8 @@ All standards and decisions made regarding this project, its implementation and 
 guidelines.
 
 Dependencies:
-  - `node` >= 10.15
-  - `yarn` >= 1.12.3
+  - `node` >= 10.15.0
+  - `yarn` >= 1.13.0
 
 Quick start:
   - `yarn`

@@ -32,8 +32,8 @@
     "build:prod:watch": "yarn build:prod --watch --serve --open --spa",
     "lint": "yarn lint:code && yarn lint:tests",
     "lint:fix": "yarn lint:code -f && yarn lint:tests -f",
-    "lint:code": "biotope-quality-gate -c ./lint.config.js -p src/app,config,types,./*.js",
-    "lint:tests": "biotope-quality-gate -t -p src/app,src/testing",
+    "lint:code": "biotope-quality-gate -c ./lint.config.js -p src/app,config,types,./*.js -l .js,.ts,.vue",
+    "lint:tests": "biotope-quality-gate -t -p src/app,src/testing -l .js,.ts,.vue",
     "serve": "node ./config/common/serve",
     "start": "yarn watch",
     "test": "jest --config jest.config.js",
@@ -73,6 +73,9 @@
     "reduce-flatten": "~3.0",
     "sass-loader": "~8.0",
     "url-loader": "~2.1",
+    "vue": "~2.6",
+    "vue-loader": "~15.7",
+    "vue-property-decorator": "~8.2",
     "webpack": "~4.41",
     "webpack-cli": "~3.3"
   },
@@ -80,9 +83,11 @@
     "@biotope/quality-gate": "1.0.0-beta.14",
     "@types/jest": "~24.0",
     "@types/node": "~12.7",
+    "@vue/test-utils": "~1.0 || 1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "~24.9",
     "eslint-plugin-jest": "~22.17",
+    "eslint-plugin-vue": "~5.2",
     "get-port": "~5.0",
     "jest": "~24.9",
     "jest-css-modules-transform": "~2.5",
@@ -91,6 +96,8 @@
     "open": "~6.4",
     "synchronized-promise": "~0.2",
     "typescript": "~3.6",
+    "vue-jest": "~3.0",
+    "vue-template-compiler": "~2.6",
     "webpack-livereload-plugin": "~2.2"
   }
 }

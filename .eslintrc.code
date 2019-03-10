@@ -1,5 +1,11 @@
 {
-  "extends": "./node_modules/@biotope/quality-gate/config/logic/recommended.js",
+  "extends": [
+    "./node_modules/@biotope/quality-gate/config/logic/recommended.js",
+    "plugin:vue/recommended"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
   "globals": {
     "ENVIRONMENT": true,
     "PROJECT": true,

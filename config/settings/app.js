@@ -4,7 +4,7 @@ import { paths } from './paths';
 
 export const app = {
   extensions: {
-    logic: ['js', 'ts'],
+    logic: ['js', 'ts', 'vue'],
     style: ['css', 'scss'],
   },
   style: {

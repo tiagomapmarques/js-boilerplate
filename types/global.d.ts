@@ -23,6 +23,14 @@ declare module '*.json' {
   export = content;
 }
 
+declare module '*.template'{
+  import Vue from 'vue';
+
+  const template: Vue;
+  // eslint-disable-next-line import/no-default-export
+  export default template;
+}
+
 // ENVIRONMENT VARIABLES DEFINITION
 
 interface ProjectEnvironmentVariables {

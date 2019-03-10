@@ -10,8 +10,8 @@ All standards and decisions made regarding this project, its implementation and 
 guidelines.
 
 Dependencies:
-  - `node` >= 10.15
-  - `yarn` >= 1.12.3
+  - `node` >= 10.15.0
+  - `yarn` >= 1.13.0
 
 Quick start:
   - `yarn`
@@ -31,9 +31,9 @@ Quick start (docker):
 | [`web-components`][link-web-components] | `develop` | base for frontend app using web-components | unit-tests | ![ci-web-components][ci-web-components] |
 | [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
 | [`vue`][link-vue] | `develop` | base for frontend app using vue | done | ![ci-vue][ci-vue] |
-| [`vue-jsx`][link-vue-jsx] | `vue` | base for frontend app using vue with jsx | TBD | - |
+| [`vue-jsx`][link-vue-jsx] | `vue` | base for frontend app using vue with jsx | done | ![ci-vue-jsx][ci-vue-jsx] |
 | [`react`][link-react] | `develop` | base for frontend app using react | done | ![ci-react][ci-react] |
-| [`inferno`][link-inferno] | `develop` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
+| [`inferno`][link-inferno] | `react` | base for frontend app using inferno | done | ![ci-inferno][ci-inferno] |
 | `aurelia` | `develop` | base for frontend app using aurelia | TBD | - |
 | `angular` | `develop` | base for frontend app using angular | TBD | - |
 

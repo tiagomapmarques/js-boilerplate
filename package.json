@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -19,7 +19,7 @@
   "license": "MIT",
   "engines": {
     "node": ">=10.15.0",
-    "yarn": ">=1.12.3"
+    "yarn": ">=1.13.0"
   },
   "scripts": {
     "build": "yarn build:local",

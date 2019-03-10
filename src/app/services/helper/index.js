@@ -1,3 +1,4 @@
+import jquery from 'jquery';
 
 const contentToElement = (contentText) => {
   const element = document.createElement('div');
@@ -7,16 +8,15 @@ const contentToElement = (contentText) => {
 
 const writeElements = (element, contentElement, replaceParent) => {
   if (replaceParent && contentElement.childNodes.length === 1) {
-    const parent = element.parentElement;
-    const elementIndex = Array.from(parent.childNodes).indexOf(element);
+    const parent = element.parent();
+    const elementIndex = parent.children().index(element);
 
-    parent.replaceChild(contentElement.childNodes[0], element);
-    return parent.childNodes[elementIndex];
+    element.replaceWith(contentElement.children[0]);
+    return parent.children()[elementIndex];
   }
 
-  // eslint-disable-next-line no-param-reassign
-  element.innerHTML = contentElement.innerHTML;
-  return element;
+  element.html(contentElement.innerHTML);
+  return element[0];
 };
 
 export const HelperService = {
@@ -30,6 +30,6 @@ export const HelperService = {
     .catch(() => defaultResponse),
 
   naiveRender: (selector, contentText, replaceParent = false) => Array
-    .from(document.querySelectorAll(selector))
-    .map((element) => writeElements(element, contentToElement(contentText), replaceParent)),
+    .from(jquery(selector))
+    .map((element) => writeElements(jquery(element), contentToElement(contentText), replaceParent)),
 };

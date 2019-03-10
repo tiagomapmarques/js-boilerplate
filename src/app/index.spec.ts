@@ -1,33 +1,27 @@
 import loadEntry from 'load-entry';
+import Vue, { ComponentOptions } from 'vue';
 
 import { HomeComponent } from 'components/home';
 
 import { indexEntry } from '.';
 
 type MockLoadEntry = typeof loadEntry & jest.Mock;
+type MockVue = typeof Vue & jest.Mock;
 
 jest.mock('browser-polyfills', () => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');
+jest.mock('vue');
 
-interface MockHomeComponent extends jest.Mock<HomeComponent> {
-  getInstance: () => { create: jest.Mock<Promise<{}>>};
-}
-
-jest.mock('components/home', () => {
-  const component = { create: jest.fn(() => new Promise(resolve => resolve())) };
-  const constructor = jest.fn(() => component) as jest.Mock<typeof component> & MockHomeComponent;
-  constructor.getInstance = () => component;
-  return { HomeComponent: constructor };
-});
+jest.mock('components/home', () => ({
+  // FIXME: jest is not able to auto-mock the "@Component" decorator
+  HomeComponent: jest.fn(),
+}));
 
 describe('index', () => {
   const mockLoadEntry = loadEntry as MockLoadEntry;
-  const MockComponent = HomeComponent as MockHomeComponent;
 
   afterEach(() => {
     mockLoadEntry.mockClear();
-    MockComponent.mockClear();
-    MockComponent.getInstance().create.mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -42,19 +36,26 @@ describe('index', () => {
   });
 
   describe('the application is executed', () => {
+    let vueCalls: ComponentOptions<Vue>[];
+
     beforeEach(() => {
       indexEntry();
+      [vueCalls] = (Vue as MockVue).mock.calls;
+    });
+
+    it('calls the renderer', () => {
+      expect((Vue as MockVue).mock.instances).toHaveLength(1);
+      expect(vueCalls).toHaveLength(1);
     });
 
     it('creates the component on the root element', () => {
-      expect(MockComponent.mock.instances).toHaveLength(1);
-      expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toHaveLength(0);
+      expect(vueCalls[0].el).toEqual(`#${PROJECT.ROOTID}`);
     });
 
     it('renders the correct component', () => {
-      expect(MockComponent.getInstance().create.mock.calls).toHaveLength(1);
-      expect(MockComponent.getInstance().create.mock.calls[0]).toEqual([]);
+      const { render } = vueCalls[0];
+      const vueRenderer = jest.fn((html: Vue) => html);
+      expect((render as typeof Vue.prototype.$createElement)(vueRenderer)).toBe(HomeComponent);
     });
   });
 });

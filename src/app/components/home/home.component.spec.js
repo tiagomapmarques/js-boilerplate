@@ -1,14 +1,11 @@
+import { shallowMount } from '@vue/test-utils';
+
 import { HelperService } from 'services';
 
 import { HomeComponent } from '.';
 import style from './home.style';
 
-jest.mock('services', () => ({
-  HelperService: {
-    getJson: jest.fn(),
-    naiveRender: jest.fn(),
-  },
-}));
+jest.mock('services');
 
 jest.mock('./home.style', () => global.mockStyle(require.requireActual('./home.style')));
 
@@ -16,29 +13,25 @@ describe('HomeComponent', () => {
   const sampleData = { text: 'Mock Content' };
   let component;
 
-  beforeEach(() => {
-    component = new HomeComponent();
-  });
-
-  afterEach(() => {
-    HelperService.naiveRender.mockReset();
-  });
-
-  const createComponent = done => component.create().then(done).catch();
-
-  const querySelector = (selector) => {
-    const [[, innerHTML]] = HelperService.naiveRender.mock.calls;
-    document.body.innerHTML = innerHTML;
-    return document.body.querySelector(selector);
+  const createComponent = () => {
+    component = shallowMount(HomeComponent);
+    component.vm.$forceUpdate();
   };
+
+  const querySelector = selector => component.vm.$el.querySelector(selector);
 
   const mockGetJson = (newData = null) => jest
     .fn((_, data) => new Promise(resolve => resolve(newData === null ? data : newData)));
 
   describe('no errors occur fetching', () => {
-    beforeEach((done) => {
+    beforeEach(() => {
       HelperService.getJson = mockGetJson(sampleData);
-      createComponent(done);
+      createComponent();
+    });
+
+    it('mounts the component', () => {
+      // eslint-disable-next-line no-underscore-dangle
+      expect(component.vm._isMounted).toBeTruthy();
     });
 
     it('fetches data from the correct url', () => {
@@ -58,9 +51,9 @@ describe('HomeComponent', () => {
   });
 
   describe('an error occurs fetching', () => {
-    beforeEach((done) => {
+    beforeEach(() => {
       HelperService.getJson = mockGetJson();
-      createComponent(done);
+      createComponent();
     });
 
     it('does not show content', () => {

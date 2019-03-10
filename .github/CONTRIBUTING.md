@@ -6,3 +6,6 @@ _flavors_.
 
 If you'd like to suggest a new _flavor_ to add to this project, you are also welcome to create an
 issue for it. An example (or PR) is also appreciated instead of or along with the issue.
+
+If you're adding a PR, dont just ignore the template, follow it and make sure you tick all boxes and
+describe what your PR does.

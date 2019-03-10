@@ -1,6 +1,6 @@
 {
   "extends": [
-    "airbnb-base",
+    "airbnb",
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
@@ -8,6 +8,10 @@
     "import/no-unresolved": "\\.s?css$",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
+
+    // React rules incompatible with recommended Js and Ts rules
+    "react/jsx-filename-extension": "off",
+    "react/sort-comp": "off",
 
     // Modified Ts rules (to match AirBnB rules)
     "@typescript-eslint/indent": ["error", 2],

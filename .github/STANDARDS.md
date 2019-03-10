@@ -44,7 +44,7 @@ Project needs `webpack`, which is in version `3.9.1`.
 
 In the `package.json` file the dependency must be written as `"webpack": "~3.9"` so that any and all
 patches/bugfixes to `3.9` are applied to the project (`3.9.1`, `3.9.2`, ...) but no (possible)
-breaking changes (`3.10.0`) are added automatically.
+breaking features (`3.10.0`) are added automatically.
 
 ### Example 2
 
@@ -52,6 +52,16 @@ Project needs at least `webpack` `3.9.1` due to an impactful bugfix on that spec
 
 In the `package.json` file the dependency must be written as `"webpack": "~3.9 >=3.9.1"` for the
 same reasons described above.
+
+### Dev and Prod Dependencies
+
+In typical node applications, production packages are packages that are needed during runtime. All
+other dependencies are `devDependencies`. In applications that are completely pre-built and need no
+production packages (like in this repo), production packages are the packages needed to build the
+production version of an application. This makes things easier on automators like jenkins that build
+our production build but have no need to install, for example, linters. Additionally, this
+separation also makes a linter's job easier for detecting dev dependencies being bundled with the
+final production code.
 
 ## Code
 
@@ -167,5 +177,13 @@ Anything lower than 100% test coverage is not acceptable. If a component or modu
 tested, then it should be refactored - testability is a measurement of code maintainability. Only in
 extreme cases should you use something like `/* istanbul ignore next */`.
 
+## Versioning
+
+Versioning should be done in the semver way described [here][link-semver].
+When version is below `v1`, minor versions become breaking changes or new features, while patch
+versions become minor features or bugfixes.
+
+
 [link-eslint-issue]: https://github.com/benmosher/eslint-plugin-import/issues/889
 [link-eslint-pr]: https://github.com/benmosher/eslint-plugin-import/pull/936
+[link-semver]: https://semver.org/

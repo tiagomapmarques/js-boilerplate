@@ -54,7 +54,7 @@ describe('index', () => {
 
     it('renders the correct component', () => {
       const { render } = vueCalls[0];
-      const vueRenderer = jest.fn((html: Vue) => html);
+      const vueRenderer = jest.fn((html: JSX.Element) => html);
       expect((render as typeof Vue.prototype.$createElement)(vueRenderer)).toBe(HomeComponent);
     });
   });

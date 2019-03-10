@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-triple-slash-reference,spaced-comment
+/// <reference path="../node_modules/vue-tsx-support/enable-check.d.ts" />
 
 // BASE DEFINITIONS
 
@@ -30,14 +32,6 @@ declare module '*.svg' {
 //   export = content;
 // }
 declare module '*.json';
-
-declare module '*.template'{
-  import Vue from 'vue';
-
-  const template: Vue;
-  // eslint-disable-next-line import/no-default-export
-  export default template;
-}
 
 // ENVIRONMENT VARIABLES DEFINITION
 

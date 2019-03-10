@@ -3,7 +3,6 @@ import { Component } from 'vue-property-decorator';
 
 import { HelperService } from 'services';
 
-import * as template from './home.template';
 import * as style from './home.style';
 
 export interface SampleData {
@@ -12,20 +11,27 @@ export interface SampleData {
 
 const EMPTY_DATA: SampleData = { text: '' };
 
-@Component({ ...template.default })
+@Component
 export class HomeComponent extends Vue {
-  public readonly style = style;
-
-  public readonly parentId = PROJECT.ROOTID;
-
-  public readonly title = PROJECT.TITLE;
-
-  public readonly version = `v${PROJECT.VERSION}-${ENVIRONMENT}`;
-
-  public text = '';
+  private text = '';
 
   public created(): void {
     HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
+  }
+
+  public render(): JSX.Element {
+    return (
+      <div id={PROJECT.ROOTID}>
+        {!!this.text && (
+          <div class={style.content}>
+            {PROJECT.TITLE} says {this.text}!
+          </div>
+        )}
+        <div class={style.footer}>
+          v{PROJECT.VERSION}-{ENVIRONMENT}
+        </div>
+      </div>
+    );
   }
 
   private handleData({ text }: SampleData): void {

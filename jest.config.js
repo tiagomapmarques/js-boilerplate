@@ -10,15 +10,13 @@ const moduleNameMapper = Object.keys(alias).reduce((accumulator, key) => ({
 const extensions = ['js', 'ts'];
 const styleExtensions = ['css', 'scss'];
 
-const ext = prefix => extensions.map(e => `${prefix}.${e}`);
+const applyExt = (prefix, exts = extensions) => exts.map(e => `${prefix}.${e}`);
 
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    ...ext('src/app/**/*'),
+    ...applyExt('src/app/**/*'),
     '!src/app/**/*.d.ts',
-    ...ext('!src/app/components/**/index'),
-    ...ext('!src/app/*/index'),
   ],
   coverageDirectory: 'coverage',
   coverageReporters: [

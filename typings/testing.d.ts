@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-triple-slash-reference,spaced-comment
 /// <reference path="./global.d.ts" />
 
-interface MockConsole extends Console, jest.MockInstance<Console, string[]> {}
+interface MockConsole extends Console, jest.Mock {}
 
 interface MockFetchArguments {
   status?: number;
@@ -11,7 +11,7 @@ interface MockFetchArguments {
 }
 
 type FetchType = typeof fetch;
-type FetchMockType = FetchType & jest.MockInstance<FetchType, string[]>;
+type FetchMockType = FetchType & jest.Mock;
 interface MockFetch extends FetchMockType {
   // adapted from /node_modules/jest-fetch-mock/src/index.d.ts
   mockResponse(body: string, init?: MockFetchArguments): FetchType;

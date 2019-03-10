@@ -1,0 +1,18 @@
+
+@mixin __host-base {
+  box-sizing: border-box;
+  overflow: auto;
+  display: block;
+}
+
+@mixin host($componentName) {
+  #{$componentName} {
+    @include __host-base;
+    @content;
+  }
+
+  :host {
+    @include __host-base;
+    @content;
+  }
+}

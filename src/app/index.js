@@ -2,12 +2,15 @@ import 'browser-polyfills';
 import loadEntry from 'load-entry';
 
 import { HomeComponent } from 'components/home';
+import { HelperService } from 'services';
 
-import './index.style';
+import style from './index.style';
 
 export const indexEntry = () => {
-  const app = new HomeComponent();
-  app.create().catch();
+  document.head.appendChild(HelperService.createStyleElement(style));
+
+  HomeComponent.register();
+  document.getElementById(PROJECT.ROOTID).innerHTML = '<home-component />';
 };
 
-loadEntry(indexEntry);
+loadEntry(indexEntry, { event: 'WebComponentsReady' });

@@ -1,3 +1,6 @@
+@import '../base.style';
+
+@include host('bio-header');
 
 .content {
   text-align: center;

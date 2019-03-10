@@ -1,5 +1,9 @@
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
 import { HelperService } from 'services';
 
+import * as template from './home.template';
 import * as style from './home.style';
 
 export interface SampleData {
@@ -8,31 +12,23 @@ export interface SampleData {
 
 const EMPTY_DATA: SampleData = { text: '' };
 
-export class HomeComponent {
-  private text = '';
+@Component({ ...template.default })
+export class HomeComponent extends Vue {
+  public readonly style = style;
 
-  public constructor() {
-    this.handleData = this.handleData.bind(this);
-  }
+  public readonly parentId = PROJECT.ROOTID;
 
-  public create(): Promise<void> {
-    return HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
-  }
+  public readonly title = PROJECT.TITLE;
 
-  public render(): HTMLElement | null {
-    return HelperService.naiveRender(`#${PROJECT.ROOTID}`, `
-      ${this.text ? `
-        <div class="${style.content}">
-          ${PROJECT.TITLE} says ${this.text}!
-        </div>` : ''}
-      <div class="${style.footer}">
-        ${`v${PROJECT.VERSION}-${ENVIRONMENT}`}
-      </div>
-    `);
+  public readonly version = `v${PROJECT.VERSION}-${ENVIRONMENT}`;
+
+  public text = '';
+
+  public created(): void {
+    HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
   }
 
   private handleData({ text }: SampleData): void {
     this.text = text;
-    this.render();
   }
 }

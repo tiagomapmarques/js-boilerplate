@@ -7,7 +7,7 @@ const moduleNameMapper = Object.keys(alias).reduce((accumulator, key) => ({
   [key]: (key.indexOf('$') >= 0 ? alias[key] : `${alias[key]}$1`).replace('./', '<rootDir>/'),
 }), {});
 
-const extensions = ['js', 'ts'];
+const extensions = ['js', 'ts', 'vue'];
 const styleExtensions = ['css', 'scss'];
 
 const applyExt = (prefix, exts = extensions) => exts.map(e => `${prefix}.${e}`);
@@ -42,6 +42,7 @@ module.exports = {
   testRegex: '^.+\\.spec\\.(j|t)s$',
   transform: {
     '^.+\\.(j|t)s$': 'babel-jest',
+    '^.+\\.vue$': 'vue-jest',
     '^.+\\.s?css$': 'jest-css-modules-transform',
   },
   transformIgnorePatterns: [],

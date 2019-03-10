@@ -38,10 +38,8 @@ Quick start (docker):
 | `angular` | `develop` | base for frontend app using angular | TBD | - |
 
 ## Compatibility
-  - IE9+
+  - IE11+
   - Any evergreen browser (Chrome, Edge, FF, ...)
-
-**Note**: [`web-components`][link-web-components] branch only supports IE11+ and evergreen browsers.
 
 ## Environments
 

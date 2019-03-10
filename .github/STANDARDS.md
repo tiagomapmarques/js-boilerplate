@@ -53,6 +53,16 @@ Project needs at least `webpack` `3.9.1` due to an impactful bugfix on that spec
 In the `package.json` file the dependency must be written as `"webpack": "~3.9 >=3.9.1"` for the
 same reasons described above.
 
+### Dev and Prod Dependencies
+
+In typical node applications, production packages are packages that are needed during runtime. All
+other dependencies are `devDependencies`. In applications that are completely pre-built and need no
+production packages (like in this repo), production packages are the packages needed to build the
+production version of an application. This makes things easier on automators like jenkins that build
+our production build but have no need to install, for example, linters. Additionally, this
+separation also makes a linter's job easier for detecting dev dependencies being bundled with the
+final production code.
+
 ## Code
 
 ### Structure

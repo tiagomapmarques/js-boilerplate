@@ -68,7 +68,7 @@ The following are the base commands for this application (`yarn`):
   - `build` runs `:local`
     - `:local`/`:dev`/`:prod` builds the project and its assets for the `local`/`dev`/`prod`
 environments respectively
-      - `:watch` watches app files and rebuilds them upon change
+      - `:watch` serves the app on `localhost:8000`, watches the files and rebuilds them upon change
   - `lint` performs `:code`, `:style` and `:tests`
     - `:code` lints the code according to `.eslintrc.json` (which extends `airbnb-base` rules)
     - `:config` lints the configuration files (similarly to `:code`)
@@ -76,14 +76,12 @@ environments respectively
 `stylelint-config-standard` and `stylelint-config-recommended-scss` rules)
     - `:tests` lints the tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
 rules)
-  - `serve` serves the project on `localhost:8000` and opens a tab with the URL
-    - `:secure` serves with gzip compression and on https
   - `test` runs the unit tests for the project (files ending with `.spec.js` and `.spec.ts`)
     - `:no-cache` runs the tests with no cache
     - `:watch` watches the test files and re-runs the tests on any file update
 
 The following commands are shortcuts only:
-  - `yarn start` = `yarn build` and `yarn serve`
+  - `yarn start` = `yarn watch`
   - `yarn build` = `yarn build:local`
   - `yarn watch` = `yarn build:local:watch`
 

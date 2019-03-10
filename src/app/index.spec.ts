@@ -4,7 +4,7 @@ import { HomeComponent } from 'components/home';
 
 import { indexEntry } from '.';
 
-type MockLoadEntry = typeof loadEntry & jest.MockInstance<typeof loadEntry, object[]>;
+type MockLoadEntry = typeof loadEntry & jest.Mock;
 
 jest.mock('browser-polyfills', () => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');

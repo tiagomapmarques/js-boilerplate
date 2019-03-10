@@ -1,5 +1,4 @@
 import { environments } from './environments';
-import { ServeAfterFirstBuildPlugin } from './serve-after-first-build-plugin';
 
 export const webpackInit = (requestedEnv, { serve, open, spa }) => {
   const actualEnv = (requestedEnv && environments[requestedEnv]) || environments.default;
@@ -9,6 +8,8 @@ export const webpackInit = (requestedEnv, { serve, open, spa }) => {
   const { config } = require(`./${actualEnv}.config`);
 
   if (serve) {
+    // eslint-disable-next-line global-require
+    const { ServeAfterFirstBuildPlugin } = require('./serve-after-first-build-plugin');
     config.plugins.push(new ServeAfterFirstBuildPlugin({ open, spa }));
   }
 

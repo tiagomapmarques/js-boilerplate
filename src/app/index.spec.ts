@@ -1,5 +1,5 @@
 import loadEntry from 'load-entry';
-import * as ReactDOM from 'react-dom';
+import * as Inferno from 'inferno';
 
 import { mockCreateElement } from 'testing';
 import { HomeComponent } from 'components/home';
@@ -10,7 +10,12 @@ type MockLoadEntry = typeof loadEntry & jest.Mock;
 
 jest.mock('browser-polyfills', () => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');
-jest.mock('react-dom');
+jest.mock('inferno', () => {
+  const realInferno = jest.requireActual('inferno');
+  const realRender = realInferno.render;
+  realInferno.render = jest.fn(realRender);
+  return realInferno;
+});
 
 jest.mock('components/home', () => {
   const MockComponent = jest.fn();
@@ -23,7 +28,7 @@ describe('index', () => {
   afterEach(() => {
     mockLoadEntry.mockClear();
     (HomeComponent as jest.Mock<HomeComponent>).mockClear();
-    (ReactDOM.render as jest.Mock<typeof ReactDOM>).mockClear();
+    (Inferno.render as jest.Mock<typeof Inferno.render>).mockClear();
   });
 
   it('registers a function to be run', () => {
@@ -38,13 +43,13 @@ describe('index', () => {
   });
 
   describe('the application is executed', () => {
-    let mockRender: jest.Mock<typeof ReactDOM.render>;
+    let mockRender: jest.Mock<typeof Inferno.render>;
 
     mockCreateElement(document.body, 'div', { id: PROJECT.ROOTID });
 
     beforeEach(() => {
       indexEntry();
-      mockRender = (ReactDOM.render as jest.Mock<typeof ReactDOM.render>);
+      mockRender = (Inferno.render as jest.Mock<typeof Inferno.render>);
     });
 
     it('calls the renderer', () => {

@@ -28,4 +28,10 @@ export const config = {
     new PrerenderSpaPlugin(app.rendering),
     ...(app.style.extract ? [new CriticalCssPlugin({ base: paths.distAbsolute })] : []),
   ],
+  resolve: {
+    ...(baseConfig.resolve || []),
+    alias: {
+      inferno: 'inferno/dist/index.dev.esm.js',
+    },
+  },
 };

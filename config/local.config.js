@@ -20,4 +20,10 @@ export const config = {
     new ExtendedDefinePlugin(environmentVariables),
     new LiveReloadPlugin({ appendScriptTag: true }),
   ],
+  resolve: {
+    ...(baseConfig.resolve || []),
+    alias: {
+      inferno: 'inferno/dist/index.dev.esm.js',
+    },
+  },
 };

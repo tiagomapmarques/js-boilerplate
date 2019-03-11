@@ -2,6 +2,8 @@ import { PuppeteerRenderer as Renderer } from 'prerender-spa-plugin';
 
 import { paths } from './paths';
 
+const webcomponentsPath = `${paths.baseAbsolute}/node_modules/@webcomponents/webcomponentsjs/`;
+
 export const app = {
   extensions: {
     logic: ['js', 'ts'],
@@ -9,7 +11,7 @@ export const app = {
   },
   style: {
     global: false,
-    extract: true,
+    extract: false,
   },
   commonChunk: {
     test: /node_modules/,
@@ -20,6 +22,11 @@ export const app = {
   cleanExclusions: [],
   externalFiles: [
     paths.staticAbsolute,
+    ...['', 'bundles'].map((folder) => ({
+      from: `${webcomponentsPath}${folder}/*.js`,
+      to: `polyfills/${folder}`,
+      flatten: true,
+    })),
   ],
   output: {
     script: '[name].js',

@@ -1,44 +1,44 @@
 import loadEntry from 'load-entry';
 
+import { mockCreateElement } from 'testing';
 import { HomeComponent } from 'components/home';
 
 import { indexEntry } from '.';
 
 type MockLoadEntry = typeof loadEntry & jest.Mock;
 
+interface LoadEntryConfiguration {
+  event?: string;
+  init?: string;
+}
+
 jest.mock('browser-polyfills', (): void => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');
 
-interface ComponentInstance {
-  create: jest.Mock<Promise<void>>;
-}
-
-interface MockHomeComponent extends jest.Mock<HomeComponent> {
-  getInstance: () => ComponentInstance;
-}
-
-jest.mock('components/home', (): { HomeComponent: MockHomeComponent } => {
-  const component: ComponentInstance = {
-    create: jest.fn((): Promise<void> => new Promise((resolve): void => resolve())),
+jest.mock('components/home', (): { HomeComponent: { register: jest.Mock } } => {
+  const constructor = {
+    register: jest.fn(),
+    componentName: 'home-component',
   };
-  const constructor = jest.fn((): ComponentInstance => component) as MockHomeComponent & jest.Mock;
-  constructor.getInstance = (): ComponentInstance => component;
   return { HomeComponent: constructor };
 });
 
+jest.mock('./index.style', (): IndexObject<string> => (global as MockGlobal).mockStyle(require.requireActual('./index.style')));
+
 describe('index', (): void => {
   const mockLoadEntry = loadEntry as MockLoadEntry;
-  const MockComponent = HomeComponent as MockHomeComponent;
 
   afterEach((): void => {
-    mockLoadEntry.mockClear();
-    MockComponent.mockClear();
-    MockComponent.getInstance().create.mockClear();
+    (HomeComponent.register as jest.Mock).mockClear();
   });
 
   it('registers a function to be run', (): void => {
     expect(mockLoadEntry.mock.calls).toHaveLength(1);
     expect(mockLoadEntry.mock.calls[0][0]).toEqual(indexEntry);
+  });
+
+  it('waits for WebComponentsReady', (): void => {
+    expect((mockLoadEntry.mock.calls[0][1] as LoadEntryConfiguration).event).toEqual('WebComponentsReady');
   });
 
   describe('it is imported', (): void => {
@@ -48,19 +48,25 @@ describe('index', (): void => {
   });
 
   describe('the application is executed', (): void => {
+    let originalAppend: typeof document.appendChild;
+
+    mockCreateElement(document.body, 'div', { id: PROJECT.ROOTID });
+
     beforeEach((): void => {
+      originalAppend = document.head.appendChild;
+      document.head.appendChild = jest.fn();
       indexEntry();
     });
 
-    it('creates the component on the root element', (): void => {
-      expect(MockComponent.mock.instances).toHaveLength(1);
-      expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toHaveLength(0);
+    afterEach((): void => {
+      document.head.appendChild = originalAppend;
     });
 
-    it('renders the correct component', (): void => {
-      expect(MockComponent.getInstance().create.mock.calls).toHaveLength(1);
-      expect(MockComponent.getInstance().create.mock.calls[0]).toEqual([]);
+    it('creates the component on the root element', (): void => {
+      const rootElement = document.getElementById(PROJECT.ROOTID) as HTMLElement;
+      expect(rootElement.childNodes.length).toBe(1);
+      expect((rootElement.childNodes[0] as HTMLElement).tagName).toBe('HOME-COMPONENT');
+      expect(rootElement.childNodes[0].childNodes.length).toBe(0);
     });
   });
 });

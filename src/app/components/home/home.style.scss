@@ -1,3 +1,8 @@
+@import '../../../../node_modules/@biotope/element/lib/host.mixin';
+
+@include host('home-component') {
+  display: block;
+}
 
 .content {
   text-align: center;

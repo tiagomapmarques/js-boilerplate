@@ -6,8 +6,7 @@ import { HomeComponent } from 'components/home';
 import './index.style';
 
 export const indexEntry = () => {
-  const app = new HomeComponent();
-  app.create().catch();
+  document.getElementById(PROJECT.ROOTID).innerHTML = `<${HomeComponent.componentName} />`;
 };
 
-loadEntry(indexEntry);
+loadEntry(indexEntry, { event: 'WebComponentsReady' });

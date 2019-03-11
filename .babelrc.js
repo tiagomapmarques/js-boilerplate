@@ -15,6 +15,7 @@ const getPlugins = (addTestAlias = false) => ([
     ...defaultAlias,
     ...(!addTestAlias ? {} : testAlias),
   }}],
+  ['babel-plugin-inferno', { imports: true }],
 ]);
 
 module.exports = {
@@ -24,7 +25,6 @@ module.exports = {
       isTSX: true,
       allExtensions: true,
     }],
-    '@babel/preset-react',
   ],
   plugins: getPlugins(),
   env: {

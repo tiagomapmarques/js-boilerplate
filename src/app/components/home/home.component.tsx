@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component, Fragment } from 'inferno';
 
 import { HelperService } from 'services';
 
@@ -14,13 +14,14 @@ export interface HomeComponentState {
   text: string;
 }
 
-export class HomeComponent extends React.Component<object, HomeComponentState> {
+export class HomeComponent extends Component<object, HomeComponentState> {
+  public state: HomeComponentState = {
+    text: '',
+  }
+
   public constructor(props: object) {
     super(props);
     this.handleData = this.handleData.bind(this);
-    this.state = {
-      text: '',
-    };
   }
 
   public componentDidMount(): void {
@@ -30,7 +31,7 @@ export class HomeComponent extends React.Component<object, HomeComponentState> {
   public render(): JSX.Element {
     const { text } = this.state;
     return (
-      <>
+      <Fragment>
         {!!text && (
           <div className={style.content}>
             {`${PROJECT.TITLE} says ${text}!`}
@@ -39,7 +40,7 @@ export class HomeComponent extends React.Component<object, HomeComponentState> {
         <div className={style.footer}>
           {`v${PROJECT.VERSION}-${ENVIRONMENT}`}
         </div>
-      </>
+      </Fragment>
     );
   }
 

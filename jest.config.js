@@ -44,7 +44,5 @@ module.exports = {
     '^.+\\.(j|t)sx?$': 'babel-jest',
     '^.+\\.s?css$': 'jest-css-modules-transform',
   },
-  transformIgnorePatterns: [
-    'node_modules',
-  ],
+  transformIgnorePatterns: [],
 };

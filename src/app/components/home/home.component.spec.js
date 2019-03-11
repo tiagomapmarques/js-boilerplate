@@ -1,10 +1,17 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'inferno';
 
+import { mockCreateElement } from 'testing';
 import { HelperService } from 'services';
 
 import { HomeComponent } from '.';
 import style from './home.style';
+
+jest.mock('inferno', () => {
+  const realInferno = jest.requireActual('inferno');
+  const realRender = realInferno.render;
+  realInferno.render = jest.fn(realRender);
+  return realInferno;
+});
 
 jest.mock('services');
 
@@ -14,17 +21,18 @@ describe('HomeComponent', () => {
   const sampleData = { text: 'Mock Content' };
   let component;
 
+  mockCreateElement(document.body, 'div', { id: PROJECT.ROOTID });
+
   const createComponent = (options = {}) => {
+    const elementToBeReplaced = document.querySelector(`#${PROJECT.ROOTID}`);
     // eslint-disable-next-line react/jsx-props-no-spreading
-    component = shallow(<HomeComponent {...(options.props || {})} />);
-    if (component && typeof component.update === 'function') {
-      component.update();
-    }
+    render(<HomeComponent {...(options.props || {})} />, elementToBeReplaced);
+    component = document.querySelector(`#${PROJECT.ROOTID}`);
   };
 
   const querySelector = (selector) => {
-    const elements = component.find(selector);
-    return elements.length ? elements : null;
+    const elements = component.querySelectorAll(selector);
+    return elements.length > 1 ? elements : (elements[0] || null);
   };
 
   const mockGetJson = (newData = null) => jest
@@ -46,12 +54,12 @@ describe('HomeComponent', () => {
     });
 
     it('shows the page content', () => {
-      expect(querySelector(`.${style.content}`).text().trim())
+      expect(querySelector(`.${style.content}`).textContent.trim())
         .toBe(`${PROJECT.TITLE} says ${sampleData.text}!`);
     });
 
     it('shows the footer', () => {
-      expect(querySelector(`.${style.footer}`).text().trim())
+      expect(querySelector(`.${style.footer}`).textContent.trim())
         .toBe(`v${PROJECT.VERSION}-${ENVIRONMENT}`);
     });
   });

@@ -25,4 +25,10 @@ export const config = {
       port: findPort(35729),
     }),
   ],
+  resolve: {
+    ...(baseConfig.resolve || []),
+    alias: {
+      inferno: 'inferno/dist/index.dev.esm.js',
+    },
+  },
 };

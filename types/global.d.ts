@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference,spaced-comment
+/// <reference path="../node_modules/vue-tsx-support/enable-check.d.ts" />
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare type RecordAny = Record<string, any>;
@@ -21,14 +23,6 @@ declare module '*.svg' {
 declare module '*.json' {
   const content: RecordAny;
   export = content;
-}
-
-declare module '*.template'{
-  import Vue from 'vue';
-
-  const template: Vue;
-  // eslint-disable-next-line import/no-default-export
-  export default template;
 }
 
 // ENVIRONMENT VARIABLES DEFINITION

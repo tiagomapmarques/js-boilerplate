@@ -4,13 +4,11 @@ import loadEntry from 'load-entry';
 import { HomeComponent } from 'components/home';
 import { HelperService } from 'services';
 
-import style from './index.style';
+import './index.style';
 
 export const indexEntry = () => {
-  document.head.appendChild(HelperService.createStyleElement(style));
-
   HomeComponent.register();
-  document.getElementById(PROJECT.ROOTID).innerHTML = '<home-component />';
+  document.getElementById(PROJECT.ROOTID).innerHTML = `<${HomeComponent.componentName} />`;
 };
 
 loadEntry(indexEntry, { event: 'WebComponentsReady' });

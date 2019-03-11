@@ -2,7 +2,6 @@ import 'browser-polyfills';
 import loadEntry from 'load-entry';
 
 import { HomeComponent } from 'components/home';
-import { HelperService } from 'services';
 
 import './index.style';
 

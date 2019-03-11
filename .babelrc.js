@@ -24,6 +24,7 @@ module.exports = {
       isTSX: true,
       allExtensions: true,
     }],
+    '@babel/preset-react',
   ],
   plugins: getPlugins(),
   env: {

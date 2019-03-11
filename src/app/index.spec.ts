@@ -1,5 +1,7 @@
 import loadEntry from 'load-entry';
+import * as ReactDOM from 'react-dom';
 
+import { mockCreateElement } from 'testing';
 import { HomeComponent } from 'components/home';
 
 import { indexEntry } from '.';
@@ -8,32 +10,20 @@ type MockLoadEntry = typeof loadEntry & jest.Mock;
 
 jest.mock('browser-polyfills', (): void => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');
+jest.mock('react-dom');
 
-interface ComponentInstance {
-  create: jest.Mock<Promise<void>>;
-}
-
-interface MockHomeComponent extends jest.Mock<HomeComponent> {
-  getInstance: () => ComponentInstance;
-}
-
-jest.mock('components/home', (): { HomeComponent: MockHomeComponent } => {
-  const component: ComponentInstance = {
-    create: jest.fn((): Promise<void> => new Promise((resolve): void => resolve())),
-  };
-  const constructor = jest.fn((): ComponentInstance => component) as MockHomeComponent & jest.Mock;
-  constructor.getInstance = (): ComponentInstance => component;
-  return { HomeComponent: constructor };
+jest.mock('components/home', (): { HomeComponent: jest.Mock } => {
+  const MockComponent = jest.fn();
+  return { HomeComponent: MockComponent };
 });
 
 describe('index', (): void => {
   const mockLoadEntry = loadEntry as MockLoadEntry;
-  const MockComponent = HomeComponent as MockHomeComponent;
 
   afterEach((): void => {
     mockLoadEntry.mockClear();
-    MockComponent.mockClear();
-    MockComponent.getInstance().create.mockClear();
+    (HomeComponent as jest.Mock<HomeComponent>).mockClear();
+    (ReactDOM.render as jest.Mock).mockClear();
   });
 
   it('registers a function to be run', (): void => {
@@ -48,19 +38,25 @@ describe('index', (): void => {
   });
 
   describe('the application is executed', (): void => {
+    let mockRender: jest.Mock<typeof ReactDOM.render>;
+
+    mockCreateElement(document.body, 'div', { id: PROJECT.ROOTID });
+
     beforeEach((): void => {
       indexEntry();
+      mockRender = (ReactDOM.render as jest.Mock);
+    });
+
+    it('calls the renderer', (): void => {
+      expect(mockRender.mock.calls).toHaveLength(1);
     });
 
     it('creates the component on the root element', (): void => {
-      expect(MockComponent.mock.instances).toHaveLength(1);
-      expect(MockComponent.mock.calls).toHaveLength(1);
-      expect(MockComponent.mock.calls[0]).toHaveLength(0);
+      expect(mockRender.mock.calls[0][1].id).toEqual(PROJECT.ROOTID);
     });
 
     it('renders the correct component', (): void => {
-      expect(MockComponent.getInstance().create.mock.calls).toHaveLength(1);
-      expect(MockComponent.getInstance().create.mock.calls[0]).toEqual([]);
+      expect(mockRender.mock.calls[0][0].type).toEqual(HomeComponent);
     });
   });
 });

@@ -21,7 +21,7 @@ const getStyleNaming = (minify, globalStyles) => {
 
 const buildRules = (minify) => (global, extract, compileExclusions, runtimeVariables) => ([
   {
-    test: /\.(j|t)s$/,
+    test: /\.(j|t)sx?$/,
     use: {
       loader: 'babel-loader',
       options: babelOptions,

@@ -1,5 +1,12 @@
 {
-  "extends": "./node_modules/@biotope/quality-gate/config/logic/recommended.js",
+  "extends": [
+    "airbnb",
+    "./node_modules/@biotope/quality-gate/config/logic/recommended.js"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "react/sort-comp": "off"
+  },
   "globals": {
     "ENVIRONMENT": true,
     "PROJECT": true,

@@ -51,7 +51,7 @@ export const baseConfig = {
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.css', '.scss'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.scss'],
     modules: [
       paths.appAbsolute,
       'node_modules',

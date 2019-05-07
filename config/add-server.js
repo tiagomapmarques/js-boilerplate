@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import LocalWebServer from 'local-web-server';
 import reduceFlatten from 'reduce-flatten';
-import opn from 'opn';
+import opn from 'open';
 /* eslint-enable import/no-extraneous-dependencies */
 import os from 'os';
 

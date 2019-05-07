@@ -26,7 +26,6 @@ module.exports = {
           'ie >= 9',
         ],
       },
-      useBuiltIns: 'entry',
     }],
     ['@babel/preset-typescript', {
       isTSX: true,

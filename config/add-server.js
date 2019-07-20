@@ -1,12 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import LocalWebServer from 'local-web-server';
 import reduceFlatten from 'reduce-flatten';
-import opn from 'opn';
+import opn from 'open';
 /* eslint-enable import/no-extraneous-dependencies */
 import os from 'os';
 
+import { findPort } from './find-ports';
+
 const server = (port, open, spa, https) => {
-  (new LocalWebServer()).listen({
+  LocalWebServer.create({
     port,
     https,
     compress: true,
@@ -27,14 +29,14 @@ const server = (port, open, spa, https) => {
   console.log(`\n\nServing at ${urls.join(', ')}\n\n`);
 
   if (open) {
-    opn(urls[1]);
+    opn(urls[0]);
   }
 };
 
 class ServeAfterFirstBuildPlugin {
   constructor(options) {
     this.isFirstCompilation = true;
-    this.port = options.port || 8000;
+    this.port = findPort(options.port || 8000);
     this.open = options.open || false;
     this.spa = options.spa || false;
     this.secure = options.secure || false;

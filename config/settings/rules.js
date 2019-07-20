@@ -1,5 +1,7 @@
+import { existsSync } from 'fs';
 import { resolve } from 'path';
 import { loader as ExtractLoader } from 'mini-css-extract-plugin';
+import autoprefixer from 'autoprefixer';
 
 import { javascriptToSass } from './javascript-to-sass';
 
@@ -8,13 +10,14 @@ const projectPath = resolve(process.cwd());
 // eslint-disable-next-line import/no-dynamic-require
 const babelOptions = require(`${projectPath}/.babelrc.js`);
 
-const postCssPath = `${projectPath}/postcss.config.js`;
+const removeLast = path => path.split('/').reverse().slice(1).reverse()
+  .join('/');
 
 const getStyleNaming = (minify, globalStyles) => {
   if (globalStyles) {
     return '[name]';
   }
-  return minify ? '[hash:base64:24]' : '[path][name]-[local]';
+  return minify ? '[hash:base64:24]' : '[path]__[name]__[local]--[hash:base64:5]';
 };
 
 const buildRules = minify => (global, extract, compileExclusions, runtimeVariables) => ([
@@ -38,14 +41,22 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
       {
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: getStyleNaming(minify, global),
+          localsConvention: 'camelCase',
+          modules: {
+            mode: 'local',
+            localIdentName: getStyleNaming(minify, global),
+          },
+          url: (url, resource) => url.indexOf('http') !== 0
+            && url.indexOf('/') !== 0
+            && (existsSync(resolve(url)) || existsSync(resolve(`${removeLast(resource)}/${url}`))),
         },
       },
       {
         loader: 'postcss-loader',
         options: {
-          config: { path: postCssPath },
+          plugins: [
+            autoprefixer(),
+          ],
         },
       },
       {
@@ -55,6 +66,14 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
         },
       },
     ],
+  },
+  {
+    test: /\.(svg|txt)$/,
+    use: 'raw-loader',
+  },
+  {
+    test: /\.(png|jpe?g|gif)$/,
+    use: 'url-loader',
   },
 ]);
 

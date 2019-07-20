@@ -29,7 +29,7 @@ const server = (port, open, spa, https) => {
   console.log(`\n\nServing at ${urls.join(', ')}\n\n`);
 
   if (open) {
-    opn(urls[1]);
+    opn(urls[0]);
   }
 };
 

@@ -1,6 +1,0 @@
-
-module.exports = {
-  postcssConfig: {
-    plugins: [],
-  },
-};

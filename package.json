@@ -19,8 +19,9 @@
   "license": "MIT",
   "engines": {
     "node": ">=10.15.0",
-    "yarn": ">=1.13.0"
+    "yarn": ">=1.16.0"
   },
+  "engineStrict": true,
   "scripts": {
     "build": "yarn build:local",
     "build:dev": "webpack --progress --bail --env dev",

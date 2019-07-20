@@ -77,15 +77,11 @@
     "webpack-cli": "~3.3"
   },
   "devDependencies": {
+    "@biotope/quality-gate": "1.0.0-beta.8",
     "@types/jest": "~24.0",
     "@types/node": "~12.6",
-    "@typescript-eslint/eslint-plugin": "~1.12",
-    "@typescript-eslint/parser": "~1.12",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "~24.8",
-    "eslint": "~5.16",
-    "eslint-config-airbnb-base": "~13.2",
-    "eslint-plugin-import": "~2.18",
     "eslint-plugin-jest": "~22.12",
     "get-port": "~5.0",
     "jest": "~24.8",
@@ -94,10 +90,6 @@
     "local-web-server": "~3.0",
     "open": "~6.4",
     "reduce-flatten": "~2.0",
-    "stylelint": "~10.1",
-    "stylelint-config-recommended-scss": "~3.3",
-    "stylelint-config-standard": "~18.3",
-    "stylelint-scss": "~3.9",
     "synchronized-promise": "~0.1",
     "typescript": "~3.5",
     "webpack-livereload-plugin": "~2.2"

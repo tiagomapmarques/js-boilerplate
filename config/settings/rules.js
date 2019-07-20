@@ -10,11 +10,14 @@ const projectPath = resolve(process.cwd());
 // eslint-disable-next-line import/no-dynamic-require
 const babelOptions = require(`${projectPath}/.babelrc.js`);
 
+const removeLast = path => path.split('/').reverse().slice(1).reverse()
+  .join('/');
+
 const getStyleNaming = (minify, globalStyles) => {
   if (globalStyles) {
     return '[name]';
   }
-  return minify ? '[hash:base64:24]' : '[path][name]-[local]';
+  return minify ? '[hash:base64:24]' : '[path]__[name]__[local]--[hash:base64:5]';
 };
 
 const buildRules = minify => (global, extract, compileExclusions, runtimeVariables) => ([
@@ -38,10 +41,14 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
       {
         loader: 'css-loader',
         options: {
+          localsConvention: 'camelCase',
           modules: {
             mode: 'local',
             localIdentName: getStyleNaming(minify, global),
           },
+          url: (url, resource) => url.indexOf('http') !== 0
+            && url.indexOf('/') !== 0
+            && (existsSync(resolve(url)) || existsSync(resolve(`${removeLast(resource)}/${url}`))),
         },
       },
       {
@@ -61,7 +68,7 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
     ],
   },
   {
-    test: /\.(svg|json)$/,
+    test: /\.(svg|txt)$/,
     use: 'raw-loader',
   },
   {

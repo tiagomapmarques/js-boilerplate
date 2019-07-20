@@ -45,4 +45,4 @@ module.exports = {
     '^.+\\.s?css$': 'jest-css-modules-transform',
   },
   transformIgnorePatterns: [],
-}
+};

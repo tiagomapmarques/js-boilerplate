@@ -5,6 +5,8 @@ import opn from 'open';
 /* eslint-enable import/no-extraneous-dependencies */
 import os from 'os';
 
+import { findPort } from './find-ports';
+
 const server = (port, open, spa, https) => {
   LocalWebServer.create({
     port,
@@ -34,7 +36,7 @@ const server = (port, open, spa, https) => {
 class ServeAfterFirstBuildPlugin {
   constructor(options) {
     this.isFirstCompilation = true;
-    this.port = options.port || 8000;
+    this.port = findPort(options.port || 8000);
     this.open = options.open || false;
     this.spa = options.spa || false;
     this.secure = options.secure || false;

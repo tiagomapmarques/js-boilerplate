@@ -19,14 +19,7 @@ const getPlugins = (addTestAlias = false) => ([
 
 module.exports = {
   presets: [
-    ['@babel/preset-env', {
-      targets: {
-        browsers: [
-          'defaults',
-          'ie >= 9',
-        ],
-      },
-    }],
+    '@babel/preset-env',
     ['@babel/preset-typescript', {
       isTSX: true,
       allExtensions: true,

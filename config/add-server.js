@@ -6,7 +6,7 @@ import opn from 'open';
 import os from 'os';
 
 const server = (port, open, spa, https) => {
-  (new LocalWebServer()).listen({
+  LocalWebServer.create({
     port,
     https,
     compress: true,

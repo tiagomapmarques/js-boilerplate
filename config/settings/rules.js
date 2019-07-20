@@ -60,6 +60,14 @@ const buildRules = minify => (global, extract, compileExclusions, runtimeVariabl
       },
     ],
   },
+  {
+    test: /\.(svg|json)$/,
+    use: 'raw-loader',
+  },
+  {
+    test: /\.(png|jpe?g|gif)$/,
+    use: 'url-loader',
+  },
 ]);
 
 export const rules = {

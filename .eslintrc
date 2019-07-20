@@ -1,19 +1,12 @@
 {
-  "extends": "./node_modules/@biotope/quality-gate/config/logic/recommended.js",
+  "extends": "./.eslintrc.code",
   "env": {
-    "browser": true,
-
     "jest/globals": true
   },
   "plugins": [
     "jest"
   ],
   "globals": {
-    "ENVIRONMENT": true,
-    "PROJECT": true,
-    "DEFAULTS": true,
-    "SERVICES": true,
-
     "mockStyle": true,
     "MockImports": true
   }

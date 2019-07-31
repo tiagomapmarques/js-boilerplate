@@ -21,7 +21,8 @@ declare module '*.style' {
 
 declare module '*.svg' {
   const content: string;
-  export = content;
+  // eslint-disable-next-line import/no-default-export
+  export default content;
 }
 
 // FIXME: Typescript limitation on importing deconstructed json files

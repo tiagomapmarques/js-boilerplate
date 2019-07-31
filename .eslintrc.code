@@ -8,5 +8,19 @@
     "PROJECT": true,
     "DEFAULTS": true,
     "SERVICES": true
+  },
+  "settings": {
+    "polyfills": [
+      "Promise",
+      "fetch",
+      "Map",
+      "Set",
+      "Array.find",
+      "Array.findIndex",
+      "Array.from",
+      "Object.values",
+      "Object.assign",
+      "requestAnimationFrame"
+    ]
   }
 }

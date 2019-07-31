@@ -9,16 +9,20 @@ type MockLoadEntry = typeof loadEntry & jest.Mock;
 jest.mock('browser-polyfills', (): void => (global as MockGlobal).MockImports.add('polyfills'));
 jest.mock('load-entry');
 
+interface ComponentInstance {
+  create: jest.Mock<Promise<void>>;
+}
+
 interface MockHomeComponent extends jest.Mock<HomeComponent> {
-  getInstance: () => { create: jest.Mock<Promise<{}>>};
+  getInstance: () => ComponentInstance;
 }
 
 jest.mock('components/home', (): { HomeComponent: MockHomeComponent } => {
-  const component = {
+  const component: ComponentInstance = {
     create: jest.fn((): Promise<void> => new Promise((resolve): void => resolve())),
   };
-  const constructor = jest.fn((): MockHomeComponent => component);
-  constructor.getInstance = (): MockHomeComponent => component;
+  const constructor = jest.fn((): ComponentInstance => component) as MockHomeComponent & jest.Mock;
+  constructor.getInstance = (): ComponentInstance => component;
   return { HomeComponent: constructor };
 });
 

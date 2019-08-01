@@ -4,17 +4,26 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
+import { sync as glob } from 'glob';
 
 import { manifest } from './common/manifest';
 import {
   app, favicon, page, paths,
 } from './settings';
 
+const entry = app.extensions.logic
+  .map(ext => glob(`${process.cwd()}/src/app/*.${ext}`, { ignore: `${process.cwd()}/src/app/*.spec.${ext}` }))
+  .reduce((accumulator, files) => ([
+    ...accumulator,
+    ...files,
+  ]), [])
+  .map(file => file.replace(`${process.cwd()}/src/app/`, ''));
+
 export const baseConfig = {
   context: paths.appAbsolute,
   devtool: 'cheap-module-source-map',
   mode: 'development',
-  entry: app.entryPoints,
+  entry,
   output: {
     path: paths.buildAbsolute,
     filename: app.output.script,
@@ -48,7 +57,10 @@ export const baseConfig = {
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.css', '.scss'],
+    extensions: Object.keys(app.extensions).reduce((accumulator, key) => ([
+      ...accumulator,
+      ...app.extensions[key].map(ext => `.${ext}`),
+    ]), []),
     modules: [
       paths.appAbsolute,
       'node_modules',

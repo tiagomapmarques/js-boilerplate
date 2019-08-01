@@ -1,4 +1,4 @@
-import { project } from '../common';
+import { project } from '../common/project';
 import { paths } from './paths';
 
 export const pageConfig = {

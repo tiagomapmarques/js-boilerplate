@@ -3,9 +3,10 @@ import { PuppeteerRenderer as Renderer } from 'prerender-spa-plugin';
 import { paths } from './paths';
 
 export const app = {
-  entryPoints: [
-    'index.js',
-  ],
+  extensions: {
+    logic: ['js', 'ts'],
+    style: ['css', 'scss'],
+  },
   style: {
     global: false,
     extract: true,

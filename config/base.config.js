@@ -5,12 +5,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 
+import { manifest } from './common/manifest';
 import {
-  app,
-  favicon,
-  manifest,
-  page,
-  paths,
+  app, favicon, page, paths,
 } from './settings';
 
 export const baseConfig = {

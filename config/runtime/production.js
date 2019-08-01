@@ -1,5 +1,6 @@
 import { environments } from '../environments';
-import { pageConfig, project } from '../settings';
+import { project } from '../common/project';
+import { pageConfig } from '../settings';
 
 export const env = {
   ENVIRONMENT: environments.prod,

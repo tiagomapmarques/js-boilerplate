@@ -1,5 +1,5 @@
+import { project } from '../common';
 import { paths } from './paths';
-import { project } from './project';
 
 export const pageConfig = {
   title: 'Js Boilerplate',

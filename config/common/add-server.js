@@ -2,6 +2,7 @@
 import LocalWebServer from 'local-web-server';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import opn from 'open';
+import reduceFlatten from 'reduce-flatten';
 import os from 'os';
 
 import { findPort } from './find-ports';

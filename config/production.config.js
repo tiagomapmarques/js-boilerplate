@@ -6,7 +6,8 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import PrerenderSpaPlugin from 'prerender-spa-plugin';
 import CriticalCssPlugin from 'critical-css-webpack-plugin';
 
-import { manifest, rules } from './common';
+import { manifest } from './common/manifest';
+import { rules } from './common/rules';
 import { getVariables } from './runtime';
 import {
   app, favicon, page, paths,

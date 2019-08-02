@@ -1,5 +1,4 @@
-import { faviconConfig } from './favicon';
-import { pageConfig } from './page';
+import { faviconConfig, pageConfig } from '../settings';
 
 const getManifestConfig = minify => ({
   path: '../',

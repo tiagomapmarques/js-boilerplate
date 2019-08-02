@@ -6,16 +6,13 @@ import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
 import PrerenderSpaPlugin from 'prerender-spa-plugin';
 import CriticalCssPlugin from 'critical-css-webpack-plugin';
 
-import { environments } from './environments';
+import { manifest } from './common/manifest';
+import { rules } from './common/rules';
 import { getVariables } from './runtime';
 import {
-  app,
-  favicon,
-  manifest,
-  page,
-  paths,
-  rules,
+  app, favicon, page, paths,
 } from './settings';
+import { environments } from './environments';
 import { baseConfig } from './base.config';
 
 const { style, compileExclusions } = app;

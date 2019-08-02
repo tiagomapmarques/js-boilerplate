@@ -5,6 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ManifestJsonWebpackPlugin from 'manifest-json-webpack-plugin';
 import { sync as glob } from 'glob';
+import reduceFlatten from 'reduce-flatten';
 
 import { manifest } from './common/manifest';
 import {
@@ -57,10 +58,7 @@ export const baseConfig = {
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: Object.keys(app.extensions).reduce((accumulator, key) => ([
-      ...accumulator,
-      ...app.extensions[key].map(ext => `.${ext}`),
-    ]), []),
+    extensions: Object.values(app.extensions).reduce(reduceFlatten, []).map(ext => `.${ext}`),
     modules: [
       paths.appAbsolute,
       'node_modules',

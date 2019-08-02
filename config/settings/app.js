@@ -25,6 +25,7 @@ export const app = {
     script: '[name].js',
     style: '[name].css',
   },
+  port: 8000,
   rendering: {
     staticDir: paths.distAbsolute,
     routes: ['/'],

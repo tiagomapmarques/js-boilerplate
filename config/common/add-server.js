@@ -1,13 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
+// eslint-disable-next-line import/no-extraneous-dependencies
 import LocalWebServer from 'local-web-server';
-import reduceFlatten from 'reduce-flatten';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import opn from 'open';
-/* eslint-enable import/no-extraneous-dependencies */
 import os from 'os';
 
 import { findPort } from './find-ports';
 
-const server = (port, open, spa, https) => {
+const serve = (port, open, spa, https) => {
   LocalWebServer.create({
     port,
     https,
@@ -34,9 +33,9 @@ const server = (port, open, spa, https) => {
 };
 
 class ServeAfterFirstBuildPlugin {
-  constructor(options) {
+  constructor(port, options) {
     this.isFirstCompilation = true;
-    this.port = findPort(options.port || 8000);
+    this.port = findPort(port);
     this.open = options.open || false;
     this.spa = options.spa || false;
     this.secure = options.secure || false;
@@ -46,11 +45,11 @@ class ServeAfterFirstBuildPlugin {
     compiler.hooks.afterEmit.tap('ServeAfterFirstBuild', () => {
       if (this.isFirstCompilation) {
         this.isFirstCompilation = false;
-        server(this.port, this.open, this.spa, this.secure);
+        serve(this.port, this.open, this.spa, this.secure);
       }
     });
   }
 }
 
-export const addServer = (config, options) => config.plugins
-  .push(new ServeAfterFirstBuildPlugin(options));
+export const addServer = (config, port, options) => config.plugins
+  .push(new ServeAfterFirstBuildPlugin(port, options));

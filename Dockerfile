@@ -1,4 +1,4 @@
-FROM nginx:1.15
+FROM nginx:1.17
 
 # install node 10 LTS
 RUN apt-get -qq update && apt-get -qq --assume-yes install gnupg curl

@@ -1,9 +1,8 @@
 
 const isNumber = (variable) => {
   const value = parseInt(variable, 10);
-  // Comparing against itself to check if it is NaN
-  // eslint-disable-next-line no-self-compare
-  return value === value && typeof value === 'number';
+  // eslint-disable-next-line compat/compat
+  return typeof value === 'number' && !Number.isNaN(value);
 };
 
 const toSassVariable = variable => (

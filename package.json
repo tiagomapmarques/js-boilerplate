@@ -68,6 +68,7 @@
     "postcss-loader": "~3.0",
     "prerender-spa-plugin": "~3.4",
     "raw-loader": "~3.1",
+    "reduce-flatten": "~2.0",
     "sass-loader": "~7.1",
     "url-loader": "~2.1",
     "webpack": "~4.39",
@@ -86,7 +87,6 @@
     "jest-fetch-mock": "~2.1",
     "local-web-server": "~3.0",
     "open": "~6.4",
-    "reduce-flatten": "~2.0",
     "synchronized-promise": "~0.1",
     "typescript": "~3.5",
     "webpack-livereload-plugin": "~2.2"

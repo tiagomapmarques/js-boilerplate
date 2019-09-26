@@ -28,7 +28,7 @@ interface MockImportsInterface {
   add: (moduleName: string) => void;
 }
 
-declare function mockStyle(styleModule: IndexObject<string>): IndexObject<string>;
+declare function mockStyle(styleModule: Record<string, string>): Record<string, string>;
 
 // eslint-disable-next-line no-unused-vars
 declare const MockImports: MockImportsInterface;

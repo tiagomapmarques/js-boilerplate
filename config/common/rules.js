@@ -61,7 +61,7 @@ const buildRules = (minify) => (global, extract, compileExclusions, runtimeVaria
       {
         loader: 'sass-loader',
         options: {
-          data: javascriptToSass(runtimeVariables),
+          prependData: javascriptToSass(runtimeVariables),
         },
       },
     ],

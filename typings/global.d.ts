@@ -1,21 +1,14 @@
 
-// BASE DEFINITIONS
-
-declare interface IndexObject<T> {
-  [key: string]: T;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-empty-interface
-declare interface IndexObjectAny extends IndexObject<any> {}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare type RecordAny = Record<string, any>;
 
 declare module '*.style' {
-  interface ImportedStyle extends IndexObject<string> {
-    // FIXME: toString should be specified as described in the comment beside it, but due to the
-    // definition of IndexObject, the value of all keys should be of the same type (string).
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    toString: any; // should be of type "() => string"
+  type ImportedStyle = Record<string, string>;
+  interface ToStringObject {
+    toString: () => string;
   }
-  const style: ImportedStyle;
+
+  const style: ImportedStyle & ToStringObject;
   export = style;
 }
 
@@ -25,12 +18,10 @@ declare module '*.svg' {
   export default content;
 }
 
-// FIXME: Typescript limitation on importing deconstructed json files
-// declare module '*.json' {
-//   const content: IndexObjectAny;
-//   export = content;
-// }
-declare module '*.json';
+declare module '*.json' {
+  const content: RecordAny;
+  export = content;
+}
 
 // ENVIRONMENT VARIABLES DEFINITION
 

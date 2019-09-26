@@ -26,7 +26,7 @@ const listToVariants = (variants, defaultValue) => variants
     [variant]: defaultValue,
   }), {});
 
-const getFaviconConfig = minify => ({
+const getFaviconConfig = (minify) => ({
   title: pageConfig.title,
   logo: `${paths.staticAbsolute}/${faviconConfig.original}`,
   prefix: `${faviconConfig.location}/`,

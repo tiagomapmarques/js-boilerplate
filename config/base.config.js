@@ -13,12 +13,12 @@ import {
 } from './settings';
 
 const entry = app.extensions.logic
-  .map(ext => glob(`${process.cwd()}/src/app/*.${ext}`, { ignore: `${process.cwd()}/src/app/*.spec.${ext}` }))
+  .map((ext) => glob(`${process.cwd()}/src/app/*.${ext}`, { ignore: `${process.cwd()}/src/app/*.spec.${ext}` }))
   .reduce((accumulator, files) => ([
     ...accumulator,
     ...files,
   ]), [])
-  .map(file => file.replace(`${process.cwd()}/src/app/`, ''));
+  .map((file) => file.replace(`${process.cwd()}/src/app/`, ''));
 
 export const baseConfig = {
   context: paths.appAbsolute,
@@ -42,7 +42,7 @@ export const baseConfig = {
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [`${paths.distAbsolute}/*`].concat((app.cleanExclusions || [])
-        .map(exclusion => `!${paths.distAbsolute}/${exclusion}`)),
+        .map((exclusion) => `!${paths.distAbsolute}/${exclusion}`)),
     }),
     new CopyWebpackPlugin(app.externalFiles.map((filesRules) => {
       const parsedRules = typeof filesRules === 'string' ? { from: filesRules } : filesRules;
@@ -58,7 +58,7 @@ export const baseConfig = {
     new ManifestJsonWebpackPlugin(manifest.pretty),
   ],
   resolve: {
-    extensions: Object.values(app.extensions).reduce(reduceFlatten, []).map(ext => `.${ext}`),
+    extensions: Object.values(app.extensions).reduce(reduceFlatten, []).map((ext) => `.${ext}`),
     modules: [
       paths.appAbsolute,
       'node_modules',

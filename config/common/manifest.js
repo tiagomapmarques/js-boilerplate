@@ -1,6 +1,6 @@
 import { faviconConfig, pageConfig } from '../settings';
 
-const getManifestConfig = minify => ({
+const getManifestConfig = (minify) => ({
   path: '../',
   pretty: minify,
   name: pageConfig.title,

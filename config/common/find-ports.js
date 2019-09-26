@@ -9,4 +9,4 @@ export const findPort = (port, range = 999) => getPortSync({
   port: getPort.makeRange(port, port + range),
 });
 
-export const findPorts = (ports, range) => ports.map(port => findPort(port, range));
+export const findPorts = (ports, range) => ports.map((port) => findPort(port, range));

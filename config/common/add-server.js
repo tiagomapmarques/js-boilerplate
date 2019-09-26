@@ -17,13 +17,13 @@ const serve = (port, open, spa, https) => {
   });
 
   const ipList = Object.keys(os.networkInterfaces())
-    .map(key => os.networkInterfaces()[key])
+    .map((key) => os.networkInterfaces()[key])
     .reduce(reduceFlatten, [])
-    .filter(networkInterface => networkInterface.family === 'IPv4')
-    .map(networkInterface => networkInterface.address);
+    .filter((networkInterface) => networkInterface.family === 'IPv4')
+    .map((networkInterface) => networkInterface.address);
 
   ipList.unshift(os.hostname());
-  const urls = ipList.map(address => `http${https ? 's' : ''}://${address}:${port}`);
+  const urls = ipList.map((address) => `http${https ? 's' : ''}://${address}:${port}`);
 
   // eslint-disable-next-line no-console
   console.log(`\n\nServing at ${urls.join(', ')}\n\n`);

@@ -5,7 +5,7 @@ const isNumber = (variable) => {
   return typeof value === 'number' && !Number.isNaN(value);
 };
 
-const toSassVariable = variable => (
+const toSassVariable = (variable) => (
   !isNumber(variable) && variable[0] !== '#' ? `'${variable}'` : variable
 );
 

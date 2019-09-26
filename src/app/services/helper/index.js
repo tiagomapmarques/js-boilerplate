@@ -31,5 +31,5 @@ export const HelperService = {
 
   naiveRender: (selector, contentText, replaceParent = false) => Array
     .from(document.querySelectorAll(selector))
-    .map(element => writeElements(element, contentToElement(contentText), replaceParent)),
+    .map((element) => writeElements(element, contentToElement(contentText), replaceParent)),
 };

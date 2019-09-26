@@ -14,7 +14,7 @@ export const pageConfig = {
   cache: false,
 };
 
-const getPageConfig = minify => ({
+const getPageConfig = (minify) => ({
   ...pageConfig,
   filename: `${paths.distAbsolute}/index.html`,
   template: `${paths.staticAbsolute}/${pageConfig.template}`,

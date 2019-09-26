@@ -24,7 +24,7 @@ describe('HomeComponent', () => {
     HelperService.naiveRender.mockReset();
   });
 
-  const createComponent = done => component.create().then(done).catch();
+  const createComponent = (done) => component.create().then(done).catch();
 
   const querySelector = (selector) => {
     const [[, innerHTML]] = HelperService.naiveRender.mock.calls;
@@ -33,7 +33,7 @@ describe('HomeComponent', () => {
   };
 
   const mockGetJson = (newData = null) => jest
-    .fn((_, data) => new Promise(resolve => resolve(newData === null ? data : newData)));
+    .fn((_, data) => new Promise((resolve) => resolve(newData === null ? data : newData)));
 
   describe('no errors occur fetching', () => {
     beforeEach((done) => {

@@ -10,7 +10,7 @@ const projectPath = resolve(process.cwd());
 // eslint-disable-next-line import/no-dynamic-require
 const babelOptions = require(`${projectPath}/.babelrc.js`);
 
-const removeLast = path => path.split('/').slice(0, -1).join('/');
+const removeLast = (path) => path.split('/').slice(0, -1).join('/');
 
 const getStyleNaming = (minify, globalStyles) => {
   if (globalStyles) {
@@ -19,7 +19,7 @@ const getStyleNaming = (minify, globalStyles) => {
   return minify ? '[hash:base64:24]' : '[path]__[name]__[local]--[hash:base64:5]';
 };
 
-const buildRules = minify => (global, extract, compileExclusions, runtimeVariables) => ([
+const buildRules = (minify) => (global, extract, compileExclusions, runtimeVariables) => ([
   {
     test: /\.(j|t)s$/,
     use: {

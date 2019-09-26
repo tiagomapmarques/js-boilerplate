@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
-const cleanPathBase = slash => path => path.split(slash).filter(str => !!str).join('/');
-const cleanPath = path => cleanPathBase('/')(cleanPathBase('\\')(path));
+const cleanPathBase = (slash) => (path) => path.split(slash).filter((str) => !!str).join('/');
+const cleanPath = (path) => cleanPathBase('/')(cleanPathBase('\\')(path));
 
 const pathsBase = './';
 const distBase = `${pathsBase}public/`;

@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-triple-slash-reference,spaced-comment
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference,spaced-comment
 /// <reference path="./global.d.ts" />
 
 interface MockConsole extends Console, jest.Mock {}

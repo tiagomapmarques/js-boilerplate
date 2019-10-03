@@ -17,11 +17,6 @@ Quick start:
   - `yarn`
   - `yarn start`
 
-Quick start (docker):
-  - `docker build . -t js-boilerplate`
-  - `docker run -p 8000:80 -d js-boilerplate`
-  - visit `localhost:8000`
-
 ## Flavors
 
 | Branch | Base Branch | Objective | Completion | Status |

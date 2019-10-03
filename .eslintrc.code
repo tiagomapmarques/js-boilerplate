@@ -1,8 +1,5 @@
 {
   "extends": "./node_modules/@biotope/quality-gate/config/logic/recommended.js",
-  "env": {
-    "browser": true
-  },
   "globals": {
     "ENVIRONMENT": true,
     "PROJECT": true,

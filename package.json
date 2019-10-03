@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -32,7 +32,7 @@
     "build:prod:watch": "yarn build:prod --watch --serve --open --spa",
     "lint": "yarn lint:code && yarn lint:tests",
     "lint:fix": "yarn lint:code -f && yarn lint:tests -f",
-    "lint:code": "biotope-quality-gate -c ./lint.config.js -p src/app,config,typings,./*.js",
+    "lint:code": "biotope-quality-gate -c ./lint.config.js -p src/app,config,types,./*.js",
     "lint:tests": "biotope-quality-gate -t -p src/app,src/testing",
     "start": "yarn watch",
     "test": "jest --config jest.config.js",

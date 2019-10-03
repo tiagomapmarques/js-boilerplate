@@ -17,11 +17,6 @@ Quick start:
   - `yarn`
   - `yarn start`
 
-Quick start (docker):
-  - `docker build . -t js-boilerplate`
-  - `docker run -p 8000:80 -d js-boilerplate`
-  - visit `localhost:8000`
-
 ## Flavors
 
 | Branch | Base Branch | Objective | Completion | Status |
@@ -71,13 +66,9 @@ The following are the base commands for this application (`yarn`):
 environments respectively
       - `:watch` serves the app on `localhost:8000`, watches the files and rebuilds them upon change
   - `serve [port=8000] [open=true] [spa=true]` serves the `public` folder
-  - `lint` performs `:code` and `:tests`
-    - `:code` lints the code, style and config according to `.eslintrc.code` and `.stylelintrc`
-    - `:tests` lints the tests according to `.eslintrc` (which is `.eslintrc.code` plus jest config)
-    - `:fix` tries to fix errors and warnings found by `lint:code` and `lint:tests`
-  - `test` runs the unit tests for the project (files ending with `.spec.js` and `.spec.ts`)
-    - `:no-cache` runs the tests with no cache
-    - `:watch` watches the test files and re-runs the tests on any file update
+  - `lint` performs `:code`
+    - `:code` lints the code, style and config according to `.eslintrc` and `.stylelintrc`
+    - `:fix` tries to fix errors and warnings found by `lint:code`
 
 The following commands are shortcuts only:
   - `yarn start` = `yarn watch`

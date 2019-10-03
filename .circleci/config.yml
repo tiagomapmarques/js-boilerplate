@@ -27,18 +27,6 @@ jobs:
           key: dependency-prod-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
           paths:
             - node_modules
-  test:
-    docker:
-      - image: circleci/node:10-browsers
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ .Revision }}
-      - run:
-          name: "Run unit tests"
-          command: yarn test:no-cache
-      - store_artifacts:
-          path: ./coverage
   lint:
     docker:
       - image: circleci/node:10-browsers
@@ -84,23 +72,18 @@ jobs:
 
 workflows:
   version: 2
-  test-and-build:
+  lint-and-build:
     jobs:
       - install
       - install-prod
-      - test:
-          requires:
-            - install
       - lint:
           requires:
             - install
       - build-local:
           requires:
-            - test
             - lint
       - build-dev:
           requires:
-            - test
             - lint
       - build-prod:
           requires:

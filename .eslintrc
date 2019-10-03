@@ -1,13 +1,23 @@
 {
-  "extends": "./.eslintrc.code",
-  "env": {
-    "jest/globals": true
-  },
-  "plugins": [
-    "jest"
-  ],
+  "extends": "./node_modules/@biotope/quality-gate/config/logic/recommended.js",
   "globals": {
-    "mockStyle": true,
-    "MockImports": true
+    "ENVIRONMENT": true,
+    "PROJECT": true,
+    "DEFAULTS": true,
+    "SERVICES": true
+  },
+  "settings": {
+    "polyfills": [
+      "Promise",
+      "fetch",
+      "Map",
+      "Set",
+      "Array.find",
+      "Array.findIndex",
+      "Array.from",
+      "Object.values",
+      "Object.assign",
+      "requestAnimationFrame"
+    ]
   }
 }

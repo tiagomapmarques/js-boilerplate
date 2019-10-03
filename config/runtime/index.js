@@ -14,5 +14,5 @@ const getDotEnv = () => {
 export const getVariables = (environment = environments.default) => ({
   // eslint-disable-next-line global-require,import/no-dynamic-require
   ...require(`./${environment}`).env,
-  ...(environment !== 'test' ? getDotEnv() : {}),
+  ...getDotEnv(),
 });

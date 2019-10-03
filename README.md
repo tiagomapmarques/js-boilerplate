@@ -70,12 +70,9 @@ The following are the base commands for this application (`yarn`):
 environments respectively
       - `:watch` serves the app on `localhost:8000`, watches the files and rebuilds them upon change
   - `lint` performs `:code`, `:style` and `:tests`
-    - `:code` lints the code according to `.eslintrc.json` (which extends `airbnb-base` rules)
-    - `:config` lints the configuration files (similarly to `:code`)
-    - `:style` lints the style according to `.stylelintrc.json` (which extends
-`stylelint-config-standard` and `stylelint-config-recommended-scss` rules)
-    - `:tests` lints the tests according to `.eslintrc.spec.json` (which extends `airbnb-base`
-rules)
+    - `:code` lints the code, style and config according to `.eslintrc.code` and `.stylelintrc`
+    - `:tests` lints the tests according to `.eslintrc` (which is `.eslintrc.code` plus jest config)
+    - `:fix` tries to fix errors and warnings found by `lint:code` and `lint:tests`
   - `test` runs the unit tests for the project (files ending with `.spec.js` and `.spec.ts`)
     - `:no-cache` runs the tests with no cache
     - `:watch` watches the test files and re-runs the tests on any file update

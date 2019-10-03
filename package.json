@@ -1,6 +1,6 @@
 {
   "name": "js-boilerplate",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Tiago Marques",
   "description": "Boilerplate for any javascript frontend project",
   "keywords": [
@@ -32,8 +32,8 @@
     "build:prod:watch": "yarn build:prod --watch --serve --open --spa",
     "lint": "yarn lint:code && yarn lint:tests",
     "lint:fix": "yarn lint:code -f && yarn lint:tests -f",
-    "lint:code": "biotope-quality-gate -c ./lint.config.js -p ./src/app,./config,./typings,./*.js",
-    "lint:tests": "biotope-quality-gate -t -p ./src/app,./src/testing",
+    "lint:code": "biotope-quality-gate -c ./lint.config.js -p src/app,config,typings,./*.js",
+    "lint:tests": "biotope-quality-gate -t -p src/app,src/testing",
     "start": "yarn watch",
     "test": "jest --config jest.config.js",
     "test:no-cache": "yarn test --no-cache",
@@ -58,7 +58,7 @@
     "css-loader": "~3.2",
     "dotenv": "~8.1",
     "extended-define-webpack-plugin": "~0.1",
-    "favicons-webpack-plugin": "~0.0",
+    "favicons-webpack-plugin": "~1.0",
     "glob": "~7.1",
     "html-webpack-plugin": "~3.2",
     "load-entry": "~1.1",
@@ -69,14 +69,14 @@
     "postcss-loader": "~3.0",
     "prerender-spa-plugin": "~3.4",
     "raw-loader": "~3.1",
-    "reduce-flatten": "~2.0",
+    "reduce-flatten": "~3.0",
     "sass-loader": "~8.0",
     "url-loader": "~2.1",
     "webpack": "~4.41",
     "webpack-cli": "~3.3"
   },
   "devDependencies": {
-    "@biotope/quality-gate": "1.0.0-beta.12",
+    "@biotope/quality-gate": "1.0.0-beta.14",
     "@types/jest": "~24.0",
     "@types/node": "~12.7",
     "babel-core": "7.0.0-bridge.0",
@@ -88,7 +88,7 @@
     "jest-fetch-mock": "~2.1",
     "local-web-server": "~3.0",
     "open": "~6.4",
-    "synchronized-promise": "~0.1",
+    "synchronized-promise": "~0.2",
     "typescript": "~3.6",
     "webpack-livereload-plugin": "~2.2"
   }

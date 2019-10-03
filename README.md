@@ -69,7 +69,7 @@ The following are the base commands for this application (`yarn`):
     - `:local`/`:dev`/`:prod` builds the project and its assets for the `local`/`dev`/`prod`
 environments respectively
       - `:watch` serves the app on `localhost:8000`, watches the files and rebuilds them upon change
-  - `lint` performs `:code`, `:style` and `:tests`
+  - `lint` performs `:code`, `:tests` and `:fix`
     - `:code` lints the code, style and config according to `.eslintrc.code` and `.stylelintrc`
     - `:tests` lints the tests according to `.eslintrc` (which is `.eslintrc.code` plus jest config)
     - `:fix` tries to fix errors and warnings found by `lint:code` and `lint:tests`

@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import LocalWebServer from 'local-web-server';
+const LocalWebServer = require('local-web-server');
 // eslint-disable-next-line import/no-extraneous-dependencies
-import opn from 'open';
-import reduceFlatten from 'reduce-flatten';
-import os from 'os';
+const opn = require('open');
+const reduceFlatten = require('reduce-flatten');
+const os = require('os');
 
-import { findPort } from './find-ports';
+const { findPort } = require('./find-ports');
 
 const serve = (port, open, spa, https) => {
   LocalWebServer.create({
@@ -52,5 +52,10 @@ class ServeAfterFirstBuildPlugin {
   }
 }
 
-export const addServer = (config, port, options) => config.plugins
+const addServer = (config, port, options) => config.plugins
   .push(new ServeAfterFirstBuildPlugin(port, options));
+
+module.exports = {
+  serve,
+  addServer,
+};

@@ -27,7 +27,7 @@ Quick start (docker):
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
 | [`develop`][link-develop] | - | vanilla javascript and/or typescript project | - | ![ci-develop][ci-develop] |
-| [`minimal`][link-minimal] | `develop` | minimum for a sane frontend app | - | ![ci-minimal][ci-minimal] |
+| [`minimal`][link-minimal] | `develop` | minimum for a sane frontend app | done | ![ci-minimal][ci-minimal] |
 | `electron` | `develop` | vanilla electron project | TBD | - |
 | [`web-components`][link-web-components] | `develop` | base for frontend app using web-components | unit-tests | ![ci-web-components][ci-web-components] |
 | [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |

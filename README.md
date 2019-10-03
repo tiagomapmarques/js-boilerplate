@@ -70,13 +70,9 @@ The following are the base commands for this application (`yarn`):
 environments respectively
       - `:watch` serves the app on `localhost:8000`, watches the files and rebuilds them upon change
   - `serve [port=8000] [open=true] [spa=true]` serves the `public` folder
-  - `lint` performs `:code`, `:tests` and `:fix`
-    - `:code` lints the code, style and config according to `.eslintrc.code` and `.stylelintrc`
-    - `:tests` lints the tests according to `.eslintrc` (which is `.eslintrc.code` plus jest config)
-    - `:fix` tries to fix errors and warnings found by `lint:code` and `lint:tests`
-  - `test` runs the unit tests for the project (files ending with `.spec.js` and `.spec.ts`)
-    - `:no-cache` runs the tests with no cache
-    - `:watch` watches the test files and re-runs the tests on any file update
+  - `lint` performs `:code` and `:fix`
+    - `:code` lints the code, style and config according to `.eslintrc` and `.stylelintrc`
+    - `:fix` tries to fix errors and warnings found by `lint:code`
 
 The following commands are shortcuts only:
   - `yarn start` = `yarn watch`

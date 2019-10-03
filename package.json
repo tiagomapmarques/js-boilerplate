@@ -74,7 +74,6 @@
   },
   "devDependencies": {
     "@biotope/quality-gate": "1.0.0-beta.14",
-    "@types/node": "~12.7",
     "get-port": "~5.0",
     "local-web-server": "~3.0",
     "open": "~6.4",

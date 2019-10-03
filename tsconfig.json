@@ -28,13 +28,13 @@
       "services": ["src/app/services/index.js"]
     },
     "typeRoots": [
-      "typings",
+      "types",
       "node_modules/@types"
     ]
   },
   "include": [
-    "typings/global.d.ts",
-    "typings/testing.d.ts",
+    "types/global.d.ts",
+    "types/testing.d.ts",
     "src/**/*.ts"
   ]
 }

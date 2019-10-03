@@ -35,6 +35,7 @@
     "lint:code": "biotope-quality-gate -c ./lint.config.js -p src/app,config,types,./*.js",
     "lint:tests": "biotope-quality-gate -t -p src/app,src/testing",
     "start": "yarn watch",
+    "serve": "node ./config/common/serve",
     "test": "jest --config jest.config.js",
     "test:no-cache": "yarn test --no-cache",
     "test:watch": "yarn test --watchAll",

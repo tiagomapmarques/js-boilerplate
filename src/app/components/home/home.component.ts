@@ -19,7 +19,7 @@ export class HomeComponent {
     return HelperService.getJson('sample', EMPTY_DATA).then(this.handleData);
   }
 
-  public render(): HTMLElement | null {
+  public render(): HTMLElement {
     return HelperService.naiveRender(`#${PROJECT.ROOTID}`, `
       ${this.text ? `
         <div class="${style.content}">

@@ -27,6 +27,7 @@ Quick start (docker):
 | Branch | Base Branch | Objective | Completion | Status |
 | ------ | ------ | ------ | ------ | ------ |
 | [`develop`][link-develop] | - | vanilla javascript and/or typescript project | - | ![ci-develop][ci-develop] |
+| [`minimal`][link-minimal] | `develop` | minimum for a sane frontend app | done | ![ci-minimal][ci-minimal] |
 | `electron` | `develop` | vanilla electron project | TBD | - |
 | [`web-components`][link-web-components] | `develop` | base for frontend app using web-components | unit-tests | ![ci-web-components][ci-web-components] |
 | [`jquery`][link-jquery] | `develop` | base for frontend app using jquery | done | ![ci-jquery][ci-jquery] |
@@ -70,7 +71,7 @@ The following are the base commands for this application (`yarn`):
 environments respectively
       - `:watch` serves the app on `localhost:8000`, watches the files and rebuilds them upon change
   - `serve [port=8000] [open=true] [spa=true]` serves the `public` folder
-  - `lint` performs `:code`, `:tests` and `:fix`
+  - `lint` performs `:code` and `:tests`
     - `:code` lints the code, style and config according to `.eslintrc.code` and `.stylelintrc`
     - `:tests` lints the tests according to `.eslintrc` (which is `.eslintrc.code` plus jest config)
     - `:fix` tries to fix errors and warnings found by `lint:code` and `lint:tests`
@@ -106,6 +107,7 @@ other languages/libraries/frameworks.
 | `weather-app-react-electron` | example of a react desktop application using this project | TBD | TBD |
 
 [link-develop]: https://github.com/tiagomapmarques/js-boilerplate
+[link-minimal]: https://github.com/tiagomapmarques/js-boilerplate/tree/minimal
 [link-electron]: https://github.com/tiagomapmarques/js-boilerplate/tree/electron
 [link-web-components]: https://github.com/tiagomapmarques/js-boilerplate/tree/web-components
 [link-jquery]: https://github.com/tiagomapmarques/js-boilerplate/tree/jquery
@@ -117,6 +119,7 @@ other languages/libraries/frameworks.
 [link-angular]: https://github.com/tiagomapmarques/js-boilerplate/tree/angular
 [link-app-vue]: https://github.com/tiagomapmarques/js-boilerplate/tree/examples/weather-app-vue
 [ci-develop]: https://circleci.com/gh/tiagomapmarques/js-boilerplate.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
+[ci-minimal]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/minimal.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-electron]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/electron.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-web-components]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/web-components.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
 [ci-jquery]: https://circleci.com/gh/tiagomapmarques/js-boilerplate/tree/jquery.svg?style=shield&circle-token=a1853ef566db72f165f70b008b5929d5978f2bcd
